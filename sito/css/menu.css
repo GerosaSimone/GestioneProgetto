@@ -1,0 +1,86 @@
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#pagina {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+    padding-top: 3%;
+}
+
+div#hormenu {
+    z-index: 1;
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgb(214, 214, 214);
+    background: rgb(10, 53, 78);
+    position: absolute;
+}
+
+div#hormenu ul {
+    margin-left: 50%;
+    list-style-type: none;
+}
+
+div#hormenu li {
+    float: left;
+    margin: 0;
+    padding: 0px;
+    border-left: 1px solid rgb(255, 255, 255);
+    color: rgb(214, 214, 214);
+}
+
+div#hormenu a {
+    display: block;
+    padding: 5px;
+    color: rgb(214, 214, 214);
+    text-decoration: none;
+}
+
+div#hormenu a:hover {
+    background-color: rgb(33, 164, 245);
+    color: #ffffff;
+    text-decoration: none;
+    text-align: left;
+}
+
+div#hormenu li ul {
+    display: none
+}
+
+div#hormenu li:hover ul {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    width: 120px;
+    padding: 0;
+    margin: 0 0 0 -1px;
+    border: 1px solid rgb(255, 255, 255);
+    background: rgb(33, 164, 245);
+    text-align: left;
+}
+
+#pagina {
+    padding: 5%;
+}
+
+#logo {
+    z-index: 2;
+    margin-left: 12%;
+    margin-top: 0px;
+    position: fixed;
+}
+
+div#hormenu li li {
+    border: none;
+    width: auto;
+}
+
+div#hormenu li li a {
+    padding: auto;
+}
