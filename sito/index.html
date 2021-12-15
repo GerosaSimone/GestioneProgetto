@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/menu.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
     <title>Giovanile Canzese</title>
 
 </head>
@@ -37,7 +40,7 @@
         <ul>
             <!-- lista principale: definisce il menu nella sua interezza -->
             <li>
-                <a href="#" id=news>NEWS</a>
+                <a href="#" class="categorie" id=news>NEWS</a>
                 <!-- primo list-item, prima voce del menu -->
                 <ul>
                     <!-- Lista annidata: voci del sotto-menu -->
@@ -54,7 +57,7 @@
         <ul>
             <!-- lista principale: definisce il menu nella sua interezza -->
             <li>
-                <a href="#" id="societa">SOCIETA</a>
+                <a href="#" class="categorie" id="societa">SOCIETA</a>
                 <!-- primo list-item, prima voce del menu -->
                 <ul>
                     <!-- Lista annidata: voci del sotto-menu -->
@@ -73,7 +76,7 @@
         <ul>
             <!-- lista principale: definisce il menu nella sua interezza -->
             <li>
-                <a href="#" id="squadre">SQUADRE</a>
+                <a href="#" class="categorie" id="squadre">SQUADRE</a>
                 <!-- primo list-item, prima voce del menu -->
                 <ul>
                     <!-- Lista annidata: voci del sotto-menu -->
@@ -97,13 +100,13 @@
         <ul>
             <!-- lista principale: definisce il menu nella sua interezza -->
             <li>
-                <a href="#" id="stadio">STADIO</a>
+                <a href="#" class="categorie" id="stadio">STADIO</a>
                 <!-- primo list-item, prima voce del menu -->
                 <ul>
                     <!-- Lista annidata: voci del sotto-menu -->
 
                     <li><a href="#" id="come">Come Arrivare</a></li>
-                    <li><a href="#" id="informazioni">informazioni</a></li>
+                    <li><a href="#" id="informazioni">Informazioni</a></li>
 
                 </ul>
                 <!-- Fine del sotto-menu -->
@@ -115,7 +118,7 @@
         <ul>
             <!-- lista principale: definisce il menu nella sua interezza -->
             <li>
-                <a href="#" id="galleria">GALLERIA</a>
+                <a href="#" class="categorie" id="galleria">GALLERIA</a>
 
                 <!-- primo list-item, prima voce del menu -->
 
@@ -127,7 +130,7 @@
         <ul>
             <!-- lista principale: definisce il menu nella sua interezza -->
             <li>
-                <a href="#" id="sponsor">SPONSOR</a>
+                <a href="#" class="categorie" id="sponsor">SPONSOR</a>
                 <!-- primo list-item, prima voce del menu -->
 
             </li>
@@ -137,10 +140,14 @@
         </ul>
     </div>
 
-    <div id="pagina">
-
-
+    <div id="pagina"></div>
+    <div id="footer">
+        <footer>
+            <p>Author: Hege Refsnes</p>
+            <p><a href="mailto:hege@example.com">hege@example.com</a></p>
+        </footer>
     </div>
+
 </body>
 <script src="script/jquery.js"></script>
 <script src="script/CollegamentiMenu.js"></script>

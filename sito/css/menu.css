@@ -5,6 +5,10 @@
     padding-top: 3%;
 }
 
+body {
+    background: #003354;
+}
+
 div#hormenu {
     z-index: 2;
     width: 100%;
@@ -31,18 +35,16 @@ div#hormenu a {
     padding: 15px;
     color: rgb(255, 255, 255);
     text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+
+.categorie {
+    font-size: 26px;
 }
 
 div#hormenu a:hover {
-    background-color: rgb(33, 164, 245);
-    color: #ffffff;
-    text-decoration: none;
-    text-align: left;
-}
-
-a {
-    font-size: 26px;
-    font-weight: bold;
+    color: #003354;
 }
 
 div#hormenu li ul {
@@ -52,17 +54,22 @@ div#hormenu li ul {
 div#hormenu li:hover ul {
     display: block;
     position: absolute;
+    background-color: rgb(33, 164, 245);
     width: 120px;
     padding: 0;
-    margin: 0 0 0 -1px;
-    border: 1px solid rgb(255, 255, 255);
-    background: rgb(33, 164, 245);
+    margin: 0 0 0;
     text-align: left;
 }
 
 div#pagina {
-    padding: 5%;
+    margin-top: 25%;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    height: 100%;
+    background-color: white;
     z-index: 4;
+    color: black;
     position: absolute;
 }
 
@@ -87,4 +94,11 @@ div#hormenu li li {
 
 div#hormenu li li a {
     padding: auto;
+}
+
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: #003354;
+    color: white;
 }
