@@ -1,0 +1,80 @@
+C:\Users\Payd3r\Desktop\temp\temp\bin\Debug\temp.exe.config
+C:\Users\Payd3r\Desktop\temp\temp\bin\Debug\temp.exe
+C:\Users\Payd3r\Desktop\temp\temp\bin\Debug\temp.pdb
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\temp.csproj.AssemblyReference.cache
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\temp.csproj.SuggestedBindingRedirects.cache
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\Allievi.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\CalendarioCampo.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\Esordienti.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\Giovanissimi.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\HomePage.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\Jiuniores.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\MainWindow.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\Materiali.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\PiccoliAmici.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\PrimaSquadra.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\Pulcini.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\ResocontoSpese.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\SingoloGiocatore.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\App.g.cs
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\temp_MarkupCompile.cache
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\temp_MarkupCompile.lref
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\Allievi.baml
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\CalendarioCampo.baml
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\Esordienti.baml
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\Giovanissimi.baml
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\HomePage.baml
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\Jiuniores.baml
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\MainWindow.baml
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\Materiali.baml
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\PiccoliAmici.baml
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\PrimaSquadra.baml
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\Pulcini.baml
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\ResocontoSpese.baml
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\SingoloGiocatore.baml
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\temp.g.resources
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\temp.Properties.Resources.resources
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\temp.csproj.GenerateResource.cache
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\temp.csproj.CoreCompileInputs.cache
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\temp.exe
+C:\Users\Payd3r\Desktop\temp\temp\obj\Debug\temp.pdb
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\bin\Debug\temp.exe.config
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\bin\Debug\temp.exe
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\bin\Debug\temp.pdb
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\temp.csproj.AssemblyReference.cache
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\temp.csproj.SuggestedBindingRedirects.cache
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\Allievi.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\CalendarioCampo.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\Esordienti.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\Giovanissimi.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\HomePage.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\Jiuniores.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\MainWindow.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\Materiali.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\PiccoliAmici.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\PrimaSquadra.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\Pulcini.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\ResocontoSpese.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\SingoloGiocatore.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\App.g.cs
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\temp_MarkupCompile.cache
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\temp_MarkupCompile.lref
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\Allievi.baml
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\CalendarioCampo.baml
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\Esordienti.baml
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\Giovanissimi.baml
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\HomePage.baml
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\Jiuniores.baml
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\MainWindow.baml
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\Materiali.baml
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\PiccoliAmici.baml
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\PrimaSquadra.baml
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\Pulcini.baml
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\ResocontoSpese.baml
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\SingoloGiocatore.baml
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\temp.g.resources
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\temp.Properties.Resources.resources
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\temp.csproj.GenerateResource.cache
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\temp.csproj.CoreCompileInputs.cache
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\temp.exe
+D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\temp.pdb

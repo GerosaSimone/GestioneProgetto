@@ -1,0 +1,24 @@
+﻿<Window x:Class="temp.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:temp"
+        mc:Ignorable="d"
+        Title="HomePage" Height="450" Width="800">
+    <Grid>
+        <Button Content="Squadre" HorizontalAlignment="Left" Height="42" Margin="33,59,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="14" FontWeight="Bold"/>
+        <Button x:Name="btnAmici" Content="Piccoli Amici" HorizontalAlignment="Left" Height="33" Margin="33,91,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Normal" Click="btnAmici_Click"/>
+        <Button x:Name="btnPulcini" Content="Pulcini" HorizontalAlignment="Left" Height="33" Margin="33,116,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Normal" Click="btnPulcini_Click"/>
+        <Button x:Name="btnGiovanissimi" Content="Giovanissimi" HorizontalAlignment="Left" Height="32" Margin="33,141,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Normal" Click="btnGiovanissimi_Click"/>
+        <Button x:Name="btnEsordienti" Content="Esordienti" HorizontalAlignment="Left" Height="33" Margin="33,168,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Normal" Click="btnEsordienti_Click"/>
+        <Button x:Name="btnAllievi" Content="Allievi" HorizontalAlignment="Left" Height="33" Margin="33,0,0,0" VerticalAlignment="Center" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Normal" Click="btnAllievi_Click"/>
+        <Button x:Name="btnJiuniores" Content="Jiuniores" HorizontalAlignment="Left" Height="33" Margin="33,231,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Normal" Click="btnJiuniores_Click"/>
+        <Button x:Name="btnPrima" Content="Prima Squadra" HorizontalAlignment="Left" Height="33" Margin="33,262,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Normal" Click="btnPrima_Click"/>
+        <Button Content="Gestione" HorizontalAlignment="Left" Height="42" Margin="33,290,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="14" FontWeight="Bold"/>
+        <Button x:Name="btnCalendario" Content="Calendario Campo" HorizontalAlignment="Left" Height="32" Margin="33,326,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Normal" Click="btnCalendario_Click"/>
+        <Button x:Name="btnMateriali" Content="Materiali" HorizontalAlignment="Left" Height="33" Margin="33,352,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Normal" Click="btnMateriali_Click"/>
+        <Button x:Name="btnSpese" Content="Spese" HorizontalAlignment="Left" Height="33" Margin="33,381,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Normal" Click="btnSpese_Click"/>
+        <Label Content="U.S. Giovanile Canzese" Margin="11,28,604,375" FontWeight="Bold" FontSize="16"/>
+    </Grid>
+</Window>

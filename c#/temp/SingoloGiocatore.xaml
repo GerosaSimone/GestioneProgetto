@@ -1,0 +1,26 @@
+﻿<Window x:Class="temp.SingoloGiocatore"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:temp"
+        mc:Ignorable="d"
+        Title="SingoloGiocatore" Height="450" Width="800">
+    <Grid>
+        <Button Content="Modifica" HorizontalAlignment="Left" Height="31" Margin="240,251,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label Content="Nome:" HorizontalAlignment="Left" Height="27" Margin="29,31,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="nome" Content="" HorizontalAlignment="Left" Margin="109,31,0,0" VerticalAlignment="Top" Width="107"/>
+        <Label Content="Cognome:" HorizontalAlignment="Left" Height="27" Margin="29,58,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="cognome" Content="" HorizontalAlignment="Left" Margin="109,58,0,0" VerticalAlignment="Top" Width="107"/>
+        <Label Content="Data Nascita:" HorizontalAlignment="Left" Height="27" Margin="29,89,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="nascita" Content="" HorizontalAlignment="Left" Margin="109,89,0,0" VerticalAlignment="Top" Width="107"/>
+        <Label Content="Scadenza visita" HorizontalAlignment="Left" Height="27" Margin="29,120,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="scadenza" Content="" HorizontalAlignment="Left" Margin="134,120,0,0" VerticalAlignment="Top" Width="107"/>
+        <Label Content="Quota da pagare" HorizontalAlignment="Left" Height="27" Margin="29,151,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="pagare" Content="" HorizontalAlignment="Left" Margin="134,151,0,0" VerticalAlignment="Top" Width="107"/>
+        <Label Content="Quota pagata" HorizontalAlignment="Left" Height="27" Margin="29,182,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="pagata" Content="" HorizontalAlignment="Left" Margin="134,182,0,0" VerticalAlignment="Top" Width="107"/>
+        <Image x:Name="certificato" Margin="350,39,278,237"/>
+
+    </Grid>
+</Window>
