@@ -44,7 +44,7 @@ namespace temp
 
         private void btnAggiungi_Click(object sender, RoutedEventArgs e)
         {
-            SingoloGiocatore a = new SingoloGiocatore(squad.getGiocatore(grid.SelectedIndex));
+            SingoloGiocatore a = new SingoloGiocatore(squad.getGiocatore(grid.SelectedIndex), 7, home);
             a.Show();
             this.Hide();
         }

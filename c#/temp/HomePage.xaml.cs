@@ -16,6 +16,7 @@ namespace temp
 {
     public partial class HomePage : Window
     {
+        
         public HomePage()
         {
             InitializeComponent();

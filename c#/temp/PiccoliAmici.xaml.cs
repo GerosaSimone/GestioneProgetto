@@ -47,7 +47,7 @@ namespace temp
 
         private void grid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SingoloGiocatore a = new SingoloGiocatore(squad.getGiocatore(grid.SelectedIndex));
+            SingoloGiocatore a = new SingoloGiocatore(squad.getGiocatore(grid.SelectedIndex),1,home);
             a.Show();
             this.Hide();
         }

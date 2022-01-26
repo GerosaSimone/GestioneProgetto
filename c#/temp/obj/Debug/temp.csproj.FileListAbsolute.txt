@@ -78,3 +78,42 @@ D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProge
 D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\temp.csproj.CoreCompileInputs.cache
 D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\temp.exe
 D:\File\Scuola\Superiori\    5superiore\Gestione Progetto\ciao\GestioneProgetto\c#\temp\obj\Debug\temp.pdb
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\bin\Debug\temp.exe.config
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\bin\Debug\temp.exe
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\bin\Debug\temp.pdb
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\temp.csproj.AssemblyReference.cache
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\Allievi.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\CalendarioCampo.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\Esordienti.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\Giovanissimi.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\HomePage.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\Jiuniores.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\MainWindow.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\Materiali.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\PiccoliAmici.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\PrimaSquadra.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\Pulcini.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\ResocontoSpese.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\SingoloGiocatore.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\App.g.cs
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\temp_MarkupCompile.cache
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\temp_MarkupCompile.lref
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\Allievi.baml
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\CalendarioCampo.baml
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\Esordienti.baml
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\Giovanissimi.baml
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\HomePage.baml
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\Jiuniores.baml
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\MainWindow.baml
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\Materiali.baml
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\PiccoliAmici.baml
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\PrimaSquadra.baml
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\Pulcini.baml
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\ResocontoSpese.baml
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\SingoloGiocatore.baml
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\temp.g.resources
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\temp.Properties.Resources.resources
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\temp.csproj.GenerateResource.cache
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\temp.csproj.CoreCompileInputs.cache
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\temp.exe
+E:\Locatelli andrea 5 c inf\gestione\progetto_canzese\GestioneProgetto\c#\temp\obj\Debug\temp.pdb

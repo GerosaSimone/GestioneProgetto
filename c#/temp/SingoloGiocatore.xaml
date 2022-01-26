@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:temp"
         mc:Ignorable="d"
-        Title="SingoloGiocatore" Height="450" Width="800">
+        Title="SingoloGiocatore" Height="450" Width="800" Closed="Window_Closed">
     <Grid>
         <Button Content="Modifica" HorizontalAlignment="Left" Height="31" Margin="240,251,0,0" VerticalAlignment="Top" Width="130"/>
         <Label Content="Nome:" HorizontalAlignment="Left" Height="27" Margin="29,31,0,0" VerticalAlignment="Top" Width="80"/>
