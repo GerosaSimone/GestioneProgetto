@@ -1,10 +1,4 @@
 $(document).ready(function() {
-    $.post("pagine/home.html", true, function(data, status) {
-        $("#pagina").html(data);
-    });
-})
-
-$(document).ready(function() {
     $(document).on('click', "#home", function() {
         $.post("pagine/home.html", true, function(data, status) {
             $("#pagina").html(data);

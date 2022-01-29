@@ -7,18 +7,20 @@ div#hormenu {
     z-index: 3;
     width: 100%;
     float: left;
-    margin-top: 0%;
+    margin-top: 1%;
     top: 0px;
     position: absolute;
 }
 
 div#hormenu ul {
+    z-index: 3;
     margin-top: 3%;
-    margin-left: 51%;
+    margin-left: 53.5%;
     list-style-type: none;
 }
 
 div#hormenu li {
+    z-index: 3;
     float: left;
     margin: 0;
     padding: 0px;
@@ -26,6 +28,7 @@ div#hormenu li {
 }
 
 div#hormenu a {
+    z-index: 3;
     display: block;
     padding: 15px;
     color: rgb(255, 255, 255);
@@ -35,18 +38,22 @@ div#hormenu a {
 }
 
 .categorie {
+    z-index: 3;
     font-size: 26px;
 }
 
 div#hormenu a:hover {
     color: #003354;
+    z-index: 3;
 }
 
 div#hormenu li ul {
+    z-index: 3;
     display: none
 }
 
 div#hormenu li:hover ul {
+    z-index: 3;
     display: block;
     position: absolute;
     background-color: rgb(33, 164, 245);
@@ -56,77 +63,50 @@ div#hormenu li:hover ul {
     text-align: left;
 }
 
+#but {
+    border: none;
+    background-color: white;
+    font-size: 50px;
+    color: #003354;
+}
+
 div#pagina {
-    margin-top: 3%;
+    margin-top: 32%;
     margin-left: 15%;
     margin-right: 15%;
     width: 70%;
     height: 100%;
     background-color: white;
-    z-index: 2;
+    z-index: 0;
     color: black;
-    position: absolute;
+    position: relative;
 }
 
 #banner {
-    position: relative;
+    position: absolute;
     top: 0px;
     left: 0px;
+    width: 100%;
     z-index: 1;
 }
 
 #logo {
     position: absolute;
-    top: 50px;
-    left: 13%;
+    top: 14%;
+    left: 3%;
     z-index: 4;
 }
 
 div#hormenu li li {
+    z-index: 3;
     border: none;
     width: auto;
 }
 
 div#hormenu li li a {
+    z-index: 3;
     padding: auto;
 }
-
-
-/*
-div#f {
-    position: fixed;
-    bottom: 0%;
-    width: 100%;
-    z-index: 5;
-}
-
-footer {
-    z-index: 5;
-    margin-top: auto;
-    position: relative;
-    overflow: hidden;
-    background-color: #003354;
-    color: #e7e7e7;
-    font-family: Tahoma;
-}
-
-footer .social {
-    text-align: center;
-    padding-bottom: 15px;
-}
-
-footer .social>a:hover {
-    opacity: 0.6;
-}
-
-footer .copyright {
-    margin-top: 7px;
-    text-align: center;
-    font-size: 15px;
-    color: #aaa;
-    margin-bottom: 0;
-}
-*/
 
 html,
 body {
@@ -142,12 +122,18 @@ body {
 
 #f {
     background-color: #003354;
+    color: blanchedalmond;
     z-index: 3;
     height: 100px;
     width: 100%;
     bottom: 0px;
     text-align: center;
-    position: absolute;
+    position: relative;
+}
+
+a {
+    color: blanchedalmond;
+    text-decoration: none;
 }
 
 #push {
