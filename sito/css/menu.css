@@ -8,7 +8,7 @@ div#hormenu {
     width: 100%;
     float: left;
     margin-top: 1%;
-    top: 0px;
+    top: 0%;
     position: absolute;
 }
 
@@ -23,7 +23,7 @@ div#hormenu li {
     z-index: 3;
     float: left;
     margin: 0;
-    padding: 0px;
+    padding: 0%;
     color: rgb(214, 214, 214);
 }
 
@@ -39,7 +39,7 @@ div#hormenu a {
 
 .categorie {
     z-index: 3;
-    font-size: 26px;
+    font-size: 150%;
 }
 
 div#hormenu a:hover {
@@ -86,14 +86,28 @@ div#pagina {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 100%;
     z-index: 1;
+    width: auto;
+    max-width: 100%;
+}
+
+#scritta {
+    left: 2%;
+    max-width: 100%;
+    height: auto;
+}
+
+#prova {
+    max-width: 100%;
+    width: auto;
+    height: auto;
 }
 
 #logo {
     position: absolute;
-    top: 14%;
-    left: 3%;
+    top: 8%;
+    left: 0%;
+    right: 60%;
     z-index: 4;
 }
 
@@ -140,8 +154,61 @@ a {
     position: absolute;
     z-index: 2;
     margin-left: 15%;
-    margin-top: 0px;
+    margin-top: 0%;
     height: 100px;
     width: 70%;
     background-color: white;
+}
+
+.titoli {
+    padding-top: 4%;
+    position: relative;
+    margin-left: 5%;
+    color: #003354;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: bolder;
+    font-size: 200%;
+}
+
+.google-maps>iframe {
+    border-left: 3px solid #003354;
+    border-top: 3px solid #003354;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.scritte {
+    margin-left: 10%;
+    position: relative;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+.container {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.testo {
+    width: 40%;
+    padding: 10px;
+}
+
+.google-maps {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 40%;
+    min-width: 400px;
+    height: 650px;
+    overflow: hidden;
 }

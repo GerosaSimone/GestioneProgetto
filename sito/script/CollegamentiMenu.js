@@ -7,20 +7,14 @@ $(document).ready(function() {
 })
 
 $(document).ready(function() {
-    $(document).on('click', "#eventi", function() {
-        $.post("pagine/eventi.html", true, function(data, status) {
+    $(document).on('click', "#news", function() {
+        $.post("pagine/news.html", true, function(data, status) {
             $("#pagina").html(data);
         });
     });
 })
 
-$(document).ready(function() {
-    $(document).on('click', "#campionati", function() {
-        $.post("pagine/campionati.html", true, function(data, status) {
-            $("#pagina").html(data);
-        });
-    });
-})
+
 
 $(document).ready(function() {
     $(document).on('click', "#albo", function() {
