@@ -1,0 +1,43 @@
+.contenitore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120%;
+    flex-wrap: wrap;
+}
+
+.carta {
+    min-width: 200px;
+    min-height: 215px;
+    width: 19%;
+    height: 22%;
+    background-color: rgb(56, 56, 56);
+    margin: 20px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.immagine-carta {
+    width: 100%;
+}
+
+.contenitore-testo {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+}
+
+.titolo-carta {
+    color: white;
+    font-size: 25px;
+}
+
+.bottone-carta {
+    background-color: #535252;
+    border: 0;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: white;
+}

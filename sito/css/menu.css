@@ -135,6 +135,7 @@ body {
 }
 
 #f {
+    margin-top: 100px;
     background-color: #003354;
     color: blanchedalmond;
     z-index: 3;
