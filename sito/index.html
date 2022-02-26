@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/menu.css" rel="stylesheet" type="text/css">
+    <link href="css/tendina.css" rel="stylesheet" type="text/css">
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <!--<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,116 +18,63 @@
 </head>
 
 <body id="body">
+
     <div id="nonFooter">
         <div id="banner">
             <img src="imm/banner.png" id="prova">
-            <div id="logo">
-                <a href="#" id="home"><img src="imm/scritta.png" id="scritta"></a>
-                <!-- <a href="#" id="home"><button id="but">U.S Giovanile Canzese</button></a>-->
-            </div>
 
+            <div id="bar">
+                <div id="logo">
+                    <a href="#" id="home"><img src="imm/scritta.png" id="scritta"></a>
+                    <!-- <a href="#" id="home"><button id="but">U.S Giovanile Canzese</button></a>-->
+                </div>
+            </div>
 
 
             <div id="hormenu">
-                <!-- div che contiene il menu -->
+                <nav class="jmenu">
+                    <label for="menu-btn" class="jm-menu-btn jm-icon-menu"></label>
+                    <input type="checkbox" id="menu-btn" class="jm-menu-btn">
+                    <ul class="jm-collapse">
+                        <li><a href="javascript:void(0)" class="categorie">NEWS</a></li>
+                        <li class="jm-dropdown">
+                            <a href="javascript:void(0)" class="categorie">SOCIETA</a>
+                            <ul class="UlCategoria">
+                                <li><a href="javascript:void(0)" id="albo" class="sotto">Albo d'oro</a></li>
+                                <li><a href="javascript:void(0)" id="organigramma" class="sotto">Organigramma</a></li>
+                                <li><a href="javascript:void(0)" id=storia class="sotto">Storia</a></li>
+                            </ul>
+                        </li>
+                        <li class="jm-dropdown">
+                            <a href="javascript:void(0)" class="categorie">SQUADRE</a>
+                            <ul class="UlCategoria">
+                                <li><a href="javascript:void(0)" id="prima" class="sotto">Prima Squadra</a></li>
+                                <li><a href="javascript:void(0)" id="junores" class="sotto">Junores      </a></li>
+                                <li><a href="javascript:void(0)" id="allievi" class="sotto">Allievi</a></li>
+                                <li><a href="javascript:void(0)" id="giovanissimi" class="sotto">Giovanissimi</a></li>
+                                <li><a href="javascript:void(0)" id="esordienti" class="sotto">Esordienti</a></li>
+                                <li><a href="javascript:void(0)" id="pulcini" class="sotto">Pulcini</a></li>
+                                <li><a href="javascript:void(0)" id="piccoli" class="sotto">Piccoli Amici</a></li>
+                            </ul>
+                        </li>
+                        <li class="jm-dropdown">
+                            <a href="javascript:void(0)" class="categorie">STADIO</a>
+                            <ul class="UlCategoria">
+                                <li><a href="javascript:void(0)" id="come" class="sotto">Come Arrivare</a></li>
+                                <li><a href="javascript:void(0)" id="informazioni" class="sotto">Informazioni</a></li>
+                            </ul>
+                        </li>
 
+                        <li><a href="javascript:void(0) " class="categorie">GALLERIA</a></li>
+                        <li><a href="javascript:void(0)" class="categorie">SPONSOR</a></li>
+                    </ul>
+                </nav>
 
-                <ul>
-                    <!-- lista principale: definisce il menu nella sua interezza -->
-                    <li>
-                        <a href="#" class="categorie" id=news>NEWS</a>
-
-                    </li>
-                    <!-- Chiudo il list-item -->
-                    <!--qui altri list-item -->
-
-                </ul>
-                <ul>
-                    <!-- lista principale: definisce il menu nella sua interezza -->
-                    <li>
-                        <a href="#" class="categorie" id="societa">SOCIETA</a>
-                        <!-- primo list-item, prima voce del menu -->
-                        <ul>
-                            <!-- Lista annidata: voci del sotto-menu -->
-
-                            <li><a href="#" id="albo">Albo d'oro</a></li>
-                            <li><a href="#" id="organigramma">Organigramma</a></li>
-                            <li><a href="#" id=storia>Storia</a></li>
-
-                        </ul>
-                        <!-- Fine del sotto-menu -->
-                    </li>
-                    <!-- Chiudo il list-item -->
-                    <!--qui altri list-item -->
-
-                </ul>
-                <ul>
-                    <!-- lista principale: definisce il menu nella sua interezza -->
-                    <li>
-                        <a href="#" class="categorie" id="squadre">SQUADRE</a>
-                        <!-- primo list-item, prima voce del menu -->
-                        <ul>
-                            <!-- Lista annidata: voci del sotto-menu -->
-
-                            <li><a href="#" id="prima">Prima Squadra</a></li>
-                            <li><a href="#" id="junores">Junores      </a></li>
-                            <li><a href="#" id="allievi">Allievi</a></li>
-                            <li><a href="#" id="giovanissimi">Giovanissimi</a></li>
-                            <li><a href="#" id="esordienti">Esordienti</a></li>
-                            <li><a href="#" id="pulcini">Pulcini</a></li>
-                            <li><a href="#" id="piccoli">Piccoli Amici</a></li>
-
-
-                        </ul>
-                        <!-- Fine del sotto-menu -->
-                    </li>
-                    <!-- Chiudo il list-item -->
-                    <!--qui altri list-item -->
-
-                </ul>
-                <ul>
-                    <!-- lista principale: definisce il menu nella sua interezza -->
-                    <li>
-                        <a href="#" class="categorie" id="stadio">STADIO</a>
-                        <!-- primo list-item, prima voce del menu -->
-                        <ul>
-                            <!-- Lista annidata: voci del sotto-menu -->
-
-                            <li><a href="#" id="come">Come Arrivare</a></li>
-                            <li><a href="#" id="informazioni">Informazioni</a></li>
-
-                        </ul>
-                        <!-- Fine del sotto-menu -->
-                    </li>
-                    <!-- Chiudo il list-item -->
-                    <!--qui altri list-item -->
-
-                </ul>
-                <ul>
-                    <!-- lista principale: definisce il menu nella sua interezza -->
-                    <li>
-                        <a href="#" class="categorie" id="galleria">GALLERIA</a>
-
-                        <!-- primo list-item, prima voce del menu -->
-
-                    </li>
-                    <!-- Chiudo il list-item -->
-                    <!--qui altri list-item -->
-
-                </ul>
-                <ul>
-                    <!-- lista principale: definisce il menu nella sua interezza -->
-                    <li>
-                        <a href="#" class="categorie" id="sponsor">SPONSOR</a>
-                        <!-- primo list-item, prima voce del menu -->
-
-                    </li>
-                    <!-- Chiudo il list-item -->
-                    <!--qui altri list-item -->
-
-                </ul>
             </div>
+
         </div>
+
+
 
         <div id="pagina">
             home
@@ -143,6 +92,7 @@
                 <br>
             </div>
         </footer>
+
     </div>
 
 </body>

@@ -12,57 +12,6 @@ div#hormenu {
     position: absolute;
 }
 
-div#hormenu ul {
-    z-index: 3;
-    margin-top: 3%;
-    margin-left: 53.5%;
-    list-style-type: none;
-}
-
-div#hormenu li {
-    z-index: 3;
-    float: left;
-    margin: 0;
-    padding: 0%;
-    color: rgb(214, 214, 214);
-}
-
-div#hormenu a {
-    z-index: 3;
-    display: block;
-    padding: 15px;
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-family: 'Inter', sans-serif;
-    font-weight: bold;
-}
-
-.categorie {
-    z-index: 3;
-    font-size: 150%;
-}
-
-div#hormenu a:hover {
-    color: #003354;
-    z-index: 3;
-}
-
-div#hormenu li ul {
-    z-index: 3;
-    display: none
-}
-
-div#hormenu li:hover ul {
-    z-index: 3;
-    display: block;
-    position: absolute;
-    background-color: rgb(33, 164, 245);
-    width: 120px;
-    padding: 0;
-    margin: 0 0 0;
-    text-align: left;
-}
-
 #but {
     border: none;
     background-color: white;
