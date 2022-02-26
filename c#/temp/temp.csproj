@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="aggiungi_giocatore.xaml.cs">
+      <DependentUpon>aggiungi_giocatore.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Allievi.xaml.cs">
       <DependentUpon>Allievi.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,10 @@
       <DependentUpon>SingoloGiocatore.xaml</DependentUpon>
     </Compile>
     <Compile Include="Squadra.cs" />
+    <Page Include="aggiungi_giocatore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Allievi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
