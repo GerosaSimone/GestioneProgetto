@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:temp"
         mc:Ignorable="d"
-        Title="HomePage" Height="450" Width="800">
+        Title="HomePage" Height="477.551" Width="852.806">
     <Grid>
         <Button Content="Squadre" HorizontalAlignment="Left" Height="42" Margin="33,59,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="14" FontWeight="Bold"/>
         <Button x:Name="btnAmici" Content="Piccoli Amici" HorizontalAlignment="Left" Height="33" Margin="33,91,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Normal" Click="btnAmici_Click"/>
