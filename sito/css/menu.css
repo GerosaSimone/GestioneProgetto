@@ -96,6 +96,11 @@ body {
     position: relative;
 }
 
+.footerScritte {
+    font-size: 120%;
+    color: blanchedalmond;
+}
+
 a {
     color: blanchedalmond;
     text-decoration: none;
