@@ -21,7 +21,7 @@
 
     <div id="nonFooter">
         <div id="banner">
-            <img src="imm/banner.png" id="prova">
+            <img src="imm/banner.png" id="prova" name="sopra">
 
             <div id="bar">
                 <div id="logo">
@@ -36,13 +36,13 @@
                     <label for="menu-btn" class="jm-menu-btn jm-icon-menu"></label>
                     <input type="checkbox" id="menu-btn" class="jm-menu-btn">
                     <ul class="jm-collapse">
-                        <li><a href="javascript:void(0)" class="categorie">NEWS</a></li>
+                        <li><a href="javascript:void(0)" class="categorie" id="news">NEWS</a></li>
                         <li class="jm-dropdown">
-                            <a href="javascript:void(0)" class="categorie">SOCIETA</a>
+                            <a href="javascript:void(0)" class="categorie" id="societa">SOCIETA</a>
                             <ul class="UlCategoria">
                                 <li><a href="javascript:void(0)" id="albo" class="sotto">Albo d'oro</a></li>
                                 <li><a href="javascript:void(0)" id="organigramma" class="sotto">Organigramma</a></li>
-                                <li><a href="javascript:void(0)" id=storia class="sotto">Storia</a></li>
+                                <li><a href="javascript:void(0)" id="storia" class="sotto">Storia</a></li>
                             </ul>
                         </li>
                         <li class="jm-dropdown">
@@ -65,8 +65,8 @@
                             </ul>
                         </li>
 
-                        <li><a href="javascript:void(0) " class="categorie">GALLERIA</a></li>
-                        <li><a href="javascript:void(0)" class="categorie">SPONSOR</a></li>
+                        <li><a href="javascript:void(0) " class="categorie" id="galleria">GALLERIA</a></li>
+                        <li><a href="javascript:void(0)" class="categorie" id="sponsor">SPONSOR</a></li>
                     </ul>
                 </nav>
 
@@ -87,8 +87,65 @@
         <footer>
             <div class="social">
                 <br>
-                <p>Author: Hege Refsnes</p>
-                <p><a href="mailto:hege@example.com">hege@example.com</a></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th> <a href="javascript:void(0)" id="news">NEWS</a></th>
+                            <th>SOCIETA</th>
+                            <th>SQUADRE</th>
+                            <th>STADIO</th>
+                            <th> <a href="javascript:void(0)" id="galleria">GALLERIA</a></th>
+                            <th> <a href="javascript:void(0)" id="sponsor">SPONSOR</a></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td><a href="javascript:void(0)" id="albo">Albo d'oro</a></td>
+                            <td> <a href="javascript:void(0)" id="prima">Prima Squadra</a></td>
+                            <td><a href="javascript:void(0)" id="come">Come Arrivare</a></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><a href="javascript:void(0)" id="organigramma">Organigramma</a></td>
+                            <td><a href="javascript:void(0)" id="junores">Junores</a></td>
+                            <td><a href="javascript:void(0)" id="informazioni">Informazioni</a></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td> <a href="javascript:void(0)" id="storia">Storia</a></td>
+                            <td> <a href="javascript:void(0)" id="allievi">Allievi</a></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><a href="javascript:void(0)" id="giovanissimi">Giovanissimi</a></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><a href="javascript:void(0)" id="esordienti">Esordienti</a></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><a href="javascript:void(0)" id="pulcini">Pulcini</a></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><a href="javascript:void(0)" id="piccoli">Piccoli Amici</a></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <p>
+                    <br>
+                    <a href="https://www.instagram.com/giovanilecanzese/" target="_blank"><img src="imm/insta.png" width="40px"></a>&nbsp &nbsp &nbsp &nbsp &nbsp
+                    <a href="https://it-it.facebook.com/giovanilecanzese/" target="_blank"><img src="imm/facebook.png" width="40px"></a>
+                </p>
+                <p class="footerScritte">Tel. +39 333 333 3333</p>
                 <br>
             </div>
         </footer>

@@ -3,6 +3,7 @@ $(document).ready(function() {
         $.post("pagine/home.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -11,6 +12,7 @@ $(document).ready(function() {
         $.post("pagine/news.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -21,6 +23,7 @@ $(document).ready(function() {
         $.post("pagine/albo.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -29,7 +32,10 @@ $(document).ready(function() {
         $.post("pagine/organigramma.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
+
+
 })
 
 $(document).ready(function() {
@@ -37,6 +43,7 @@ $(document).ready(function() {
         $.post("pagine/storia.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -46,6 +53,7 @@ $(document).ready(function() {
         $.post("pagine/prima.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -54,6 +62,7 @@ $(document).ready(function() {
         $.post("pagine/junores.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -62,6 +71,7 @@ $(document).ready(function() {
         $.post("pagine/allievi.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -70,6 +80,7 @@ $(document).ready(function() {
         $.post("pagine/giovanissimi.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -78,6 +89,7 @@ $(document).ready(function() {
         $.post("pagine/esordienti.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -86,6 +98,7 @@ $(document).ready(function() {
         $.post("pagine/pulcini.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -94,6 +107,7 @@ $(document).ready(function() {
         $.post("pagine/piccoli.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -103,6 +117,7 @@ $(document).ready(function() {
         $.post("pagine/come.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -111,6 +126,7 @@ $(document).ready(function() {
         $.post("pagine/informazioni.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -119,6 +135,7 @@ $(document).ready(function() {
         $.post("pagine/galleria.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })
 
@@ -127,5 +144,6 @@ $(document).ready(function() {
         $.post("pagine/sponsor.html", true, function(data, status) {
             $("#pagina").html(data);
         });
+        $(document).scrollTop(0);
     });
 })

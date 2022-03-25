@@ -81,6 +81,7 @@ body {
     height: auto !important;
     height: 100%;
     margin: 0 auto -100px;
+    border-bottom: solid white 3px;
 }
 
 #f {
@@ -93,6 +94,11 @@ body {
     bottom: 0px;
     text-align: center;
     position: relative;
+}
+
+.footerScritte {
+    font-size: 120%;
+    color: blanchedalmond;
 }
 
 a {
@@ -161,4 +167,24 @@ a {
     min-width: 400px;
     height: 650px;
     overflow: hidden;
+}
+
+table {
+    font-family: 'Inter', sans-serif;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    border-spacing: 0;
+}
+
+th {
+    padding: 8px 40px;
+    font-size: 140%;
+    font-style: bold;
+    color: #fff;
+}
+
+td {
+    font-size: 115%;
+    padding: 8px 40px;
 }
