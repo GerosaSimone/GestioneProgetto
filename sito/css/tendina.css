@@ -23,7 +23,7 @@ label.jm-menu-btn {
     color: #ffffff;
     cursor: pointer;
     display: block;
-    padding-left: 90%;
+    padding-left: 80%;
 }
 
 label.jm-menu-btn:hover {
@@ -133,12 +133,14 @@ li:hover .jm-icon-dropdown {
     content: '\2630'
 }
 
+
 @media (min-width:1080px) {
     label.jm-menu-btn {
+       
         color: #ffffff;
         cursor: pointer;
         display: block;
-        padding-left: 90%;
+     
     }
     .sotto {
         font-size: 100%;

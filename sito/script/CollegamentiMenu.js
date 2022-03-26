@@ -58,8 +58,8 @@ $(document).ready(function() {
 })
 
 $(document).ready(function() {
-    $(document).on('click', "#junores", function() {
-        $.post("php/squadra.php", { squadra: "junores" }, function(data, status) {
+    $(document).on('click', "#juniores", function() {
+        $.post("php/squadra.php", { squadra: "juniores" }, function(data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);

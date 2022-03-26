@@ -84,23 +84,7 @@ body {
     margin: 0 auto -100px;
 }
 
-#f {
-    border-top: solid white 3px;
-    margin-top: 150px;
-    background-color: #003354;
-    color: blanchedalmond;
-    z-index: 3;
-    height: 100px;
-    width: 100%;
-    bottom: 0px;
-    text-align: center;
-    position: relative;
-}
 
-.footerScritte {
-    font-size: 120%;
-    color: blanchedalmond;
-}
 
 a {
     color: blanchedalmond;
@@ -178,18 +162,86 @@ table {
     border-spacing: 0;
 }
 
-th {
-    padding: 8px 40px;
-    font-size: 140%;
+
+
+.social a:hover {
+    color: rgb(150, 150, 150);
+}
+
+#f {
+    border-top: solid white 3px;
+    margin-top: 150px;
+    background-color: #003354;
+    color: rgb(255, 255, 255);
+    z-index: 3;
+    height: 100px;
+    width: auto;
+    bottom: 0px;
+    text-align: center;
+    position: relative;
+    
+}
+#f :hover{
+color:grey;
+}
+
+.footerScritte {
+    
+    color: rgb(255, 255, 255);
+}
+.contFooter{
+  
+    padding-left: 3%;
+    padding-top: 3%;
+}
+.contFooter th {
+    position: relative;
+    font-size: 20%;
+    padding: 2px 10px;
     font-style: bold;
     color: #fff;
 }
 
-td {
-    font-size: 115%;
-    padding: 8px 40px;
+.contFooter td {
+    padding: 2px 10px;
+    position: relative;   
+    font-size: 20%;
 }
 
-.social a:hover {
-    color: rgb(150, 150, 150);
+
+.footerScritte {
+    font-size: 70%;
+    color: rgb(255, 255, 255);
+}
+@media (min-width:1080px) {
+    
+    #f {
+        border-top: solid white 3px;
+        margin-top: 150px;
+        background-color: #003354;
+        color: rgb(255, 255, 255);
+        z-index: 3;
+        height: 100px;
+        width: 100%;
+        bottom: 0px;
+        text-align: center;
+        position: relative;
+    }
+    
+    .footerScritte {
+        font-size: 120%;
+        color: rgb(255, 255, 255);
+    }
+
+    .contFooter th {
+        padding: 8px 40px;
+        font-size: 140%;
+        font-style: bold;
+        color: #fff;
+    }
+    
+    .contFooter td {
+        font-size: 115%;
+        padding: 8px 40px;
+    }
 }
