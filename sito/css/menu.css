@@ -77,15 +77,16 @@ body {
 }
 
 #nonFooter {
+    margin-bottom: 5%;
     min-height: 100%;
     height: auto !important;
     height: 100%;
     margin: 0 auto -100px;
-    border-bottom: solid white 3px;
 }
 
 #f {
-    margin-top: 100px;
+    border-top: solid white 3px;
+    margin-top: 150px;
     background-color: #003354;
     color: blanchedalmond;
     z-index: 3;
@@ -187,4 +188,8 @@ th {
 td {
     font-size: 115%;
     padding: 8px 40px;
+}
+
+.social a:hover {
+    color: rgb(150, 150, 150);
 }

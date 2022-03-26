@@ -50,7 +50,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $(document).on('click', "#prima", function() {
-        $.post("pagine/prima.html", true, function(data, status) {
+        $.post("php/squadra.php", { squadra: "prima" }, function(data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
@@ -59,7 +59,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $(document).on('click', "#junores", function() {
-        $.post("pagine/junores.html", true, function(data, status) {
+        $.post("php/squadra.php", { squadra: "junores" }, function(data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
