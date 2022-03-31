@@ -9,8 +9,6 @@ if (!isset($_SESSION['user_id'])) {
 
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
 </head>
@@ -26,14 +24,14 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="page-header clearfix">
                         <h2 class="pull-left">Giocatori Giovanile Canzese</h2>
                     </div>
-                    <a href="inserisci.php?squadra=<?php $_GET['squadra']?>" class="btn btn-success ">Aggiungi Giocatore</a>
-                    <a href="cerca.php" class="btn btn-success ">Cerca Giocatore</a> <br>
+                    <a href="inserisci.php?squadra=<?php $_GET['squadra'] ?>" class="btn btn-primary pull-right ">Aggiungi Giocatore</a>
+                    <a href="cerca.php" class="btn btn-primary pull-right" style="margin-right:20px margin-bottom">Cerca Giocatore</a> <br>
                     <?php
                     require_once '../config.php';
-                    $sql = "SELECT * FROM calciatore WHERE categoria='".$_GET['squadra']."'";
+                    $sql = "SELECT * FROM calciatore WHERE categoria='" . $_GET['squadra'] . "'";
                     if ($result = mysqli_query($link, $sql)) {
                         if (mysqli_num_rows($result) > 0) {
-                            echo "<br> <table class='table table-bordered table-striped'>";
+                            echo "<br> <table class='table table-bordered table-hover'>";
                             echo "<thead>";
                             echo "<tr>";
                             echo "<th>ID</th>";

@@ -19,29 +19,29 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
     <div class="sidenav">
-        <div class="sopra">
-            <a href="#" class="text-uppercase">Giocatori</a>
-            <a href="#" class="text-uppercase" style=" color: #818181;">Squadre</a>
-            <a href="#">&nbsp &nbspPiccoli Amici</a>
-            <a href="#">&nbsp &nbspPulcini</a>
-            <a href="#">&nbsp &nbspGiovanissimi</a>
-            <a href="#">&nbsp &nbspEsordienti</a>
-            <a href="#">&nbsp &nbspAllievi</a>
-            <a href="#">&nbsp &nbspJiuniores</a>
-            <a href="#" id="prima">&nbsp &nbspPrima Squadra</a>
-            <br>
-            <a href="#" class="text-uppercase">Shop</a>
+        <div class="item">
+            <a href="index.php" id="titolo">Giovanile Canzese</a>
+            <a href="#" id="giocatori" class="text-uppercase testo" style="margin-top:20px; margin-bottom:5px;">Giocatori</a>
+            <a href="#" class="text-uppercase testo">Squadre</a>
+            <a href="#" id="piccoli" class="testo">&nbsp &nbspPiccoli Amici</a>
+            <a href="#" id="pulcini" class="testo">&nbsp &nbspPulcini</a>
+            <a href="#" id="giovanissimi" class="testo">&nbsp &nbspGiovanissimi</a>
+            <a href="#" id="esordienti" class="testo">&nbsp &nbspEsordienti</a>
+            <a href="#" id="allievi" class="testo">&nbsp &nbspAllievi</a>
+            <a href="#" id="juniores" class="testo">&nbsp &nbspJiuniores</a>
+            <a href="#" id="prima" class="testo" style="margin-bottom:5px;">&nbsp &nbspPrima Squadra</a>
+            <a href="#" id="shop" class="text-uppercase testo" style="margin-bottom:5px;">Shop</a>
+            <a href="#" id="volantini" class="text-uppercase testo" style="margin-bottom:5px;">Volantini</a>
+            <a href="#" id="galleria" class="text-uppercase testo" style="margin-bottom:5px;">Galleria</a>
         </div>
-        <div class="sotto">
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="logout.php">Logout</a>
+        <div class="item">
+            <a href="logout.php" class="testo" style="margin-bottom:30px;">Logout</a>
         </div>
     </div>
 
     <div id="pagina">
 
-    </div> 
+    </div>
 </body>
 <script src="script/jquery.js"></script>
 <script src="script/CollegamentiMenu.js"></script>
