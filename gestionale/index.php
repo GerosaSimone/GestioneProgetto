@@ -41,9 +41,8 @@ if (!isset($_SESSION['user_id'])) {
 
     <div id="pagina">
 
-    </div>
+    </div> 
 </body>
-
 <script src="script/jquery.js"></script>
 <script src="script/CollegamentiMenu.js"></script>
 
