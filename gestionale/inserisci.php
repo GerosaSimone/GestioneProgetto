@@ -1,9 +1,24 @@
 <?php
 require_once 'config.php';
 session_start();
+$squadra = $_GET['squadra'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (!empty($_POST["anno"]) && !empty($_POST["progressivo"]) && !empty($_POST["tipo"])) {
-        $sql = "INSERT INTO carte (anno, progressivo, tipo, idUtente) VALUES (?, ?, ?,?)";
+    if (!empty($_POST["nome"]) && !empty($_POST["cognome"]) && !empty($_POST["dataNascita"])&& !empty($_POST["tipo"])) {
+        //tutti i campi inseriti
+        $sql = "SELECT * FROM auto Where idUtente='" . $_SESSION['user_id'] . "'";
+        if (!empty($_POST["modello"])) {
+            $sql .= " and modello='" . $_POST['modello'] . "'";
+        }
+        if (!empty($_POST["ral"])) {
+            $sql .= " and ral='" . $_POST['ral'] . "'";
+        }
+        if (!empty($_POST["costo"])) {
+            $sql .= " and costo<'" . $_POST['costo'] . "'";
+        }
+        if (!empty($_POST["anno"])) {
+            $sql .= " and anno='" . $_POST['anno'] . "'";
+        }
+        $sql = "INSERT INTO calciatori (anno, progressivo, tipo, idUtente) VALUES (?, ?, ?,?)";
         $a = $_POST["anno"];
         $b = $_POST["progressivo"];
         $c = false;
