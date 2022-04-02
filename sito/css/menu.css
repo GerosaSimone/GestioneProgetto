@@ -12,13 +12,6 @@ div#hormenu {
     position: absolute;
 }
 
-#but {
-    border: none;
-    background-color: white;
-    font-size: 50px;
-    color: #003354;
-}
-
 div#pagina {
     margin-top: 32%;
     margin-left: 15%;
@@ -84,10 +77,8 @@ body {
     margin: 0 auto -100px;
 }
 
-
-
 a {
-    color: blanchedalmond;
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
@@ -109,7 +100,7 @@ a {
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-weight: bolder;
-    font-size: 200%;
+    font-size: 3vw;
 }
 
 .google-maps>iframe {
@@ -128,7 +119,7 @@ a {
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-weight: bold;
-    font-size: 110%;
+    font-size: 1.5vw;
 }
 
 .container {
@@ -149,8 +140,8 @@ a {
     padding-top: 5%;
     padding-bottom: 5%;
     width: 40%;
-    min-width: 400px;
-    height: 650px;
+    min-width: 40vw;
+    height: 65vw;
     overflow: hidden;
 }
 
@@ -162,10 +153,17 @@ table {
     border-spacing: 0;
 }
 
-
-
 .social a:hover {
     color: rgb(150, 150, 150);
+}
+
+#f :hover {
+    color: grey;
+}
+
+.contFooter {
+    padding-left: 3%;
+    padding-top: 3%;
 }
 
 #f {
@@ -175,73 +173,24 @@ table {
     color: rgb(255, 255, 255);
     z-index: 3;
     height: 100px;
-    width: auto;
+    width: 100%;
     bottom: 0px;
     text-align: center;
     position: relative;
-    
-}
-#f :hover{
-color:grey;
 }
 
 .footerScritte {
-    
     color: rgb(255, 255, 255);
 }
-.contFooter{
-  
-    padding-left: 3%;
-    padding-top: 3%;
-}
+
 .contFooter th {
-    position: relative;
-    font-size: 20%;
-    padding: 2px 10px;
+    padding: 0.5vw 2.5vw;
+    font-size: 2vw;
     font-style: bold;
     color: #fff;
 }
 
 .contFooter td {
-    padding: 2px 10px;
-    position: relative;   
-    font-size: 20%;
-}
-
-
-.footerScritte {
-    font-size: 70%;
-    color: rgb(255, 255, 255);
-}
-@media (min-width:1080px) {
-    
-    #f {
-        border-top: solid white 3px;
-        margin-top: 150px;
-        background-color: #003354;
-        color: rgb(255, 255, 255);
-        z-index: 3;
-        height: 100px;
-        width: 100%;
-        bottom: 0px;
-        text-align: center;
-        position: relative;
-    }
-    
-    .footerScritte {
-        font-size: 120%;
-        color: rgb(255, 255, 255);
-    }
-
-    .contFooter th {
-        padding: 8px 40px;
-        font-size: 140%;
-        font-style: bold;
-        color: #fff;
-    }
-    
-    .contFooter td {
-        font-size: 115%;
-        padding: 8px 40px;
-    }
+    font-size: 1vw;
+    padding: 0.5vw 2.5vw;
 }

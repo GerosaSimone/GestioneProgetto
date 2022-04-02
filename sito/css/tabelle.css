@@ -41,7 +41,7 @@ h1 {
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-weight: bold;
-    font-size: 350%;
+    font-size: 4vw;
 }
 
 .contenitore-testo {
@@ -53,7 +53,7 @@ h1 {
 
 .titolo-carta {
     color: white;
-    font-size: 25px;
+    font-size: 3vw;
 }
 
 .bottone-carta {
