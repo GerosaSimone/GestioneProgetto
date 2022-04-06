@@ -162,14 +162,23 @@ table {
 }
 
 .contFooter {
-    padding-left: 3%;
+    
     padding-top: 3%;
+    background-color: #232729;
 }
+footer{
+    background-color: #232729;
+}
+#social{
+    background-color: #232729;
 
+}
 #f {
     border-top: solid white 3px;
     margin-top: 150px;
-    background-color: #003354;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: #232729;
     color: rgb(255, 255, 255);
     z-index: 3;
     height: 100px;
