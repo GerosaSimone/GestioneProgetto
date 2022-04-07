@@ -1,49 +1,81 @@
-<?php
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("location: login.html");
-}
-?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>Sidebar 01</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 </head>
 
 <body>
-    <div class="sidenav">
-        <div class="item">
-            <a href="index.php" id="titolo">Giovanile Canzese</a>
-            <a href="#" id="giocatori" class="text-uppercase testo" style="margin-top:20px; margin-bottom:5px;">Giocatori</a>
-            <a href="#" class="text-uppercase testo">Squadre</a>
-            <a href="#" id="piccoli" class="testo">&nbsp &nbspPiccoli Amici</a>
-            <a href="#" id="pulcini" class="testo">&nbsp &nbspPulcini</a>
-            <a href="#" id="giovanissimi" class="testo">&nbsp &nbspGiovanissimi</a>
-            <a href="#" id="esordienti" class="testo">&nbsp &nbspEsordienti</a>
-            <a href="#" id="allievi" class="testo">&nbsp &nbspAllievi</a>
-            <a href="#" id="juniores" class="testo">&nbsp &nbspJiuniores</a>
-            <a href="#" id="prima" class="testo" style="margin-bottom:5px;">&nbsp &nbspPrima Squadra</a>
-            <a href="#" id="shop" class="text-uppercase testo" style="margin-bottom:5px;">Shop</a>
-            <a href="#" id="volantini" class="text-uppercase testo" style="margin-bottom:5px;">Volantini</a>
-            <a href="#" id="galleria" class="text-uppercase testo" style="margin-bottom:5px;">Galleria</a>
-        </div>
-        <div class="item">
-            <a href="logout.php" class="testo" style="margin-bottom:30px;">Logout</a>
-        </div>
-    </div>
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="p-4 pt-5">
+                <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/logo.jpg);"></a>
+                <ul class="list-unstyled components mb-5">
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="#">Home 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Home 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Home 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="#" id="prima">Page 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Page 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Page 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
 
-    <div id="pagina">
+            </div>
+        </nav>
 
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+        <i class="fa fa-bars"></i>
+      </button>
+            <div id=pagina>
+                
+            </div>
+
+
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/CollegamentiMenu.js"></script>
     </div>
 </body>
-<script src="script/jquery.js"></script>
-<script src="script/CollegamentiMenu.js"></script>
 
 </html>
