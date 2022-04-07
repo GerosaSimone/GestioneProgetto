@@ -19,7 +19,7 @@
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>
-                                <a href="#">Home 1</a>
+                                <a href="#" id="allievi">Home 1</a>
                             </li>
                             <li>
                                 <a href="#">Home 2</a>
@@ -61,10 +61,10 @@
         <div id="content" class="p-4 p-md-5">
 
             <button type="button" id="sidebarCollapse" class="btn btn-primary">
-        <i class="fa fa-bars"></i>
-      </button>
-            <div id=pagina>
-                
+                <i class="fa fa-bars"></i>
+            </button>
+            <div id="pagina">
+
             </div>
 
 
