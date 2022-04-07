@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 07, 2022 alle 12:37
--- Versione del server: 10.4.6-MariaDB
--- Versione PHP: 7.3.8
+-- Creato il: Apr 07, 2022 alle 23:03
+-- Versione del server: 10.4.22-MariaDB
+-- Versione PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dbgiovanilecanzese`
+-- Database: `dbcanzese`
 --
 
 -- --------------------------------------------------------
@@ -239,6 +238,26 @@ CREATE TABLE `usa` (
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `utenti`
+--
+
+CREATE TABLE `utenti` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user` varchar(32) NOT NULL,
+  `password` char(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `utenti`
+--
+
+INSERT INTO `utenti` (`id`, `user`, `password`) VALUES
+(1, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99'),
+(2, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `visita`
 --
 
@@ -348,6 +367,12 @@ ALTER TABLE `usa`
   ADD KEY `relazione1` (`idCategoria`);
 
 --
+-- Indici per le tabelle `utenti`
+--
+ALTER TABLE `utenti`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indici per le tabelle `visita`
 --
 ALTER TABLE `visita`
@@ -417,6 +442,12 @@ ALTER TABLE `telefono`
 --
 ALTER TABLE `tesserato`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT per la tabella `utenti`
+--
+ALTER TABLE `utenti`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT per la tabella `visita`

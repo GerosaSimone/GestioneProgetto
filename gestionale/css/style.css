@@ -2745,7 +2745,7 @@ fieldset:disabled a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #007bff;
+    background-color: rgb(33, 164, 245);
     border-color: #007bff;
 }
 
@@ -11019,6 +11019,7 @@ h5,
 #sidebar {
     min-width: 300px;
     max-width: 300px;
+    height: auto;
     background: #1d1919;
     color: #fff;
     -webkit-transition: all 0.3s;
@@ -11032,8 +11033,8 @@ h5,
 
 #sidebar .logo {
     display: block;
-    width: 120px;
-    height: 120px;
+    width: 70px;
+    height: 100px;
     margin: 0 auto;
 }
 
@@ -11065,12 +11066,15 @@ h5,
 }
 
 #sidebar ul li a:hover {
-    color: #f8b739;
+    color: rgb(33, 164, 245);
 }
 
+#sidebar ul li a:focus {
+    color: rgb(33, 164, 245);
+}
 #sidebar ul li.active>a {
     background: transparent;
-    color: #f8b739;
+    color: rgb(33, 164, 245);
 }
 
 @media (max-width: 991.98px) {
@@ -11112,14 +11116,14 @@ a[data-toggle="collapse"] {
 }
 
 .btn.btn-primary {
-    background: #f8b739;
-    border-color: #f8b739;
+    background: rgb(33, 164, 245);
+    border-color: rgb(33, 164, 245);
 }
 
 .btn.btn-primary:hover,
 .btn.btn-primary:focus {
-    background: #f8b739 !important;
-    border-color: #f8b739 !important;
+    background: rgb(33, 164, 245) !important;
+    border-color: rgb(33, 164, 245) !important;
 }
 
 .footer p {
