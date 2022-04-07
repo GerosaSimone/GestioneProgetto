@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 06, 2022 alle 13:55
+-- Creato il: Apr 07, 2022 alle 12:37
 -- Versione del server: 10.4.6-MariaDB
 -- Versione PHP: 7.3.8
 
@@ -71,9 +71,17 @@ CREATE TABLE `allenamento` (
   `id` int(11) NOT NULL,
   `OraInzio` time NOT NULL,
   `OraFine` time NOT NULL,
-  `Giorno` int(11) NOT NULL,
+  `Giorno` varchar(32) NOT NULL,
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `allenamento`
+--
+
+INSERT INTO `allenamento` (`id`, `OraInzio`, `OraFine`, `Giorno`, `idCategoria`) VALUES
+(1, '18:30:00', '20:00:00', 'Lunedi', 1),
+(2, '12:00:00', '15:00:00', 'Martedi', 2);
 
 -- --------------------------------------------------------
 
@@ -89,6 +97,14 @@ CREATE TABLE `categoria` (
   `linkFotoSquadra` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dump dei dati per la tabella `categoria`
+--
+
+INSERT INTO `categoria` (`id`, `nome`, `palloni`, `pettorine`, `linkFotoSquadra`) VALUES
+(1, 'juniores', 25, 15, 'fkfggguig'),
+(2, 'primasquadra', 30, 20, 'aefgvuaeggyj');
+
 -- --------------------------------------------------------
 
 --
@@ -101,6 +117,14 @@ CREATE TABLE `magazzino` (
   `quantita` int(11) NOT NULL,
   `taglia` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `magazzino`
+--
+
+INSERT INTO `magazzino` (`id`, `idProdotto`, `quantita`, `taglia`) VALUES
+(1, 1, 36, 'M'),
+(2, 2, 22, 'L');
 
 -- --------------------------------------------------------
 
@@ -139,6 +163,14 @@ CREATE TABLE `prodotto` (
   `linkFoto` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dump dei dati per la tabella `prodotto`
+--
+
+INSERT INTO `prodotto` (`id`, `nome`, `costoUnitario`, `linkFoto`) VALUES
+(1, 'maglietta', 25, 'sgaegaeg'),
+(2, 'pantalone', 22, 'fagaegaeg');
+
 -- --------------------------------------------------------
 
 --
@@ -151,6 +183,14 @@ CREATE TABLE `telefono` (
   `Telefono` int(10) NOT NULL,
   `idTesserato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `telefono`
+--
+
+INSERT INTO `telefono` (`id`, `nome`, `Telefono`, `idTesserato`) VALUES
+(1, 'papa', 333693586, 2),
+(2, 'mamma', 4989491, 4);
 
 -- --------------------------------------------------------
 
@@ -171,11 +211,19 @@ CREATE TABLE `tesserato` (
   `via` varchar(32) NOT NULL,
   `Provincia` varchar(32) NOT NULL,
   `Citta` varchar(32) NOT NULL,
-  `linkFoto` int(11) NOT NULL,
+  `linkFoto` varchar(32) NOT NULL,
   `daPagare` int(11) NOT NULL,
   `Pagato` int(11) NOT NULL,
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `tesserato`
+--
+
+INSERT INTO `tesserato` (`id`, `CF`, `Nome`, `Cognome`, `DataNascita`, `LuogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `Provincia`, `Citta`, `linkFoto`, `daPagare`, `Pagato`, `idCategoria`) VALUES
+(2, 'LCTNDR03P170416G', 'andrea', 'locatelli', '2003-09-17', 'erba', 0, 'C', 1, 'leopardi 3 a', 'como', 'canzo', 'sgaegaeg', 100, 50, 1),
+(4, 'MRANDR03P02D416J', 'andrea', 'mauri', '2003-09-02', 'erba', 0, 'C', 1, 'parini 6 b', 'como', 'monguzzo', 'qefwegge', 250, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -200,6 +248,14 @@ CREATE TABLE `visita` (
   `scandenza` date NOT NULL,
   `Foto` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `visita`
+--
+
+INSERT INTO `visita` (`id`, `TipoVisita`, `scandenza`, `Foto`) VALUES
+(1, 1, '2022-10-14', 'sgsdfa'),
+(2, 0, '2022-09-16', 'sgggaaea');
 
 --
 -- Indici per le tabelle scaricate
@@ -243,7 +299,8 @@ ALTER TABLE `categoria`
 -- Indici per le tabelle `magazzino`
 --
 ALTER TABLE `magazzino`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `prodotto` (`idProdotto`);
 
 --
 -- Indici per le tabelle `maglia`
@@ -317,19 +374,19 @@ ALTER TABLE `acquistimagazzino`
 -- AUTO_INCREMENT per la tabella `allenamento`
 --
 ALTER TABLE `allenamento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT per la tabella `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT per la tabella `magazzino`
 --
 ALTER TABLE `magazzino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT per la tabella `maglia`
@@ -347,25 +404,25 @@ ALTER TABLE `mail`
 -- AUTO_INCREMENT per la tabella `prodotto`
 --
 ALTER TABLE `prodotto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT per la tabella `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Limiti per le tabelle scaricate
@@ -389,6 +446,12 @@ ALTER TABLE `acquistimagazzino`
 --
 ALTER TABLE `allenamento`
   ADD CONSTRAINT `idcategoria` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`);
+
+--
+-- Limiti per la tabella `magazzino`
+--
+ALTER TABLE `magazzino`
+  ADD CONSTRAINT `prodotto` FOREIGN KEY (`idProdotto`) REFERENCES `prodotto` (`id`);
 
 --
 -- Limiti per la tabella `mail`
