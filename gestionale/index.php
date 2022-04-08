@@ -14,6 +14,7 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/table.css">
     <style>
         .contenitore {
             display: flex;
@@ -53,10 +54,10 @@ if (!isset($_SESSION['user_id'])) {
                                         <a href="#MisterSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Generale</a>
                                         <ul class="collapse list-unstyled" id="MisterSubmenu">
                                             <li>
-                                                <a href="#" id="finanziaria">Dirigenza</a>
+                                                <a href="#" id="dirigenza">Dirigenza</a>
                                             </li>
                                             <li>
-                                                <a href="#" id="finanziaria">Giocatori</a>
+                                                <a href="#" id="giocatori">Giocatori</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -92,10 +93,10 @@ if (!isset($_SESSION['user_id'])) {
                                 <a href="#FinanziariaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Area Finanziaria</a>
                                 <ul class="collapse list-unstyled" id="FinanziariaSubmenu">
                                     <li>
-                                        <a href="#" id="finanziaria">Bilancio</a>
+                                        <a href="#" id="bilancio">Bilancio</a>
                                     </li>
                                     <li>
-                                        <a href="#" id="finanziaria">Acquisti Società</a>
+                                        <a href="#" id="acuistiSocieta">Acquisti Società</a>
                                     </li>
                                 </ul>
                             </li>
@@ -103,10 +104,10 @@ if (!isset($_SESSION['user_id'])) {
                                 <a href="#ShopSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Area Shop</a>
                                 <ul class="collapse list-unstyled" id="ShopSubmenu">
                                     <li>
-                                        <a href="#" id="prima">Articoli</a>
+                                        <a href="#" id="articoli">Articoli</a>
                                     </li>
                                     <li>
-                                        <a href="#" id="prima">Acquisti Giocatori</a>
+                                        <a href="#" id="acquistiGiocatori">Acquisti Giocatori</a>
                                     </li>
                                 </ul>
                             </li>
@@ -114,13 +115,13 @@ if (!isset($_SESSION['user_id'])) {
                                 <a href="#MagazzinoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Area Magazzino</a>
                                 <ul class="collapse list-unstyled" id="MagazzinoSubmenu">
                                     <li>
-                                        <a href="#" id="prima">Deposito</a>
+                                        <a href="#" id="deposito">Deposito</a>
                                     </li>
                                     <li>
-                                        <a href="#" id="prima">Acquisti Deposito</a>
+                                        <a href="#" id="acquistiDeposito">Acquisti Deposito</a>
                                     </li>
                                     <li>
-                                        <a href="#" id="prima">Materiale Squadre</a>
+                                        <a href="#" id="materiale">Materiale Squadre</a>
                                     </li>
                                 </ul>
                             </li>
@@ -128,10 +129,10 @@ if (!isset($_SESSION['user_id'])) {
                                 <a href="#SitoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Area Sito</a>
                                 <ul class="collapse list-unstyled" id="SitoSubmenu">
                                     <li>
-                                        <a href="#" id="prima">Foto Galleria</a>
+                                        <a href="#" id="galleria">Foto Galleria</a>
                                     </li>
                                     <li>
-                                        <a href="#" id="prima">Foto News</a>
+                                        <a href="#" id="news">Foto News</a>
                                     </li>
                                 </ul>
                             </li>
@@ -164,9 +165,15 @@ if (!isset($_SESSION['user_id'])) {
         <script src="js/main.js"></script>
 
 
-        <script src="js/ bootstrap.bundle.min"></script>
+        <script src="js/bootstrap.bundle.min"></script>
         <script src="js/jquery.js"></script>
         <script src="js/CollegamentiMenu.js"></script>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </div>
 </body>
 

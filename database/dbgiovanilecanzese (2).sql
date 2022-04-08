@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 07, 2022 alle 23:03
+-- Creato il: Apr 08, 2022 alle 18:20
 -- Versione del server: 10.4.22-MariaDB
 -- Versione PHP: 8.1.2
 
@@ -102,7 +102,7 @@ CREATE TABLE `categoria` (
 
 INSERT INTO `categoria` (`id`, `nome`, `palloni`, `pettorine`, `linkFotoSquadra`) VALUES
 (1, 'juniores', 25, 15, 'fkfggguig'),
-(2, 'primasquadra', 30, 20, 'aefgvuaeggyj');
+(2, 'PrimaSquadra', 30, 20, 'aefgvuaeggyj');
 
 -- --------------------------------------------------------
 
@@ -199,20 +199,20 @@ INSERT INTO `telefono` (`id`, `nome`, `Telefono`, `idTesserato`) VALUES
 
 CREATE TABLE `tesserato` (
   `id` int(11) NOT NULL,
-  `CF` varchar(16) NOT NULL,
-  `Nome` varchar(32) NOT NULL,
-  `Cognome` varchar(32) NOT NULL,
-  `DataNascita` date NOT NULL,
-  `LuogoNascita` varchar(32) NOT NULL,
+  `cf` varchar(16) NOT NULL,
+  `nome` varchar(32) NOT NULL,
+  `cognome` varchar(32) NOT NULL,
+  `dataNascita` date NOT NULL,
+  `luogoNascita` varchar(32) NOT NULL,
   `tipo` int(11) NOT NULL,
   `ruolo` char(1) NOT NULL,
   `idVisita` int(11) NOT NULL,
   `via` varchar(32) NOT NULL,
-  `Provincia` varchar(32) NOT NULL,
+  `provincia` varchar(32) NOT NULL,
   `Citta` varchar(32) NOT NULL,
   `linkFoto` varchar(32) NOT NULL,
   `daPagare` int(11) NOT NULL,
-  `Pagato` int(11) NOT NULL,
+  `pagato` int(11) NOT NULL,
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
@@ -220,9 +220,11 @@ CREATE TABLE `tesserato` (
 -- Dump dei dati per la tabella `tesserato`
 --
 
-INSERT INTO `tesserato` (`id`, `CF`, `Nome`, `Cognome`, `DataNascita`, `LuogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `Provincia`, `Citta`, `linkFoto`, `daPagare`, `Pagato`, `idCategoria`) VALUES
+INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `provincia`, `Citta`, `linkFoto`, `daPagare`, `pagato`, `idCategoria`) VALUES
 (2, 'LCTNDR03P170416G', 'andrea', 'locatelli', '2003-09-17', 'erba', 0, 'C', 1, 'leopardi 3 a', 'como', 'canzo', 'sgaegaeg', 100, 50, 1),
-(4, 'MRANDR03P02D416J', 'andrea', 'mauri', '2003-09-02', 'erba', 0, 'C', 1, 'parini 6 b', 'como', 'monguzzo', 'qefwegge', 250, 0, 2);
+(4, 'MRANDR03P02D416J', 'andrea', 'mauri', '2003-09-02', 'erba', 0, 'C', 2, 'parini 6 b', 'como', 'monguzzo', 'qefwegge', 250, 0, 2),
+(5, 'GRSSMN03M06D416C', 'simone', 'gerosa', '2003-08-06', 'erba', 0, 'A', 2, 'Via Armando 6', 'CO', 'Canzo', 'asfhujsvhud', 10000000, 0, 2),
+(7, 'GRASMN03M06D416C', 'Nome1', 'Cognome1', '2021-12-20', 'erba', 1, 'm', 4, 'Via Manzoni 6', 'LC', 'Lecco', 'adadff', 0, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -263,18 +265,20 @@ INSERT INTO `utenti` (`id`, `user`, `password`) VALUES
 
 CREATE TABLE `visita` (
   `id` int(11) NOT NULL,
-  `TipoVisita` int(11) NOT NULL,
-  `scandenza` date NOT NULL,
-  `Foto` varchar(32) NOT NULL
+  `tipo` int(11) NOT NULL,
+  `scadenza` date NOT NULL,
+  `foto` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
 -- Dump dei dati per la tabella `visita`
 --
 
-INSERT INTO `visita` (`id`, `TipoVisita`, `scandenza`, `Foto`) VALUES
+INSERT INTO `visita` (`id`, `tipo`, `scadenza`, `foto`) VALUES
 (1, 1, '2022-10-14', 'sgsdfa'),
-(2, 0, '2022-09-16', 'sgggaaea');
+(2, 0, '2022-09-16', 'sgggaaea'),
+(3, 0, '2022-05-19', 'asdffdvx'),
+(4, 1, '2022-05-21', 'vfbdf');
 
 --
 -- Indici per le tabelle scaricate
@@ -354,7 +358,7 @@ ALTER TABLE `telefono`
 -- Indici per le tabelle `tesserato`
 --
 ALTER TABLE `tesserato`
-  ADD PRIMARY KEY (`id`,`CF`),
+  ADD PRIMARY KEY (`id`,`cf`),
   ADD UNIQUE KEY `linkFoto` (`linkFoto`),
   ADD KEY `relazione3` (`idVisita`),
   ADD KEY `relazione4` (`idCategoria`);
@@ -377,7 +381,7 @@ ALTER TABLE `utenti`
 --
 ALTER TABLE `visita`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `Foto` (`Foto`);
+  ADD UNIQUE KEY `Foto` (`foto`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
@@ -441,7 +445,7 @@ ALTER TABLE `telefono`
 -- AUTO_INCREMENT per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`
@@ -453,7 +457,7 @@ ALTER TABLE `utenti`
 -- AUTO_INCREMENT per la tabella `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Limiti per le tabelle scaricate
