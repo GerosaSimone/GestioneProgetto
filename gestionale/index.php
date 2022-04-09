@@ -13,6 +13,8 @@ if (!isset($_SESSION['user_id'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/table.css">
     <style>
@@ -160,20 +162,42 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
 
+
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
-
-
         <script src="js/bootstrap.bundle.min"></script>
         <script src="js/jquery.js"></script>
         <script src="js/CollegamentiMenu.js"></script>
 
-
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+
+        <script>
+            jQuery(document).ready(function($) {
+                $('#modalGiocatori').DataTable({
+                    searching: false,
+                    responsive: true,
+                    paging: false,
+                    ordering: true,
+                    info: false,
+                    "autoWidth": false,
+                });
+                var table = $('#modalGiocatori').DataTable();
+                $('#modalGiocatori tbody').on('click', 'tr', function() {
+                    $(".modal-body div span").text("");
+                    $(".username span").text(table.row(this).data()[0]);
+                    $(".position span").text(table.row(this).data()[1]);
+                    $(".office span").text(table.row(this).data()[2]);
+                    $(".age span").text(table.row(this).data()[3]);
+                    $(".date span").text(table.row(this).data()[4]);
+                    $(".salary span").text(table.row(this).data()[5]);
+                    $("#myModal").modal("show");
+                });
+            });
+        </script>
     </div>
 </body>
 

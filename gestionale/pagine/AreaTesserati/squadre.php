@@ -8,8 +8,6 @@ if (!isset($_SESSION['user_id'])) {
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Document</title>
     <style>
         .contenitore {
             width: auto;
@@ -46,7 +44,7 @@ if (!isset($_SESSION['user_id'])) {
                                 }
                             }
                             $sql = "SELECT * FROM tesserato WHERE idCategoria='" . $idCategoria . "'and tipo='1'";
-                            echo "<table><thead><tr class='table100-head'>";
+                            echo "<table id='modalDirigenza'><thead><tr class='table100-head'>";
                             echo "      <th class='column1'>Nome</th>";
                             echo "     <th class='column1'>Cognome</th>";
                             echo "      <th class='column1'>Data Nascita</th>";
@@ -91,7 +89,7 @@ if (!isset($_SESSION['user_id'])) {
                                 }
                             }
                             $sql = "SELECT * FROM tesserato WHERE idCategoria='" . $idCategoria . "'and tipo='0'";
-                            echo "<table id='example'><thead><tr class='table100-head'>";
+                            echo "<table id='modalGiocatori'><thead><tr class='table100-head'>";
                             echo "      <th class='column1'>Nome</th>";
                             echo "     <th class='column1'>Cognome</th>";
                             echo "      <th class='column1'>Data Nascita</th>";
@@ -175,30 +173,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script>
-    jQuery(document).ready(function($) {
-        $('#example').DataTable({
-            searching: false,
-            responsive: true,
-            paging: false,
-            ordering: true,
-            info: false,
-            "autoWidth": false,
-        });
-        var table = $('#example').DataTable();
-        $('#example tbody').on('click', 'tr', function() {
-            $(".modal-body div span").text("");
-            $(".username span").text(table.row(this).data()[0]);
-            $(".position span").text(table.row(this).data()[1]);
-            $(".office span").text(table.row(this).data()[2]);
-            $(".age span").text(table.row(this).data()[3]);
-            $(".date span").text(table.row(this).data()[4]);
-            $(".salary span").text(table.row(this).data()[5]);
-            $("#myModal").modal("show");
-        });
-    });
-</script>
+
+
+
 </body>
