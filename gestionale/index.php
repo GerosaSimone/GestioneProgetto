@@ -14,6 +14,8 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="css/table.css">
     <style>
         .contenitore {
             display: flex;
@@ -38,7 +40,7 @@ if (!isset($_SESSION['user_id'])) {
                         <div class="container">
                             <div class="row">
                                 <div class="col">
-                                    <a href="#" class="img logo mb-3" style="background-image: url(../sito/imm/logo.png);"></a>
+                                    <a href="#" class="img logo mb-3" style="background-image: url(logo.png);"></a>
                                 </div>
                                 <div class="col">
                                     <h3 style="color:white">Giovanile<br>Canzese</h3>
@@ -139,9 +141,9 @@ if (!isset($_SESSION['user_id'])) {
                         </ul>
                     </div>
                 </div>
-                <div class="item pb-4 pl-3">
+                <div class="p-3">
                     <a href="logout.php">
-                        <button type="button" class="btn btn-light btn-toggle active">
+                        <button type="button" class="btn btn-outline-light">
                             <span class="glyphicon glyphicon-log-out"></span> Log out
                         </button>
                     </a>
@@ -155,7 +157,7 @@ if (!isset($_SESSION['user_id'])) {
                 <i class="fa fa-bars"></i>
             </button>
             <div id="pagina" style="margin-top:20px">
-                
+
             </div>
         </div>
 
@@ -165,6 +167,11 @@ if (!isset($_SESSION['user_id'])) {
 
         <script src="js/jquery.js"></script>
         <script src="js/CollegamentiMenu.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </div>
 </body>
 

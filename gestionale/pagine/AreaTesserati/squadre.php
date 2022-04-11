@@ -8,9 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="table.css">
+   
     <style>
         .contenitore {
             width: auto;
@@ -186,14 +184,14 @@ if (!isset($_SESSION['user_id'])) {
             <div class='modal-content'>
                 <div class='modal-header'>
                     <h5 class='modal-title' id='eliminaLabel'>Elimina Giocatore</h5>
-                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                    <button type='button' class='close' aria-label='Close' data-bs-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
                 </div>
                 <div class='modal-body'>           
                     <input type='text' id='tempElimina' >
                 </div>
                 <div class='modal-footer'>
                     <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-                    <button type='button' class='btn btn-primary'>Confirm</button>
+                    <button type='button' class='btn btn-danger'>Delete</button>
                 </div>
             </div>
         </div>
@@ -204,7 +202,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class='modal-content'>
                 <div class='modal-header'>
                     <h5 class='modal-title' id='modificaLabel'>Modifica Giocatore</h5>
-                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                    <button type='button' class='close' aria-label='Close' data-bs-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
                 </div>
                 <div class='modal-body'>           
                     <input type='text' id='tempModifica'>
@@ -222,24 +220,22 @@ if (!isset($_SESSION['user_id'])) {
             <div class='modal-content'>
                 <div class='modal-header'>
                     <h5 class='modal-title' id='visualizzaLabel'>visualizza Giocatore</h5>
-                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                    <button type='button' class='close' aria-label='Close' data-bs-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
                 </div>
                 <div class='modal-body'>           
                     <input type='text' id='tempVisualizza'>
                 </div>
                 <div class='modal-footer'>
                     <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-                    <button type='button' class='btn btn-primary'>Confirm</button>
+                   
                 </div>
             </div>
         </div>
     </div>"
 
     ?>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
+   
 
     <script>
         jQuery(document).ready(function($) {
