@@ -155,14 +155,14 @@ if (!isset($_SESSION['user_id'])) {
                 <i class="fa fa-bars"></i>
             </button>
             <div id="pagina" style="margin-top:20px">
-
+                
             </div>
         </div>
 
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
-        
+
         <script src="js/jquery.js"></script>
         <script src="js/CollegamentiMenu.js"></script>
     </div>

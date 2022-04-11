@@ -1,5 +1,5 @@
 .limiter {
-  width: 100%;
+  width: 100%;  
 }
 
 .container-table100 {
@@ -38,6 +38,10 @@ table * {
 table td,
 table th {
   padding-left: 8px;
+}
+
+td {
+  color: rgb(44, 44, 44);
 }
 
 table thead tr {
