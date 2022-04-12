@@ -9,6 +9,10 @@ if (!isset($_SESSION['user_id'])) {
 <html lang="en">
 
 <head>
+    <!--FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <title>U.S. Giovanile Canzese</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,18 +20,9 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="css/table.css">
-    <style>
-        .contenitore {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-            height: 100%;
-        }
 
-        .item {
-            display: block;
-        }
+    <style>
+
     </style>
 </head>
 
@@ -152,11 +147,13 @@ if (!isset($_SESSION['user_id'])) {
 
         </nav>
 
-        <div id="content" class="p-2 p-md-4">
-            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+        <div id="content">
+            <button type="button" id="sidebarCollapse" class="btn btn-primary m-3">
                 <i class="fa fa-bars"></i>
             </button>
-            <div id="pagina" style="margin-top:20px">
+            <a href="#" id="prima">temp</a>
+            
+            <div id="pagina">
 
             </div>
         </div>

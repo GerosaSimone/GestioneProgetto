@@ -1,51 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Log in</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <style type="text/css">
-        .wrapper {
-            width: 650px;
-            margin: 0 auto;
-        }
-
-        .page-header h2 {
-            margin-top: 0;
-        }
-
-        table tr td:last-child a {
-            margin-right: 15px;
-        }
-    </style>
+    <title>Giovanile Canzese Login</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-header">
-                        <h2>Log in</h2>
+    <img class="sfondo" src="img/sfondo.png">
+    <div class="bgstyle">
+        <div class="img">
+            <img src="img/bg.png">
+        </div>
+        <div class="login-content">
+            <form action="login.php" method="POST">
+                <img src="img/avatar.svg">
+                <h2 class="title">Welcome</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
                     </div>
-                    <form action="login.php" method="post">
-                        <div class="form-group">
-                            <label>Nome</label>
-                            <input name="nome" type="text" placeholder="Enter name" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input name="password" type="password" placeholder="Eneter password" class="form-control">
-                        </div>
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                    </form>
+                    <div class="div">
+                        <h5>Username</h5>
+                        <input type="text" name="nome" class="input">
+                    </div>
                 </div>
-            </div>
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Password</h5>
+                        <input type="password" name="password" class="input">
+                    </div>
+                </div>
+                <input type="submit" class="btn" value="Login">
+            </form>
         </div>
     </div>
+    <script type="text/javascript" src="js/login.js"></script>
 </body>
 
 </html>

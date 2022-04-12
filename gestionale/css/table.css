@@ -1,5 +1,5 @@
 .limiter {
-  width: 100%;  
+  width: 100%;
 }
 
 .container-table100 {
@@ -10,14 +10,14 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: left;
+  align-items: top;
+  justify-content: top;
   flex-wrap: wrap;
-  padding: 33px 30px;
+  padding-left: 2.5%;
 }
 
 .wrap-table100 {
-  width: 1100px;
+  width: 99%;
 }
 
 table {
@@ -45,7 +45,7 @@ td {
 }
 
 table thead tr {
-  height: 60px;
+  height: 50px;
   background: rgb(33, 164, 245);
 }
 
@@ -78,7 +78,6 @@ table th.r {
 }
 
 .table100-head th {
-  font-family: OpenSans-Regular;
   font-size: 18px;
   color: #fff;
   line-height: 1.2;
@@ -90,9 +89,8 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr {
-  font-family: OpenSans-Regular;
   font-size: 15px;
-  color: #808080;
+  color: #ffffff;
   line-height: 1.2;
   font-weight: unset;
 }
@@ -104,29 +102,17 @@ tbody tr:hover {
 }
 
 .column1 {
-  width: 20%;
-  text-align: center;
-}
-
-.column2 {
-  width: 20%;
-  text-align: center;
-}
-
-.column3 {
-  width: 20%;
-  text-align: center;
+  text-align: left;
 }
 
 .column4 {
-  width: 20%;
   text-align: center;
 }
 
-.column5 {
-  width: 20%;
-  text-align: center;
+th {
+  color: white;
 }
+
 
 
 
@@ -161,9 +147,8 @@ tbody tr:hover {
   }
 
   table tbody tr td:before {
-    font-family: OpenSans-Regular;
     font-size: 14px;
-    color: #999999;
+    color: #ffffff;
     line-height: 1.2;
     font-weight: unset;
     position: absolute;

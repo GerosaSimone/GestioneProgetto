@@ -2,127 +2,112 @@
 <html lang="en">
 
 <head>
-    <title>Ecommerce Template</title>
-    <!-- Template Main JS & CSSFile -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="table.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-    <script>
-        jQuery(document).ready(function($) {
-            $('#example').DataTable({
-                paging: false,
-                searching: false,
-                ordering: true,
-                info: false
-            });
-            $(document).on('click', '#example tbody tr button', function() {
-                $("#modaldata tbody tr").html("");
-                $("#modaldata tbody tr").html($(this).closest("tr").html());
-                $("#exampleModal").modal("show");
-            });
-        });
-    </script>
-    <style>
-        #modaldata tbody tr>td:last-of-type {
-            display: none;
-        }
-    </style>
+    <!--FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>U.S. Giovanile Canzese</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
 
 <body>
-    <div class="limiter">
-        <div class="container-table100">
-            <div class="wrap-table100">
-                <div class="table100">
-                    <table id="example" class="table display shadow-lg" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th hidden=true>Salary</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                                <td><button class="btn btn-info">View</button></td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011/07/25</td>
-                                <td>$170,750</td>
-                                <td><button class="btn btn-info">View</button></td>
-                            </tr>
-                            <tr>
-                                <td>Ashton Cox</td>
-                                <td>Junior Technical Author</td>
-                                <td>San Francisco</td>
-                                <td>66</td>
-                                <td>2009/01/12</td>
-                                <td>$86,000</td>
-                                <td><button class="btn btn-info">View</button></td>
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-                                <td>Edinburgh</td>
-                                <td>22</td>
-                                <td>2012/03/29</td>
-                                <td>$433,060</td>
-                                <td><button class="btn btn-info">View</button></td>
-                            </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table id="modaldata" class="table table-striped table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
+</html><button type='button' class='btn btn-outline-secondary pull-right' style="margin-right:1%" data-bs-toggle='modal' data-bs-target='#addMister'>
+    Add Mister
+</button>
+
+<div class='modal fade' id='addMister' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='misterLabel' aria-hidden='true'>
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title pl-3' id='misterLabel'>Aggiungi Mister</h5>
+                <button type='button' class='close' aria-label='Close' data-bs-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
             </div>
+            <form action="creaMister.php" method="post">
+                <div class='modal-body'>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 border-right">
+                                <label>Nome</label>
+                                <input type="text" name="nome" class="form-control form-control-sm mb-2">
+                                <label>Cognome</label>
+                                <input type="text" name="cognome" class="form-control form-control-sm mb-2">
+                                <label>Codice Fiscale</label>
+                                <input type="text" name="cf" class="form-control form-control-sm mb-2">
+                                <label>Data di Nascita</label>
+                                <input type="date" data-date-format="mm/dd/yyyy" style="width:100%" class="form-control form-control-sm mb-2">
+                                <label>Luogo di Nascita</label>
+                                <input type="text" name="dataNascita" class="form-control form-control-sm">
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Indirizzo</label>
+                                <input type="text" name="indirizzo" class="form-control form-control-sm mb-2">
+                                <label>Citta</label>
+                                <input type="text" name="citta" class="form-control form-control-sm mb-2">
+                                <label>Provincia</label>
+                                <input type="text" name="provincia" class="form-control form-control-sm mb-2">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Mister" checked>
+                                            <label class="form-check-label" for="gridRadios1">
+                                                Mister
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Dirigente">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                Dirigente
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <label for="inlineFormCustomSelectPref">Categoria</label>
+                                        <select class="custom-select custom-select-sm" id="inlineFormCustomSelectPref">
+                                            <option selected>Choose...</option>
+                                            <option value="1">Prima Squadra</option>
+                                            <option value="2">Juniores</option>
+                                            <option value="3">Allievi</option>
+                                            <option value="4">Giovanissimi</option>
+                                            <option value="5">Esordienti</option>
+                                            <option value="6">Pulcini</option>
+                                            <option value="7">Piccoli Amici</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label for="exampleFormControlFile1">Foto</label>
+                                    <input type="file" class="form-control-file" id="foto">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='modal-footer'>
+                    <input type="submit" class="btn btn-primary" value="Salva" data-bs-dismiss='modal'>
+                </div>
+            </form>
         </div>
     </div>
+</div>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    var addMister = document.getElementById('addMister')
+    addMister.addEventListener('show.bs.modal', function(event) {
+        var button = event.relatedTarget
+    });
+</script>
 </body>
-
-</html>
