@@ -116,7 +116,7 @@ th {
 
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
   table {
     display: block;
   }
@@ -148,7 +148,7 @@ th {
 
   table tbody tr td:before {
     font-size: 14px;
-    color: #ffffff;
+    color: rgb(33, 164, 245);
     line-height: 1.2;
     font-weight: unset;
     position: absolute;

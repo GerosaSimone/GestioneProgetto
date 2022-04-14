@@ -13,9 +13,7 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-    <div class="page-header clearfix">
-        <h2 class="pull-left"> News </h2>
-    </div>
+
 </body>
 
 </html>
