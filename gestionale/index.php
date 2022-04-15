@@ -48,6 +48,9 @@ if (!isset($_SESSION['user_id'])) {
             $(function() {
                 $("#sidebar").load("menu.html");
             });
+            $(function() {
+                $("#pagina").load("pagine/AreaTesserati/dirigenza/dirigenza.php");
+            });
         </script>
 
 </html>

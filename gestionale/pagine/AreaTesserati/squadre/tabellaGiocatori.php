@@ -1,6 +1,6 @@
 <div class="page-header clearfix">
     <h4 class="pull-left" style="margin-left:30px; margin-top:20px"> Giocatori </h4>
-    <button type='button' class='btn btn-outline-secondary pull-right' style="margin-right:1%; margin-top:20px" data-bs-toggle='modal' data-bs-target='#addGiocatore'>
+    <button type='button' class='btn btn-outline-secondary pull-right' style="margin-right:1%; margin-top:20px" data-bs-toggle='modal' data-bs-target='#addGiocatore' <?php echo "data-bs-whatever='" . $_GET['squadra'] . "'" ?>>
         Add Giocatore
     </button>
 </div>
@@ -9,7 +9,6 @@
         <div class="wrap-table100">
             <div class="table100">
                 <?php
-                require_once '../config.php';
                 $sql = "SELECT * FROM categoria WHERE categoria.nome='" . $_GET['squadra'] . "'";
                 $idCategoria = 0;
                 $idVisita = 0;
@@ -21,19 +20,19 @@
                 }
                 $sql = "SELECT * FROM tesserato WHERE idCategoria='" . $idCategoria . "'and tipo='0'";
                 echo "<table class='display shadow-lg tabella' style='width:100%'><thead><tr>";
-                echo "      <th>Nome</th>";
+                echo "      <th class='pl-4'>Nome</th>";
                 echo "      <th>Cognome</th>";
-                echo "      <th class='column4' >Data Nascita</th>";
+                echo "      <th >Data Nascita</th>";
                 echo "      <th>Visita</th>";
-                echo "      <th class='column4'>Actions</th>";
+                echo "      <th class='column4' >Actions</th>";
                 echo "</tr></thead><tbody>";
                 if ($result = mysqli_query($link, $sql)) {
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_array($result)) {
                             echo "<tr>";
-                            echo "<td>" . $row['nome'] . "</td>";
+                            echo "<td class='pl-4'>" . $row['nome'] . "</td>";
                             echo "<td>" . $row['cognome'] . "</td>";
-                            echo "<td class='column4'>" . $row['dataNascita'] . "</td>";
+                            echo "<td>" . $row['dataNascita'] . "</td>";
                             $sql1 = "SELECT * FROM visita WHERE visita.id='" . $row['idVisita'] . "'";
                             if ($result2 = mysqli_query($link, $sql1)) {
                                 if (mysqli_num_rows($result2) > 0) {
@@ -73,7 +72,6 @@
                 }
                 echo "</tbody>";
                 echo "</table>";
-                mysqli_close($link);
                 ?>
             </div>
         </div>

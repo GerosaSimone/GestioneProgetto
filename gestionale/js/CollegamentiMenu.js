@@ -10,56 +10,56 @@ $(document).ready(function () {
     //AREA TESSERATI
     //GENERELE
     $(document).on('click', "#dirigenza", function () {
-        $.post("pagine/AreaTesserati/dirigenza.php", true, function (data, status) {
+        $.post("pagine/AreaTesserati/dirigenza/dirigenza.php", true, function (data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
     });
     $(document).on('click', "#giocatori", function () {
-        $.post("pagine/AreaTesserati/giocatori.php", true, function (data, status) {
+        $.post("pagine/AreaTesserati/giocatori/giocatori.php", true, function (data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
     });
     //SQUADRE
     $(document).on('click', "#prima", function () {
-        $.post("pagine/AreaTesserati/squadre.php?squadra=PrimaSquadra", true, function (data, status) {
+        $.post("pagine/AreaTesserati/squadre/squadre.php?squadra=PrimaSquadra", true, function (data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
     });
     $(document).on('click', "#juniores", function () {
-        $.post("pagine/AreaTesserati/squadre.php?squadra=Juniores", true, function (data, status) {
+        $.post("pagine/AreaTesserati/squadre/squadre.php?squadra=Juniores", true, function (data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
     });
     $(document).on('click', "#allievi", function () {
-        $.post("pagine/AreaTesserati/squadre.php?squadra=Allievi", true, function (data, status) {
+        $.post("pagine/AreaTesserati/squadre/squadre.php?squadra=Allievi", true, function (data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
     });
     $(document).on('click', "#giovanissimi", function () {
-        $.post("pagine/AreaTesserati/squadre.php?squadra=Giovanissimi", true, function (data, status) {
+        $.post("pagine/AreaTesserati/squadre/squadre.php?squadra=Giovanissimi", true, function (data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
     });
     $(document).on('click', "#esordienti", function () {
-        $.post("pagine/AreaTesserati/squadre.php?squadra=Esordienti", true, function (data, status) {
+        $.post("pagine/AreaTesserati/squadre/squadre.php?squadra=Esordienti", true, function (data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
     });
     $(document).on('click', "#pulcini", function () {
-        $.post("pagine/AreaTesserati/squadre.php?squadra=Pulcini", true, function (data, status) {
+        $.post("pagine/AreaTesserati/squadre/squadre.php?squadra=Pulcini", true, function (data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
     });
     $(document).on('click', "#piccoli", function () {
-        $.post("pagine/AreaTesserati/squadre.php?squadra=PiccoliAmici", true, function (data, status) {
+        $.post("pagine/AreaTesserati/squadre/squadre.php?squadra=PiccoliAmici", true, function (data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
