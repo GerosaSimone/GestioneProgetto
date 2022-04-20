@@ -84,7 +84,7 @@ if ($result = mysqli_query($link, $sql)) {
                     <hr>
                     <img src="img/divisa.webp" class="rounded float-left mr-2" alt="..." width="28%" height="28%">
                     <img src="img/divisa.webp" class="rounded float-left  mr-2" alt="..." width="28%" height="28%">
-                    <button type='button' class='btn btn-outline-secondary p-3 mb-3' data-bs-toggle='modal' data-bs-target='#divise'> Show <br>More...</button>
+                    <button type='button' class='btn btn-outline-secondary mb-3' style="padding:6.5%" data-bs-toggle='modal' data-bs-target='#divise'> Show <br>More...</button>
 
 
                 </div>
