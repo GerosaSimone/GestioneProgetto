@@ -43,7 +43,7 @@
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <input type="text" id="tempVisualizza">
+                <input type="text" id="tempVisualizza">                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
