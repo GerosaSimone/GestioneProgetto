@@ -253,14 +253,14 @@
                 <h5 class="modal-title" id="oggettiLabel">Modifica Materiale</h5>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="<?php $sql = "UPDATE categoria SET pettorine = '15' WHERE categoria.nome = '" . $_GET['squadra'] . "'";
-                            mysqli_query($link, $sql);
-                            ?>" method="GET">
+            <form action="pagine/AreaTesserati/squadre/modificaCategoriaMateriale.php" method="GET">
                 <div class="modal-body">
                     <label>Num Pettorine: </label>
                     <input type="text" name="pettorine" class="form-control form-control-sm mb-2" value="<?php echo $numPettorine ?>">
                     <label>Num Palloni:</label>
                     <input type="text" name="palloni" class="form-control form-control-sm mb-2" value="<?php echo $numPalloni ?>">
+                  
+                    <input type="text" name="squadra" hidden=true class="form-control form-control-sm mb-2" value="<?php echo $_GET['squadra']?>">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -82,9 +82,9 @@ if ($result = mysqli_query($link, $sql)) {
                 <div class="alert alert-secondary ml-3" role="alert">
                     <h4 class="alert-heading">Divise:</h4>
                     <hr>
-                    <img src="img/divisa.webp" class="rounded float-left mr-2" alt="..." width="100px" height="100px">
-                    <img src="img/divisa.webp" class="rounded float-left  mr-2" alt="..." width="100px" height="100px">
-                    <button type='button' class='btn btn-outline-secondary p-4 mb-3' data-bs-toggle='modal' data-bs-target='#divise'> Show <br>More...</button>
+                    <img src="img/divisa.webp" class="rounded float-left mr-2" alt="..." width="28%" height="28%">
+                    <img src="img/divisa.webp" class="rounded float-left  mr-2" alt="..." width="28%" height="28%">
+                    <button type='button' class='btn btn-outline-secondary p-3 mb-3' data-bs-toggle='modal' data-bs-target='#divise'> Show <br>More...</button>
 
 
                 </div>

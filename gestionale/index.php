@@ -30,7 +30,7 @@ if (!isset($_SESSION['user_id'])) {
             <button type="button" id="sidebarCollapse" class="btn btn-primary m-3">
                 <i class="fa fa-bars"></i>
             </button>
-            <a href="#" id="prima">shortcut Prima</a>
+           
             <div id="pagina">
             </div>
         </div>
