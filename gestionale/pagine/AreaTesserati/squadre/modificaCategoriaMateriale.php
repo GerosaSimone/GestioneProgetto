@@ -8,5 +8,5 @@ require_once '../config.php';
 
 $sql = "UPDATE categoria  SET pettorine=" . $_GET["pettorine"] . ", palloni=" . $_GET["palloni"] . " WHERE categoria.nome='" . $_GET['squadra'] . "'";
 mysqli_query($link, $sql);
-header("Location: ../../../index.php?squadra=".$_GET['squadra']);
-?>
+$_SESSION['ultimaPage']=$_GET['squadra'];
+header("Location: ../../../index.php");

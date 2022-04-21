@@ -278,9 +278,7 @@
                 <h5 class="modal-title" id="orariLabel">Modifica Allenamenti</h5>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="<?php $sql = "UPDATE categoria SET pettorine = '15' WHERE categoria.nome = '" . $_GET['squadra'] . "'";
-                            mysqli_query($link, $sql);
-                            ?>" method="GET">
+            <form action="" method="GET">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col">

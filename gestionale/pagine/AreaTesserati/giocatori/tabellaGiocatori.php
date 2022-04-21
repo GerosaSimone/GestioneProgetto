@@ -4,7 +4,7 @@
             <div class="table100">
                 <?php
                 require_once '../config.php';
-                $sql = "SELECT tesserato.id, tesserato.daPagare, tesserato.pagato, tesserato.nome, tesserato.cognome, tesserato.dataNascita, tesserato.ruolo, categoria.nome as prova, visita.tipo, visita.scadenza FROM `tesserato` 
+                $sql = "SELECT tesserato.id, tesserato.daPagare, tesserato.nome, tesserato.cognome, tesserato.dataNascita, categoria.nome as prova, visita.scadenza FROM `tesserato` 
                 INNER JOIN visita 
                 on idVisita=visita.id
                 INNER JOIN categoria 
@@ -13,13 +13,10 @@
                 echo "<table class='display shadow-lg tabellaGiocatori' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> Nome</th>";
                 echo "      <th> Cognome</th>";
-                echo "      <th> Data Nascita</th>";
-                echo "      <th> Ruolo </th>";
-                echo "      <th> Categoria </th>";
-                echo "      <th> Tipo visita </th>";
+                echo "      <th> Data Nascita</th>";               
+                echo "      <th> Categoria </th>";                
                 echo "      <th> Scadenza visita </th>";
-                echo "      <th> Da Pagare </th>";
-                echo "      <th> Pagato </th>";
+                echo "      <th> Da Pagare </th>";                
                 echo "      <th class='column4'> Actions</th>";
                 echo "</tr></thead><tbody>";
                 if ($result = mysqli_query($link, $sql)) {
@@ -28,27 +25,10 @@
                             echo "<tr>";
                             echo "<td class='pl-4'>" . $row['nome'] . "</td>";
                             echo "<td>" . $row['cognome'] . "</td>";
-                            echo "<td>" . $row['dataNascita'] . "</td>";
-                            if ($row['ruolo'] == "P")
-                                echo "<td>Portiere</td>";
-                            else if ($row['ruolo'] == "D")
-                                echo "<td>Difensore</td>";
-                            else if ($row['ruolo'] == "C")
-                                echo "<td>Centrocampista</td>";
-                            else if ($row['ruolo'] == "A")
-                                echo "<td>Attaccante</td>";
-                            else
-                                echo "<td> - </td>";
-                            echo "<td>" . $row['prova'] . "</td>";
-                            if ($row['ruolo'] == "1")
-                                echo "<td>Agonistica</td>";
-                            else if ($row['ruolo'] == "0")
-                                echo "<td>Normale</td>";
-                            else
-                                echo "<td>-</td>";
+                            echo "<td>" . $row['dataNascita'] . "</td>";                            
+                            echo "<td>" . $row['prova'] . "</td>"; 
                             echo "<td>" . $row['scadenza'] . "</td>";
-                            echo "<td>" . $row['daPagare'] . "</td>";
-                            echo "<td>" . $row['pagato'] . "</td>";
+                            echo "<td>" . $row['daPagare'] . "</td>";                            
                             echo "<td class='column4 pr-4'>
                                             <button type='button' class='btn btn-outline-primary' data-bs-toggle='modal' data-bs-target='#visualizza' data-bs-whatever='" . $row['id'] . "'>
                                                 <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-eye' viewBox='0 0 16 16'>
