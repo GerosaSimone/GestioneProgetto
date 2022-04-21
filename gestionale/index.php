@@ -3,7 +3,17 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
+if (isset($_GET['squadra'])) {
+    $sq = $_GET['squadra'];
+
+    echo "<script> var sq ='$sq';  
+    console.log(sq);    
+       </script>";
+} else {
+    $sq = "a";
+}
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -30,7 +40,7 @@ if (!isset($_SESSION['user_id'])) {
             <button type="button" id="sidebarCollapse" class="btn btn-primary m-3">
                 <i class="fa fa-bars"></i>
             </button>
-           
+
             <div id="pagina">
             </div>
         </div>
@@ -47,9 +57,13 @@ if (!isset($_SESSION['user_id'])) {
         <script>
             $(function() {
                 $("#sidebar").load("menu.html");
-            });
-            $(function() {
-                $("#pagina").load("pagine/AreaTesserati/dirigenza/dirigenza.php");
+
+                if (sq != "a") {
+                    $.post("pagine/AreaTesserati/squadre/squadre.php?squadra="+sq, true, function(data, status) {                       
+                        $("#pagina").html(data);
+                    });
+                    
+                }
             });
         </script>
 

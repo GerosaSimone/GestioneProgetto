@@ -253,7 +253,7 @@
                 <h5 class="modal-title" id="oggettiLabel">Modifica Materiale</h5>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="pagine/AreaTesserati/squadre/modificaCategoriaMateriale.php" method="GET" target="_blank">
+            <form action="pagine/AreaTesserati/squadre/modificaCategoriaMateriale.php" method="GET" >
                 <div class="modal-body">
                     <label>Num Pettorine: </label>
                     <input type="text" name="pettorine" class="form-control form-control-sm mb-2" value="<?php echo $numPettorine ?>">
