@@ -201,17 +201,25 @@ th {
 }
 
 .dot-red {
-  height: 15px;
-  width: 15px;
+  height: 0.7vw;
+  width: 0.7vw;
   background-color: red;
   border-radius: 50%;
   display: inline-block;
 }
 
-.dot-green {
-  height: 15px;
-  width: 15px;
+.dot-green {  
+  height: 0.7vw;
+  width: 0.7vw;
   background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-orange {
+  height: 0.7vw;
+  width: 0.7vw;
+  background-color: orange;
   border-radius: 50%;
   display: inline-block;
 }

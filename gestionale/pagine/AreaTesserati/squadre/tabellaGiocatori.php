@@ -1,6 +1,6 @@
 <div class="page-header clearfix">
-    <h4 class="pull-left" style="margin-left:2.5%; margin-top:20px"> Giocatori </h4>
-    <button type='button' class='btn btn-outline-secondary pull-right' style="margin-right:1%; margin-top:20px" data-bs-toggle='modal' data-bs-target='#addGiocatore' <?php echo "data-bs-whatever='" . $_GET['squadra'] . "'" ?>>
+    <h4 class="pull-left" style="margin-left:3.5%; margin-top:20px"> Giocatori </h4>
+    <button type='button' class='btn btn-outline-secondary pull-right' style="margin-right:2%; margin-top:20px" data-bs-toggle='modal' data-bs-target='#addGiocatore' <?php echo "data-bs-whatever='" . $_GET['squadra'] . "'" ?>>
         Add Giocatore
     </button>
 </div>
@@ -30,7 +30,13 @@
                             echo "<td class='pl-4'>" . $row['nome'] . "</td>";
                             echo "<td>" . $row['cognome'] . "</td>";
                             echo "<td>" . $row['dataNascita'] . "</td>";
-                            echo "<td>" . $row['scadenza'] . "</td>";
+                            if ($row['scadenza'] < date("Y-m-d")) {
+                                echo "<td><span class='dot-rosso'></span>" . $row['scadenza'] . "</td>";
+                            } else if (true) {
+                                echo "<td><span class='dot-orange'></span>" . $row['scadenza'] . "</td>";
+                            } else {
+                                echo "<td><span class='dot-verde'></span>" . $row['scadenza'] . "</td>";
+                            }
                             echo "<td>" . $row['daPagare'] . "</td>";
                             echo "<td class='column4 pr-4'>
                                             <button type='button' class='btn btn-outline-primary' data-bs-toggle='modal' data-bs-target='#visualizza' data-bs-whatever='" . $row['id'] . "'>
@@ -50,7 +56,7 @@
                                                     <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z' />
                                                 </svg>
                                             </button>
-                                            " . "</td>";
+                                        " . "</td>";
                         }
                         mysqli_free_result($result);
                     } else {

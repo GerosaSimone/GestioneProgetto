@@ -1,4 +1,4 @@
-<div class="limiter pt-3">
+<div class="limiter pt-3" style="margin-left:-1%">
     <div class="container-table100">
         <div class="wrap-table100">
             <div class="table100">
@@ -13,10 +13,10 @@
                 echo "<table class='display shadow-lg tabellaGiocatori' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> Nome</th>";
                 echo "      <th> Cognome</th>";
-                echo "      <th> Data Nascita</th>";               
-                echo "      <th> Categoria </th>";                
+                echo "      <th> Data Nascita</th>";
+                echo "      <th> Categoria </th>";
                 echo "      <th> Scadenza visita </th>";
-                echo "      <th> Da Pagare </th>";                
+                echo "      <th> Da Pagare </th>";
                 echo "      <th class='column4'> Actions</th>";
                 echo "</tr></thead><tbody>";
                 if ($result = mysqli_query($link, $sql)) {
@@ -25,10 +25,19 @@
                             echo "<tr>";
                             echo "<td class='pl-4'>" . $row['nome'] . "</td>";
                             echo "<td>" . $row['cognome'] . "</td>";
-                            echo "<td>" . $row['dataNascita'] . "</td>";                            
-                            echo "<td>" . $row['prova'] . "</td>"; 
-                            echo "<td>" . $row['scadenza'] . "</td>";
-                            echo "<td>" . $row['daPagare'] . "</td>";                            
+                            echo "<td>" . $row['dataNascita'] . "</td>";
+                            echo "<td>" . $row['prova'] . "</td>";
+                            $date1 = $row['scadenza'];
+                            $dataOggi = date("Y/m/d");
+                            $differenza = floor((strtotime($date1) - strtotime($dataOggi)) / 86400);
+                            if ($differenza > 30) {
+                                echo "<td><span class='dot-red mr-3 '></span>" . $differenza . $row['scadenza'] . "</td>";
+                            } else if ($differenza > 0) {
+                                echo "<td><span class='dot-orange mr-3 '></span>" . $row['scadenza'] . "</td>";
+                            } else {
+                                echo "<td><span class='dot-green mr-3 '></span>" . $row['scadenza'] . "</td>";
+                            }
+                            echo "<td>" . $row['daPagare'] . "</td>";
                             echo "<td class='column4 pr-4'>
                                             <button type='button' class='btn btn-outline-primary' data-bs-toggle='modal' data-bs-target='#visualizza' data-bs-whatever='" . $row['id'] . "'>
                                                 <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-eye' viewBox='0 0 16 16'>

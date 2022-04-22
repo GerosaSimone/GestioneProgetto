@@ -3,7 +3,6 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
-
 ?>
 
 
@@ -55,9 +54,11 @@ if (!isset($_SESSION['user_id'])) {
             else
                 $c = "home" ?>
             var a = "<?php echo $c; ?>";
-            if (a != "home")
+            if (a == "PrimaSquadra" || a == "Juniores" || a == "Allievi" || a == "Giovanissimi" || a == "Esordienti" || a == "Pulcini" || a == "PiccoliAmici")
                 $("#pagina").load("pagine/AreaTesserati/squadre/squadre.php?squadra=" + a);
-            else
+            else if (a == "giocatori") {
+                $("#pagina").load("pagine/AreaTesserati/giocatori/giocatori.php");
+            } else
                 $("#pagina").load("pagine/home.php");
         </script>
 

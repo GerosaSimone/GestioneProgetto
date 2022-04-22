@@ -1,7 +1,7 @@
 <div class="page-header clearfix">
     <strong>
-        <h4 class="pull-left" style="margin-left:2.5%; margin-top:1%"> Mister </h4>
-        <button type='button' class='btn btn-outline-secondary pull-right' style="margin-right:1%" data-bs-toggle='modal' data-bs-target='#addMister' <?php echo "data-bs-whatever='" . $squadra . "'" ?>>
+        <h4 class="pull-left" style="margin-left:3.5%; margin-top:1%"> Mister </h4>
+        <button type='button' class='btn btn-outline-secondary pull-right' style="margin-right:2%" data-bs-toggle='modal' data-bs-target='#addMister' <?php echo "data-bs-whatever='" . $squadra . "'" ?>>
             Add Mister
         </button>
     </strong>

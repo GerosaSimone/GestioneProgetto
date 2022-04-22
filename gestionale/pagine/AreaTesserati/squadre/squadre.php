@@ -36,7 +36,7 @@ if ($result = mysqli_query($link, $sql)) {
 <html>
 <div class="page-header clearfix">
     <strong>
-        <h2 class="pull-left" style="margin-left:2%"> <?php echo $squadra ?> </h2>
+        <h2 class="pull-left" style="margin-left:3.5%"> <?php echo $squadra ?> </h2>
     </strong>
 </div>
 

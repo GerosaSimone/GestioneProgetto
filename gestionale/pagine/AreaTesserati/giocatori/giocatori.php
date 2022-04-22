@@ -17,7 +17,7 @@ require_once '../config.php';
     <div class="page-header clearfix">
         <strong>
             <h2 class="pull-left pl-5"> Giocatori </h2>
-            <button type='button' class='btn btn-outline-secondary pull-right mr-3' data-bs-toggle='modal' data-bs-target='#addGiocatore'>
+            <button type='button' class='btn btn-outline-secondary pull-right' data-bs-toggle='modal' data-bs-target='#addGiocatore' style="margin-right:3%">
                 Add Giocatore
             </button>
         </strong>
