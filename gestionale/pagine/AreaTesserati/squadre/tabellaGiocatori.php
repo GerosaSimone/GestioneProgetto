@@ -14,7 +14,7 @@
                 on idVisita=visita.id
                 INNER JOIN categoria 
                 on idCategoria=categoria.id 
-                WHERE tesserato.tipo='0'";
+                WHERE tesserato.tipo='0' AND categoria.nome='" . $_GET['squadra'] . "'";
                 echo "<table class='display shadow-lg tabella' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> Nome</th>";
                 echo "      <th> Cognome</th>";
@@ -29,7 +29,7 @@
                             echo "<tr>";
                             echo "<td class='pl-4'>" . $row['nome'] . "</td>";
                             echo "<td>" . $row['cognome'] . "</td>";
-                            echo "<td>" . $row['dataNascita'] . "</td>";                            
+                            echo "<td>" . $row['dataNascita'] . "</td>";
                             echo "<td>" . $row['scadenza'] . "</td>";
                             echo "<td>" . $row['daPagare'] . "</td>";
                             echo "<td class='column4 pr-4'>

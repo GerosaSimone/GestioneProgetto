@@ -26,7 +26,22 @@
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;    
 }
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#fotoProfilo{
+    max-width:45%;
+    max-height:45%;
+}
+#fotoVisita{
+    max-width:40%;
+    max-height:40%;
+}
+input[type=file]{
+  padding-left:2%;
+}
 *,
 *::before,
 *::after {
