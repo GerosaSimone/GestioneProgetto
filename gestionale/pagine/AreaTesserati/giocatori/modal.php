@@ -115,11 +115,11 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <label>Da Pagare</label>
-                                            <input type='currency' value="123" placeholder='Type a number & click outside' class="form-control form-control-sm mb-2"/>
+                                            <input type='currency' value="0,00€" placeholder='Type a number & click outside' class="form-control form-control-sm mb-2" />
                                         </div>
                                         <div class="col-sm-6">
                                             <label>Pagato</label>
-                                            <input type='currency' value="123" placeholder='Type a number & click outside' class="form-control form-control-sm mb-2"/>
+                                            <input type='currency' value="0,00€" placeholder='Type a number & click outside' class="form-control form-control-sm mb-2" />
                                         </div>
                                     </div>
                                 </div>
@@ -297,17 +297,15 @@
         element.appendChild(tag);
     }
 
-    var currencyInput = document.querySelector('input[type="currency"]')
+
+    //valuta euro
+    var currencyInput = document.querySelectorAll('input[type="currency"]')
     var currency = 'EUR' // https://www.currency-iso.org/dam/downloads/lists/list_one.xml
 
-    // format inital value
-    onBlur({
-        target: currencyInput
-    })
-
-    // bind event listeners
-    currencyInput.addEventListener('focus', onFocus)
-    currencyInput.addEventListener('blur', onBlur)
+    currencyInput.forEach(function(userItem) {
+        userItem.addEventListener('focus', onFocus)
+        userItem.addEventListener('blur', onBlur)
+    });
 
 
     function localStringToNumber(s) {
