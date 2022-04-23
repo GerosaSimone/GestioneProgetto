@@ -296,6 +296,7 @@
                     .attr('src', e.target.result);
             };
             reader.readAsDataURL(input.files[0]);
+            //blob input.files[0]
         }
     }
 
