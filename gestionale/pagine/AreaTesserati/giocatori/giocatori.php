@@ -39,22 +39,54 @@ require_once '../config.php';
             var visualizza = document.getElementById('visualizza')
             visualizza.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
-                var recipient = button.getAttribute('data-bs-whatever')
-                document.getElementById("tempVisualizza").value = recipient;
+                var id = button.getAttribute('data-bs-whatever')
+                alert("ciao");
+                loadVisualizza(id);
+
             });
-            var modificaGiocatore = document.getElementById('editGiocatore')
+            var modificaGiocatore = document.getElementById('modifica')
             modificaGiocatore.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var recipient = button.getAttribute('data-bs-whatever')
-                document.getElementById("textEditGiocatore").value = recipient;
+                document.getElementById("idModifica").value = recipient;
             });
             var elimina = document.getElementById('elimina')
             elimina.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var recipient = button.getAttribute('data-bs-whatever')
-                document.getElementById("tempElimina").value = recipient;
+                document.getElementById("idElimina").value = recipient;
             });
         });
+
+        function loadModifica() {
+
+        }
+
+        function createCookie(name, value) {
+            var expires;
+            var date = new Date();
+            date.setTime(date.getTime() + (10000));
+            expires = "; expires=" + date.toGMTString();
+            document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
+        }
+
+        function loadVisualizza(id) {
+            alert("ciao");
+            createCookie("id", id);           
+
+            alert("ciao");  
+            <?php echo "ciao";?>
+            <?php echo $_COOKIE['id'];?>
+            $("#nomeVisualizza").val(<?php echo $_COOKIE['id'];?>);
+            $("#cognomeVisualizza").val("ciao");
+            $("#cfVisualizza").val("ciao");
+            $("#dataNascitaVisualizza").val("ciao");
+            $("#luogoNascitaVisualizza").val("ciao");
+
+
+
+
+        }
     </script>
 </body>
 
