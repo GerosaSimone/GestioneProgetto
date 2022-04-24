@@ -345,13 +345,13 @@
                             <label>Nome</label>
                             <input type="text" name="nomeVisualizza" id="nomeVisualizza" class="form-control form-control-sm mb-2" readonly="readonly">
                             <label>Cognome</label>
-                            <input type="text" name="cognomeVisualizza" class="form-control form-control-sm mb-2" readonly="readonly">
+                            <input type="text" name="cognomeVisualizza" id="cognomeVisualizza" class="form-control form-control-sm mb-2" readonly="readonly">
                             <label>Codice Fiscale</label>
-                            <input type="text" name="cfVisualizza" class="form-control form-control-sm mb-2" readonly="readonly">
+                            <input type="text" name="cfVisualizza" id="cfVisualizza" class="form-control form-control-sm mb-2" readonly="readonly">
                             <label>Data di Nascita</label>
-                            <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="dataNascitaVisualizza" readonly="readonly">
+                            <input type="text"  id="dataNascitaVisualizza" style="width:100%" class="form-control form-control-sm mb-2" name="dataNascitaVisualizza" readonly="readonly">
                             <label>Luogo di Nascita</label>
-                            <input type="text" name="luogoNascitaVisualizza" class="form-control form-control-sm" readonly="readonly">
+                            <input type="text" name="luogoNascitaVisualizza" id="luogoNascitaVisualizza" class="form-control form-control-sm" readonly="readonly">
                         </div>
                         <div class="col-sm-4 border-right">
                             <h4 style="color:dark">VISITA</h4>

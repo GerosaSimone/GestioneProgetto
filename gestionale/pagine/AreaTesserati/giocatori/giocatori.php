@@ -40,9 +40,9 @@ require_once '../config.php';
             visualizza.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
-                alert("ciao");
-                loadVisualizza(id);
+                
 
+                loadVisualizza();
             });
             var modificaGiocatore = document.getElementById('modifica')
             modificaGiocatore.addEventListener('show.bs.modal', function(event) {
@@ -62,26 +62,28 @@ require_once '../config.php';
 
         }
 
-        function createCookie(name, value) {
-            var expires;
-            var date = new Date();
-            date.setTime(date.getTime() + (10000));
-            expires = "; expires=" + date.toGMTString();
-            document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
-        }
+        function loadVisualizza() {
 
-        function loadVisualizza(id) {
             alert("ciao");
-            createCookie("id", id);           
+            <?php
+            $myphpvariable = $_POST['param1'];
+            $nome = $myphpvariable;
+            $cognome = "cognome";
+            $cf = "cf";
+            $dataNascita = "10/12/2003";
+            $luogoNascita = "luogoNascita";
 
-            alert("ciao");  
-            <?php echo "ciao";?>
-            <?php echo $_COOKIE['id'];?>
-            $("#nomeVisualizza").val(<?php echo $_COOKIE['id'];?>);
-            $("#cognomeVisualizza").val("ciao");
-            $("#cfVisualizza").val("ciao");
-            $("#dataNascitaVisualizza").val("ciao");
-            $("#luogoNascitaVisualizza").val("ciao");
+            echo "var nome = '$nome';";
+            echo "var cognome = '$cognome';";
+            echo "var cf = '$cf';";
+            echo "var dataNascita = '$dataNascita';";
+            echo "var luogoNascita = '$luogoNascita';"; ?>;
+
+            $("#nomeVisualizza").val(nome);
+            $("#cognomeVisualizza").val(cognome);
+            $("#cfVisualizza").val(cf);
+            $("#dataNascitaVisualizza").val(dataNascita);
+            $("#luogoNascitaVisualizza").val(luogoNascita);
 
 
 
