@@ -31,11 +31,7 @@
                             $dataOggi = date("Y/m/d");
                             $differenza = floor((strtotime($date1) - strtotime($dataOggi)) / 86400);
                             if ($differenza > 30) {
-<<<<<<< Updated upstream
-                                echo "<td><span class='dot-green mr-3 '></span>" . $row['scadenza'] . "</td>";
-=======
                                 echo "<td><span class='dot-green mr-3 '></span>"  . $row['scadenza'] . "</td>";
->>>>>>> Stashed changes
                             } else if ($differenza > 0) {
                                 echo "<td><span class='dot-orange mr-3 '></span>" . $row['scadenza'] . "</td>";
                             } else {
