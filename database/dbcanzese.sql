@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 23, 2022 alle 11:33
--- Versione del server: 10.4.6-MariaDB
--- Versione PHP: 7.3.8
+-- Creato il: Apr 24, 2022 alle 14:48
+-- Versione del server: 10.4.22-MariaDB
+-- Versione PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -161,7 +160,7 @@ CREATE TABLE `prodotto` (
 CREATE TABLE `telefono` (
   `id` int(11) NOT NULL,
   `nome` varchar(32) NOT NULL,
-  `Telefono` int(10) NOT NULL,
+  `telefono` double NOT NULL,
   `idTesserato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
@@ -195,12 +194,9 @@ CREATE TABLE `tesserato` (
 --
 
 INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `provincia`, `citta`, `linkFoto`, `daPagare`, `pagato`, `idCategoria`) VALUES
-(8, 'LCTNDR03P170416G', 'andrea', 'locatelli', '2003-09-17', 'erba', 0, 'C', 5, 'via leopardi 3 a', 'como', 'canzo', 0x000000660000006f000000740000006f00000070000000720000006f00000066000000690000006c0000006f0000002e0000006a0000007000000067, 50, 30, 2),
 (9, ' GRSMTT06S13D416', 'matteo', 'gerosa', '2006-11-13', 'erba', 0, 'D', 6, 'via  verza 4 b', 'como', 'canzo', 0x000000660000006f000000740000006f00000070000000720000006f00000066000000690000006c0000006f0000002e0000006a0000007000000067, 20, 100, 4),
-(10, 'PZZNDR00E07D416N', 'andrea', 'pozzi', '2000-07-21', 'erba', 0, 'C', 7, 'via piazza della chiesa', 'como', 'asso', 0x000000660000006f000000740000006f00000070000000720000006f00000066000000690000006c0000006f0000002e0000006a0000007000000067, 0, 0, 1),
 (11, 'LRNRCR03B14D416S', 'lorenzo', 'roncareggi', '2003-02-14', 'erba', 0, 'D', 8, 'via  della grigna ', 'como', 'valbrona', '', 100, 20, 2),
 (12, 'MRCSPT05L07D416F', 'marco', 'sanpietro', '2005-10-14', 'erba', 0, 'A', 9, 'via  mornerino 5 a', 'CO', 'pusiano', 0x000000660000006f000000740000006f00000070000000720000006f00000066000000690000006c0000006f0000002e0000006a0000007000000067, 0, 150, 3),
-(13, 'SLVLSN15H17D416H', 'alessandro', 'silva', '2015-06-10', 'erba', 0, 'P', 10, 'via  brusa 5 b', 'CO', 'canzo', '', 80, 50, 7),
 (14, 'FCRPLA03D29D416A', 'paolo', 'ficara', '2003-04-29', 'erba', 0, 'D', 11, 'via per caslino 45 b', 'CO', 'scarenna', 0x000000660000006f000000740000006f00000070000000720000006f00000066000000690000006c0000006f0000002e0000006a0000007000000067, 30, 30, 2),
 (15, 'RSPFPP12T20D416V', 'filippo', 'ruspi', '2012-12-22', 'erba', 0, 'P', 12, 'via chiesa  5 a ', 'CO', 'erba', 0x000000660000006f000000740000006f00000070000000720000006f00000066000000690000006c0000006f0000002e0000006a0000007000000067, 200, 50, 6),
 (16, 'GRSLSS10M13D416J', 'tommaso', 'gerosa', '2010-10-22', 'lecco', 0, 'C', 13, 'via  della grigna ', 'CO', 'canzo', '', 20, 10, 5);
@@ -234,7 +230,7 @@ CREATE TABLE `utenti` (
 
 INSERT INTO `utenti` (`id`, `user`, `password`) VALUES
 (1, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99'),
-(3, ' ', '');
+(3, ' ', '7215ee9c7d9dc229d2921a40e899ec5f');
 
 -- --------------------------------------------------------
 
@@ -262,7 +258,22 @@ INSERT INTO `visita` (`id`, `tipo`, `scadenza`, `foto`) VALUES
 (10, 0, '2022-05-05', ''),
 (11, 1, '2022-06-16', ''),
 (12, 0, '2022-04-30', ''),
-(13, 0, '2022-08-10', '');
+(13, 0, '2022-08-10', ''),
+(14, 1, '2022-07-01', 0x57686174736170702e73656e7a612e696d6d6167696e652e323031392e31343030783834302e6a7067),
+(15, 1, '2022-07-01', 0x57686174736170702e73656e7a612e696d6d6167696e652e323031392e31343030783834302e6a7067),
+(16, 1, '2022-05-01', 0x57686174736170702e73656e7a612e696d6d6167696e652e323031392e31343030783834302e6a7067),
+(17, 1, '2022-05-01', 0x57686174736170702e73656e7a612e696d6d6167696e652e323031392e31343030783834302e6a7067),
+(19, 0, '0000-00-00', ''),
+(20, 0, '0000-00-00', ''),
+(21, 0, '2022-04-07', ''),
+(22, 0, '2022-04-13', ''),
+(23, 0, '2022-04-13', ''),
+(24, 0, '2022-04-13', ''),
+(25, 0, '2022-04-13', ''),
+(26, 0, '2022-04-13', ''),
+(27, 1, '0000-00-00', ''),
+(28, 0, '0000-00-00', ''),
+(29, 1, '0000-00-00', '');
 
 --
 -- Indici per le tabelle scaricate
@@ -335,7 +346,7 @@ ALTER TABLE `prodotto`
 --
 ALTER TABLE `telefono`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `Telefono` (`Telefono`),
+  ADD UNIQUE KEY `Telefono` (`telefono`),
   ADD KEY `idtesse` (`idTesserato`);
 
 --
@@ -409,7 +420,7 @@ ALTER TABLE `maglia`
 -- AUTO_INCREMENT per la tabella `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
@@ -421,13 +432,13 @@ ALTER TABLE `prodotto`
 -- AUTO_INCREMENT per la tabella `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`
@@ -439,7 +450,7 @@ ALTER TABLE `utenti`
 -- AUTO_INCREMENT per la tabella `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Limiti per le tabelle scaricate
