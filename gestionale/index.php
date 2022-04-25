@@ -5,7 +5,6 @@ if (!isset($_SESSION['user_id'])) {
 }
 ?>
 
-
 <!doctype html>
 <html lang="en">
 
@@ -26,16 +25,13 @@ if (!isset($_SESSION['user_id'])) {
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
         </nav>
-
         <div id="content">
             <button type="button" id="sidebarCollapse" class="btn btn-primary m-3">
                 <i class="fa fa-bars"></i>
             </button>
-
             <div id="pagina">
             </div>
         </div>
-
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
@@ -61,10 +57,7 @@ if (!isset($_SESSION['user_id'])) {
             } else
                 $("#pagina").load("pagine/home.php");
         </script>
-
-</html>
-</script>
-</div>
+    </div>
 </body>
 
 </html>
