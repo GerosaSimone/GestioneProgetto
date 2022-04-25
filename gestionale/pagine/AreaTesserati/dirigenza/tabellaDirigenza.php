@@ -2,8 +2,7 @@
     <div class="container-table100">
         <div class="wrap-table100">
             <div class="table100">
-                <?php
-                require_once '../config.php';
+                <?php                
                 $sql = "SELECT * FROM tesserato WHERE tipo='1'";
                 echo "<table class='display shadow-lg tabellaDirigenza' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> Nome</th>";

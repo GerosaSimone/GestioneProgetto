@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
-require_once '../config.php';
+require_once '../../../config.php';
 $squadra = "";
 if ($_GET['squadra'] == "PrimaSquadra")
     $squadra = "Prima Squadra";

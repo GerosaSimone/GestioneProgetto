@@ -24,6 +24,7 @@ if (!isset($_SESSION['user_id'])) {
 <body>
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
+            <?php include 'pagine/home.php'; ?>
         </nav>
         <div id="content">
             <button type="button" id="sidebarCollapse" class="btn btn-primary m-3">

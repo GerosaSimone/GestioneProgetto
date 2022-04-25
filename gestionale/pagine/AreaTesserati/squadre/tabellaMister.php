@@ -11,7 +11,6 @@
         <div class="wrap-table100">
             <div class="table100">
                 <?php
-                require_once '../config.php';
                 $sql = "SELECT * FROM categoria WHERE categoria.nome='" . $_GET['squadra'] . "'";
                 $idCategoria = 0;
                 $idVisita = 0;

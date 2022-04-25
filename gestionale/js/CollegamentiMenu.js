@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //HOME
     $(document).on('click', "#home", function () {
-        $.post("pagine/home.php", true, function (data, status) {
+        $.post("pagine/home.php", true, function (data, status) {            
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);

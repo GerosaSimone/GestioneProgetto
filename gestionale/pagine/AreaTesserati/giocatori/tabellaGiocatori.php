@@ -2,8 +2,7 @@
     <div class="container-table100">
         <div class="wrap-table100">
             <div class="table100">
-                <?php
-                require_once '../config.php';
+                <?php                
                 $sql = "SELECT tesserato.id, tesserato.daPagare, tesserato.nome, tesserato.cognome, tesserato.dataNascita, categoria.nome as prova, visita.scadenza FROM `tesserato` 
                 INNER JOIN visita 
                 on idVisita=visita.id
