@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 24, 2022 alle 14:48
+-- Creato il: Apr 26, 2022 alle 23:00
 -- Versione del server: 10.4.22-MariaDB
 -- Versione PHP: 8.1.2
 
@@ -68,11 +68,19 @@ CREATE TABLE `acquistimateriale` (
 
 CREATE TABLE `allenamento` (
   `id` int(11) NOT NULL,
-  `OraInzio` time NOT NULL,
-  `OraFine` time NOT NULL,
-  `Giorno` varchar(32) NOT NULL,
+  `oraInizio` varchar(5) NOT NULL,
+  `oraFine` varchar(5) NOT NULL,
+  `giorno` varchar(32) NOT NULL,
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `allenamento`
+--
+
+INSERT INTO `allenamento` (`id`, `oraInizio`, `oraFine`, `giorno`, `idCategoria`) VALUES
+(3, '18:30', '20:00', 'Giovedi', 1),
+(4, '18:30', '20:00', 'Lunedi', 1);
 
 -- --------------------------------------------------------
 
@@ -93,7 +101,7 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`id`, `nome`, `palloni`, `pettorine`, `linkFotoSquadra`) VALUES
-(1, 'PrimaSquadra', 0, 0, ''),
+(1, 'PrimaSquadra', 0, 2, ''),
 (2, 'Juniores', 0, 0, ''),
 (3, 'Allievi', 0, 0, ''),
 (4, 'Giovanissimi', 0, 0, ''),
@@ -138,6 +146,15 @@ CREATE TABLE `mail` (
   `idTesserato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dump dei dati per la tabella `mail`
+--
+
+INSERT INTO `mail` (`id`, `nome`, `mail`, `idTesserato`) VALUES
+(28, '', '', 51),
+(29, '', '', 52),
+(30, '', '', 52);
+
 -- --------------------------------------------------------
 
 --
@@ -160,9 +177,18 @@ CREATE TABLE `prodotto` (
 CREATE TABLE `telefono` (
   `id` int(11) NOT NULL,
   `nome` varchar(32) NOT NULL,
-  `telefono` double NOT NULL,
+  `telefono` varchar(32) NOT NULL,
   `idTesserato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `telefono`
+--
+
+INSERT INTO `telefono` (`id`, `nome`, `telefono`, `idTesserato`) VALUES
+(46, '', '', 51),
+(47, '', '', 52),
+(48, '', '', 52);
 
 -- --------------------------------------------------------
 
@@ -184,8 +210,8 @@ CREATE TABLE `tesserato` (
   `provincia` varchar(32) NOT NULL,
   `citta` varchar(32) NOT NULL,
   `linkFoto` blob DEFAULT NULL,
-  `daPagare` int(11) NOT NULL DEFAULT 0,
-  `pagato` int(11) NOT NULL DEFAULT 0,
+  `daPagare` int(10) NOT NULL DEFAULT 0,
+  `pagato` int(10) NOT NULL DEFAULT 0,
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
@@ -194,12 +220,9 @@ CREATE TABLE `tesserato` (
 --
 
 INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `provincia`, `citta`, `linkFoto`, `daPagare`, `pagato`, `idCategoria`) VALUES
-(9, ' GRSMTT06S13D416', 'matteo', 'gerosa', '2006-11-13', 'erba', 0, 'D', 6, 'via  verza 4 b', 'como', 'canzo', 0x000000660000006f000000740000006f00000070000000720000006f00000066000000690000006c0000006f0000002e0000006a0000007000000067, 20, 100, 4),
-(11, 'LRNRCR03B14D416S', 'lorenzo', 'roncareggi', '2003-02-14', 'erba', 0, 'D', 8, 'via  della grigna ', 'como', 'valbrona', '', 100, 20, 2),
-(12, 'MRCSPT05L07D416F', 'marco', 'sanpietro', '2005-10-14', 'erba', 0, 'A', 9, 'via  mornerino 5 a', 'CO', 'pusiano', 0x000000660000006f000000740000006f00000070000000720000006f00000066000000690000006c0000006f0000002e0000006a0000007000000067, 0, 150, 3),
-(14, 'FCRPLA03D29D416A', 'paolo', 'ficara', '2003-04-29', 'erba', 0, 'D', 11, 'via per caslino 45 b', 'CO', 'scarenna', 0x000000660000006f000000740000006f00000070000000720000006f00000066000000690000006c0000006f0000002e0000006a0000007000000067, 30, 30, 2),
-(15, 'RSPFPP12T20D416V', 'filippo', 'ruspi', '2012-12-22', 'erba', 0, 'P', 12, 'via chiesa  5 a ', 'CO', 'erba', 0x000000660000006f000000740000006f00000070000000720000006f00000066000000690000006c0000006f0000002e0000006a0000007000000067, 200, 50, 6),
-(16, 'GRSLSS10M13D416J', 'tommaso', 'gerosa', '2010-10-22', 'lecco', 0, 'C', 13, 'via  della grigna ', 'CO', 'canzo', '', 20, 10, 5);
+(51, 'asdasd', 'asdasd', 'asdasd', '2022-04-06', 'asdasd', 0, 'C', NULL, 'asdasd', 'asdasd', 'asdasd', '', 0, 0, 2),
+(52, 'fbdfbdfb', 'dfb', 'bdfb', '2022-04-08', 'dfbbdfdfb', 0, 'C', NULL, 'dfbbdfdfb', 'dfbdfbafasd', 'dfbdfb', '', 0, 0, 5),
+(53, 'fbdfbdfb', 'dfb', 'bdfb', '2022-04-08', 'dfbbdfdfb', 0, 'C', NULL, 'dfbbdfdfb', 'dfbdfbafasd', 'dfbdfb', 0x666f746f2d70726f66696c6f2d636f6e7369676c692d343230783235322e6a7067, 0, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -229,8 +252,9 @@ CREATE TABLE `utenti` (
 --
 
 INSERT INTO `utenti` (`id`, `user`, `password`) VALUES
-(1, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99'),
-(3, ' ', '7215ee9c7d9dc229d2921a40e899ec5f');
+(4, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99'),
+(5, ' ', '7215ee9c7d9dc229d2921a40e899ec5f'),
+(6, 'admin', 'dc49612c78681cc0903a40f49083447f');
 
 -- --------------------------------------------------------
 
@@ -244,36 +268,6 @@ CREATE TABLE `visita` (
   `scadenza` date NOT NULL,
   `foto` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Dump dei dati per la tabella `visita`
---
-
-INSERT INTO `visita` (`id`, `tipo`, `scadenza`, `foto`) VALUES
-(5, 1, '2022-09-10', ''),
-(6, 1, '2022-10-13', ''),
-(7, 1, '2022-11-16', ''),
-(8, 1, '2022-12-08', ''),
-(9, 1, '2022-04-14', ''),
-(10, 0, '2022-05-05', ''),
-(11, 1, '2022-06-16', ''),
-(12, 0, '2022-04-30', ''),
-(13, 0, '2022-08-10', ''),
-(14, 1, '2022-07-01', 0x57686174736170702e73656e7a612e696d6d6167696e652e323031392e31343030783834302e6a7067),
-(15, 1, '2022-07-01', 0x57686174736170702e73656e7a612e696d6d6167696e652e323031392e31343030783834302e6a7067),
-(16, 1, '2022-05-01', 0x57686174736170702e73656e7a612e696d6d6167696e652e323031392e31343030783834302e6a7067),
-(17, 1, '2022-05-01', 0x57686174736170702e73656e7a612e696d6d6167696e652e323031392e31343030783834302e6a7067),
-(19, 0, '0000-00-00', ''),
-(20, 0, '0000-00-00', ''),
-(21, 0, '2022-04-07', ''),
-(22, 0, '2022-04-13', ''),
-(23, 0, '2022-04-13', ''),
-(24, 0, '2022-04-13', ''),
-(25, 0, '2022-04-13', ''),
-(26, 0, '2022-04-13', ''),
-(27, 1, '0000-00-00', ''),
-(28, 0, '0000-00-00', ''),
-(29, 1, '0000-00-00', '');
 
 --
 -- Indici per le tabelle scaricate
@@ -304,7 +298,7 @@ ALTER TABLE `acquistimateriale`
 -- Indici per le tabelle `allenamento`
 --
 ALTER TABLE `allenamento`
-  ADD PRIMARY KEY (`id`,`Giorno`,`idCategoria`),
+  ADD PRIMARY KEY (`id`,`giorno`,`idCategoria`),
   ADD KEY `idcategoria` (`idCategoria`);
 
 --
@@ -332,7 +326,6 @@ ALTER TABLE `maglia`
 --
 ALTER TABLE `mail`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `mail` (`mail`),
   ADD KEY `idtesserato` (`idTesserato`);
 
 --
@@ -346,7 +339,6 @@ ALTER TABLE `prodotto`
 --
 ALTER TABLE `telefono`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `Telefono` (`telefono`),
   ADD KEY `idtesse` (`idTesserato`);
 
 --
@@ -396,7 +388,7 @@ ALTER TABLE `acquistimagazzino`
 -- AUTO_INCREMENT per la tabella `allenamento`
 --
 ALTER TABLE `allenamento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `categoria`
@@ -420,7 +412,7 @@ ALTER TABLE `maglia`
 -- AUTO_INCREMENT per la tabella `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
@@ -432,25 +424,25 @@ ALTER TABLE `prodotto`
 -- AUTO_INCREMENT per la tabella `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Limiti per le tabelle scaricate
