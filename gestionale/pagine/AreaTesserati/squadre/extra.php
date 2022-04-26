@@ -9,17 +9,29 @@ if ($result = mysqli_query($link, $sql)) {
         $numPalloni = $row['palloni'];
     }
 }
-$giorni = "";
-$orariInizio = "";
-$orariFine = "";
+$giorni = array("", "");
+$orariInizio = array("", "");
+$orariFine = array("", "");
+
 $sql = "SELECT oraInizio ,oraFine ,giorno FROM allenamento INNER JOIN categoria on allenamento.idCategoria=categoria.id WHERE categoria.nome='" . $_GET['squadra'] . "'";
 if ($result = mysqli_query($link, $sql)) {
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_array($result)) {
-            $giorni .= $row['giorno'] . ";";
-            $orariInizio .= $row['oraInizio'] . ";";
-            $orariFine .= $row['oraFine'] . ";";
-        }
+    if (mysqli_num_rows($result) == 2) {
+       
+        $row = mysqli_fetch_array($result);
+        $giorni[0] = $row['giorno'];
+        $orariInizio[0] = $row['oraInizio'];
+        $orariFine[0] = $row['oraFine'];
+
+        $row = mysqli_fetch_array($result);
+        $giorni[1] = $row['giorno'];
+        $orariInizio[1] = $row['oraInizio'];
+        $orariFine[1] = $row['oraFine'];
+    } else if (mysqli_num_rows($result) == 1) {
+        
+        $row = mysqli_fetch_array($result);
+        $giorni[0] = $row['giorno'];
+        $orariInizio[0] = $row['oraInizio'];
+        $orariFine[0] = $row['oraFine'];
     }
 }
 
@@ -46,8 +58,15 @@ if ($result = mysqli_query($link, $sql)) {
     </h4>
     <hr>
     <?php
-    for ($i = 0; $i < substr_count($giorni, ";"); $i++) {
-        echo "<p>" . explode(';', $giorni)[$i] . " " . explode(';', $orariInizio)[$i] . " | " . explode(';', $orariFine)[$i] . "</p>";
+    if ($giorni[0]!="") {
+        echo "<p>" . $giorni[0] . " " . $orariInizio[0] . " | " . $orariFine[0] . "</p>";        
+    } 
+    if ($giorni[1]!="") {
+        echo "<p>" . $giorni[1] . " " . $orariInizio[1] . " | " . $orariFine[1] . "</p>";
+    } 
+
+    if ($giorni[1]==""&&$giorni[0]=="") {
+        echo "<p> Nessun Allenamento Salvato </p>";
     }
     ?>
     <p style="margin-bottom:-5%"></p>

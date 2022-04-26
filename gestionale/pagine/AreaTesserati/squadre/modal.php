@@ -253,14 +253,14 @@
                 <h5 class="modal-title" id="oggettiLabel">Modifica Materiale</h5>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="pagine/AreaTesserati/squadre/modificaCategoriaMateriale.php" method="GET" >
+            <form action="pagine/AreaTesserati/squadre/modificaCategoriaMateriale.php" method="GET">
                 <div class="modal-body">
                     <label>Num Pettorine: </label>
                     <input type="text" name="pettorine" class="form-control form-control-sm mb-2" value="<?php echo $numPettorine ?>">
                     <label>Num Palloni:</label>
                     <input type="text" name="palloni" class="form-control form-control-sm mb-2" value="<?php echo $numPalloni ?>">
-                  
-                    <input type="text" name="squadra" hidden=true class="form-control form-control-sm mb-2" value="<?php echo $_GET['squadra']?>">
+
+                    <input type="text" name="squadra" hidden=true class="form-control form-control-sm mb-2" value="<?php echo $_GET['squadra'] ?>">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -278,21 +278,46 @@
                 <h5 class="modal-title" id="orariLabel">Modifica Allenamenti</h5>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="" method="GET">
+            <form action="pagine/AreaTesserati/squadre/modificaCategoriaOrari.php" method="GET">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col">
-                            <label>Giorno: </label>
-                            <input type="text" name="g1" class="form-control form-control-sm mb-2" value="Lunedi: ">
-                            <input type="text" name="g2" class="form-control form-control-sm mb-2" value="Mercoledi: ">
-                            <input type="text" name="g3" class="form-control form-control-sm mb-2" value="Venerdi: ">
+                            <label>Giorno:</label>
+                            <select class="custom-select custom-select-sm form-control form-control-sm mb-2" name="giorno1">
+                                <option selected><?php echo $giorni[0] ?></option>
+                                <option value="Lunedi">Lunedi</option>
+                                <option value="Martedi">Martedi</option>
+                                <option value="Mercoledi">Mercoledi</option>
+                                <option value="Giovedi">Giovedi</option>
+                                <option value="Venerdi">Venerdi</option>
+                                <option value="Sabato">Sabato</option>
+                                <option value="Domenica">Domenica</option>
+                            </select>
+                            <select class="custom-select custom-select-sm form-control form-control-sm mb-2" name="giorno2">
+                                <option selected><?php echo $giorni[1] ?></option>
+                                <option value="Lunedi">Lunedi</option>
+                                <option value="Martedi">Martedi</option>
+                                <option value="Mercoledi">Mercoledi</option>
+                                <option value="Giovedi">Giovedi</option>
+                                <option value="Venerdi">Venerdi</option>
+                                <option value="Sabato">Sabato</option>
+                                <option value="Domenica">Domenica</option>
+                            </select>
+                            
                         </div>
                         <div class="col">
-                            <label>Orario:</label>
-                            <input type="text" name="ora1" class="form-control form-control-sm mb-2" value="20.30/22.00">
-                            <input type="text" name="ora2" class="form-control form-control-sm mb-2" value="10.30/12.00">
-                            <input type="text" name="ora3" class="form-control form-control-sm mb-2" value="20.30/22.00">
+                            <label>Ora Inizio:</label>
+                            <input type="text" name="oraInizio1" value="<?php echo $orariInizio[0] ?>" class="form-control form-control-sm mb-2">
+                            <input type="text" name="oraInizio2" value="<?php echo $orariInizio[1] ?>" class="form-control form-control-sm mb-2">
+
                         </div>
+                        <div class="col">
+                            <label>Ora Fine:</label>
+                            <input type="text" name="oraFine1" value="<?php echo $orariFine[0] ?>" class="form-control form-control-sm mb-2">
+                            <input type="text" name="oraFine2" value="<?php echo $orariFine[1] ?>" class="form-control form-control-sm mb-2">
+
+                        </div>
+                        <input type="text" name="squadra" hidden=true class="form-control form-control-sm mb-2" value="<?php echo $_GET['squadra'] ?>">
                     </div>
                 </div>
                 <div class="modal-footer">
