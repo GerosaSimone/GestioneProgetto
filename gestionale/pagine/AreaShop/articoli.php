@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
-require_once '../../../config.php';
+require_once '../AreaTesserati/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +28,11 @@ if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
             echo "<div class='col mb-5'>";
-            echo "<div class='card h-100' style='width:20%; min-width:150px'>
+            echo "<div class='card h-80' style='width:20%; min-width:170px'>
             <!-- Sale badge-->
-            <div class='badge bg-dark text-white position-absolute' style='top: 0.5rem; right: 0.5rem'><img src='pagine/AreaShop/trashBin.png' style='width:15px;' ></div>
+            <div class='badge bg-dark text-white position-absolute' style='top: 0.5rem; right: 0.5rem'><a href='eliminaProdotto.php'><img src='pagine/AreaShop/trashBin.png' style='width:15px;'></a></div>
             <!-- Product image-->            
-            <img class='card-img-top p-3' src='". $row["linkFoto"] ."'   alt='...'   />
+            <img class='card-img-top p-2' src='". $row["linkFoto"] ."'   alt='...'   />
             <!-- Product details-->
             <div class='card-body p-4'>
                 <div class='text-center'>
