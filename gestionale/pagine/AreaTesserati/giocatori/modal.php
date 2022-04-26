@@ -15,20 +15,20 @@
                             <div class="col-sm-4 border-right">
                                 <h4 style="color:dark">DATI ANAGRAFICI</h4>
                                 <div class="form-group mt-2" style="max-height:45%">
-                                    <label for="exampleFormControlFile1">Foto</label>
+                                    <label>Foto</label>
                                     <input type="file" class="form-control-file" name="foto1" onchange="readFotoProfilo(this);" style="margin-left:-2%">
                                     <img id="fotoProfilo" src="" />
                                 </div>
                                 <label>Nome</label>
-                                <input type="text" name="nome" class="form-control form-control-sm mb-2" >
+                                <input type="text" name="nome" class="form-control form-control-sm mb-2" required>
                                 <label>Cognome</label>
-                                <input type="text" name="cognome" class="form-control form-control-sm mb-2">
+                                <input type="text" name="cognome" class="form-control form-control-sm mb-2" required>
                                 <label>Codice Fiscale</label>
-                                <input type="text" name="cf" class="form-control form-control-sm mb-2">
+                                <input type="text" name="cf" class="form-control form-control-sm mb-2" required>
                                 <label>Data di Nascita</label>
-                                <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="dataNascita">
+                                <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="dataNascita" required>
                                 <label>Luogo di Nascita</label>
-                                <input type="text" name="luogoNascita" class="form-control form-control-sm">
+                                <input type="text" name="luogoNascita" class="form-control form-control-sm" required>
                             </div>
                             <div class="col-sm-4 border-right">
                                 <h4 style="color:dark">VISITA</h4>
@@ -44,7 +44,7 @@
                                 <label>Scadenza</label>
                                 <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="scadenza">
                                 <div class="form-group mt-2">
-                                    <label for="exampleFormControlFile1">Foto</label>
+                                    <label>Foto</label>
                                     <input type="file" class="form-control-file" name="foto2" onchange="readFotoVisita(this);" style="margin-left:-2%">
                                     <img id="fotoVisita" src="" />
                                 </div>
@@ -101,11 +101,11 @@
                             <div class="col-sm-4">
                                 <h4 style="color:dark">RESIDENZA</h4>
                                 <label>Indirizzo</label>
-                                <input type="text" name="via" class="form-control form-control-sm mb-2">
+                                <input type="text" name="via" class="form-control form-control-sm mb-2" required>
                                 <label>Citta </label>
-                                <input type="text" name="citta" class="form-control form-control-sm mb-2">
+                                <input type="text" name="citta" class="form-control form-control-sm mb-2" required>
                                 <label>Provincia </label>
-                                <input type="text" name="provincia" class="form-control form-control-sm mb-2">
+                                <input type="text" name="provincia" class="form-control form-control-sm mb-2" required>
                                 <div class="row" style="margin-left:-2%">
                                     <div class="col-sm-6">
                                         <label>Ruolo</label>
@@ -119,8 +119,8 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <label>Categoria</label>
-                                        <select class="custom-select custom-select-sm" name="categoria">
-                                            <option selected>Choose...</option>
+                                        <select class="custom-select custom-select-sm" name="categoria" required>
+                                            <option value="">Choose...</option>
                                             <option value="1">Prima Squadra</option>
                                             <option value="2">Juniores</option>
                                             <option value="3">Allievi</option>
@@ -148,8 +148,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <input type="submit" class="btn btn-primary" value="Salva" data-bs-dismiss="modal">
+                <div class="modal-footer">                   
+                    <input type="submit" class="btn btn-primary" value="Salva">
                 </div>
             </form>
         </div>
@@ -339,7 +339,7 @@
                     .attr('src', e.target.result);
             };
             reader.readAsDataURL(input.files[0]);
-            //blob input.files[0]
+            //blob input.files[0]            
         }
     }
 
@@ -355,20 +355,17 @@
     }
 
     function aggiungiTel() {
-        var a = $(".telefoni").length; //parte da uno
+        var a = $(".telefoni").length;
         var cell = "<div class='col-sm-7 telefoni'><input type='tel' name='tel" + (a + 1) + "' class='form-control form-control-sm mb-2' minlength='9' maxlength='14'></div><div class='col-sm-4'><input type='text' name='contatto" + (a + 1) + "' class='form-control form-control-sm mb-2'></div>";
         $("#telefoni").append(cell);
         $("#numTelefoni").attr('value', (a + 1));
-        alert($("#numTelefoni").attr('value'));
-
     }
 
     function aggiungiMail() {
-        var a = $(".mail").length; //parte da uno
+        var a = $(".mail").length;
         var ml = '<div class="col-sm-7 mail"><input type="email" name="mail' + (a + 1) + '" class="form-control form-control-sm mb-2"></div><div class="col-sm-4"><input type="text" name="cont' + (a + 1) + '" class="form-control form-control-sm mb-2"></div>';
         $("#mail").append(ml);
         $("#numMail").attr('value', (a + 1));
-        alert($("#numMail").attr('value'));
     }
 
     //valuta euro
