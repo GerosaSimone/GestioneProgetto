@@ -36,7 +36,7 @@ require_once '../../../config.php';
                     info: false
                 });
             });
-            var visualizza = document.getElementById('visualizza')
+            var visualizza = document.getElementById('visualizzaGiocatore')
             visualizza.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
