@@ -40,7 +40,11 @@ require_once '../../../config.php';
             visualizza.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
-                loadVisualizza(id)
+                $.post("pagine/AreaTesserati/giocatori/visualizza.php", {
+                    idTesserato: id
+                }, function(data, status) {
+                    $("#modalVisualizza").html(data);
+                });
             });
             var modifica = document.getElementById('modifica')
             modifica.addEventListener('show.bs.modal', function(event) {
@@ -57,16 +61,10 @@ require_once '../../../config.php';
 
         });
 
+
+
         function loadModifica() {
 
-        }
-
-        function loadVisualizza(id) {
-            $("#nomeVisualizza").val(nome);
-            $("#cognomeVisualizza").val(cognome);
-            $("#cfVisualizza").val(cf);
-            $("#dataNascitaVisualizza").val(dataNascita);
-            $("#luogoNascitaVisualizza").val(luogoNascita);
         }
     </script>
 </body>
