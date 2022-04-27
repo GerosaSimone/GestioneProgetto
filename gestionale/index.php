@@ -32,7 +32,7 @@ if (!isset($_SESSION['user_id'])) {
             </button>
             <div id="pagina">
             </div>
-            
+
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -56,6 +56,8 @@ if (!isset($_SESSION['user_id'])) {
                 $("#pagina").load("pagine/AreaTesserati/squadre/squadre.php?squadra=" + a);
             else if (a == "giocatori") {
                 $("#pagina").load("pagine/AreaTesserati/giocatori/giocatori.php");
+            } else if (a == "prodotti") {
+                $("#pagina").load("pagine/AreaShop/articoli.php");
             } else
                 $("#pagina").load("pagine/home.php");
         </script>

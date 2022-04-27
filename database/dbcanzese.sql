@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 26, 2022 alle 23:00
--- Versione del server: 10.4.22-MariaDB
--- Versione PHP: 8.1.2
+-- Creato il: Apr 27, 2022 alle 13:48
+-- Versione del server: 10.4.6-MariaDB
+-- Versione PHP: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -68,19 +69,11 @@ CREATE TABLE `acquistimateriale` (
 
 CREATE TABLE `allenamento` (
   `id` int(11) NOT NULL,
-  `oraInizio` varchar(5) NOT NULL,
-  `oraFine` varchar(5) NOT NULL,
-  `giorno` varchar(32) NOT NULL,
+  `OraInzio` time NOT NULL,
+  `OraFine` time NOT NULL,
+  `Giorno` varchar(32) NOT NULL,
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Dump dei dati per la tabella `allenamento`
---
-
-INSERT INTO `allenamento` (`id`, `oraInizio`, `oraFine`, `giorno`, `idCategoria`) VALUES
-(3, '18:30', '20:00', 'Giovedi', 1),
-(4, '18:30', '20:00', 'Lunedi', 1);
 
 -- --------------------------------------------------------
 
@@ -93,7 +86,7 @@ CREATE TABLE `categoria` (
   `nome` varchar(32) NOT NULL,
   `palloni` int(11) NOT NULL,
   `pettorine` int(11) NOT NULL,
-  `linkFotoSquadra` blob NOT NULL
+  `linkFotoSquadra` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
@@ -101,7 +94,7 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`id`, `nome`, `palloni`, `pettorine`, `linkFotoSquadra`) VALUES
-(1, 'PrimaSquadra', 0, 2, ''),
+(1, 'PrimaSquadra', 0, 0, ''),
 (2, 'Juniores', 0, 0, ''),
 (3, 'Allievi', 0, 0, ''),
 (4, 'Giovanissimi', 0, 0, ''),
@@ -130,7 +123,7 @@ CREATE TABLE `magazzino` (
 
 CREATE TABLE `maglia` (
   `id` int(11) NOT NULL,
-  `foto` blob NOT NULL
+  `foto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
@@ -146,15 +139,6 @@ CREATE TABLE `mail` (
   `idTesserato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
---
--- Dump dei dati per la tabella `mail`
---
-
-INSERT INTO `mail` (`id`, `nome`, `mail`, `idTesserato`) VALUES
-(28, '', '', 51),
-(29, '', '', 52),
-(30, '', '', 52);
-
 -- --------------------------------------------------------
 
 --
@@ -165,8 +149,18 @@ CREATE TABLE `prodotto` (
   `id` int(11) NOT NULL,
   `nome` text NOT NULL,
   `costoUnitario` int(11) NOT NULL,
-  `linkFoto` varchar(32) NOT NULL
+  `linkFoto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `prodotto`
+--
+
+INSERT INTO `prodotto` (`id`, `nome`, `costoUnitario`, `linkFoto`) VALUES
+(1, 'maglia', 10, 'https://dadasportweb.com/15451-large_default/maglia-calcio-umbro-derby.jpg'),
+(2, 'pantaloncini', 15, 'https://www.cisalfasport.it/dw/image/v2/BBVV_PRD/on/demandware.static/-/Sites-cisalfa-master/default/dwdb59c75a/cisalfa/files/S4047472-DKBLUE/WHI/image_sup04/S4047472_DKBLUE_S_WHIcl004.jpg?sw=960&sh=1200'),
+(3, 'pantaloni', 30, 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/i1-76a31840-5d2d-47f1-8eb6-4a606cbd207a/pantaloni-da-calcio-fc-essential-0DpQZf.png'),
+(4, 'felpa', 30, 'https://images.eprice.it/nobrand/0/hres/003/208180003/felpa-calcio-joma-sudadera-faraon.jpg');
 
 -- --------------------------------------------------------
 
@@ -177,18 +171,9 @@ CREATE TABLE `prodotto` (
 CREATE TABLE `telefono` (
   `id` int(11) NOT NULL,
   `nome` varchar(32) NOT NULL,
-  `telefono` varchar(32) NOT NULL,
+  `Telefono` int(10) NOT NULL,
   `idTesserato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Dump dei dati per la tabella `telefono`
---
-
-INSERT INTO `telefono` (`id`, `nome`, `telefono`, `idTesserato`) VALUES
-(46, '', '', 51),
-(47, '', '', 52),
-(48, '', '', 52);
 
 -- --------------------------------------------------------
 
@@ -209,9 +194,9 @@ CREATE TABLE `tesserato` (
   `via` varchar(32) NOT NULL,
   `provincia` varchar(32) NOT NULL,
   `citta` varchar(32) NOT NULL,
-  `linkFoto` blob DEFAULT NULL,
-  `daPagare` int(10) NOT NULL DEFAULT 0,
-  `pagato` int(10) NOT NULL DEFAULT 0,
+  `linkFoto` varchar(255) DEFAULT NULL,
+  `daPagare` int(11) NOT NULL DEFAULT 0,
+  `pagato` int(11) NOT NULL DEFAULT 0,
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
@@ -222,7 +207,7 @@ CREATE TABLE `tesserato` (
 INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `provincia`, `citta`, `linkFoto`, `daPagare`, `pagato`, `idCategoria`) VALUES
 (51, 'asdasd', 'asdasd', 'asdasd', '2022-04-06', 'asdasd', 0, 'C', NULL, 'asdasd', 'asdasd', 'asdasd', '', 0, 0, 2),
 (52, 'fbdfbdfb', 'dfb', 'bdfb', '2022-04-08', 'dfbbdfdfb', 0, 'C', NULL, 'dfbbdfdfb', 'dfbdfbafasd', 'dfbdfb', '', 0, 0, 5),
-(53, 'fbdfbdfb', 'dfb', 'bdfb', '2022-04-08', 'dfbbdfdfb', 0, 'C', NULL, 'dfbbdfdfb', 'dfbdfbafasd', 'dfbdfb', 0x666f746f2d70726f66696c6f2d636f6e7369676c692d343230783235322e6a7067, 0, 0, 5);
+(53, 'fbdfbdfb', 'dfb', 'bdfb', '2022-04-08', 'dfbbdfdfb', 0, 'C', NULL, 'dfbbdfdfb', 'dfbdfbafasd', 'dfbdfb', 'f????????????????????????????????', 0, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -252,6 +237,8 @@ CREATE TABLE `utenti` (
 --
 
 INSERT INTO `utenti` (`id`, `user`, `password`) VALUES
+(1, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99'),
+(3, ' ', ''),
 (4, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99'),
 (5, ' ', '7215ee9c7d9dc229d2921a40e899ec5f'),
 (6, 'admin', 'dc49612c78681cc0903a40f49083447f');
@@ -266,7 +253,7 @@ CREATE TABLE `visita` (
   `id` int(11) NOT NULL,
   `tipo` int(11) NOT NULL,
   `scadenza` date NOT NULL,
-  `foto` blob NOT NULL
+  `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
@@ -298,7 +285,7 @@ ALTER TABLE `acquistimateriale`
 -- Indici per le tabelle `allenamento`
 --
 ALTER TABLE `allenamento`
-  ADD PRIMARY KEY (`id`,`giorno`,`idCategoria`),
+  ADD PRIMARY KEY (`id`,`Giorno`,`idCategoria`),
   ADD KEY `idcategoria` (`idCategoria`);
 
 --
@@ -319,13 +306,14 @@ ALTER TABLE `magazzino`
 --
 ALTER TABLE `maglia`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `foto` (`foto`) USING HASH;
+  ADD UNIQUE KEY `foto` (`foto`);
 
 --
 -- Indici per le tabelle `mail`
 --
 ALTER TABLE `mail`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `mail` (`mail`),
   ADD KEY `idtesserato` (`idTesserato`);
 
 --
@@ -339,6 +327,7 @@ ALTER TABLE `prodotto`
 --
 ALTER TABLE `telefono`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `Telefono` (`Telefono`),
   ADD KEY `idtesse` (`idTesserato`);
 
 --
@@ -418,7 +407,7 @@ ALTER TABLE `mail`
 -- AUTO_INCREMENT per la tabella `prodotto`
 --
 ALTER TABLE `prodotto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT per la tabella `telefono`
@@ -442,7 +431,7 @@ ALTER TABLE `utenti`
 -- AUTO_INCREMENT per la tabella `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Limiti per le tabelle scaricate
