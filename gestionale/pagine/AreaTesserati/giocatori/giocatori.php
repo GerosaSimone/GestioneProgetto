@@ -40,9 +40,7 @@ require_once '../../../config.php';
             visualizza.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
-                $.post("pagine/AreaTesserati/giocatori/visualizza.php", {
-                    idTesserato: id
-                }, function(data, status) {
+                $.post("pagine/AreaTesserati/giocatori/visualizza.php?idTesserato=" + id, true , function(data, status) {
                     $("#modalVisualizza").html(data);
                 });
             });
