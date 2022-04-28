@@ -5,8 +5,8 @@ if (!isset($_SESSION['user_id'])) {
 }
 require_once '../../../config.php';
 
-echo "cf:" . $_POST['cf'] .    " <br>nome: " . $_POST['nome'] .  " <br>cognome: " .  $_POST['cognome']   . " <br>dataNascita: " . $_POST['dataNascita']   . " <br>luogoNascita: " . $_POST['luogoNascita'] . " <br>ruolo: " . $_POST['ruolo']    . " <br>via: " . $_POST['via']   . " <br>provincia: " . $_POST['provincia'] . " <br>citta: " . $_POST['citta']   . " <br>foto1: " . $_POST['foto1']  . " <br>daPagare: " . $_POST['daPagare']  . " <br>Pagato: " . $_POST['pagato']  . " <br>categoria: " . $_POST['categoria'];
-echo "tipoVisita: " . $_POST['tipoVisita'] . " <br>scadenza: "  . $_POST['scadenza'] . " <br>foto2: " . $_POST['foto2'];
+//echo "cf:" . $_POST['cf'] .    " <br>nome: " . $_POST['nome'] .  " <br>cognome: " .  $_POST['cognome']   . " <br>dataNascita: " . $_POST['dataNascita']   . " <br>luogoNascita: " . $_POST['luogoNascita'] . " <br>ruolo: " . $_POST['ruolo']    . " <br>via: " . $_POST['via']   . " <br>provincia: " . $_POST['provincia'] . " <br>citta: " . $_POST['citta']   . " <br>foto1: " . $_POST['foto1']  . " <br>daPagare: " . $_POST['daPagare']  . " <br>Pagato: " . $_POST['pagato']  . " <br>categoria: " . $_POST['categoria'];
+//echo "tipoVisita: " . $_POST['tipoVisita'] . " <br>scadenza: "  . $_POST['scadenza'] . " <br>foto2: " . $_POST['foto2'];
 
 $campi = "cf, nome, cognome, dataNascita, luogoNascita, tipo, via, provincia, Citta, idCategoria";
 $param = "'" . $_POST['cf'] . "','" . $_POST['nome'] . "','" . $_POST['cognome'] . "','" . $_POST['dataNascita'] . "','" . $_POST['luogoNascita'] . "','0','" . $_POST['via'] . "','" . $_POST['provincia'] . "','" . $_POST['citta'] . "','" . $_POST['categoria'] . "'";
@@ -25,11 +25,58 @@ if (!empty($_POST['pagato'])) {
     $param .= ",'" . $_POST['pagato'] . "'";
 }
 //foto
-if (!empty($_POST['foto1'])) {
-    $campi .= ", linkFoto";
-    $param .= ",'" . $_POST['foto1'] . "'";
-    print_r($_FILES);
+
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+  if($check !== false) {
+    echo "File is an image - " . $check["mime"] . ".";
+    $uploadOk = 1;
+  } else {
+    echo "File is not an image.";
+    $uploadOk = 0;
+  }
 }
+
+// Check if file already exists
+if (file_exists($target_file)) {
+  echo "Sorry, file already exists.";
+  $uploadOk = 0;
+}
+
+// Check file size
+if ($_FILES["fileToUpload"]["size"] > 500000) {
+  echo "Sorry, your file is too large.";
+  $uploadOk = 0;
+}
+
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  $uploadOk = 0;
+}
+
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+  echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+  } else {
+    echo "Sorry, there was an error uploading your file.";
+  }
+}
+
+    $campi .= ", linkFoto";
+    $param .= ",'" . "sad" . "'";
+
 //crea visita
 $idVisita = -1;
 if (isset($_POST['tipoVisita']) && isset($_POST['scadenza'])) {

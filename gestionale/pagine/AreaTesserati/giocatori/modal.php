@@ -8,7 +8,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="pagine/AreaTesserati/giocatori/addGiocatore.php" method="post">
+            <form action="pagine/AreaTesserati/giocatori/addGiocatore.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
@@ -16,7 +16,7 @@
                                 <h4 style="color:dark">DATI ANAGRAFICI</h4>
                                 <div class="form-group mt-2" style="max-height:45%">
                                     <label>Foto</label>
-                                    <input type="file" class="form-control-file" name="foto1" onchange="readFotoProfilo(this);" style="margin-left:-2%">
+                                    <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="readFotoProfilo(this);" style="margin-left:-2%">
                                     <img id="fotoProfilo" src="" />
                                 </div>
                                 <label>Nome</label>
@@ -149,7 +149,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" class="btn btn-primary" value="Salva">
+                    <input type="submit" name="submit"class="btn btn-primary" value="Salva">
                 </div>
             </form>
         </div>

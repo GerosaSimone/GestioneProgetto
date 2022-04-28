@@ -5,24 +5,24 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../../config.php';
 
 $id = $_GET['idTesserato'];
-$fotoProfilo;
-$nome = "simone";
-$cognome;
-$cf;
-$dataNascita;
-$luogoNascita;
-$tipo;
-$scadenza;
-$fotoVisita;
+$fotoProfilo= "nessuna foto";
+$nome = "nessun simone";
+$cognome= "nessun cognome";
+$cf= "nessun codicefFiscale";
+$dataNascita= "nessuna data di nascita";
+$luogoNascita= "nessun luogo di nascita";
+$tipo="nessuna visita";
+$scadenza= "nessuna data di scadenza";
+$fotoVisita= "nessuna foto visita";
 $telefoni=array();
 $mail=array();
-$indirizzo;
-$citta;
-$provincia;
-$ruolo;
-$categoria;
-$daPagare;
-$pagato;
+$indirizzo= "nessun indirizzo";
+$citta= "nessuna citta";
+$provincia= "nessuna provincia";
+$ruolo= "nessun ruolo";
+$categoria= "nessuna categoraia";
+$daPagare= "0€";
+$pagato= "0€";
 
 //mancano i telefoni da aggiungere con i for
 
