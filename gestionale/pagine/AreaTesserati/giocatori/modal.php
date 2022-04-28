@@ -198,9 +198,9 @@
 <div class="modal fade" id="visualizzaGiocatore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="viewGiocatoreLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title pl-3" id="viewGiocatoreLabel" style="color:dark"><b>Visualizza GIOCATORE</b></h3>
-                <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal">
+            <div class="modal-header" style="background-color: rgb(33, 164, 245);">
+                <h3 class="modal-title pl-3" id="viewGiocatoreLabel" style="color:white"><b>Visualizza GIOCATORE</b></h3>
+                <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
