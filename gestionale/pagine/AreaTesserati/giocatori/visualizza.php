@@ -72,17 +72,17 @@ if ($result = mysqli_query($link, $sql)) {
         if (!empty($row['citta']))
             $citta = $row['citta'];
 
-        if (!empty($row['ruolo'])){
-            if($row['ruolo']=="A")
-            $ruolo = "Attaccante";
-            if($row['ruolo']=="D")
-            $ruolo = "Difensore";
-            if($row['ruolo']=="C")
-            $ruolo = "Centrocampista";
-            if($row['ruolo']=="P")
-            $ruolo = "Portiere";
+        if (!empty($row['ruolo'])) {
+            if ($row['ruolo'] == "A")
+                $ruolo = "Attaccante";
+            if ($row['ruolo'] == "D")
+                $ruolo = "Difensore";
+            if ($row['ruolo'] == "C")
+                $ruolo = "Centrocampista";
+            if ($row['ruolo'] == "P")
+                $ruolo = "Portiere";
         }
-            
+
 
         if (!empty($row['cat']))
             $categoria = $row['cat'];
@@ -118,7 +118,7 @@ if ($result = mysqli_query($link, $sql)) {
 ?>
 <style>
     .titoliBlu {
-        color: rgb(33, 164, 245);
+        color: rgb(0, 0, 0);
     }
 </style>
 <div class="container">
@@ -127,7 +127,7 @@ if ($result = mysqli_query($link, $sql)) {
             <h4 style="color:dark ">DATI ANAGRAFICI</h4>
             <div class="form-group mt-2" style="max-height:45%">
                 <label class="titoliBlu">Foto</label>
-                <img id="fotoProfilo" src="" />
+                <img id='fotoProfilo' src='' />
             </div>
             <div class="row" style="margin-left: -2%">
                 <div class="col">
@@ -160,46 +160,46 @@ if ($result = mysqli_query($link, $sql)) {
             <p><?php echo $scadenza ?></p>
             <label class="titoliBlu">Foto</label>
             <img id="fotoVisita" src="" />
-            <h4 style="color:dark; margin-left:-2%">CONTATTI</h4>
-            <div class="container" style="margin-left:-4%">
+            <h4 style="color:dark">CONTATTI</h4>
+            <div class="container" style="margin-left:-2%">
                 <div class="row">
-                    <div class="col-sm-8">
+                    <div class="col-sm-9">
                         <label class="titoliBlu">Telefono</label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <label class="titoliBlu">Contatto</label>
                     </div>
                 </div>
                 <?php
                 for ($i = 0; $i < count($telefoniCont); $i++) {
                     echo "  <div class='row telefoni'>
-                                <div class='col-sm-8'>
-                                    <p>". $telefoniTel[$i] ."</p>
+                                <div class='col-sm-9'>
+                                    <p>" . $telefoniTel[$i] . "</p>
                                 </div>
-                                <div class='col-sm-4'>
-                                    <p>". $telefoniCont[$i]."</p>
+                                <div class='col-sm-3'>
+                                    <p>" . $telefoniCont[$i] . "</p>
                                 </div>
                             </div>";
                 }
                 ?>
             </div>
-            <div class="container" style="margin-left:-4%; margin-top:2%">
+            <div class="container" style="margin-left:-2%; margin-top:2%">
                 <div class="row">
-                    <div class="col-sm-8">
+                    <div class="col-sm-9">
                         <label class="titoliBlu">Mail</label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <label class="titoliBlu">Contatto</label>
                     </div>
                 </div>
                 <?php
                 for ($i = 0; $i < count($mailCont); $i++) {
                     echo "  <div class='row mail'>
-                                <div class='col-sm-8'>
-                                    <p>". $mailMail[$i]." </p>
+                                <div class='col-sm-9'>
+                                    <p>" . $mailMail[$i] . " </p>
                                 </div>
-                                <div class='col-sm-4'>
-                                    <p>". $mailCont[$i]." </p>
+                                <div class='col-sm-3'>
+                                    <p>" . $mailCont[$i] . " </p>
                                 </div>
                             </div>";
                 }
@@ -244,3 +244,14 @@ if ($result = mysqli_query($link, $sql)) {
         </div>
     </div>
 </div>
+<?php
+if ($fotoProfilo == "nessuna foto") {
+    echo "<script>        
+          $('#fotoProfilo').attr('src', 'sfondo.png');                  
+    }</script>";
+} else {
+}
+?>
+<script>
+
+</script>
