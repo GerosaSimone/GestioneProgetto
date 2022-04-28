@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 27, 2022 alle 13:48
--- Versione del server: 10.4.6-MariaDB
--- Versione PHP: 7.3.8
+-- Creato il: Apr 28, 2022 alle 19:56
+-- Versione del server: 10.4.22-MariaDB
+-- Versione PHP: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -135,9 +134,18 @@ CREATE TABLE `maglia` (
 CREATE TABLE `mail` (
   `id` int(11) NOT NULL,
   `nome` varchar(32) NOT NULL,
-  `mail` varchar(32) NOT NULL,
+  `mail` varchar(40) NOT NULL,
   `idTesserato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `mail`
+--
+
+INSERT INTO `mail` (`id`, `nome`, `mail`, `idTesserato`) VALUES
+(31, 'papa', '', 54),
+(32, 'mio', '', 54),
+(33, 'awd', 'hedrghrd@gmail.com', 56);
 
 -- --------------------------------------------------------
 
@@ -171,9 +179,18 @@ INSERT INTO `prodotto` (`id`, `nome`, `costoUnitario`, `linkFoto`) VALUES
 CREATE TABLE `telefono` (
   `id` int(11) NOT NULL,
   `nome` varchar(32) NOT NULL,
-  `Telefono` int(10) NOT NULL,
+  `telefono` int(15) NOT NULL,
   `idTesserato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `telefono`
+--
+
+INSERT INTO `telefono` (`id`, `nome`, `telefono`, `idTesserato`) VALUES
+(49, 'mamma', 0, 54),
+(50, 'papa', 0, 54),
+(52, 'awd', 34345634, 56);
 
 -- --------------------------------------------------------
 
@@ -205,9 +222,8 @@ CREATE TABLE `tesserato` (
 --
 
 INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `provincia`, `citta`, `linkFoto`, `daPagare`, `pagato`, `idCategoria`) VALUES
-(51, 'asdasd', 'asdasd', 'asdasd', '2022-04-06', 'asdasd', 0, 'C', NULL, 'asdasd', 'asdasd', 'asdasd', '', 0, 0, 2),
-(52, 'fbdfbdfb', 'dfb', 'bdfb', '2022-04-08', 'dfbbdfdfb', 0, 'C', NULL, 'dfbbdfdfb', 'dfbdfbafasd', 'dfbdfb', '', 0, 0, 5),
-(53, 'fbdfbdfb', 'dfb', 'bdfb', '2022-04-08', 'dfbbdfdfb', 0, 'C', NULL, 'dfbbdfdfb', 'dfbdfbafasd', 'dfbdfb', 'f????????????????????????????????', 0, 0, 5);
+(54, 'cf1', 'Simone', 'Gerosa', '2022-04-22', 'erba', 0, 'D', NULL, 'via verza 116', 'co', 'canzo', NULL, 60, 70, 3),
+(56, 'awd', 'wda', 'awd', '2022-04-01', 'awda', 0, 'C', NULL, 'awd', 'awdaw', 'awdadw', NULL, 0, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -313,7 +329,6 @@ ALTER TABLE `maglia`
 --
 ALTER TABLE `mail`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `mail` (`mail`),
   ADD KEY `idtesserato` (`idTesserato`);
 
 --
@@ -327,7 +342,6 @@ ALTER TABLE `prodotto`
 --
 ALTER TABLE `telefono`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `Telefono` (`Telefono`),
   ADD KEY `idtesse` (`idTesserato`);
 
 --
@@ -401,7 +415,7 @@ ALTER TABLE `maglia`
 -- AUTO_INCREMENT per la tabella `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
@@ -413,13 +427,13 @@ ALTER TABLE `prodotto`
 -- AUTO_INCREMENT per la tabella `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`
@@ -431,7 +445,7 @@ ALTER TABLE `utenti`
 -- AUTO_INCREMENT per la tabella `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Limiti per le tabelle scaricate

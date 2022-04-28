@@ -20,7 +20,7 @@ $indirizzo = "nessun indirizzo";
 $citta = "nessuna citta";
 $provincia = "nessuna provincia";
 $ruolo = "nessun ruolo";
-$categoria = "nessuna categoraia";
+$categoria = "nessuna categoria";
 $daPagare = "0€";
 $pagato = "0€";
 $id = $_GET['idTesserato'];
@@ -72,11 +72,20 @@ if ($result = mysqli_query($link, $sql)) {
         if (!empty($row['citta']))
             $citta = $row['citta'];
 
-        if (!empty($row['ruolo']))
-            $ruolo = $row['ruolo'];
+        if (!empty($row['ruolo'])){
+            if($row['ruolo']=="A")
+            $ruolo = "Attaccante";
+            if($row['ruolo']=="D")
+            $ruolo = "Difensore";
+            if($row['ruolo']=="C")
+            $ruolo = "Centrocampista";
+            if($row['ruolo']=="P")
+            $ruolo = "Portiere";
+        }
+            
 
-        if (!empty($row['categoria']))
-            $categoria = $row['categoria'];
+        if (!empty($row['cat']))
+            $categoria = $row['cat'];
 
         if (!empty($row['daPagare']))
             $daPagare = $row['daPagare'];
@@ -102,7 +111,7 @@ if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
             array_push($mailCont, $row['nome']);
-            array_push($mailTel, $row['mail']);
+            array_push($mailMail, $row['mail']);
         }
     }
 }
@@ -192,7 +201,7 @@ if ($result = mysqli_query($link, $sql)) {
                                 <div class='col-sm-4'>
                                     <p>". $mailCont[$i]." </p>
                                 </div>
-                            </div>'";
+                            </div>";
                 }
                 ?>
             </div>
