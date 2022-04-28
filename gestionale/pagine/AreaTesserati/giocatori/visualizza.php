@@ -12,8 +12,10 @@ $luogoNascita = "nessun luogo di nascita";
 $tipo = "nessuna visita";
 $scadenza = "nessuna data di scadenza";
 $fotoVisita = "nessuna foto visita";
-$telefoni = array();
-$mail = array();
+$telefoniTel = array();
+$telefoniCont = array();
+$mailMail = array();
+$mailCont = array();
 $indirizzo = "nessun indirizzo";
 $citta = "nessuna citta";
 $provincia = "nessuna provincia";
@@ -30,7 +32,6 @@ $sql = "SELECT tesserato.nome, tesserato.cognome, tesserato.cf, tesserato.dataNa
                 on idCategoria=categoria.id)
                 LEFT JOIN visita ON visita.id=tesserato.idVisita
                 WHERE tesserato.id='" . $id . "'";
-
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
@@ -86,10 +87,25 @@ if ($result = mysqli_query($link, $sql)) {
 }
 
 //select telefoni
-
 //mancano i telefoni da aggiungere con i for
-
-
+$sql = "SELECT telefono.nome,telefono.telefono FROM telefono WHERE idTesserato='" . $id . "'";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            array_push($telefoniCont, $row['nome']);
+            array_push($telefoniTel, $row['telefono']);
+        }
+    }
+}
+$sql = "SELECT mail.nome,mail.mail FROM mail WHERE idTesserato='" . $id . "'";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            array_push($mailCont, $row['nome']);
+            array_push($mailTel, $row['mail']);
+        }
+    }
+}
 ?>
 <style>
     .titoliBlu {
@@ -108,52 +124,55 @@ if ($result = mysqli_query($link, $sql)) {
                 <div class="col">
                     <label class="titoliBlu">Nome</label>
                     <p><?php echo $nome ?></p>
-                   
                 </div>
                 <div class="col">
                     <label class="titoliBlu">Cognome</label>
-                    <input type="text" name="cognome" value="<?php echo $cognome ?>" class="form-control-plaintext form-control-sm mb-2">
+                    <p><?php echo $cognome ?></p>
                 </div>
             </div>
             <label class="titoliBlu">Codice Fiscale</label>
-            <input type="text" name="cf" class="form-control-plaintext form-control-sm mb-2" value="<?php echo $cf ?>">
+            <p><?php echo $cf ?></p>
             <div class="row" style="margin-left: -2%">
                 <div class="col">
                     <label class="titoliBlu">Data Nascita</label>
-                    <input type="text" name="dataNascita" class="form-control-plaintext form-control-sm mb-2" value="<?php echo $dataNascita ?>">
+                    <p><?php echo $dataNascita ?></p>
                 </div>
                 <div class="col">
                     <label class="titoliBlu">Luogo di Nascita</label>
-                    <input type="text" name="luogoNascita" class="form-control-plaintext form-control-sm" value="<?php echo $luogoNascita ?>">
+                    <p><?php echo $luogoNascita ?></p>
                 </div>
             </div>
         </div>
         <div class="col-sm-4 border-right">
             <h4 style="color:dark">VISITA</h4>
             <label class="titoliBlu">Tipo</label>
-            <input type="text" name="tipoVisita" class="form-control-plaintext form-control-sm" value="<?php echo $tipo ?>">
+            <p><?php echo $tipo ?></p>
             <label class="titoliBlu">Scadenza</label><br>
-            <input type="text" name="scadenza" class="form-control-plaintext form-control-sm" value="<?php echo $scadenza ?>">
+            <p><?php echo $scadenza ?></p>
             <label class="titoliBlu">Foto</label>
             <img id="fotoVisita" src="" />
             <h4 style="color:dark; margin-left:-2%">CONTATTI</h4>
             <div class="container" style="margin-left:-4%">
                 <div class="row">
                     <div class="col-sm-8">
-                    <label class="titoliBlu">Telefono</label>
+                        <label class="titoliBlu">Telefono</label>
                     </div>
                     <div class="col-sm-4">
-                    <label class="titoliBlu">Contatto</label>
+                        <label class="titoliBlu">Contatto</label>
                     </div>
                 </div>
-                <div class="row telefoni" id="telefoni">
-                    <div class="col-sm-8">
-                        <input type="tel" name="tel1" class="form-control form-control-sm mb-2" minlength="9" maxlength="14">
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="text" name="contatto1" class="form-control form-control-sm mb-2">
-                    </div>
-                </div>
+                <?php
+                for ($i = 0; $i < count($telefoniCont); $i++) {
+                    echo "  <div class='row telefoni'>
+                                <div class='col-sm-8'>
+                                    <p>". $telefoniTel[$i] ."</p>
+                                </div>
+                                <div class='col-sm-4'>
+                                    <p>". $telefoniCont[$i]."</p>
+                                </div>
+                            </div>";
+                }
+                ?>
             </div>
             <div class="container" style="margin-left:-4%; margin-top:2%">
                 <div class="row">
@@ -161,52 +180,56 @@ if ($result = mysqli_query($link, $sql)) {
                         <label class="titoliBlu">Mail</label>
                     </div>
                     <div class="col-sm-4">
-                    <label class="titoliBlu">Contatto</label>
+                        <label class="titoliBlu">Contatto</label>
                     </div>
                 </div>
-                <div class="row mail" id="mail">
-                    <div class="col-sm-8">
-                        <input type="email" name="mail1" class="form-control form-control-sm mb-2">
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="text" name="cont1" class="form-control form-control-sm mb-2">
-                    </div>
-                </div>
+                <?php
+                for ($i = 0; $i < count($mailCont); $i++) {
+                    echo "  <div class='row mail'>
+                                <div class='col-sm-8'>
+                                    <p>". $mailMail[$i]." </p>
+                                </div>
+                                <div class='col-sm-4'>
+                                    <p>". $mailCont[$i]." </p>
+                                </div>
+                            </div>'";
+                }
+                ?>
             </div>
         </div>
         <div class="col-sm-4">
             <h4 style="color:dark">RESIDENZA</h4>
             <label class="titoliBlu">Indirizzo</label>
-            <input type="text" name="via" class="form-control-plaintext form-control-sm mb-2" value="<?php echo $indirizzo ?>">
+            <p><?php echo $indirizzo ?></p>
             <div class="row" style="margin-left: -2%">
                 <div class="col">
                     <label class="titoliBlu">Citta </label>
-                    <input type="text" name="citta" class="form-control-plaintext form-control-sm mb-2" value="<?php echo $citta ?>">
+                    <p><?php echo $citta ?></p>
                 </div>
                 <div class="col">
                     <label class="titoliBlu">Provincia </label>
-                    <input type="text" name="provincia" class="form-control-plaintext form-control-sm mb-2" value="<?php echo $provincia ?>">
+                    <p><?php echo $provincia ?></p>
                 </div>
             </div>
             <div class="row" style="margin-left: -2%">
                 <div class="col">
                     <label class="titoliBlu">Ruolo </label>
-                    <input type="text" name="ruolo" class="form-control-plaintext form-control-sm mb-2" value="<?php echo $ruolo ?>">
+                    <p><?php echo $ruolo ?></p>
                 </div>
                 <div class="col">
                     <label class="titoliBlu">Categoria </label>
-                    <input type="text" name="categoria" class="form-control-plaintext form-control-sm mb-2" value="<?php echo $categoria ?>">
+                    <p><?php echo $categoria ?></p>
                 </div>
             </div>
             <h4 style="color:dark">CONTABILITA'</h4>
             <div class="row" style="margin-left: -2%">
                 <div class="col">
                     <label class="titoliBlu">Da Pagare </label>
-                    <input type="text" name="Da Pagare" class="form-control-plaintext form-control-sm mb-2" value="<?php echo $daPagare ?>">
+                    <p><?php echo $daPagare ?></p>
                 </div>
                 <div class="col">
                     <label class="titoliBlu">Pagato </label>
-                    <input type="text" name="Pagato" class="form-control-plaintext form-control-sm mb-2" value="<?php echo $pagato ?>">
+                    <p><?php echo $pagato ?></p>
                 </div>
             </div>
         </div>

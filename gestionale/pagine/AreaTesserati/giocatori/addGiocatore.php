@@ -25,13 +25,13 @@ if (!empty($_POST['pagato'])) {
     $param .= ",'" . $_POST['pagato'] . "'";
 }
 //foto
-
+/*
 $target_dir = "../../../img/uploadsProfilo/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-// Check if image file is a actual image or fake image
+ Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
   if($check !== false) {
@@ -69,8 +69,8 @@ if ($uploadOk == 0) {
     echo "Sorry, there was an error uploading your file.";
   }
 }
+*/
 
-    
 
 //crea visita
 $idVisita = -1;
@@ -93,7 +93,7 @@ if (isset($_POST['tipoVisita']) && isset($_POST['scadenza'])) {
                 $row = mysqli_fetch_array($result);
                 $idVisita = $row['id'];
             } else {
-                $sql = "INSERT INTO visita (tipo, scadenza, foto) VALUES ('" . $_POST['tipoVisita'] . "', '" . $_POST['scadenza'] . "');";
+                $sql = "INSERT INTO visita (tipo, scadenza) VALUES ('" . $_POST['tipoVisita'] . "', '" . $_POST['scadenza'] . "');";
                 mysqli_query($link, $sql);
                 $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "'";
                 if ($result = mysqli_query($link, $sql)) {
@@ -143,4 +143,4 @@ if (isset($_POST["cont1"]) && isset($_POST["mail1"]))
         }
     }
 $_SESSION['ultimaPage'] = "giocatori";
-//header("Location: ../../../index.php");
+header("Location: ../../../index.php");
