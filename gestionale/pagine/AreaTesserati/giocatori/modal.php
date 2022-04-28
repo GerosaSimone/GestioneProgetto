@@ -2,9 +2,9 @@
 <div class="modal fade" id="addGiocatore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addGiocatoreLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title pl-3" id="addGiocatoreLabel" style="color:dark"><b>AGGIUNGI NUOVO GIOCATORE</b></h3>
-                <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal">
+            <div class="modal-header" style="background-color: rgb(33, 164, 245);">
+                <h3 style="color:white" class="modal-title pl-3" id="addGiocatoreLabel" style="color:dark"><b>AGGIUNGI NUOVO GIOCATORE</b></h3>
+                <button style="color:white" type="button" class="close" aria-label="Close" data-bs-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -45,7 +45,7 @@
                                 <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="scadenza">
                                 <div class="form-group mt-2">
                                     <label>Foto</label>
-                                    <input type="file" class="form-control-file" name="foto2" onchange="readFotoVisita(this);" style="margin-left:-2%">
+                                    <input type="file" class="form-control-file" name="fileToUpload1" id="fileToUpload1" onchange="readFotoVisita(this);" style="margin-left:-2%">                                  
                                     <img id="fotoVisita" src="" />
                                 </div>
                                 <h4 style="color:dark; margin-left:-2%">CONTATTI</h4>
@@ -149,7 +149,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" name="submit"class="btn btn-primary" value="Salva">
+                    <input type="submit" name="submit" class="btn btn-primary" value="Salva">
                 </div>
             </form>
         </div>
@@ -159,9 +159,9 @@
 <div class="modal fade" id="elimina" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="eliminaLabel">Elimina Giocatore</h5>
-                <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title" id="eliminaLabel" style="color:white">Elimina Giocatore</h5>
+                <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
             <form action="pagine/AreaTesserati/giocatori/deleteGiocatore.php" method="post">
                 <div class="modal-body">
@@ -180,16 +180,16 @@
 <div class="modal fade" id="modifica" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modificaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modificaLabel">Modifica Giocatore</h5>
-                <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            <div class="modal-header bg-success">
+                <h5 class="modal-title" id="modificaLabel" style="color:white">Modifica Giocatore</h5>
+                <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <input type="text" id="tempModifica">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Confirm</button>
+                <button type="button" class="btn btn-success">Confirm</button>
             </div>
         </div>
     </div>
@@ -205,7 +205,7 @@
                 </button>
             </div>
             <div class="modal-body" id="modalVisualizza">
-                
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
