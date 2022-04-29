@@ -40,7 +40,7 @@ require_once '../../../config.php';
             visualizza.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
-                $.post("pagine/AreaTesserati/giocatori/visualizza.php?idTesserato=" + id, true , function(data, status) {
+                $.post("pagine/AreaTesserati/giocatori/visualizza.php?idTesserato=" + id, true, function(data, status) {
                     $("#modalVisualizza").html(data);
                 });
             });
@@ -48,8 +48,14 @@ require_once '../../../config.php';
             modifica.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
-                $.post("pagine/AreaTesserati/giocatori/modifica.php?idTesserato=" + id, true , function(data, status) {
+                $.post("pagine/AreaTesserati/giocatori/modifica.php?idTesserato=" + id, true, function(data, status) {
                     $("#modalModifica").html(data);
+                });
+            });
+            var addGiocatore = document.getElementById('addGiocatore')
+            addGiocatore.addEventListener('show.bs.modal', function(event) {
+                $.post("pagine/AreaTesserati/giocatori/aggiungi.php", true, function(data, status) {
+                    $("#modalAggiungi").html(data);                    
                 });
             });
             var elimina = document.getElementById('elimina')
@@ -60,7 +66,6 @@ require_once '../../../config.php';
             });
 
         });
-
     </script>
 </body>
 

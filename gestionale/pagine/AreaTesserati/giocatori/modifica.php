@@ -26,16 +26,13 @@ $pagato = "0€";
 $id = $_GET['idTesserato'];
 
 //select
-$sql = "SELECT tesserato.nome, tesserato.cognome, tesserato.cf, tesserato.dataNascita, tesserato.luogoNascita, tesserato.tipo, tesserato.ruolo, tesserato.via,tesserato.provincia,tesserato.citta,tesserato.linkFoto as fotoProfilo,tesserato.daPagare,tesserato.pagato, categoria.nome as cat , visita.scadenza, visita.tipo as tipoVisita, visita.foto as fotoVisita 
-                FROM (`tesserato`          
-                INNER JOIN categoria 
-                on idCategoria=categoria.id)
+$sql = "SELECT tesserato.idCategoria, tesserato.nome, tesserato.cognome, tesserato.cf, tesserato.dataNascita, tesserato.luogoNascita, tesserato.ruolo, tesserato.via,tesserato.provincia,tesserato.citta,tesserato.linkFoto as fotoProfilo,tesserato.daPagare,tesserato.pagato, visita.scadenza, visita.tipo, visita.foto as fotoVisita 
+                FROM `tesserato`
                 LEFT JOIN visita ON visita.id=tesserato.idVisita
                 WHERE tesserato.id='" . $id . "'";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
-
         if (!empty($row['fotoProfilo']))
             $fotoProfilo = $row['fotoProfilo'];
 
@@ -54,7 +51,7 @@ if ($result = mysqli_query($link, $sql)) {
         if (!empty($row['luogoNascita']))
             $luogoNascita = $row['luogoNascita'];
 
-        if (!empty($row['tipo']))
+        if ($row['tipo'] == "0" || $row['tipo'] == "1")
             $tipo = $row['tipo'];
 
         if (!empty($row['scadenza']))
@@ -83,10 +80,8 @@ if ($result = mysqli_query($link, $sql)) {
                 $ruolo = "Portiere";
         }
 
-
-        if (!empty($row['cat']))
-            $categoria = $row['cat'];
-
+        if (!empty($row['idCategoria']))
+            $categoria = $row['idCategoria'];
         if (!empty($row['daPagare']))
             $daPagare = $row['daPagare'];
 
@@ -140,17 +135,12 @@ if ($result = mysqli_query($link, $sql)) {
             <h4 style="color:dark">VISITA</h4>
             <label>Tipo</label><br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="tipoVisita" value="0" <?php if ($tipo != "nessuna visita") {
-                                                                                                if (!$tipo)
-                                                                                                    echo 'checked';
-                                                                                            } ?>>
+
+                <input class="form-check-input" type="radio" name="tipoVisita" value="0" <?php if (!$tipo) echo "checked"; ?>>
                 <label class="form-check-label" for="inlineRadio1">Normale</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="tipoVisita" value="1" <?php if ($tipo != "nessuna visita") {
-                                                                                                if ($tipo)
-                                                                                                    echo 'checked';
-                                                                                            } ?>>
+                <input class="form-check-input" type="radio" name="tipoVisita" value="1" <?php if ($tipo) echo "checked"; ?>>
                 <label class="form-check-label" for="inlineRadio2">Agonistica</label>
             </div><br>
             <label>Scadenza</label>
@@ -181,11 +171,16 @@ if ($result = mysqli_query($link, $sql)) {
                         <input type="text" name="contatto1" class="form-control form-control-sm mb-2" value="<?php if (count($telefoniCont) > 0) echo $telefoniCont[0]; ?>">
                     </div>
                     <div class="col-sm-1">
-                        <button type="button" onclick="aggiungiTel()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
+                        <button type="button" onclick="modificaTel()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
                     </div>
                     <?php
                     for ($i = 1; $i < count($telefoniTel); $i++) {
-                        echo "<div class='col-sm-7 telefoni'><input type='tel' name='tel" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $telefoniTel[$i] . "' minlength='9' maxlength='14'></div><div class='col-sm-4'><input type='text' name='contatto" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $telefoniCont[$i] . "'></div>";
+                        echo "  <div class='col-sm-7 telefoni'>
+                                    <input type='tel' name='tel" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $telefoniTel[$i] . "' minlength='9' maxlength='14'>
+                                </div>
+                                <div class='col-sm-4'>
+                                    <input type='text' name='contatto" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $telefoniCont[$i] . "'>
+                                </div>";
                     } ?>
                 </div>
             </div>
@@ -209,13 +204,19 @@ if ($result = mysqli_query($link, $sql)) {
                         <input type="text" name="cont1" class="form-control form-control-sm mb-2" value="<?php if (count($mailCont) > 0) echo $mailCont[0]; ?>">
                     </div>
                     <div class="col-sm-1">
-                        <button type="button" onclick="aggiungiMail()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
+                        <button type="button" onclick="modificaMail()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
                     </div>
+
+                    <?php
+                    for ($i = 1; $i < count($mailMail); $i++) {
+                        echo "  <div class='col-sm-7 mail'>
+                                <input type='mail' name='mail" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailMail[$i] . "'>
+                            </div>
+                            <div class='col-sm-4'>
+                                <input type='text' name='cont" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailCont[$i] . "'>
+                            </div>";
+                    } ?>
                 </div>
-                <?php
-                for ($i = 1; $i < count($mailMail); $i++) {
-                    echo "<div class='col-sm-7 mail'><input type='mail' name='mail" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailMail[$i] . "'></div><div class='col-sm-4'><input type='text' name='cont" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailCont[$i] . "'></div>";
-                } ?>
             </div>
         </div>
         <div class="col-sm-4">
@@ -226,28 +227,28 @@ if ($result = mysqli_query($link, $sql)) {
             <input type="text" name="citta" class="form-control form-control-sm mb-2" value="<?php echo $citta ?>" required>
             <label>Provincia </label>
             <input type="text" name="provincia" class="form-control form-control-sm mb-2" value="<?php echo $provincia ?>" required>
+            <input type="text" name="id" value="<?php echo $id ?>" hidden="true">
             <div class="row" style="margin-left:-2%">
                 <div class="col-sm-6">
                     <label>Ruolo</label>
                     <select class="custom-select custom-select-sm" name="ruolo">
-                        <option selected><?php echo $ruolo ?></option>
-                        <option value="P">Portiere</option>
-                        <option value="D">Difensore</option>
-                        <option value="C">Centrocampista</option>
-                        <option value="A">Attaccante</option>
+                        <option value="P" <?php if ($ruolo == "Portiere") echo "selected"; ?>>Portiere</option>
+                        <option value="D" <?php if ($ruolo == "Difensore") echo "selected"; ?>>Difensore</option>
+                        <option value="C" <?php if ($ruolo == "Centrocampista") echo "selected"; ?>>Centrocampista</option>
+                        <option value="A" <?php if ($ruolo == "Attaccante") echo "selected"; ?>>Attaccante</option>
+                        <option value="" <?php if ($ruolo == "nessun ruolo") echo "selected"; ?>>Nessun ruolo</option>
                     </select>
                 </div>
                 <div class="col-sm-6">
                     <label>Categoria</label>
                     <select class="custom-select custom-select-sm" name="categoria">
-                        <option value=""><?php echo $categoria ?></option>
-                        <option value="1">Prima Squadra</option>
-                        <option value="2">Juniores</option>
-                        <option value="3">Allievi</option>
-                        <option value="4">Giovanissimi</option>
-                        <option value="5">Esordienti</option>
-                        <option value="6">Pulcini</option>
-                        <option value="7">Piccoli Amici</option>
+                        <option value="1" <?php if ($categoria == "1") echo "selected"; ?>>Prima Squadra</option>
+                        <option value="2" <?php if ($categoria == "2") echo "selected"; ?>>Juniores</option>
+                        <option value="3" <?php if ($categoria == "3") echo "selected"; ?>>Allievi</option>
+                        <option value="4" <?php if ($categoria == "4") echo "selected"; ?>>Giovanissimi</option>
+                        <option value="5" <?php if ($categoria == "5") echo "selected"; ?>>Esordienti</option>
+                        <option value="6" <?php if ($categoria == "6") echo "selected"; ?>>Pulcini</option>
+                        <option value="7" <?php if ($categoria == "7") echo "selected"; ?>>Piccoli Amici</option>
                     </select>
                 </div>
             </div><br>
@@ -306,4 +307,37 @@ if ($result = mysqli_query($link, $sql)) {
         $("#numMail").attr('value', (a + 1));
     }
 
+    //valuta euro
+    var currencyInput = document.querySelectorAll('input[type="currency"]')
+    var currency = 'EUR' // https://www.currency-iso.org/dam/downloads/lists/list_one.xml
+
+    currencyInput.forEach(function(userItem) {
+        userItem.addEventListener('focus', onFocus)
+        userItem.addEventListener('blur', onBlur)
+    });
+
+
+    function localStringToNumber(s) {
+        return Number(String(s).replace(/[^0-9.-]+/g, ""))
+    }
+
+    function onFocus(e) {
+        var value = e.target.value;
+        e.target.value = value ? localStringToNumber(value) : ''
+    }
+
+    function onBlur(e) {
+        var value = e.target.value
+
+        var options = {
+            maximumFractionDigits: 2,
+            currency: currency,
+            style: "currency",
+            currencyDisplay: "symbol"
+        }
+
+        e.target.value = (value || value === 0) ?
+            localStringToNumber(value).toLocaleString(undefined, options) :
+            ''
+    }
 </script>
