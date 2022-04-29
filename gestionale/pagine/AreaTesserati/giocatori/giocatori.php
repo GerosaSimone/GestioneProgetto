@@ -47,8 +47,10 @@ require_once '../../../config.php';
             var modifica = document.getElementById('modifica')
             modifica.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
-                var recipient = button.getAttribute('data-bs-whatever')
-                document.getElementById("tempModifica").value = recipient;
+                var id = button.getAttribute('data-bs-whatever')
+                $.post("pagine/AreaTesserati/giocatori/modifica.php?idTesserato=" + id, true , function(data, status) {
+                    $("#modalModifica").html(data);
+                });
             });
             var elimina = document.getElementById('elimina')
             elimina.addEventListener('show.bs.modal', function(event) {

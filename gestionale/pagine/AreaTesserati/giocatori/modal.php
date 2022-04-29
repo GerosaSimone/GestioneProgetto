@@ -24,7 +24,7 @@
                                 <label>Cognome</label>
                                 <input type="text" name="cognome" class="form-control form-control-sm mb-2" required>
                                 <label>Codice Fiscale</label>
-                                <input type="text" name="cf" class="form-control form-control-sm mb-2" required>
+                                <input type="text" name="cf" class="form-control form-control-sm mb-2" minlength="16" maxlength="16" required>
                                 <label>Data di Nascita</label>
                                 <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="dataNascita" required>
                                 <label>Luogo di Nascita</label>
@@ -178,18 +178,20 @@
 </div>
 <!--Modifica-->
 <div class="modal fade" id="modifica" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modificaLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header bg-success">
                 <h5 class="modal-title" id="modificaLabel" style="color:white">Modifica Giocatore</h5>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
             </div>
-            <div class="modal-body">
-                <input type="text" id="tempModifica">
+            <form action="pagine/AreaTesserati/giocatori/editGiocatore.php" method="post" enctype="multipart/form-data">
+            <div class="modal-body" id="modalModifica">
+               
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Confirm</button>
+                <input type="submit" name="submit" class="btn btn-success" value="Salva">
+
             </div>
         </div>
     </div>

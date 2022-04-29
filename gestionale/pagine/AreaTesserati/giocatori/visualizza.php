@@ -155,7 +155,7 @@ if ($result = mysqli_query($link, $sql)) {
         <div class="col-sm-4 border-right">
             <h4 style="color:dark">VISITA</h4>
             <label class="titoliBlu">Tipo</label>
-            <p><?php echo $tipo ?></p>
+            <p><?php if($tipo)echo "Normale";else echo "Agonistica"; ?></p>
             <label class="titoliBlu">Scadenza</label><br>
             <p><?php echo $scadenza ?></p>
             <label class="titoliBlu">Foto</label>
@@ -244,14 +244,7 @@ if ($result = mysqli_query($link, $sql)) {
         </div>
     </div>
 </div>
-<?php
-if ($fotoProfilo == "nessuna foto") {
-    echo "<script>        
-          $('#fotoProfilo').attr('src', 'sfondo.png');                  
-    }</script>";
-} else {
-}
-?>
+
 <script>
 
 </script>

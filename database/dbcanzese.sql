@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 28, 2022 alle 19:56
+-- Creato il: Apr 29, 2022 alle 20:08
 -- Versione del server: 10.4.22-MariaDB
 -- Versione PHP: 8.1.1
 
@@ -68,9 +68,9 @@ CREATE TABLE `acquistimateriale` (
 
 CREATE TABLE `allenamento` (
   `id` int(11) NOT NULL,
-  `OraInzio` time NOT NULL,
-  `OraFine` time NOT NULL,
-  `Giorno` varchar(32) NOT NULL,
+  `oraInizio` varchar(25) NOT NULL,
+  `oraFine` varchar(25) NOT NULL,
+  `giorno` varchar(32) NOT NULL,
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
@@ -143,9 +143,7 @@ CREATE TABLE `mail` (
 --
 
 INSERT INTO `mail` (`id`, `nome`, `mail`, `idTesserato`) VALUES
-(31, 'papa', '', 54),
-(32, 'mio', '', 54),
-(33, 'awd', 'hedrghrd@gmail.com', 56);
+(87, 'papa', 'hedrghdaawdwrd@gmail.com', 109);
 
 -- --------------------------------------------------------
 
@@ -188,9 +186,8 @@ CREATE TABLE `telefono` (
 --
 
 INSERT INTO `telefono` (`id`, `nome`, `telefono`, `idTesserato`) VALUES
-(49, 'mamma', 0, 54),
-(50, 'papa', 0, 54),
-(52, 'awd', 34345634, 56);
+(115, 'mgh', 34345634, 109),
+(116, 'papa', 2147483647, 109);
 
 -- --------------------------------------------------------
 
@@ -222,8 +219,7 @@ CREATE TABLE `tesserato` (
 --
 
 INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `provincia`, `citta`, `linkFoto`, `daPagare`, `pagato`, `idCategoria`) VALUES
-(54, 'cf1', 'Simone', 'Gerosa', '2022-04-22', 'erba', 0, 'D', NULL, 'via verza 116', 'co', 'canzo', NULL, 60, 70, 3),
-(56, 'awd', 'wda', 'awd', '2022-04-01', 'awda', 0, 'C', NULL, 'awd', 'awdaw', 'awdadw', NULL, 0, 0, 2);
+(109, 'cf1', 'Simone', 'Gerosa', '2022-03-31', 'awdawd', 0, 'D', 18, 'via verza 116', 'co', 'canzo', 'fotoProfilocf1.png', 78, 89, 3);
 
 -- --------------------------------------------------------
 
@@ -273,6 +269,13 @@ CREATE TABLE `visita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
+-- Dump dei dati per la tabella `visita`
+--
+
+INSERT INTO `visita` (`id`, `tipo`, `scadenza`, `foto`) VALUES
+(18, 0, '2022-04-22', 'fotoVisitacf1.png');
+
+--
 -- Indici per le tabelle scaricate
 --
 
@@ -301,7 +304,7 @@ ALTER TABLE `acquistimateriale`
 -- Indici per le tabelle `allenamento`
 --
 ALTER TABLE `allenamento`
-  ADD PRIMARY KEY (`id`,`Giorno`,`idCategoria`),
+  ADD PRIMARY KEY (`id`,`giorno`,`idCategoria`),
   ADD KEY `idcategoria` (`idCategoria`);
 
 --
@@ -415,7 +418,7 @@ ALTER TABLE `maglia`
 -- AUTO_INCREMENT per la tabella `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
@@ -427,13 +430,13 @@ ALTER TABLE `prodotto`
 -- AUTO_INCREMENT per la tabella `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`
@@ -445,7 +448,7 @@ ALTER TABLE `utenti`
 -- AUTO_INCREMENT per la tabella `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Limiti per le tabelle scaricate
