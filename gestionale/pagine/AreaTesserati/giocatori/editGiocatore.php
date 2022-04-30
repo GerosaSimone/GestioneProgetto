@@ -199,7 +199,7 @@ for ($i = count($telefoniId); $i < $numTel; $i++) {
 
     $tel=$_POST["tel" . ($i + 1)];
     echo $tel;
-    $sql = "INSERT INTO telefono (nome, telefono, idTesserato) VALUES ('$tel', '$contatto', '$idTesserato');";
+    $sql = "INSERT INTO telefono (nome, telefono, idTesserato) VALUES ('$contatto', '$tel', '$idTesserato');";
     echo "<br> " . $sql;
     mysqli_query($link, $sql);
 }
@@ -212,4 +212,4 @@ for ($i = count($mailId); $i < $numMail; $i++) {
 }
 
 $_SESSION['ultimaPage'] = "giocatori";
-//header("Location: ../../../index.php");
+header("Location: ../../../index.php");
