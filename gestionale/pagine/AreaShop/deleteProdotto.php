@@ -6,8 +6,9 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../config.php';
 $id = $_POST['idElimina'];
 //elimina
+
 $sql = "DELETE FROM prodotto WHERE prodotto.id = '" . $id . "';";
 mysqli_query($link, $sql);
 
 $_SESSION['ultimaPage'] = "prodotti";
-header("Location: ../../../index.php");
+header("Location: ../../index.php");

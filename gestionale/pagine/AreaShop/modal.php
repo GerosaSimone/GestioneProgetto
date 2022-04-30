@@ -3,12 +3,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="eliminaLabel">Elimina Giocatore</h5>
+                <h5 class="modal-title" id="eliminaLabel">Elimina Prodotto</h5>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
             <form action="pagine/AreaShop/deleteProdotto.php" method="post">
                 <div class="modal-body">
-                    Sei sicuro di voler eliminare definitivamente il giocatore?
+                    Sei sicuro di voler eliminare definitivamente il prodotto?
                     <input type="text" name="idElimina" id="idElimina" hidden="true">
                 </div>
                 <div class="modal-footer">

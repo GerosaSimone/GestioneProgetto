@@ -8,39 +8,48 @@ require_once '../../config.php';
 
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    #titolo {
+        font-size: 45px;
+        color: white;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    }
+</style>
 
 <body>
-    <header class="bg-dark py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white" style="width: 100%;">
-                <h1 class="display-4 fw-bolder">Articoli Disponibili</h1>
-            </div>
-        </div>
-    </header>
+    <div class="page-header clearfix">
+        <strong>
+            <h2 class="pull-left pl-5"> Giocatori </h2>
+            <button type='button' class='btn btn-outline-secondary pull-right' data-bs-toggle='modal' data-bs-target='#addGiocatore' style="margin-right:3%">
+                Add Giocatore
+            </button>
+        </strong>
+    </div>
+
 </html>
 
 <?php
 $sql = "SELECT * FROM prodotto";
 echo " <section class='py-5'>
-        <div class='container px-4 px-lg-5 mt-5'>
-            <div class='row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center'>";
+        <div class='container px-5 px-lg-6 mt-5' >
+            <div class='row gx-5 gx-lg-6 row-cols-3 row-cols-md-4 row-cols-xl-5'>";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
-            echo "<div class='col mb-5'>";
-            echo "<div class='card h-100' style='width:20%; min-width:190px'>
+            echo "<div class='col mb-4' >";
+            echo "<div class='card h-100' style='width:20%; min-width:200px; background-color:rgb(240,240,240);'>
             <!-- Sale badge-->
             
             <!-- Product image-->            
-            <img class='card-img-top p-3' style='width:100%; height:100%;' src='". $row["linkFoto"] ."'   alt='...'   />
+            <img class='card-img-top p-3' style='width:100%; height:100%;' src='" . $row["linkFoto"] . "'   alt='...'   />
             <!-- Product details-->
             <div class='card-body p-2'>
                 <div class='text-center'>
                     <!-- Product name-->";
-            echo "<h5 class='fw-bolder' >" . $row["nome"] . "</h5>";
+            echo "<h5 class='fw-bolder' style='color:dark;'>" . $row["nome"] . "</h5>";
             echo "<!-- Product reviews-->
                     <!-- Product price-->
-                    <span class='text-muted text-decoration-line-through'>$".$row["costoUnitario"]."</span>
+                    <span class='text-muted text-decoration-line-through'>$" . $row["costoUnitario"] . "</span>
                 </div>
             </div>
             <!-- Product actions-->
@@ -74,166 +83,18 @@ echo "</div>
 </section>";
 include 'modal.php';
 ?>
-<footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Shop Giovanile Canzese</p>
-        </div>
-    </footer>
+<footer class="py-5 " style="background: rgb(33, 164, 245);">
+    <div class="container">
+        <p class="m-0 text-center text-white"></p>
+    </div>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
-
-    <!-- 
-   
-    <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <div class="col mb-5">
-
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"><img src="pagine/AreaShop/trashBin.png" style="width:15px;"></div>
-
-                       
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                               
-                                <h5 class="fw-bolder">Special Item</h5>
-                               
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $18.00
-                            </div>
-                        </div>
-                     
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                       
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"><img src="pagine/AreaShop/trashBin.png" style="width:15px;"></div>
-                      
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                      
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                              
-                                <h5 class="fw-bolder">Special Item</h5>
-                              
-
-                             
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $18.00
-                            </div>
-                        </div>
-                     
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                     
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"><img src="pagine/AreaShop/trashBin.png" style="width:15px;"></div>
-                    
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                       
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                           >
-                                <h5 class="fw-bolder">Special Item</h5>
-                            
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $18.00
-                            </div>
-                        </div>
-                     
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                       
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"><img src="pagine/AreaShop/trashBin.png" style="width:15px;"></div>
-                       
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                    
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                               
-                                <h5 class="fw-bolder">Special Item</h5>
-                              
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $18.00
-                            </div>
-                        </div>
-                      
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                    
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"><img src="pagine/AreaShop/trashBin.png" style="width:15px;"></div>
-                   
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                      
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                            
-                                <h5 class="fw-bolder">Special Item</h5>
-                            
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $18.00
-                            </div>
-                        </div>
-                    
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                    
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"><img src="pagine/AreaShop/trashBin.png" style="width:15px;"></div>
-                     
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-              
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                          
-                                <h5 class="fw-bolder">Special Item</h5>
-                            
-
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $18.00
-                            </div>
-                        </div>
-                 
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-   
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Shop Giovanile Canzese</p>
-        </div>
-    </footer>
-   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-->
-    <script src="js/scripts.js"></script>
-</body>
--->
-
+<script>
+    var elimina = document.getElementById('elimina')
+    elimina.addEventListener('show.bs.modal', function(event) {
+        var button = event.relatedTarget
+        var recipient = button.getAttribute('data-bs-whatever')
+        document.getElementById("idElimina").value = recipient;
+    });
+</script>
