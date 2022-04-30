@@ -9,10 +9,13 @@ $id = $_POST['idElimina'];
 $sql = "SELECT linkFoto FROM tesserato WHERE tesserato.id = '" . $id . "';";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_array($result);
-    $foto = $row['linkFoto'];
-    unlink('../../../img/uploadsProfilo/'. $foto);}
-      
+        $row = mysqli_fetch_array($result);
+        $foto = $row['linkFoto'];
+        if (file_exists('../../../img/uploadsProfilo/' . $foto)) {
+            unlink('../../../img/uploadsProfilo/' . $foto);
+        } else {
+        }
+    }
 }
 //telefono
 $sql = "DELETE FROM telefono WHERE telefono.idTesserato = '" . $id . "';";
@@ -21,7 +24,7 @@ mysqli_query($link, $sql);
 $sql = "DELETE FROM mail WHERE mail.idTesserato = '" . $id . "';";
 mysqli_query($link, $sql);
 //prendo visita
-$idVisita = -1;
+$idVisita = null;
 $sql = "SELECT idVisita FROM tesserato WHERE tesserato.id = '" . $id . "';";
 $result = mysqli_query($link, $sql);
 if ($result = mysqli_query($link, $sql)) {
@@ -32,12 +35,15 @@ if ($result = mysqli_query($link, $sql)) {
 $sql = "DELETE FROM tesserato WHERE tesserato.id = '" . $id . "';";
 mysqli_query($link, $sql);
 //visita
-if ($idVisita != -1) {
+if ($idVisita != null) {
     $sql = "SELECT foto FROM visita WHERE visita.id = '" . $idVisita . "';";
     if ($result = mysqli_query($link, $sql)) {
         $row = mysqli_fetch_array($result);
         $foto = $row['foto'];
-        unlink('../../../img/uploadsVisita/'. $foto);
+        if (file_exists('../../../img/uploadsVisita/' . $foto)) {
+            unlink('../../../img/uploadsVisita/' . $foto);
+        } else {
+        }
     }
     $sql = "DELETE FROM visita WHERE visita.id = '" . $idVisita . "';";
     mysqli_query($link, $sql);

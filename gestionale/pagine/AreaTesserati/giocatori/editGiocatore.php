@@ -23,26 +23,23 @@ if (!empty($_POST['pagato'])) {
 }
 
 //crea visita
-$idVisita = -1;
+$idVisita = null;
 if (isset($_POST['tipoVisita']) && isset($_POST['scadenza'])) {
-    if (!empty($_FILES['fileToUpload1']['tmp_name'])) {
-        $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "'AND foto='" . "fotoVisita" . $_POST['cf'] . "." . $imageFileType . "'";
-        if ($result = mysqli_query($link, $sql)) {
+    $sql = "SELECT idVisita FROM tesserato WHERE id='" . $idTesserato . "'";
+
+    if ($result = mysqli_query($link, $sql)) {
+        if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_array($result);
-            $idVisita = $row['id'];
-        }
-    } else {
-        $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "'";
-        if ($result = mysqli_query($link, $sql)) {
-            if (mysqli_num_rows($result) > 0) {
-                $row = mysqli_fetch_array($result);
-                $idVisita = $row['id'];
-            }
+            $idVisita = $row['idVisita'];
         }
     }
 }
-if ($idVisita != -1) {
-    $sql = "UPDATE visita SET tipo='" . $_POST['tipoVisita'] . "',scadenza='" . $_POST['scadenza'] . "' WHERE id=$idVisita";
+
+
+if ($idVisita != null) {
+    $tipo = $_POST['tipoVisita'];
+    $scadenza = $_POST['scadenza'];
+    $sql = "UPDATE visita SET tipo='$tipo',scadenza='$scadenza' WHERE id=$idVisita";
     mysqli_query($link, $sql);
 } else {
     if (isset($_POST['tipoVisita']) && isset($_POST['scadenza'])) {
@@ -54,34 +51,34 @@ if ($idVisita != -1) {
             $target_file .= "." . $imageFileType;
             $check = getimagesize($_FILES["fileToUpload1"]["tmp_name"]);
             if ($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
+                //echo "File is an image - " . $check["mime"] . ".";
                 $uploadOk = 1;
             } else {
-                echo "File is not an image.";
+                //echo "File is not an image.";
                 $uploadOk = 0;
             }
             if ($_FILES["fileToUpload1"]["size"] > 500000) {
-                echo "Sorry, your file is too large.";
+                //echo "Sorry, your file is too large.";
                 $uploadOk = 0;
             }
             if (
                 $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                 && $imageFileType != "gif"
             ) {
-                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                 $uploadOk = 0;
             }
             if ($uploadOk == 0) {
-                echo "Sorry, your file was not uploaded.";
+                //echo "Sorry, your file was not uploaded.";
             } else {
                 if (move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file)) {
-                    echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload1"]["name"])) . " has been uploaded.";
+                    //echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload1"]["name"])) . " has been uploaded.";
                 } else {
-                    echo "Sorry, there was an error uploading your file.";
+                    //echo "Sorry, there was an error uploading your file.";
                 }
             }
             $sql = "INSERT INTO visita (tipo, scadenza, foto) VALUES ('" . $_POST['tipoVisita'] . "', '" . $_POST['scadenza'] . "', '" . "fotoVisita" . $_POST['cf'] . "." . $imageFileType . "');";
-            echo $sql;
+            //echo $sql;
             mysqli_query($link, $sql);
             $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "'AND foto='" . "fotoVisita" . $_POST['cf'] . "." . $imageFileType . "'";
             $result = mysqli_query($link, $sql);
@@ -118,30 +115,30 @@ if (!empty($_FILES['fileToUpload']['tmp_name'])) {
     $target_file .= "." . $imageFileType;
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if ($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
+        //echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
+        //echo "File is not an image.";
         $uploadOk = 0;
     }
     if ($_FILES["fileToUpload"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
+        //echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
     if (
         $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif"
     ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
     }
     if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
+        //echo "Sorry, your file was not uploaded.";
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
+            //echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
         } else {
-            echo "Sorry, there was an error uploading your file.";
+            //echo "Sorry, there was an error uploading your file.";
         }
     }
     $query .= ", linkFoto" . "='fotoProfilo" . $_POST['cf'] . ".$imageFileType'";
@@ -149,7 +146,7 @@ if (!empty($_FILES['fileToUpload']['tmp_name'])) {
 
 //creazione query
 $query .= " WHERE tesserato.id = '" . $idTesserato . "'";
-mysqli_query($link, $sql);
+mysqli_query($link, $query);
 //associo tel mail
 $numTel = $_POST['numTelefoni'];
 $numMail = $_POST['numMail'];
@@ -186,24 +183,33 @@ if (isset($_POST["cont1"]) && isset($_POST["mail1"])) {
     for ($i = 1; $i <= count($mailId); $i++) {
         $contatto = "cont" . $i;
         $mail = "mail" . $i;
-        echo $mail;
+
         if (isset($_POST[$contatto]) && isset($_POST[$mail])) {
             $sql = "UPDATE mail SET nome='" . $_POST[$contatto] . "', mail='" . $_POST[$mail] . "' WHERE id='" . $mailId[$i - 1] . "'";
             mysqli_query($link, $sql);
         }
     }
 }
-
+echo "count" . count($telefoniId);
+echo "<br>num:" . $numTel . "<br>";
 for ($i = count($telefoniId); $i < $numTel; $i++) {
-    $sql = "INSERT INTO telefono (nome, telefono, idTesserato) VALUES ('" . $_POST["contatto" . $i + 1] . "', '" . $_POST["tel" . $i + 1] . "', '$idTesserato');";
+    echo $i;
+    $contatto=$_POST["contatto" . ($i + 1)];
+    echo $contatto;
+
+    $tel=$_POST["tel" . ($i + 1)];
+    echo $tel;
+    $sql = "INSERT INTO telefono (nome, telefono, idTesserato) VALUES ('$tel', '$contatto', '$idTesserato');";
     echo "<br> " . $sql;
     mysqli_query($link, $sql);
 }
 for ($i = count($mailId); $i < $numMail; $i++) {
-    $sql = "INSERT INTO mail (nome, mail, idTesserato) VALUES ('" . $_POST["cont" . $i + 1] . "', '" . $_POST["mail" . $i + 1] . "', '$idTesserato');";
+    $contatto=$_POST["cont" . ($i + 1)];
+    $mail=$_POST["mail" . ($i + 1)];
+    $sql = "INSERT INTO mail (nome, mail, idTesserato) VALUES ('$contatto', '$mail', '$idTesserato');";
     echo "<br> " . $sql;
     mysqli_query($link, $sql);
 }
 
 $_SESSION['ultimaPage'] = "giocatori";
-header("Location: ../../../index.php");
+//header("Location: ../../../index.php");

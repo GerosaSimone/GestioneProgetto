@@ -3,7 +3,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
 require_once '../../../config.php';
-$fotoProfilo = "nessuna foto";
+$fotoProfilo;
 $nome = "nessun simone";
 $cognome = "nessun cognome";
 $cf = "nessun codicefFiscale";
@@ -36,8 +36,8 @@ if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
 
-        if (!empty($row['fotoProfilo']))
-            $fotoProfilo = $row['fotoProfilo'];
+
+        $fotoProfilo = $row['fotoProfilo'];
 
         if (!empty($row['nome']))
             $nome = $row['nome'];
@@ -60,7 +60,7 @@ if ($result = mysqli_query($link, $sql)) {
         if (!empty($row['scadenza']))
             $scadenza = $row['scadenza'];
 
-        if (!empty($row['fotoVisita']))
+        
             $fotoVisita = $row['fotoVisita'];
 
         if (!empty($row['via']))
@@ -126,8 +126,13 @@ if ($result = mysqli_query($link, $sql)) {
         <div class="col-sm-4 border-right">
             <h4 style="color:dark ">DATI ANAGRAFICI</h4>
             <div class="form-group mt-2" style="max-height:45%">
-                <label class="titoliBlu">Foto</label>
-                <img id='fotoProfilo' src='' />
+                <label class="titoliBlu">Foto</label><br>
+                <?php
+                if ($fotoProfilo != null)
+                    echo "<img id='fotoProfilo' src='img/uploadsProfilo/$fotoProfilo' /> ";
+                else
+                    echo "<img id='fotoProfilo' src='img/avatar.svg' /> ";
+                ?>
             </div>
             <div class="row" style="margin-left: -2%">
                 <div class="col">
@@ -155,11 +160,16 @@ if ($result = mysqli_query($link, $sql)) {
         <div class="col-sm-4 border-right">
             <h4 style="color:dark">VISITA</h4>
             <label class="titoliBlu">Tipo</label>
-            <p><?php if($tipo)echo "Normale";else echo "Agonistica"; ?></p>
+            <p><?php if ($tipo) echo "Normale";
+                else echo "Agonistica"; ?></p>
             <label class="titoliBlu">Scadenza</label><br>
             <p><?php echo $scadenza ?></p>
-            <label class="titoliBlu">Foto</label>
-            <img id="fotoVisita" src="" />
+            <?php
+            if ($fotoVisita != null) {
+                echo "<label class='titoliBlu'>Foto</label><br>";
+                echo "<img id='fotoVisita' src='img/uploadsVisita/$fotoVisita' /> ";
+            }
+            ?>
             <h4 style="color:dark">CONTATTI</h4>
             <div class="container" style="margin-left:-2%">
                 <div class="row">

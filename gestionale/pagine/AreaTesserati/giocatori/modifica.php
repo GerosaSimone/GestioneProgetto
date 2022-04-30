@@ -9,7 +9,7 @@ $cognome = "nessun cognome";
 $cf = "nessun codicefFiscale";
 $dataNascita = "nessuna data di nascita";
 $luogoNascita = "nessun luogo di nascita";
-$tipo = "nessuna visita";
+$tipo = -1;
 $scadenza = "nessuna data di scadenza";
 $fotoVisita = "nessuna foto visita";
 $telefoniTel = array();
@@ -135,12 +135,11 @@ if ($result = mysqli_query($link, $sql)) {
             <h4 style="color:dark">VISITA</h4>
             <label>Tipo</label><br>
             <div class="form-check form-check-inline">
-
-                <input class="form-check-input" type="radio" name="tipoVisita" value="0" <?php if (!$tipo) echo "checked"; ?>>
+                <input class="form-check-input" type="radio" name="tipoVisita" value="0" <?php if ($tipo == 0) echo "checked"; ?>>
                 <label class="form-check-label" for="inlineRadio1">Normale</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="tipoVisita" value="1" <?php if ($tipo) echo "checked"; ?>>
+                <input class="form-check-input" type="radio" name="tipoVisita" value="1" <?php if ($tipo == 0) echo "checked"; ?>>
                 <label class="form-check-label" for="inlineRadio2">Agonistica</label>
             </div><br>
             <label>Scadenza</label>
