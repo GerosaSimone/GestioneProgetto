@@ -82,11 +82,8 @@ if ($result = mysqli_query($link, $sql)) {
 
         if (!empty($row['idCategoria']))
             $categoria = $row['idCategoria'];
-        if (!empty($row['daPagare']))
-            $daPagare = $row['daPagare'];
-
-        if (!empty($row['pagato']))
-            $pagato = $row['pagato'];
+        $daPagare = $row['daPagare'];
+        $pagato = $row['pagato'];
     }
 }
 
@@ -117,11 +114,16 @@ if ($result = mysqli_query($link, $sql)) {
             <h4 style="color:dark">DATI ANAGRAFICI</h4>
             <div class="form-group mt-2" style="max-height:45%">
                 <label>Foto</label>
-                <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="modificaFotoProfilo(this);" style="margin-left:-2%">
-                <img id="modificaProfilo" src="" />
+                <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="modificaFotoProfilo(this);" style="margin-left:-2%;color:transparent">
+                <?php
+                if ($fotoProfilo != null)
+                    echo "<img id='fotoProfilo' src='img/uploadsProfilo/$fotoProfilo' /> ";
+                else
+                    echo "<img id='fotoProfilo' src='img/avatar.svg' /> ";
+                ?>
             </div>
             <label>Nome</label>
-            <input type="text" name="nome" class="form-control form-control-sm mb-2" value="<?php echo $nome ?>" required>
+            <input type=" text" name="nome" class="form-control form-control-sm mb-2" value="<?php echo $nome ?>" required>
             <label>Cognome</label>
             <input type="text" name="cognome" class="form-control form-control-sm mb-2" value="<?php echo $cognome ?>" required>
             <label>Codice Fiscale</label>
@@ -139,15 +141,19 @@ if ($result = mysqli_query($link, $sql)) {
                 <label class="form-check-label" for="inlineRadio1">Normale</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="tipoVisita" value="1" <?php if ($tipo == 0) echo "checked"; ?>>
+                <input class="form-check-input" type="radio" name="tipoVisita" value="1" <?php if ($tipo == 1) echo "checked"; ?>>
                 <label class="form-check-label" for="inlineRadio2">Agonistica</label>
             </div><br>
             <label>Scadenza</label>
             <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="scadenza" value="<?php echo $scadenza ?>">
             <div class="form-group mt-2">
                 <label>Foto</label>
-                <input type="file" class="form-control-file" name="fileToUpload1" id="fileToUpload1" onchange="modificaFotoVisita(this);" style="margin-left:-2%">
-                <img id="modificaVisita" src="" />
+                <input type="file" class="form-control-file" name="fileToUpload1" id="fileToUpload1" onchange="modificaFotoVisita(this);" style="margin-left:-2%; color:transparent">
+                <?php
+                if ($fotoVisita != null) {
+                    echo "<img id='fotoVisita' src='img/uploadsVisita/$fotoVisita' /> ";
+                }
+                ?>
             </div>
             <h4 style="color:dark; margin-left:-2%">CONTATTI</h4>
             <div class="container" style="margin-left:-4%">
@@ -256,11 +262,11 @@ if ($result = mysqli_query($link, $sql)) {
                 <div class="row">
                     <div class="col-sm-6">
                         <label>Da Pagare</label>
-                        <input type='currency' name="daPagare" value="0,00€" placeholder='Type a number & click outside' value="<?php echo $daPagare ?>" class="form-control form-control-sm mb-2" />
+                        <input type='currency' name="daPagare" placeholder='Type a number & click outside' value="<?php echo $daPagare ?> €" class="form-control form-control-sm mb-2" />
                     </div>
                     <div class="col-sm-6">
                         <label>Pagato</label>
-                        <input type='currency' name="pagato" value="0,00€" placeholder='Type a number & click outside' value="<?php echo $pagato ?>" class="form-control form-control-sm mb-2" />
+                        <input type='currency' name="pagato" placeholder='Type a number & click outside' value="<?php echo $pagato ?> €" class="form-control form-control-sm mb-2" />
                     </div>
                 </div>
             </div>
@@ -273,11 +279,10 @@ if ($result = mysqli_query($link, $sql)) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                $('#modificaProfilo')
+                $('#fotoProfilo')
                     .attr('src', e.target.result);
             };
             reader.readAsDataURL(input.files[0]);
-            //blob input.files[0]            
         }
     }
 
@@ -285,7 +290,7 @@ if ($result = mysqli_query($link, $sql)) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                $('#modificaVisita')
+                $('#fotoVisita')
                     .attr('src', e.target.result);
             };
             reader.readAsDataURL(input.files[0]);

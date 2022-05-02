@@ -60,8 +60,8 @@ if ($result = mysqli_query($link, $sql)) {
         if (!empty($row['scadenza']))
             $scadenza = $row['scadenza'];
 
-        
-            $fotoVisita = $row['fotoVisita'];
+
+        $fotoVisita = $row['fotoVisita'];
 
         if (!empty($row['via']))
             $indirizzo = $row['via'];
@@ -82,7 +82,6 @@ if ($result = mysqli_query($link, $sql)) {
             if ($row['ruolo'] == "P")
                 $ruolo = "Portiere";
         }
-
 
         if (!empty($row['cat']))
             $categoria = $row['cat'];
@@ -244,11 +243,11 @@ if ($result = mysqli_query($link, $sql)) {
             <div class="row" style="margin-left: -2%">
                 <div class="col">
                     <label class="titoliBlu">Da Pagare </label>
-                    <p><?php echo $daPagare ?></p>
+                    <p><?php echo $daPagare . " " ?> €</p>
                 </div>
                 <div class="col">
                     <label class="titoliBlu">Pagato </label>
-                    <p><?php echo $pagato ?></p>
+                    <p><?php echo $pagato . " " ?> €</p>
                 </div>
             </div>
         </div>
