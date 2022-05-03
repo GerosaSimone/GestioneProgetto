@@ -35,8 +35,6 @@ $sql = "SELECT tesserato.nome, tesserato.cognome, tesserato.cf, tesserato.dataNa
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
-
-
         $fotoProfilo = $row['fotoProfilo'];
 
         if (!empty($row['nome']))
@@ -159,7 +157,7 @@ if ($result = mysqli_query($link, $sql)) {
         <div class="col-sm-4 border-right">
             <h4 style="color:dark">VISITA</h4>
             <label class="titoliBlu">Tipo</label>
-            <p><?php if ($tipo) echo "Normale";
+            <p><?php if (!$tipo) echo "Normale";
                 else echo "Agonistica"; ?></p>
             <label class="titoliBlu">Scadenza</label><br>
             <p><?php echo $scadenza ?></p>

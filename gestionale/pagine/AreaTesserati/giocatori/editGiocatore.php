@@ -14,7 +14,7 @@ $query = "UPDATE tesserato SET cf='" . $_POST['cf'] . "',nome='" . $_POST['nome'
 if (!empty($_POST['ruolo'])) {
     $query .= ", ruolo" . "='" . $_POST['ruolo'] . "'";
 }
-echo $_POST['daPagare'] . $_POST['pagato'];
+//echo $_POST['daPagare'] . $_POST['pagato'];
 //daPagare e pagato
 if (!empty($_POST['daPagare'])) {
     $query .= ", daPagare" . "='" . $_POST['daPagare'] . "'";
@@ -36,16 +36,16 @@ if (isset($_POST['tipoVisita']) && isset($_POST['scadenza'])) {
     }
 }
 
-echo "<br> id Visita:" . $idVisita;
+//echo "<br> id Visita:" . $idVisita;
 if ($idVisita != null) {
     $tipo = $_POST['tipoVisita'];
     $scadenza = $_POST['scadenza'];
     $sql = "UPDATE visita SET tipo='$tipo',scadenza='$scadenza' WHERE id=$idVisita";
     mysqli_query($link, $sql);
 } else {
-    echo "entro 1111111";
+    //echo "entro 1111111";
     if (isset($_POST['tipoVisita']) && isset($_POST['scadenza'])) {
-        echo "entro 22222222222";
+        //echo "entro 22222222222";
         $sql = "INSERT INTO visita (tipo, scadenza, foto) VALUES ('" . $_POST['tipoVisita'] . "', '" . $_POST['scadenza'] . "', '" . "fotoVisita" . $_POST['cf'] . "." . $imageFileType . "');";
         //echo $sql;
         mysqli_query($link, $sql);
@@ -75,7 +75,7 @@ if ($idVisita != null) {
     }
 }
 if (!empty($_FILES['fileToUpload1']['tmp_name'])) {
-    echo "entro tempppp";
+    //echo "entro tempppp";
     $target_dir = "../../../img/uploadsVisita/";
     $target_file = $target_dir . "fotoVisita" . $_POST['cf'];
     $uploadOk = 1;
@@ -112,7 +112,7 @@ if (!empty($_FILES['fileToUpload1']['tmp_name'])) {
 }
 //fotoprofilo
 if (!empty($_FILES['fileToUpload']['tmp_name'])) {
-    echo "temp profilo";
+    //echo "temp profilo";
     $target_dir = "../../../img/uploadsProfilo/";
     $target_file = $target_dir . "fotoProfilo" . $_POST['cf'];
     $uploadOk = 1;
@@ -120,30 +120,30 @@ if (!empty($_FILES['fileToUpload']['tmp_name'])) {
     $target_file .= "." . $imageFileType;
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if ($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
+        //echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
+        //echo "File is not an image.";
         $uploadOk = 0;
     }
     if ($_FILES["fileToUpload"]["size"] > 50000000) {
-        echo "Sorry, your file is too large.";
+        //echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
     if (
         $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif"
     ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
     }
     if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
+        //echo "Sorry, your file was not uploaded.";
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
+            //echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
         } else {
-            echo "Sorry, there was an error uploading your file.";
+            //echo "Sorry, there was an error uploading your file.";
         }
     }
     $query .= ", linkFoto" . "='fotoProfilo" . $_POST['cf'] . ".$imageFileType'";
@@ -195,24 +195,24 @@ if (isset($_POST["cont1"]) && isset($_POST["mail1"])) {
         }
     }
 }
-echo "count" . count($telefoniId);
-echo "<br>num:" . $numTel . "<br>";
+//echo "count" . count($telefoniId);
+//echo "<br>num:" . $numTel . "<br>";
 for ($i = count($telefoniId); $i < $numTel; $i++) {
-    echo $i;
+    //echo $i;
     $contatto = $_POST["contatto" . ($i + 1)];
-    echo $contatto;
+    //echo $contatto;
 
     $tel = $_POST["tel" . ($i + 1)];
-    echo $tel;
+    //echo $tel;
     $sql = "INSERT INTO telefono (nome, telefono, idTesserato) VALUES ('$contatto', '$tel', '$idTesserato');";
-    echo "<br> " . $sql;
+   // echo "<br> " . $sql;
     mysqli_query($link, $sql);
 }
 for ($i = count($mailId); $i < $numMail; $i++) {
     $contatto = $_POST["cont" . ($i + 1)];
     $mail = $_POST["mail" . ($i + 1)];
     $sql = "INSERT INTO mail (nome, mail, idTesserato) VALUES ('$contatto', '$mail', '$idTesserato');";
-    echo "<br> " . $sql;
+    //echo "<br> " . $sql;
     mysqli_query($link, $sql);
 }
 
