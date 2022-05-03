@@ -98,7 +98,7 @@
                 <div class="col-sm-6">
                     <label>Ruolo</label>
                     <select class="custom-select custom-select-sm" name="ruolo">
-                        <option selected>Choose...</option>
+                        <option selected value="N">Nessun ruolo</option>
                         <option value="P">Portiere</option>
                         <option value="D">Difensore</option>
                         <option value="C">Centrocampista</option>

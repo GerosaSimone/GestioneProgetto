@@ -115,7 +115,7 @@ if(!empty($_FILES['fileToUpload']['tmp_name'])){
         //echo "File is not an image.";
         $uploadOk = 0;
     }
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
+    if ($_FILES["fileToUpload"]["size"] > 50000000) {
         //echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }

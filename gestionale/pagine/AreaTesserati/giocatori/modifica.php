@@ -3,7 +3,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
 require_once '../../../config.php';
-$fotoProfilo = "nessuna foto";
+$fotoProfilo = null;
 $nome = "nessun simone";
 $cognome = "nessun cognome";
 $cf = "nessun codicefFiscale";
@@ -11,7 +11,7 @@ $dataNascita = "nessuna data di nascita";
 $luogoNascita = "nessun luogo di nascita";
 $tipo = -1;
 $scadenza = "nessuna data di scadenza";
-$fotoVisita = "nessuna foto visita";
+$fotoVisita = null;
 $telefoniTel = array();
 $telefoniCont = array();
 $mailMail = array();
@@ -78,6 +78,8 @@ if ($result = mysqli_query($link, $sql)) {
                 $ruolo = "Centrocampista";
             if ($row['ruolo'] == "P")
                 $ruolo = "Portiere";
+                if ($row['ruolo'] == "N")
+                $ruolo = "Nessun ruolo";
         }
 
         if (!empty($row['idCategoria']))
@@ -107,12 +109,14 @@ if ($result = mysqli_query($link, $sql)) {
         }
     }
 }
+
 ?>
 <div class="container">
     <div class="row">
         <div class="col-sm-4 border-right">
             <h4 style="color:dark">DATI ANAGRAFICI</h4>
             <div class="form-group mt-2" style="max-height:45%">
+                <button type="button" class="close" aria-label="Close" style="color:red" ><span aria-hidden="true">&times;</span></button>
                 <label>Foto</label>
                 <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="modificaFotoProfilo(this);" style="margin-left:-2%;color:transparent">
                 <?php
@@ -135,7 +139,7 @@ if ($result = mysqli_query($link, $sql)) {
         </div>
         <div class="col-sm-4 border-right">
             <h4 style="color:dark">VISITA</h4>
-            <label>Tipo</label><br>
+            <label>Tipo</label><button type="button" class="close" aria-label="Close" style="color:red" ><span aria-hidden="true">&times;</span></button><br>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="tipoVisita" value="0" <?php if ($tipo == 0) echo "checked"; ?>>
                 <label class="form-check-label" for="inlineRadio1">Normale</label>
@@ -152,7 +156,8 @@ if ($result = mysqli_query($link, $sql)) {
                 <?php
                 if ($fotoVisita != null) {
                     echo "<img id='fotoVisita' src='img/uploadsVisita/$fotoVisita' /> ";
-                }
+                }else
+                echo "<img id='fotoVisita' src='' /> ";
                 ?>
             </div>
             <h4 style="color:dark; margin-left:-2%">CONTATTI</h4>
@@ -241,7 +246,7 @@ if ($result = mysqli_query($link, $sql)) {
                         <option value="D" <?php if ($ruolo == "Difensore") echo "selected"; ?>>Difensore</option>
                         <option value="C" <?php if ($ruolo == "Centrocampista") echo "selected"; ?>>Centrocampista</option>
                         <option value="A" <?php if ($ruolo == "Attaccante") echo "selected"; ?>>Attaccante</option>
-                        <option value="" <?php if ($ruolo == "nessun ruolo") echo "selected"; ?>>Nessun ruolo</option>
+                        <option value="N" <?php if ($ruolo == "Nessun ruolo") echo "selected"; ?>>Nessun ruolo</option>
                     </select>
                 </div>
                 <div class="col-sm-6">

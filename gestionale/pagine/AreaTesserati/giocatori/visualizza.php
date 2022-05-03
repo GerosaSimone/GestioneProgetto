@@ -52,8 +52,8 @@ if ($result = mysqli_query($link, $sql)) {
         if (!empty($row['luogoNascita']))
             $luogoNascita = $row['luogoNascita'];
 
-        if (!empty($row['tipo']))
-            $tipo = $row['tipo'];
+        if (isset($row['tipoVisita']))
+            $tipo = $row['tipoVisita'];
 
         if (!empty($row['scadenza']))
             $scadenza = $row['scadenza'];
@@ -79,6 +79,8 @@ if ($result = mysqli_query($link, $sql)) {
                 $ruolo = "Centrocampista";
             if ($row['ruolo'] == "P")
                 $ruolo = "Portiere";
+                if ($row['ruolo'] == "N")
+                $ruolo = "Nessun ruolo";
         }
 
         if (!empty($row['cat']))
@@ -157,8 +159,11 @@ if ($result = mysqli_query($link, $sql)) {
         <div class="col-sm-4 border-right">
             <h4 style="color:dark">VISITA</h4>
             <label class="titoliBlu">Tipo</label>
-            <p><?php if (!$tipo) echo "Normale";
-                else echo "Agonistica"; ?></p>
+            <p><?php 
+            
+            if ($tipo==0) echo "Normale";
+                else if($tipo==1) echo "Agonistica";
+                else echo "Nessuna Visita" ?></p>
             <label class="titoliBlu">Scadenza</label><br>
             <p><?php echo $scadenza ?></p>
             <?php
