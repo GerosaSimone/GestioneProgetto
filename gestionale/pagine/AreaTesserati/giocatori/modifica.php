@@ -78,7 +78,7 @@ if ($result = mysqli_query($link, $sql)) {
                 $ruolo = "Centrocampista";
             if ($row['ruolo'] == "P")
                 $ruolo = "Portiere";
-                if ($row['ruolo'] == "N")
+            if ($row['ruolo'] == "N")
                 $ruolo = "Nessun ruolo";
         }
 
@@ -116,11 +116,11 @@ if ($result = mysqli_query($link, $sql)) {
         <div class="col-sm-4 border-right">
             <h4 style="color:dark">DATI ANAGRAFICI</h4>
             <div class="form-group mt-2" style="max-height:45%">
-                <button type="button" class="close" aria-label="Close" style="color:red" ><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" aria-label="Close" style="color:red" id="eliminaProfilo"><span aria-hidden="true">&times;</span></button>
                 <label>Foto</label>
                 <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="modificaFotoProfilo(this);" style="margin-left:-2%;color:transparent">
                 <?php
-                if ($fotoProfilo != null)
+                if (isset($fotoProfilo))
                     echo "<img id='fotoProfilo' src='img/uploadsProfilo/$fotoProfilo' /> ";
                 else
                     echo "<img id='fotoProfilo' src='img/avatar.svg' /> ";
@@ -139,25 +139,25 @@ if ($result = mysqli_query($link, $sql)) {
         </div>
         <div class="col-sm-4 border-right">
             <h4 style="color:dark">VISITA</h4>
-            <label>Tipo</label><button type="button" class="close" aria-label="Close" style="color:red" ><span aria-hidden="true">&times;</span></button><br>
+            <label>Tipo</label><button type="button" id="eliminaVisita" class="close" aria-label="Close" style="color:red"><span aria-hidden="true">&times;</span></button><br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="tipoVisita" value="0" <?php if ($tipo == 0) echo "checked"; ?>>
+                <input class="form-check-input" type="radio" name="tipoVisita" id="tipo0" value="0" <?php if ($tipo == 0) echo "checked"; ?>>
                 <label class="form-check-label" for="inlineRadio1">Normale</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="tipoVisita" value="1" <?php if ($tipo == 1) echo "checked"; ?>>
+                <input class="form-check-input" type="radio" name="tipoVisita" id="tipo1" value="1" <?php if ($tipo == 1) echo "checked"; ?>>
                 <label class="form-check-label" for="inlineRadio2">Agonistica</label>
             </div><br>
             <label>Scadenza</label>
-            <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="scadenza" value="<?php echo $scadenza ?>">
+            <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="scadenza"id="scadenza" value="<?php echo $scadenza ?>">
             <div class="form-group mt-2">
                 <label>Foto</label>
                 <input type="file" class="form-control-file" name="fileToUpload1" id="fileToUpload1" onchange="modificaFotoVisita(this);" style="margin-left:-2%; color:transparent">
                 <?php
                 if ($fotoVisita != null) {
                     echo "<img id='fotoVisita' src='img/uploadsVisita/$fotoVisita' /> ";
-                }else
-                echo "<img id='fotoVisita' src='' /> ";
+                } else
+                    echo "<img id='fotoVisita' src='' /> ";
                 ?>
             </div>
             <h4 style="color:dark; margin-left:-2%">CONTATTI</h4>
@@ -280,6 +280,24 @@ if ($result = mysqli_query($link, $sql)) {
 </div>
 
 <script>
+    $("#eliminaVisita").click(function() {
+        $('#fotoVisita')
+            .attr('src', '');
+        $("#fileToUpload1").val('');
+        $("#tipo0").prop('checked',false);
+        $("#tipo1").prop('checked',false);
+
+        $("#scadenza").val('');
+
+
+    });
+
+    $("#eliminaProfilo").click(function() {
+        $('#fotoProfilo')
+            .attr('src', '');
+        $("#fileToUpload").val('');
+    });
+
     function modificaFotoProfilo(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
