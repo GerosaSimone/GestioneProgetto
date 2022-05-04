@@ -5,13 +5,6 @@ if (!isset($_SESSION['user_id'])) {
 }
 require_once '../../../config.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Document</title>
-</head>
 
 <body style="background-color: rgba(250, 250, 250, 255)">
     <div class="page-header clearfix">
@@ -55,7 +48,7 @@ require_once '../../../config.php';
             var addGiocatore = document.getElementById('addGiocatore')
             addGiocatore.addEventListener('show.bs.modal', function(event) {
                 $.post("pagine/AreaTesserati/giocatori/aggiungi.php", true, function(data, status) {
-                    $("#modalAggiungi").html(data);                    
+                    $("#modalAggiungi").html(data);
                 });
             });
             var elimina = document.getElementById('elimina')
@@ -64,7 +57,6 @@ require_once '../../../config.php';
                 var recipient = button.getAttribute('data-bs-whatever')
                 document.getElementById("idElimina").value = recipient;
             });
-
         });
     </script>
 </body>

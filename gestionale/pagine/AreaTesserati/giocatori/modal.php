@@ -2,7 +2,7 @@
 <div class="modal fade" id="addGiocatore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addGiocatoreLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div class="modal-header bg-secondary" >
+            <div class="modal-header bg-secondary">
                 <h3 style="color:white" class="modal-title pl-4" id="addGiocatoreLabel"><b>AGGIUNGI NUOVO GIOCATORE</b></h3>
                 <button style="color:white" type="button" class="close" aria-label="Close" data-bs-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
@@ -53,8 +53,8 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <input type="submit" name="submit" class="btn btn-success" value="Salva">
-
                 </div>
+            </form>
         </div>
     </div>
 </div>
@@ -69,12 +69,10 @@
                 </button>
             </div>
             <div class="modal-body" id="modalVisualizza">
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
-
         </div>
     </div>
 </div>

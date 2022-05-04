@@ -5,20 +5,13 @@ if (!isset($_SESSION['user_id'])) {
 }
 require_once '../../../config.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Document</title>
-</head>
 
 <body style="background-color: rgba(250, 250, 250, 255)">
     <div class="page-header clearfix">
         <strong>
-            <h2 class="pull-left pl-5"> Mister </h2>
-            <button type='button' class='btn btn-outline-secondary pull-right mr-3' data-bs-toggle='modal' data-bs-target='#addMister'>
-                Add Mister
+            <h2 class="pull-left pl-5 ml-4"> Dirigenza </h2>
+            <button type='button' class='btn btn-outline-secondary pull-right' data-bs-toggle='modal' data-bs-target='#addDirigente' style="margin-right:2%">
+                Add Dirigente/Mister
             </button>
         </strong>
     </div>
@@ -36,23 +29,33 @@ require_once '../../../config.php';
                     info: false
                 });
             });
-            var visualizza = document.getElementById('visualizza')
+            var visualizza = document.getElementById('visualizzaDirigenza')
             visualizza.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
-                var recipient = button.getAttribute('data-bs-whatever')
-                document.getElementById("tempVisualizza").value = recipient;
+                var id = button.getAttribute('data-bs-whatever')
+                $.post("pagine/AreaTesserati/dirigenza/visualizza.php?idTesserato=" + id, true, function(data, status) {
+                    $("#modalVisualizza").html(data);
+                });
             });
-            var modificaMister = document.getElementById('editMister')
-            modificaMister.addEventListener('show.bs.modal', function(event) {
+            var modifica = document.getElementById('modifica')
+            modifica.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
-                var recipient = button.getAttribute('data-bs-whatever')
-                document.getElementById("textEditMister").value = recipient;
+                var id = button.getAttribute('data-bs-whatever')
+                $.post("pagine/AreaTesserati/dirigenza/modifica.php?idTesserato=" + id, true, function(data, status) {
+                    $("#modalModifica").html(data);
+                });
+            });
+            var addGiocatore = document.getElementById('addGiocatore')
+            addGiocatore.addEventListener('show.bs.modal', function(event) {
+                $.post("pagine/AreaTesserati/dirigenza/aggiungi.php", true, function(data, status) {
+                    $("#modalAggiungi").html(data);
+                });
             });
             var elimina = document.getElementById('elimina')
             elimina.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var recipient = button.getAttribute('data-bs-whatever')
-                document.getElementById("tempElimina").value = recipient;
+                document.getElementById("idElimina").value = recipient;
             });
         });
     </script>
