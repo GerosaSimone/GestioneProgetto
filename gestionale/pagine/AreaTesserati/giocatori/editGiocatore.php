@@ -35,7 +35,7 @@ function caricaImmagine()
             //echo "Sorry, there was an error uploading your file.";
         }
     }
-    return "fotoVisita" . $_POST['cf'] .".". $imageFileType;
+    return "fotoVisita" . $_POST['cf'] . "." . $imageFileType;
 }
 session_start();
 if (!isset($_SESSION['user_id'])) {
@@ -63,44 +63,59 @@ if (!empty($_POST['pagato'])) {
 
 //crea visita
 $idVisita = null;
-if (isset($_POST['tipoVisita']) && isset($_POST['scadenza'])) {
-    $sql = "SELECT idVisita FROM tesserato WHERE id='" . $idTesserato . "'";
-
-    if ($result = mysqli_query($link, $sql)) {
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result);
-            $idVisita = $row['idVisita'];
-        }
+$sql = "SELECT idVisita FROM tesserato WHERE id='" . $idTesserato . "'";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $idVisita = $row['idVisita'];
     }
 }
 
-//echo "<br> id Visita:" . $idVisita;
+echo "<br> id Visita:" . $idVisita;
 if ($idVisita != null) {
-    if (!empty($_FILES['fileToUpload1']['tmp_name'])) {
-        $tmp = caricaImmagine();
-        $tipo = $_POST['tipoVisita'];
-        $scadenza = $_POST['scadenza'];
-
-        $sql = "UPDATE visita SET tipo='$tipo',scadenza='$scadenza', foto='$tmp' WHERE id=$idVisita";
+    echo "entro1";
+    echo $_POST['tipoVisita'] . " " . $_POST['scadenza'];
+    if (!isset($_POST['tipoVisita']) || !isset($_POST['scadenza'])) {
+        //se nel modal non c'e' nulla cancello anche dal db
+        echo "entro2";
+        $sql = "SELECT foto FROM visita WHERE id='" . $idVisita . "'";
+        if ($result = mysqli_query($link, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_array($result);
+                if (file_exists('../../../img/uploadsVisita/' . $row['foto'])) {
+                    unlink('../../../img/uploadsVisita/' . $row['foto']);
+                }
+            }
+        }
+        $sql = "DELETE FROM visita WHERE `visita`.`id` = $idVisita";
+        mysqli_query($link, $sql);
+        $sql = "UPDATE tesserato SET idVisita=null WHERE id=$idTesserato";
         mysqli_query($link, $sql);
     } else {
-        $tipo = $_POST['tipoVisita'];
-        $scadenza = $_POST['scadenza'];
-        $sql = "UPDATE visita SET tipo='$tipo',scadenza='$scadenza' WHERE id=$idVisita";
-        mysqli_query($link, $sql);
-    }
-} else {
-    //echo "entro 1111111";
-    if (isset($_POST['tipoVisita']) && isset($_POST['scadenza'])) {
         if (!empty($_FILES['fileToUpload1']['tmp_name'])) {
             $tmp = caricaImmagine();
             $tipo = $_POST['tipoVisita'];
             $scadenza = $_POST['scadenza'];
-
-            $sql = "INSERT INTO visita (tipo, scadenza, foto) VALUES ('" . $_POST['tipoVisita'] . "', '" . $_POST['scadenza'] . "', '" . "fotoVisita" . $_POST['cf'] . "." . $imageFileType . "');";
+            $sql = "UPDATE visita SET tipo='$tipo',scadenza='$scadenza', foto='$tmp' WHERE id=$idVisita";
             mysqli_query($link, $sql);
-
-            $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "'AND foto='" . "fotoVisita" . $_POST['cf'] . "." . $imageFileType . "'";
+        } else {
+            $tipo = $_POST['tipoVisita'];
+            $scadenza = $_POST['scadenza'];
+            $sql = "UPDATE visita SET tipo='$tipo',scadenza='$scadenza' WHERE id=$idVisita";
+            mysqli_query($link, $sql);
+        }
+    }
+} else {
+    echo "entro 1111111";
+    if (isset($_POST['tipoVisita']) && isset($_POST['scadenza'])) {
+        if (!empty($_FILES['fileToUpload1']['tmp_name'])) {
+            $tmp = caricaImmagine();
+            echo $tmp;
+            $tipo = $_POST['tipoVisita'];
+            $scadenza = $_POST['scadenza'];
+            $sql = "INSERT INTO visita (tipo, scadenza, foto) VALUES ('" . $_POST['tipoVisita'] . "', '" . $_POST['scadenza'] . "', '$tmp');";
+            mysqli_query($link, $sql);
+            $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "'AND foto='$tmp'";
             $result = mysqli_query($link, $sql);
             if ($result = mysqli_query($link, $sql)) {
                 $row = mysqli_fetch_array($result);
@@ -109,10 +124,8 @@ if ($idVisita != null) {
         } else {
             $tipo = $_POST['tipoVisita'];
             $scadenza = $_POST['scadenza'];
-
             $sql = "INSERT INTO visita (tipo, scadenza) VALUES ('" . $_POST['tipoVisita'] . "', '" . $_POST['scadenza'] . "');";
             mysqli_query($link, $sql);
-
             $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "';";
             $result = mysqli_query($link, $sql);
             if ($result = mysqli_query($link, $sql)) {
@@ -120,12 +133,14 @@ if ($idVisita != null) {
                 $idVisita = $row['id'];
             }
         }
+        $query .= ", idVisita" . "='$idVisita'";
     }
 }
 
 //fotoprofilo
+echo $_POST['presenzaFotoProfilo'];
 if (!empty($_FILES['fileToUpload']['tmp_name'])) {
-    //echo "temp profilo";
+    echo "<br> entro1111111";
     $target_dir = "../../../img/uploadsProfilo/";
     $target_file = $target_dir . "fotoProfilo" . $_POST['cf'];
     $uploadOk = 1;
@@ -160,14 +175,14 @@ if (!empty($_FILES['fileToUpload']['tmp_name'])) {
         }
     }
     $query .= ", linkFoto" . "='fotoProfilo" . $_POST['cf'] . ".$imageFileType'";
-}else{
-    $query .= ", linkFoto" . "=NULL";
-}
+} else 
+    if ($_POST['presenzaFotoProfilo'])
+    $query .= ", linkFoto" . "=null";
 
 //creazione query
 $query .= " WHERE tesserato.id = '" . $idTesserato . "'";
 mysqli_query($link, $query);
-//associo tel mail
+//associo tel 
 $numTel = $_POST['numTelefoni'];
 $numMail = $_POST['numMail'];
 $telefoniId = array();
@@ -191,6 +206,15 @@ if (isset($_POST["contatto1"]) && isset($_POST["tel1"])) {
     }
 }
 
+
+
+
+
+
+
+
+
+
 if (isset($_POST["cont1"]) && isset($_POST["mail1"])) {
     $sql = "SELECT id FROM mail WHERE idTesserato='" . $idTesserato . "'";
     if ($result = mysqli_query($link, $sql)) {
@@ -203,7 +227,6 @@ if (isset($_POST["cont1"]) && isset($_POST["mail1"])) {
     for ($i = 1; $i <= count($mailId); $i++) {
         $contatto = "cont" . $i;
         $mail = "mail" . $i;
-
         if (isset($_POST[$contatto]) && isset($_POST[$mail])) {
             $sql = "UPDATE mail SET nome='" . $_POST[$contatto] . "', mail='" . $_POST[$mail] . "' WHERE id='" . $mailId[$i - 1] . "'";
             mysqli_query($link, $sql);
@@ -230,6 +253,9 @@ for ($i = count($mailId); $i < $numMail; $i++) {
     //echo "<br> " . $sql;
     mysqli_query($link, $sql);
 }
-
+$sql = "DELETE FROM telefono WHERE telefono.telefono = '';";
+mysqli_query($link, $sql);
+$sql = "DELETE FROM mail WHERE mail.mail = '';";
+mysqli_query($link, $sql);
 $_SESSION['ultimaPage'] = "giocatori";
 header("Location: ../../../index.php");

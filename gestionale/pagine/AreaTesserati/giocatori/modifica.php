@@ -120,11 +120,13 @@ if ($result = mysqli_query($link, $sql)) {
                 <label>Foto</label>
                 <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="modificaFotoProfilo(this);" style="margin-left:-2%;color:transparent">
                 <?php
-                if (isset($fotoProfilo))
-                    echo "<img id='fotoProfilo' src='img/uploadsProfilo/$fotoProfilo' /> ";
-                else
-                    echo "<img id='fotoProfilo' src='img/avatar.svg' /> ";
+                if (isset($fotoProfilo)) {
+                    echo "<img id='fotoProfilo' src='img/uploadsProfilo/$fotoProfilo' /> ";                    
+                } else {
+                    echo "<img id='fotoProfilo' src='img/avatar.svg' /> ";                    
+                }
                 ?>
+                <input type='text' name='presenzaFotoProfilo' id="presenzaFotoProfilo" hidden=true value='0'>
             </div>
             <label>Nome</label>
             <input type=" text" name="nome" class="form-control form-control-sm mb-2" value="<?php echo $nome ?>" required>
@@ -149,15 +151,16 @@ if ($result = mysqli_query($link, $sql)) {
                 <label class="form-check-label" for="inlineRadio2">Agonistica</label>
             </div><br>
             <label>Scadenza</label>
-            <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="scadenza"id="scadenza" value="<?php echo $scadenza ?>">
+            <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="scadenza" id="scadenza" value="<?php echo $scadenza ?>">
             <div class="form-group mt-2">
                 <label>Foto</label>
                 <input type="file" class="form-control-file" name="fileToUpload1" id="fileToUpload1" onchange="modificaFotoVisita(this);" style="margin-left:-2%; color:transparent">
                 <?php
                 if ($fotoVisita != null) {
                     echo "<img id='fotoVisita' src='img/uploadsVisita/$fotoVisita' /> ";
-                } else
+                } else {
                     echo "<img id='fotoVisita' src='' /> ";
+                }
                 ?>
             </div>
             <h4 style="color:dark; margin-left:-2%">CONTATTI</h4>
@@ -284,18 +287,16 @@ if ($result = mysqli_query($link, $sql)) {
         $('#fotoVisita')
             .attr('src', '');
         $("#fileToUpload1").val('');
-        $("#tipo0").prop('checked',false);
-        $("#tipo1").prop('checked',false);
-
+        $("#tipo0").prop('checked', false);
+        $("#tipo1").prop('checked', false);
         $("#scadenza").val('');
-
-
     });
 
     $("#eliminaProfilo").click(function() {
         $('#fotoProfilo')
             .attr('src', '');
         $("#fileToUpload").val('');
+        $('#presenzaFotoProfilo').val('1');
     });
 
     function modificaFotoProfilo(input) {

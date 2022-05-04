@@ -13,7 +13,6 @@ if ($result = mysqli_query($link, $sql)) {
         $foto = $row['linkFoto'];
         if (file_exists('../../../img/uploadsProfilo/' . $foto)) {
             unlink('../../../img/uploadsProfilo/' . $foto);
-        } else {
         }
     }
 }
@@ -42,7 +41,6 @@ if ($idVisita != null) {
         $foto = $row['foto'];
         if (file_exists('../../../img/uploadsVisita/' . $foto)) {
             unlink('../../../img/uploadsVisita/' . $foto);
-        } else {
         }
     }
     $sql = "DELETE FROM visita WHERE visita.id = '" . $idVisita . "';";
