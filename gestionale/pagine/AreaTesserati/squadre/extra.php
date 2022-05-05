@@ -80,13 +80,29 @@ if ($result = mysqli_query($link, $sql)) {
         </button>
     </h4>
     <hr>
-    <div class="row" style="margin-left:0.1%; margin-right:0.1%">
-        <div class="col-sm-4">
-            <img src="img/divisa.webp" class="rounded float-left mr-2" alt="..." width="95%" height="95%">
-        </div>
-        <div class="col-sm-4">
-            <img src="img/divisa.webp" class="rounded float-left  mr-2" alt="..." width="95%" height="95%">
-        </div>
+    <div class="row" style="margin-left:0.1%; margin-right:0.1%; min-height:90px; max-height:90px">
+        <?php $sql = "  SELECT maglia.foto
+                    FROM `maglia` inner JOIN usa on maglia.id=usa.idMaglia 
+                    INNER JOIN categoria on usa.idCategoria=categoria.id
+                    WHERE categoria.nome='" . $_GET['squadra'] . "'";
+        if ($result = mysqli_query($link, $sql)) {
+            if ($result = mysqli_query($link, $sql)) {
+                if (mysqli_num_rows($result) > 1) {
+                    for ($i = 0; $i < 2; $i++) {
+                        $row = mysqli_fetch_array($result);
+                        echo '  <div class="col-sm-4">
+                                    <img src="img/uploadsDivise/' . $row['foto'] . '" class="rounded float-left mr-2" alt="..." style="max-height:90px" width="95%" height="95%">
+                                </div>';
+                    }
+                } else if (mysqli_num_rows($result) == 1) {
+                    $row = mysqli_fetch_array($result);
+                    echo '  <div class="col-sm-4">
+                                <img src="img/uploadsDivise/' . $row['foto'] . '" class="rounded float-left mr-2" alt="..." style="max-height:90px" width="95%" height="95%">
+                            </div>';
+                }
+            }
+        }
+        ?>
         <div class="col-sm-4">
             <button style="height:95%" class="btn btn-outline-secondary btn-block p-2" data-bs-toggle='modal' data-bs-target='#divise'>Show <br>more...</button>
         </div>

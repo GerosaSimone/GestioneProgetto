@@ -46,19 +46,16 @@ else {
                     ordering: true,
                     info: false
                 });
-            });            
-            var modificaMister = document.getElementById('editMister')
-            modificaMister.addEventListener('show.bs.modal', function(event) {
-                var button = event.relatedTarget
-                var recipient = button.getAttribute('data-bs-whatever')
-                document.getElementById("textEditMister").value = recipient;
-            });
-            var divise = document.getElementById('divise')
-            divise.addEventListener('show.bs.modal', function(event) {
-                var button = event.relatedTarget
-                var recipient = button.getAttribute('data-bs-whatever')
-                document.getElementById("textDivise").value = recipient;
-            });            
+            });    
+
+            var addGiocatore = document.getElementById('addGiocatore')
+            addGiocatore.addEventListener('show.bs.modal', function(event) {
+                $.post("pagine/AreaTesserati/squadre/aggiungi.php?squadra=<?php echo $_GET['squadra'];?>", true, function(data, status) {
+                    $("#modalAggiungi").html(data);
+                });
+            });        
+           
+                      
         });
     </script>
 </body>
