@@ -250,4 +250,4 @@ try {
     }
 }
 $_SESSION['ultimaPage'] = "giocatori";
-//header("Location: ../../../index.php");
+header("Location: ../../../index.php");

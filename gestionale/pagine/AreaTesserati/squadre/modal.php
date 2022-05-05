@@ -1,52 +1,3 @@
-<!--Divise-->
-<div class="modal fade" id="divise" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="diviseLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: rgb(33, 164, 245);">
-                <h3 class="modal-title pl-4 text-light" id="viewGiocatoreLabel"><b>VISUALIZZA DIVISE</b></h3>
-                <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="img/divisa.webp" alt="Previw divisa">
-                                <div class="card-body">
-                                    <h5 class="card-title">Prima Divisa</h5>
-                                    <p class="card-text">Utilizzata durante le partite giocate casa</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="img/divisa.webp" alt="Previw divisa">
-                                <div class="card-body">
-                                    <h5 class="card-title">Seconda Divisa</h5>
-                                    <p class="card-text">Utilizzata durante le partite in trasferta</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="img/divisa.webp" alt="Previw divisa">
-                                <div class="card-body">
-                                    <h5 class="card-title">Divisa dei Portieri</h5>
-                                    <p class="card-text">Utilizzata dai portieri <br>&nbsp</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 <!--Modifica Materiale-->
 <div class="modal fade" id="oggetti" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="oggettiLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -143,7 +94,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="pagine/AreaTesserati/squadre/addDivisa.php" method="get" enctype="multipart/form-data">
+            <form action="pagine/AreaTesserati/squadre/addDivisa.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group mt-2" style="max-height:45%">
                         <label>Foto</label>
@@ -164,8 +115,41 @@
         </div>
     </div>
 </div>
+<!--Divise-->
+<div class="modal fade" id="divise" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="diviseLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: rgb(33, 164, 245);">
+                <h3 class="modal-title pl-4 text-light" id="viewGiocatoreLabel"><b>VISUALIZZA DIVISE</b></h3>
+                <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
 
+                        <div class="col-sm-4 mt-3">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="img/divisa.webp" alt="Previw divisa">
+                                <div class="card-body">
+                                    <h5 class="card-title">Prima Divisa<button type="button" class="close pull-rigth" data-bs-whatever="" aria-label="Close" style="color:red" id="eliminaProfilo" onclick="eliminaMaglia(this);"><span aria-hidden="true">&times;</span></button></h5>
+                                    <p class="card-text">Utilizzata durante le partite giocate casa</p>
+                                </div>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- usare un swal al posto dell alert -->
 <script>
     function readFoto(input) {
         if (input.files && input.files[0]) {
@@ -179,7 +163,17 @@
 
             };
             reader.readAsDataURL(input.files[0]);
-            //blob input.files[0]            
+
         }
+    }
+
+    function eliminaMaglia(button) {
+        let text;
+        if (confirm("Sicuro di voler eliminare la maglia?") == true) {
+            var id = button.getAttribute('data-bs-whatever');
+            $.load("pagine/AreaTesserati/squadre/eliminaMaglia.php?idMaglia=" + id);
+        }
+
+
     }
 </script>
