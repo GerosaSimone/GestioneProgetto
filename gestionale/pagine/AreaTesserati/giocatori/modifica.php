@@ -261,11 +261,11 @@ try {
                 <div class="row">
                     <div class="col-sm-6">
                         <label>Da Pagare</label>
-                        <input type='currency' name="daPagare" placeholder='Type a number & click outside' value="<?php echo $daPagare ?> €" class="form-control form-control-sm mb-2" />
+                        <input type='currency' name="daPagare" placeholder='Type a number & click outside' value="<?php echo $daPagare ?>,00  €" class="form-control form-control-sm mb-2" />
                     </div>
                     <div class="col-sm-6">
                         <label>Pagato</label>
-                        <input type='currency' name="pagato" placeholder='Type a number & click outside' value="<?php echo $pagato ?> €" class="form-control form-control-sm mb-2" />
+                        <input type='currency' name="pagato" placeholder='Type a number & click outside' value="<?php echo $pagato ?>,00  €" class="form-control form-control-sm mb-2" />
                     </div>
                 </div>
             </div>

@@ -15,11 +15,11 @@ try {
     //daPagare e pagato
     if (!empty($_POST['daPagare'])) {
         $campi .= ", daPagare";
-        $param .= ",'" . $_POST['daPagare'] . "'";
+        $param .= ",'" . substr($_POST['daPagare'], 0, -6) . "'";
     }
     if (!empty($_POST['pagato'])) {
         $campi .= ", pagato";
-        $param .= ",'" . $_POST['pagato'] . "'";
+        $param .= ",'" . substr($_POST['pagato'], 0, -6) . "'";
     }
     //crea visita
     $idVisita = null;
@@ -130,8 +130,10 @@ try {
     //creazione tesserato
     $sql = "INSERT INTO tesserato ($campi) VALUES ($param);";
     mysqli_query($link, $sql);
+    echo "$sql<br>";
+    echo "Insert eseguita con successo!<br>";
     //prendo idTesserato
-    $idTesserato = -1;
+    $idTesserato = null;
     $sql = "SELECT id FROM `tesserato` WHERE cf='" . $_POST['cf'] . "'";
     $result = mysqli_query($link, $sql);
     if ($result = mysqli_query($link, $sql)) {

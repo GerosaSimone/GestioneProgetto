@@ -52,10 +52,10 @@ try {
     }
     //aggiungo daPagare e pagato
     if (!empty($_POST['daPagare'])) {
-        $query .= ", daPagare" . "='" . $_POST['daPagare'] . "'";
+        $query .= ", daPagare" . "='" . substr($_POST['daPagare'], 0, -8) . "'";
     }
     if (!empty($_POST['pagato'])) {
-        $query .= ", pagato" . "='" . $_POST['pagato'] . "'";
+        $query .= ", pagato" . "='" . substr($_POST['pagato'], 0, -8) . "'";
     }
     //cerca visita
     $idVisita = null;
@@ -186,6 +186,7 @@ try {
     //eseguo query tesserato
     $query .= " WHERE tesserato.id = '" . $idTesserato . "'";
     mysqli_query($link, $query);
+    echo " $query<br>";
     //associo tel e mail
     $numTel = $_POST['numTelefoni'];
     $numMail = $_POST['numMail'];
