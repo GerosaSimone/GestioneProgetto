@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 04, 2022 alle 13:52
--- Versione del server: 10.4.6-MariaDB
--- Versione PHP: 7.3.8
+-- Creato il: Mag 05, 2022 alle 17:00
+-- Versione del server: 10.4.22-MariaDB
+-- Versione PHP: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -75,6 +74,16 @@ CREATE TABLE `allenamento` (
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dump dei dati per la tabella `allenamento`
+--
+
+INSERT INTO `allenamento` (`id`, `oraInizio`, `oraFine`, `giorno`, `idCategoria`) VALUES
+(5, '12:00', '13:00', 'Martedi', 5),
+(6, '11:00', '23:00', 'Mercoledi', 5),
+(7, '13:00', '13:00', 'Mercoledi', 1),
+(8, '11:00', '23:00', 'Mercoledi', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -94,11 +103,11 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`id`, `nome`, `palloni`, `pettorine`, `linkFotoSquadra`) VALUES
-(1, 'PrimaSquadra', 0, 0, ''),
+(1, 'PrimaSquadra', 66, 78, ''),
 (2, 'Juniores', 0, 0, ''),
 (3, 'Allievi', 0, 0, ''),
 (4, 'Giovanissimi', 0, 0, ''),
-(5, 'Esordienti', 0, 0, ''),
+(5, 'Esordienti', 67, 56, ''),
 (6, 'Pulcini', 0, 0, ''),
 (7, 'PiccoliAmici', 0, 0, '');
 
@@ -123,8 +132,19 @@ CREATE TABLE `magazzino` (
 
 CREATE TABLE `maglia` (
   `id` int(11) NOT NULL,
-  `foto` int(11) NOT NULL
+  `foto` varchar(200) DEFAULT NULL,
+  `titolo` varchar(50) NOT NULL,
+  `descrizione` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `maglia`
+--
+
+INSERT INTO `maglia` (`id`, `foto`, `titolo`, `descrizione`) VALUES
+(1, '0', 'awdwadawd', 'awdawdawd'),
+(2, 'prova.png', 'adwdwdwa', 'awddwadwa'),
+(4, 'fotoDivisaPrimaSquadraMaglia Nera.png ', 'Maglia Nera', 'maglietta per piccoli');
 
 -- --------------------------------------------------------
 
@@ -144,8 +164,8 @@ CREATE TABLE `mail` (
 --
 
 INSERT INTO `mail` (`id`, `nome`, `mail`, `idTesserato`) VALUES
-(88, 'papa', 'asdasdasd@gmail.com', 0),
-(89, '', '', 0);
+(103, 'papa', 'hedrghrd@gmail.com', 120),
+(104, 'papa', 'hedrghrd@gmail.com', 121);
 
 -- --------------------------------------------------------
 
@@ -188,14 +208,9 @@ CREATE TABLE `telefono` (
 --
 
 INSERT INTO `telefono` (`id`, `nome`, `telefono`, `idTesserato`) VALUES
-(118, 'papa', '23423443234234', 0),
-(119, '', '', 0),
-(121, '', '', 0),
-(122, '', '', 0),
-(123, '', '', 0),
-(124, '', '', 0),
-(125, '', '', 0),
-(126, '', '', 0);
+(147, 'mgh', '34345634675', 120),
+(148, 'papa', '5757575757', 120),
+(149, 'mamma', '45656445645', 121);
 
 -- --------------------------------------------------------
 
@@ -227,7 +242,8 @@ CREATE TABLE `tesserato` (
 --
 
 INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `provincia`, `citta`, `linkFoto`, `daPagare`, `pagato`, `idCategoria`) VALUES
-(0, 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaa', '2022-05-05', 'aaaaaaaaa', 0, 'C', 0, 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaaa', NULL, 100, 0, 2);
+(120, 'cf1awdawdawdawda', 'simone', 'gerosa', '2022-05-06', 'erba', 0, 'C', 33, 'via verza 116', 'co', 'canzo', 'fotoProfilocf1awdawdawdawda.png', 24, 25, 4),
+(121, 'awdawdawdawdawda', 'davide', 'Gerosa', '2022-04-29', 'awdawdawdawd', 0, 'N', 34, 'VIA A. VERZA', 'fe', 'efwqewf', 'fotoProfiloawdawdawdawdawda.png', 58, 85, 2);
 
 -- --------------------------------------------------------
 
@@ -239,6 +255,13 @@ CREATE TABLE `usa` (
   `idMaglia` int(11) NOT NULL,
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `usa`
+--
+
+INSERT INTO `usa` (`idMaglia`, `idCategoria`) VALUES
+(4, 1);
 
 -- --------------------------------------------------------
 
@@ -281,7 +304,8 @@ CREATE TABLE `visita` (
 --
 
 INSERT INTO `visita` (`id`, `tipo`, `scadenza`, `foto`) VALUES
-(0, 1, '2022-05-05', 'fotoVisitaaaaaaaaaaaaaaaaa.jpg');
+(33, 0, '2022-05-07', 'fotoVisitacf1awdawdawdawda.png'),
+(34, 0, '2022-05-13', 'fotoVisitaawdawdawdawdawda.png');
 
 --
 -- Indici per le tabelle scaricate
@@ -402,7 +426,7 @@ ALTER TABLE `acquistimagazzino`
 -- AUTO_INCREMENT per la tabella `allenamento`
 --
 ALTER TABLE `allenamento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT per la tabella `categoria`
@@ -420,13 +444,13 @@ ALTER TABLE `magazzino`
 -- AUTO_INCREMENT per la tabella `maglia`
 --
 ALTER TABLE `maglia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
@@ -438,7 +462,80 @@ ALTER TABLE `prodotto`
 -- AUTO_INCREMENT per la tabella `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+
+--
+-- AUTO_INCREMENT per la tabella `tesserato`
+--
+ALTER TABLE `tesserato`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+
+--
+-- AUTO_INCREMENT per la tabella `utenti`
+--
+ALTER TABLE `utenti`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT per la tabella `visita`
+--
+ALTER TABLE `visita`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- Limiti per le tabelle scaricate
+--
+
+--
+-- Limiti per la tabella `acquistigiocatori`
+--
+ALTER TABLE `acquistigiocatori`
+  ADD CONSTRAINT `giocatore` FOREIGN KEY (`idGiocatore`) REFERENCES `tesserato` (`id`),
+  ADD CONSTRAINT `magazzino` FOREIGN KEY (`idMagazzino`) REFERENCES `magazzino` (`id`);
+
+--
+-- Limiti per la tabella `acquistimagazzino`
+--
+ALTER TABLE `acquistimagazzino`
+  ADD CONSTRAINT `maga` FOREIGN KEY (`idMagazzino`) REFERENCES `magazzino` (`id`);
+
+--
+-- Limiti per la tabella `allenamento`
+--
+ALTER TABLE `allenamento`
+  ADD CONSTRAINT `idcategoria` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`);
+
+--
+-- Limiti per la tabella `magazzino`
+--
+ALTER TABLE `magazzino`
+  ADD CONSTRAINT `prodotto` FOREIGN KEY (`idProdotto`) REFERENCES `prodotto` (`id`);
+
+--
+-- Limiti per la tabella `mail`
+--
+ALTER TABLE `mail`
+  ADD CONSTRAINT `idtesserato` FOREIGN KEY (`idTesserato`) REFERENCES `tesserato` (`id`);
+
+--
+-- Limiti per la tabella `telefono`
+--
+ALTER TABLE `telefono`
+  ADD CONSTRAINT `idtesse` FOREIGN KEY (`idTesserato`) REFERENCES `tesserato` (`id`);
+
+--
+-- Limiti per la tabella `tesserato`
+--
+ALTER TABLE `tesserato`
+  ADD CONSTRAINT `relazione3` FOREIGN KEY (`idVisita`) REFERENCES `visita` (`id`),
+  ADD CONSTRAINT `relazione4` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`);
+
+--
+-- Limiti per la tabella `usa`
+--
+ALTER TABLE `usa`
+  ADD CONSTRAINT `relazione1` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`),
+  ADD CONSTRAINT `relazione2` FOREIGN KEY (`idMaglia`) REFERENCES `maglia` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
