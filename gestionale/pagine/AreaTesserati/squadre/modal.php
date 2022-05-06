@@ -126,9 +126,9 @@
                 </button>
             </div>
             <form action="pagine/AreaTesserati/squadre/addGiocatore.php" method="post" enctype="multipart/form-data">
-            <input type="text"  hidden="true" name="squadra"  value="<?php echo $_GET['squadra'];?>">
+                <input type="text" hidden="true" name="squadra" value="<?php echo $_GET['squadra']; ?>">
                 <div class="modal-body" id="modalAggiungi">
-                    
+
                 </div>
                 <div class="modal-footer">
                     <input type="submit" name="submit" class="btn btn-primary" value="Salva">
@@ -174,6 +174,8 @@
                                 </div>
                             </div>';
                                 }
+                            } else {
+                                echo '<h5 class="card-title">Nessuna Divisa</h5>';
                             }
                         }
                         ?>
@@ -186,7 +188,44 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="elimina" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h3 style="color:white" class="modal-title pl-4" id="eliminaLabel"><b>ELIMINA GIOCATORE</b></h3>
+                <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form action="pagine/AreaTesserati/squadre/deleteGiocatore.php?squadra=<?php echo $_GET['squadra']; ?>" method="post">
+                <div class="modal-body">
+                    Sei sicuro di voler eliminare definitivamente il giocatore?
+                    <input type="text" name="idElimina" id="idElimina" hidden="true">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-danger" value="Elimina" data-bs-dismiss="modal">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
+<div class="modal fade" id="visualizzaGiocatore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="viewGiocatoreLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: rgb(33, 164, 245);">
+                <h3 style="color:white" class="modal-title pl-4" id="viewGiocatoreLabel"><b>VISUALIZZA GIOCATORE</b></h3>
+                <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalVisualizza">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- usare un swal al posto dell alert -->
 <script>
     function readFoto(input) {

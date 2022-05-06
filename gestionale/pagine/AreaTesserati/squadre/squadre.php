@@ -46,16 +46,29 @@ else {
                     ordering: true,
                     info: false
                 });
-            });    
+            });
+            var visualizza = document.getElementById('visualizzaGiocatore')
+            visualizza.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget
+                var id = button.getAttribute('data-bs-whatever')
+                $.post("pagine/AreaTesserati/squadre/visualizza.php?idTesserato=" + id, true, function(data, status) {
+                    $("#modalVisualizza").html(data);
+                });
+            });
 
             var addGiocatore = document.getElementById('addGiocatore')
             addGiocatore.addEventListener('show.bs.modal', function(event) {
-                $.post("pagine/AreaTesserati/squadre/aggiungi.php?squadra=<?php echo $_GET['squadra'];?>", true, function(data, status) {
+                $.post("pagine/AreaTesserati/squadre/aggiungi.php?squadra=<?php echo $_GET['squadra']; ?>", true, function(data, status) {
                     $("#modalAggiungi").html(data);
                 });
-            });        
-           
-                      
+            });
+
+            var elimina = document.getElementById('elimina')
+            elimina.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget
+                var recipient = button.getAttribute('data-bs-whatever')
+                document.getElementById("idElimina").value = recipient;
+            });
         });
     </script>
 </body>
