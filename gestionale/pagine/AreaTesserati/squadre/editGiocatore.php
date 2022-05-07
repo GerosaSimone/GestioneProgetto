@@ -66,9 +66,14 @@ try {
             $idVisita = $row['idVisita'];
         }
     }
+    echo "idVisita" . $idVisita;
     if ($idVisita != null) {
+
+        echo "<br>foto" . $_POST['tipoVisita'];
+        echo "<br>foto" . $_POST['scadenza'];
         if (!isset($_POST['tipoVisita']) || !isset($_POST['scadenza'])) {
             //se nel modal non c'e' nulla cancello anche dal db
+            echo "<br>foto" . $_FILES['fileToUpload1']['tmp_name'];
             $sql = "SELECT foto FROM visita WHERE id='" . $idVisita . "'";
             if ($result = mysqli_query($link, $sql)) {
                 if (mysqli_num_rows($result) > 0) {
@@ -83,6 +88,7 @@ try {
             $sql = "DELETE FROM visita WHERE `visita`.`id` = $idVisita";
             mysqli_query($link, $sql);
         } else {
+
             if (!empty($_FILES['fileToUpload1']['tmp_name'])) {
                 $tmp = caricaImmagine();
                 $tipo = $_POST['tipoVisita'];
@@ -250,5 +256,5 @@ try {
         //echo 'Previous exception: ' . $e->getMessage() . "<br/>";
     }
 }
-$_SESSION['ultimaPage'] = "giocatori";
+$_SESSION['ultimaPage'] = $_POST['squadra'];
 header("Location: ../../../index.php");

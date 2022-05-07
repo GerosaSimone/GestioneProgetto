@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 require_once '../../../config.php';
 
-//echo "titolo" . $_POST['titolo'] . "<br>" . $_POST['descrizione'] . "<br>" . empty($_FILES['fileToUpload']['tmp_name']) . "<br>" .
+////echo "titolo" . $_POST['titolo'] . "<br>" . $_POST['descrizione'] . "<br>" . empty($_FILES['fileToUpload']['tmp_name']) . "<br>" .
     $descrizione = " ";
 if (isset($_POST['descrizione']))
     $descrizione = $_POST['descrizione'];
@@ -19,40 +19,40 @@ if (!empty($_FILES['fileToUpload']['tmp_name']) && isset($_POST['titolo'])) {
     $target_file .= "." . $imageFileType;
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if ($check !== false) {
-        //echo "File is an image - " . $check["mime"] . ".";
+        ////echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-        //echo "File is not an image.";
+        ////echo "File is not an image.";
         $uploadOk = 0;
     }
     if ($_FILES["fileToUpload"]["size"] > 50000000) {
-        //echo "Sorry, your file is too large.";
+        ////echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
     if (
         $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif"
     ) {
-        //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        ////echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
     }
     if ($uploadOk == 0) {
-        //echo "Sorry, your file was not uploaded.";
+        ////echo "Sorry, your file was not uploaded.";
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             $sql = "INSERT INTO maglia (titolo, descrizione, foto) VALUES ('" . $_POST['titolo'] . "', '$descrizione', '$titolo');";
             mysqli_query($link, $sql);
-            echo $sql . "<br>";
+            //echo $sql . "<br>";
             $sql = "SELECT maglia.id AS idMaglia, categoria.id AS idCategoria FROM maglia,categoria WHERE maglia.foto='$titolo' AND categoria.nome='" . $_POST['squadra'] . "';";
             if ($result = mysqli_query($link, $sql)) {
                 $row = mysqli_fetch_array($result);
-                echo $sql . "<br>";
+                //echo $sql . "<br>";
                 $sql = "INSERT INTO usa (idMaglia, idCategoria) VALUES ('" . $row['idMaglia'] . "', '" . $row['idCategoria'] . "');";
                 mysqli_query($link, $sql);
-                echo $sql;
+                //echo $sql;
             }
         } else {
-            //echo "Sorry, there was an error uploading your file.";
+            ////echo "Sorry, there was an error uploading your file.";
         }
     }
 }

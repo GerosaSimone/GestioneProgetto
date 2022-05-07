@@ -49,9 +49,9 @@ try {
         mysqli_query($link, $sql);
     }
 } catch (Exception $e) {
-    echo $e->getMessage() . "<br/>";
+    //echo $e->getMessage() . "<br/>";
     while ($e = $e->getPrevious()) {
-        echo 'Previous exception: ' . $e->getMessage() . "<br/>";
+        //echo 'Previous exception: ' . $e->getMessage() . "<br/>";
     }
 }
 $_SESSION['ultimaPage'] = $_GET['squadra'];

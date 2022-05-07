@@ -4,7 +4,7 @@
         Add Giocatore
     </button>
 </div>
-<div class="limiter pt-3 pr-4" style="margin-left:1%">
+<div class="limiter pt-3">
     <div class="container-table100">
         <div class="wrap-table100">
             <div class="table100">
@@ -15,7 +15,7 @@
                 on idCategoria=categoria.id)
                 LEFT JOIN visita ON visita.id=tesserato.idVisita
                 WHERE tesserato.tipo='0' and categoria.nome='" . $_GET['squadra'] . "'";
-                echo "<table class='display shadow-lg tabella' style='width:100%'><thead><tr>";
+                echo "<table class='display shadow-lg tabella' style='width:100%; min-width:800px'><thead><tr>";
                 echo "      <th class='pl-4'> Nome</th>";
                 echo "      <th> Cognome</th>";
                 echo "      <th> Data Nascita</th>";

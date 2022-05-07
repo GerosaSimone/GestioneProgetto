@@ -23,7 +23,7 @@ else {
 <body style="background-color: rgba(250, 250, 250, 255)">
     <div class="contenitore">
         <div class="row">
-            <div class="col-sm-9 border-right">
+            <div class="col-sm-9 border-right" style="min-width:875px">
                 <?php include 'tabellaMister.php'; ?>
                 <?php include 'tabellaGiocatori.php'; ?>
             </div>
@@ -68,6 +68,14 @@ else {
                 var button = event.relatedTarget
                 var recipient = button.getAttribute('data-bs-whatever')
                 document.getElementById("idElimina").value = recipient;
+            });
+            var modifica = document.getElementById('modifica')
+            modifica.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget
+                var id = button.getAttribute('data-bs-whatever')
+                $.post("pagine/AreaTesserati/squadre/modifica.php?idTesserato=" + id + "squadra=<?php echo $_GET['squadra']; ?>", true, function(data, status) {
+                    $("#modalModifica").html(data);
+                });
             });
         });
     </script>
