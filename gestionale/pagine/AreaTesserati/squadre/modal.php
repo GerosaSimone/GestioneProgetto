@@ -262,7 +262,6 @@
         }
     }
 
-
     function eliminaMaglia(input) {
         if (confirm("Sicuro di voler eliminare la maglia?") == true) {
             var id = input.getAttribute('id');

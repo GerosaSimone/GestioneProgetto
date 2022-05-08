@@ -73,7 +73,7 @@ else {
             modifica.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
-                $.post("pagine/AreaTesserati/squadre/modifica.php?idTesserato=" + id + "squadra=<?php echo $_GET['squadra']; ?>", true, function(data, status) {
+                $.post("pagine/AreaTesserati/squadre/modifica.php?idTesserato=" + id + "&squadra=<?php echo $_GET['squadra']; ?>", true, function(data, status) {
                     $("#modalModifica").html(data);
                 });
             });

@@ -45,6 +45,7 @@ try {
     }
     //inizializzo query update con param default
     $idTesserato = $_POST['id'];
+    //echo "<br>".$idTesserato."<br>";
     $query = "UPDATE tesserato SET cf='" . $_POST['cf'] . "',nome='" . $_POST['nome'] . "',cognome='" . $_POST['cognome'] . "', dataNascita='" . $_POST['dataNascita'] . "', luogoNascita='" . $_POST['luogoNascita'] .  "',via='" . $_POST['via'] . "',provincia='" . $_POST['provincia'] . "', citta='" . $_POST['citta'] . "',idCategoria='" . $_POST['categoria'] . "'";
     //aggiungo ruolo
     if (!empty($_POST['ruolo'])) {
@@ -66,14 +67,13 @@ try {
             $idVisita = $row['idVisita'];
         }
     }
-    echo "idVisita" . $idVisita;
+    //echo "idVisita" . $idVisita;
     if ($idVisita != null) {
-
-        echo "<br>foto" . $_POST['tipoVisita'];
-        echo "<br>foto" . $_POST['scadenza'];
+        //echo "<br>foto" . $_POST['tipoVisita'];
+        //echo "<br>foto" . $_POST['scadenza'];
         if (!isset($_POST['tipoVisita']) || !isset($_POST['scadenza'])) {
             //se nel modal non c'e' nulla cancello anche dal db
-            echo "<br>foto" . $_FILES['fileToUpload1']['tmp_name'];
+            //echo "<br>foto" . $_FILES['fileToUpload1']['tmp_name'];
             $sql = "SELECT foto FROM visita WHERE id='" . $idVisita . "'";
             if ($result = mysqli_query($link, $sql)) {
                 if (mysqli_num_rows($result) > 0) {
@@ -192,7 +192,7 @@ try {
     //eseguo query tesserato
     $query .= " WHERE tesserato.id = '" . $idTesserato . "'";
     mysqli_query($link, $query);
-    //echo " $query<br>";
+    //echo " <br>$query<br>";
     //associo tel e mail
     $numTel = $_POST['numTelefoni'];
     $numMail = $_POST['numMail'];

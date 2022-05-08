@@ -57,6 +57,8 @@ if (!isset($_SESSION['user_id'])) {
                 $("#pagina").load("pagine/AreaTesserati/giocatori/giocatori.php");
             } else if (a == "prodotti") {
                 $("#pagina").load("pagine/AreaShop/articoli.php");
+            } else if (a == "galleria") {
+                $("#pagina").load("pagine/AreaSito/galleria.php");
             } else
                 $("#pagina").load("pagine/home.php");
         </script>
