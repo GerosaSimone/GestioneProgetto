@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-secondary">
-                <h3 class="modal-title text-light" id="addGalleriaLabel">Aggiungi nuova immagine alla Galleria</h3>
+                <h3 class="modal-title text-light" id="addGalleriaLabel">Aggiungi nuova immagine</h3>
                 <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>

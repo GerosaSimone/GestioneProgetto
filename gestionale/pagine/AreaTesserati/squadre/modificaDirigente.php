@@ -92,7 +92,7 @@ try {
             <div class="form-group mt-2" style="max-height:45%">
                 <button type="button" class="close" aria-label="Close" style="color:red" id="eliminaProfilo"><span aria-hidden="true">&times;</span></button>
                 <label>Foto</label>
-                <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="modificaFotoProfilo(this);" style="margin-left:-2%;color:transparent">
+                <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="modificaFotoProfiloDirigente(this);" style="margin-left:-2%;color:transparent">
                 <?php
                 if (isset($fotoProfilo)) {
                     echo "<img id='fotoProfilo' src='img/uploadsProfilo/$fotoProfilo' /> ";
@@ -127,7 +127,7 @@ try {
                     <label>Ruolo</label>
                     <select class="custom-select custom-select-sm" name="ruolo">
                         <option value="M" <?php if ($ruolo == "Mister") echo "selected"; ?>>Mister</option>
-                        <option value="D" <?php if ($ruolo == "Dirigente") echo "selected"; ?>>Dirigente</option>
+                        <option value="D" <?php if ($ruolo == "Dirigente") echo "selected"; ?>>Dirigenza</option>
                         <option value="P" <?php if ($ruolo == "Presidente") echo "selected"; ?>>Presidente</option>
                         <option value="N" <?php if ($ruolo == "Nessun ruolo") echo "selected"; ?>>Nessun ruolo</option>
                     </select>
@@ -226,7 +226,7 @@ try {
         $('#presenzaFotoProfilo').val('1');
     });
 
-    function modificaFotoProfilo(input) {
+    function modificaFotoProfiloDirigente(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {

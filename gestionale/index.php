@@ -18,10 +18,11 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/table.css">   
 </head>
 
 <body>
+   
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
             <?php include 'pagine/home.php'; ?>
@@ -55,6 +56,8 @@ if (!isset($_SESSION['user_id'])) {
                 $("#pagina").load("pagine/AreaTesserati/squadre/squadre.php?squadra=" + a);
             else if (a == "giocatori") {
                 $("#pagina").load("pagine/AreaTesserati/giocatori/giocatori.php");
+            } else if (a == "dirigenza") {
+                $("#pagina").load("pagine/AreaTesserati/dirigenza/dirigenza.php");
             } else if (a == "prodotti") {
                 $("#pagina").load("pagine/AreaShop/articoli.php");
             } else if (a == "galleria") {
@@ -62,6 +65,7 @@ if (!isset($_SESSION['user_id'])) {
             } else
                 $("#pagina").load("pagine/home.php");
         </script>
+
     </div>
 </body>
 

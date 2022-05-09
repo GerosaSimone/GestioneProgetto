@@ -54,5 +54,4 @@ try {
         //echo 'Previous exception: ' . $e->getMessage() . "<br/>";
     }
 }
-$_SESSION['ultimaPage'] = $_GET['squadra'];
 header("Location: ../../../index.php");

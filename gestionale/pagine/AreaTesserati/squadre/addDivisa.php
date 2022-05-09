@@ -56,7 +56,4 @@ if (!empty($_FILES['fileToUpload']['tmp_name']) && isset($_POST['titolo'])) {
         }
     }
 }
-
-
-$_SESSION['ultimaPage'] = $_POST['squadra'];
 header("Location: ../../../index.php");

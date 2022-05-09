@@ -4,6 +4,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
 require_once '../../../config.php';
+$_SESSION['ultimaPage'] = "giocatori";
 ?>
 
 <body style="background-color: rgba(250, 250, 250, 255)">

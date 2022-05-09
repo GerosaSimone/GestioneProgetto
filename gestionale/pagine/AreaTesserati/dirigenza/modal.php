@@ -1,9 +1,9 @@
-<!--Aggiungi Dirigente-->
+<!--Aggiungi Giocatore-->
 <div class="modal fade" id="addDirigente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addDirigenteLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-secondary">
-                <h3 style="color:white" class="modal-title pl-4" id="addDirigenteLabel"><b>AGGIUNGI NUOVO DIRIGENTE</b></h3>
+                <h3 style="color:white" class="modal-title pl-3" id="addDirigenteLabel"><b>AGGIUNGI NUOVO DIRIGENTE</b></h3>
                 <button style="color:white" type="button" class="close" aria-label="Close" data-bs-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -23,12 +23,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-danger">
-                <h3 style="color:white" class="modal-title pl-4" id="eliminaLabel"><b>ELIMINA DIRIGENTE</b></h3>
+                <h3 style="color:white" class="modal-title pl-3" id="eliminaLabel"><b>ELIMINA DIRIGENTE</b></h3>
                 <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
             <form action="pagine/AreaTesserati/dirigenza/deleteDirigente.php" method="post">
                 <div class="modal-body">
-                    Sei sicuro di voler eliminare definitivamente il Dirigente?
+                    Sei sicuro di voler eliminare definitivamente il dirigente?
                     <input type="text" name="idElimina" id="idElimina" hidden="true">
                 </div>
                 <div class="modal-footer">
@@ -40,11 +40,11 @@
     </div>
 </div>
 <!--Modifica-->
-<div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modificaLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+<div class="modal fade" id="modifica" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modificaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-success">
-                <h3 style="color:white" class="modal-title pl-4" id="modificaLabel"><b>MODIFICA DIRIGENTE</b></h3>
+                <h3 style="color:white" class="modal-title pl-3" id="modificaLabel"><b>MODIFICA DIRIGENTE</b></h3>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
             </div>
             <form action="pagine/AreaTesserati/dirigenza/editDirigente.php" method="post" enctype="multipart/form-data">
@@ -59,11 +59,11 @@
     </div>
 </div>
 <!--Visualizza-->
-<div class="modal fade" id="visualizza" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="viewDirigenteLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+<div class="modal fade" id="visualizza" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="visualizzaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header" style="background-color: rgb(33, 164, 245);">
-                <h3 style="color:white" class="modal-title pl-4" id="viewDirigenteLabel"><b>VISUALIZZA DIRIGENTE</b></h3>
+                <h3 style="color:white" class="modal-title pl-3" id="visualizzaLabel"><b>VISUALIZZA DIRIGENTE</b></h3>
                 <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 05, 2022 at 08:42 PM
+-- Generation Time: May 09, 2022 at 09:07 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -114,6 +114,31 @@ INSERT INTO `categoria` (`id`, `nome`, `palloni`, `pettorine`, `linkFotoSquadra`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `galleria`
+--
+
+CREATE TABLE `galleria` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `titolo` varchar(32) NOT NULL,
+  `foto` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `galleria`
+--
+
+INSERT INTO `galleria` (`id`, `titolo`, `foto`) VALUES
+(1, '0', 'fotoGalleria0.jpg'),
+(5, '3', 'fotoGalleria3.jpg'),
+(6, '4', 'fotoGalleria4.jpg'),
+(7, '4', 'fotoGalleria4.png'),
+(8, '5', 'fotoGalleria5.jpg'),
+(9, '6', 'fotoGalleria6.jpg'),
+(10, '7', 'fotoGalleria7.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `magazzino`
 --
 
@@ -142,9 +167,11 @@ CREATE TABLE `maglia` (
 --
 
 INSERT INTO `maglia` (`id`, `foto`, `titolo`, `descrizione`) VALUES
-(28, 'fotoDivisaPrimaSquadraasdasd.jpg', 'asdasd', 'asdasdas'),
-(29, 'fotoDivisaPrimaSquadraasdasdas.jpg', 'asdasdas', 'asdasdas'),
-(30, 'fotoDivisaPrimaSquadraasdas.jpg', 'asdas', 'dasdasd');
+(32, 'fotoDivisaPrimaSquadrasdfsafsdfsdfsdf.jpg', 'sdfsafsdfsdfsdf', ''),
+(33, 'fotoDivisaPrimaSquadrafffffffff.jpg', 'fffffffff', 'fffffffffffffffff'),
+(35, 'fotoDivisaPrimaSquadraaaaaaaa.jpg', 'aaaaaaa', 'vbbbbbbbb'),
+(36, 'fotoDivisaPrimaSquadrabbbbbbb.jpg', 'bbbbbbb', 'bbbbbbbbb'),
+(37, 'fotoDivisaAllieviaaaa.jpg', 'aaaa', 'aaa');
 
 -- --------------------------------------------------------
 
@@ -166,7 +193,12 @@ CREATE TABLE `mail` (
 INSERT INTO `mail` (`id`, `nome`, `mail`, `idTesserato`) VALUES
 (103, 'papa', 'hedrghrd@gmail.com', 120),
 (104, 'papa', 'hedrghrd@gmail.com', 121),
-(112, 'fratello', 'andrea@gmail.com', 121);
+(112, 'fratello', 'andrea@gmail.com', 121),
+(125, 'giocatore', 'andreamauri@gmail.com', 129),
+(126, 'giocatore', 'andreamauri@gmail.com', 133),
+(127, 'fratello', 'andrea@gmail.com', 133),
+(156, 'aaaaa', 'andreamauri@gmail.com', 137),
+(157, 'bbbbb', 'asdas@gmail.com', 137);
 
 -- --------------------------------------------------------
 
@@ -211,7 +243,12 @@ CREATE TABLE `telefono` (
 INSERT INTO `telefono` (`id`, `nome`, `telefono`, `idTesserato`) VALUES
 (147, 'mgh', '34345634675', 120),
 (148, 'papa', '5757575757', 120),
-(149, 'mamma', '45656445645', 121);
+(149, 'mamma', '45656445645', 121),
+(161, 'mamma', '3390456712', 129),
+(162, 'papa', '3981278345', 129),
+(163, 'mamma', '3390456712', 133),
+(189, 'aaaa', '3390456712', 137),
+(190, 'bbbbb', '1111111111111', 137);
 
 -- --------------------------------------------------------
 
@@ -246,9 +283,14 @@ INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNas
 (120, 'cf1awdawdawdawda', 'simone', 'gerosa', '2022-05-06', 'erba', 0, 'C', 33, 'via verza 116', 'co', 'canzo', 'fotoProfilocf1awdawdawdawda.png', 20, 20, 4),
 (121, 'awdawdawdawdawda', 'davide', 'Gerosa', '2022-04-29', 'awdawdawdawd', 0, 'N', NULL, 'VIA A. VERZA', 'fe', 'efwqewf', NULL, 12, 8, 2),
 (127, 'asdasdasdasdasda', 'asda', 'dasd', '2022-05-01', 'asdasdasd', 0, 'N', NULL, 'sdas', 'as', 'asd', NULL, 0, 0, 1),
-(128, '1111111111111111', '111111', '111111', '2022-05-14', '11111111', 0, 'N', NULL, '111111111', '11', '111111111', NULL, 0, 0, 1),
-(129, '2222222222222222', '2', '2', '2022-05-07', '2', 0, 'N', NULL, '2222', '22', '22', NULL, 0, 0, 1),
-(130, '3333333333333333', '3', '3', '2022-05-15', '3', 0, 'N', NULL, '3', '33', '3', NULL, 0, 0, 1);
+(128, '1111111111111111', 'andrea', '111111', '2022-05-14', '11111111', 0, 'N', NULL, '111111111', '11', '111111111', NULL, 0, 0, 1),
+(129, 'provaprovaprovap', 'prova', 'prova', '2000-01-01', 'prova', 0, 'D', NULL, 'prova', 'pr', 'prova', NULL, 100, 100, 1),
+(130, '3333333333333333', 'aaaaaaaaaaaaaaaa', '3', '2022-05-15', '3', 0, 'N', NULL, '3', '33', '3', 'fotoProfilo3333333333333333.jpg', 0, 0, 1),
+(131, 'tentativo2tentat', 'tentativo2', 'tentativo2', '1111-11-11', 'tentativo2', 1, 'P', NULL, 'tentativo2', 'te', 'tentativo2', 'fotoProfilocf1awdawdawdawda.jpg', 0, 0, 1),
+(132, 'asdasdasd', 'tentativo1', 'sdasdasdasd', '2022-05-02', 'asdasdasdasd', 1, 'D', NULL, 'asd', 'adasdas', 'asdasd', 'fotoProfiloasdasdasd.jpg', 0, 0, 1),
+(133, 'asdddddddddddddd', 'a', 'as', '2022-04-28', 'asdasd', 0, 'M', NULL, 'Via Parini 6/b', 'as', 'asd', 'fotoProfiloasdddddddddddddd.jpg', 0, 0, 1),
+(134, 'dasdasdasdasdasd', 'asdas', 'dasdas', '2022-05-01', 'asdasda', 0, 'M', NULL, 'dasd', 'as', 'asdasd', NULL, 0, 0, 1),
+(137, 'provaprovaprovap', 'prova', 'prova', '2022-05-12', 'prova', 1, 'M', NULL, 'prova', 'pr', 'prova', 'fotoProfiloprovaprovaprovap.jpg', 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -266,9 +308,11 @@ CREATE TABLE `usa` (
 --
 
 INSERT INTO `usa` (`idMaglia`, `idCategoria`) VALUES
-(28, 1),
-(29, 1),
-(30, 1);
+(32, 1),
+(33, 1),
+(35, 1),
+(36, 1),
+(37, 3);
 
 -- --------------------------------------------------------
 
@@ -352,6 +396,12 @@ ALTER TABLE `allenamento`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`,`nome`);
+
+--
+-- Indexes for table `galleria`
+--
+ALTER TABLE `galleria`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `magazzino`
@@ -443,40 +493,46 @@ ALTER TABLE `categoria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `galleria`
+--
+ALTER TABLE `galleria`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `magazzino`
 --
 ALTER TABLE `magazzino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `maglia`
 --
 ALTER TABLE `maglia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 
 --
 -- AUTO_INCREMENT for table `prodotto`
 --
 ALTER TABLE `prodotto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
 
 --
 -- AUTO_INCREMENT for table `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT for table `utenti`

@@ -250,5 +250,4 @@ try {
         //echo 'Previous exception: ' . $e->getMessage() . "<br/>";
     }
 }
-$_SESSION['ultimaPage'] = "giocatori";
 header("Location: ../../../index.php");

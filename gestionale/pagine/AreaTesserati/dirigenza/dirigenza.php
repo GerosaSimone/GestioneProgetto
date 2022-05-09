@@ -9,9 +9,9 @@ require_once '../../../config.php';
 <body style="background-color: rgba(250, 250, 250, 255)">
     <div class="page-header clearfix">
         <strong>
-            <h2 class="pull-left pl-5 ml-4"> Dirigenza </h2>
-            <button type='button' class='btn btn-outline-secondary pull-right' data-bs-toggle='modal' data-bs-target='#addDirigente' style="margin-right:2%">
-                Add Dirigente/Mister
+            <h2 class="pull-left pl-5"> Dirigenza </h2>
+            <button type='button' class='btn btn-outline-secondary pull-right' data-bs-toggle='modal' data-bs-target='#addDirigente' style="margin-right:3%">
+                Add Mister/Dirigente
             </button>
         </strong>
     </div>
@@ -29,10 +29,11 @@ require_once '../../../config.php';
                     info: false
                 });
             });
-            var visualizza = document.getElementById('visualizzaDirigenza')
+            var visualizza = document.getElementById('visualizza')
             visualizza.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
+               
                 $.post("pagine/AreaTesserati/dirigenza/visualizza.php?idTesserato=" + id, true, function(data, status) {
                     $("#modalVisualizza").html(data);
                 });
@@ -45,8 +46,8 @@ require_once '../../../config.php';
                     $("#modalModifica").html(data);
                 });
             });
-            var addGiocatore = document.getElementById('addGiocatore')
-            addGiocatore.addEventListener('show.bs.modal', function(event) {
+            var addDirigente = document.getElementById('addDirigente')
+            addDirigente.addEventListener('show.bs.modal', function(event) {
                 $.post("pagine/AreaTesserati/dirigenza/aggiungi.php", true, function(data, status) {
                     $("#modalAggiungi").html(data);
                 });

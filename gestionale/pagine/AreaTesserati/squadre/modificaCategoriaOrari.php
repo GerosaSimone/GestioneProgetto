@@ -40,6 +40,4 @@ if ($result = mysqli_query($link, $sql)) {
         //echo $sql;
     }
 }
-
-$_SESSION['ultimaPage'] = $_GET['squadra'];
 header("Location: ../../../index.php");

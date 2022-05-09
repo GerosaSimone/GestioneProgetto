@@ -167,5 +167,4 @@ try {
         //echo 'Previous exception: ' . $e->getMessage() . "<br/>";
     }
 }
-$_SESSION['ultimaPage'] =  $_POST['squadra'];
 header("Location: ../../../index.php");

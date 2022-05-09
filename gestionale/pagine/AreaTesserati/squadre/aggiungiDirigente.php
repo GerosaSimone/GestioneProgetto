@@ -4,7 +4,7 @@
             <h4 style="color:dark">DATI ANAGRAFICI</h4>
             <div class="form-group mt-2" style="max-height:45%">
                 <label>Foto</label>
-                <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="readFotoProfilo(this);" style="margin-left:-2%">
+                <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="readFotoProfiloDirigente(this);" style="margin-left:-2%">
                 <img id="fotoProfilo" src="" />
             </div>
             <label>Nome</label>
@@ -118,7 +118,7 @@
         $("#numMail").attr('value', (a + 1));
     }
 
-    function readFotoProfilo(input) {
+    function readFotoProfiloDirigente(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
