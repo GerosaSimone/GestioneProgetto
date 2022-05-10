@@ -114,6 +114,91 @@ th {
   color: white;
 }
 
+@media screen and (max-width: 1120px) {
+  table {
+    display: block;
+  }
+
+  table>*,
+  table tr,
+  table td,
+  table th {
+    display: block;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  table tbody tr {
+    height: auto;
+    padding: 37px 0;
+  }
+
+  table tbody tr td {
+    padding-left: 40% !important;
+    margin-bottom: 24px;
+  }
+
+  table tbody tr td:last-child {
+    margin-bottom: 0;
+  }
+
+  table tbody tr td:before {
+    font-size: 14px;
+    color: rgb(33, 164, 245);
+    line-height: 1.2;
+    font-weight: unset;
+    position: absolute;
+    width: 40%;
+    left: 30px;
+    top: 0;
+  }
+
+  table tbody tr td:nth-child(1):before {
+    content: "Nome";
+  }
+
+  table tbody tr td:nth-child(2):before {
+    content: "Cognome";
+  }
+
+  table tbody tr td:nth-child(3):before {
+    content: "Data Nascita";
+  }
+
+  table tbody tr td:nth-child(4):before {
+    content: "Visita";
+  }
+
+  table tbody tr td:nth-child(5):before {
+    content: "Scadenza";
+  }
+
+  .column4,
+  .column5 {
+    text-align: left;
+  }
+
+  .column4,
+  .column5,
+  .column1,
+  .column2,
+  .column3 {
+    width: 100%;
+  }
+
+  tbody tr {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container-table100 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 
 .dot-red {
   height: 0.7vw;

@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 require_once '../../config.php';
 try {
-    $id = $_GET['id'];
+    $id = $_POST['idElimina'];
     $foto = "";
     //prendo foto   
     $sql = "SELECT foto FROM galleria WHERE id = '" . $id . "';";

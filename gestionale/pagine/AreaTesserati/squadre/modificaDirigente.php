@@ -134,14 +134,14 @@ try {
                 </div>
                 <div class="col-sm-6">
                     <label>Categoria</label>
-                    <select class="custom-select custom-select-sm" name="categoria">
-                        <option value="1" <?php if ($categoria == "1") echo "selected"; ?>>Prima Squadra</option>
-                        <option value="2" <?php if ($categoria == "2") echo "selected"; ?>>Juniores</option>
-                        <option value="3" <?php if ($categoria == "3") echo "selected"; ?>>Allievi</option>
-                        <option value="4" <?php if ($categoria == "4") echo "selected"; ?>>Giovanissimi</option>
-                        <option value="5" <?php if ($categoria == "5") echo "selected"; ?>>Esordienti</option>
-                        <option value="6" <?php if ($categoria == "6") echo "selected"; ?>>Pulcini</option>
-                        <option value="7" <?php if ($categoria == "7") echo "selected"; ?>>Piccoli Amici</option>
+                    <select class="custom-select custom-select-sm" name="categoria" required>
+                        <?php if ($categoria == "1") echo '<option value="1">Prima Squadra</option>'; ?>
+                        <?php if ($categoria == "2") echo '<option value="2">Juniores</option>'; ?>
+                        <?php if ($categoria == "3") echo '<option value="3">Allievi</option>'; ?>
+                        <?php if ($categoria == "4") echo '<option value="4">Giovanissimi</option>'; ?>
+                        <?php if ($categoria == "5") echo '<option value="5">Esordienti</option>'; ?>
+                        <?php if ($categoria == "6") echo '<option value="6">Pulcini</option>'; ?>
+                        <?php if ($categoria == "7") echo '<option value="7">Piccoli Amici</option>'; ?>
                     </select>
                 </div>
             </div>

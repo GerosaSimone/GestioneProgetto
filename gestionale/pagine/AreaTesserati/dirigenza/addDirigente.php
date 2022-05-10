@@ -53,7 +53,7 @@ try {
     //creazione tesserato
     $sql = "INSERT INTO tesserato ($campi) VALUES ($param);";
     mysqli_query($link, $sql);
-    echo "$sql<br>";
+    //echo "$sql<br>";
     //echo "Insert eseguita con successo!<br>";
     //prendo idTesserato
     $idTesserato = null;

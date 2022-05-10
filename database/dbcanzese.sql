@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 09, 2022 at 09:07 PM
+-- Generation Time: May 10, 2022 at 08:08 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -128,13 +128,11 @@ CREATE TABLE `galleria` (
 --
 
 INSERT INTO `galleria` (`id`, `titolo`, `foto`) VALUES
-(1, '0', 'fotoGalleria0.jpg'),
 (5, '3', 'fotoGalleria3.jpg'),
 (6, '4', 'fotoGalleria4.jpg'),
 (7, '4', 'fotoGalleria4.png'),
 (8, '5', 'fotoGalleria5.jpg'),
-(9, '6', 'fotoGalleria6.jpg'),
-(10, '7', 'fotoGalleria7.jpg');
+(11, '5', 'fotoGalleria5.jpg');
 
 -- --------------------------------------------------------
 
@@ -208,7 +206,8 @@ INSERT INTO `mail` (`id`, `nome`, `mail`, `idTesserato`) VALUES
 
 CREATE TABLE `prodotto` (
   `id` int(11) NOT NULL,
-  `nome` text NOT NULL,
+  `nome` varchar(32) NOT NULL,
+  `descrizione` varchar(255) NOT NULL,
   `costoUnitario` int(11) NOT NULL,
   `linkFoto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
@@ -217,11 +216,11 @@ CREATE TABLE `prodotto` (
 -- Dumping data for table `prodotto`
 --
 
-INSERT INTO `prodotto` (`id`, `nome`, `costoUnitario`, `linkFoto`) VALUES
-(1, 'maglia', 10, 'https://dadasportweb.com/15451-large_default/maglia-calcio-umbro-derby.jpg'),
-(2, 'pantaloncini', 15, 'https://www.cisalfasport.it/dw/image/v2/BBVV_PRD/on/demandware.static/-/Sites-cisalfa-master/default/dwdb59c75a/cisalfa/files/S4047472-DKBLUE/WHI/image_sup04/S4047472_DKBLUE_S_WHIcl004.jpg?sw=960&sh=1200'),
-(3, 'pantaloni', 30, 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/i1-76a31840-5d2d-47f1-8eb6-4a606cbd207a/pantaloni-da-calcio-fc-essential-0DpQZf.png'),
-(4, 'felpa', 30, 'https://images.eprice.it/nobrand/0/hres/003/208180003/felpa-calcio-joma-sudadera-faraon.jpg');
+INSERT INTO `prodotto` (`id`, `nome`, `descrizione`, `costoUnitario`, `linkFoto`) VALUES
+(1, 'maglia', '', 10, 'https://dadasportweb.com/15451-large_default/maglia-calcio-umbro-derby.jpg'),
+(2, 'pantaloncini', '', 15, 'https://www.cisalfasport.it/dw/image/v2/BBVV_PRD/on/demandware.static/-/Sites-cisalfa-master/default/dwdb59c75a/cisalfa/files/S4047472-DKBLUE/WHI/image_sup04/S4047472_DKBLUE_S_WHIcl004.jpg?sw=960&sh=1200'),
+(3, 'pantaloni', '', 30, 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/i1-76a31840-5d2d-47f1-8eb6-4a606cbd207a/pantaloni-da-calcio-fc-essential-0DpQZf.png'),
+(4, 'felpa', '', 30, 'https://images.eprice.it/nobrand/0/hres/003/208180003/felpa-calcio-joma-sudadera-faraon.jpg');
 
 -- --------------------------------------------------------
 
@@ -248,7 +247,9 @@ INSERT INTO `telefono` (`id`, `nome`, `telefono`, `idTesserato`) VALUES
 (162, 'papa', '3981278345', 129),
 (163, 'mamma', '3390456712', 133),
 (189, 'aaaa', '3390456712', 137),
-(190, 'bbbbb', '1111111111111', 137);
+(190, 'bbbbb', '1111111111111', 137),
+(193, 'mamma', '3390456712', 138),
+(194, 'papa', '23452356346', 138);
 
 -- --------------------------------------------------------
 
@@ -290,7 +291,8 @@ INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNas
 (132, 'asdasdasd', 'tentativo1', 'sdasdasdasd', '2022-05-02', 'asdasdasdasd', 1, 'D', NULL, 'asd', 'adasdas', 'asdasd', 'fotoProfiloasdasdasd.jpg', 0, 0, 1),
 (133, 'asdddddddddddddd', 'a', 'as', '2022-04-28', 'asdasd', 0, 'M', NULL, 'Via Parini 6/b', 'as', 'asd', 'fotoProfiloasdddddddddddddd.jpg', 0, 0, 1),
 (134, 'dasdasdasdasdasd', 'asdas', 'dasdas', '2022-05-01', 'asdasda', 0, 'M', NULL, 'dasd', 'as', 'asdasd', NULL, 0, 0, 1),
-(137, 'provaprovaprovap', 'prova', 'prova', '2022-05-12', 'prova', 1, 'M', NULL, 'prova', 'pr', 'prova', 'fotoProfiloprovaprovaprovap.jpg', 0, 0, 1);
+(137, 'provaprovaprovap', 'prova', 'prova', '2022-05-12', 'prova', 1, 'M', NULL, 'prova', 'pr', 'prova', 'fotoProfiloprovaprovaprovap.jpg', 0, 0, 1),
+(138, 'aaaaaaaaaaaaaaaa', 'a', 'a', '2022-05-11', 'aa', 1, 'N', NULL, 'a', 'aa', 'a', NULL, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -496,7 +498,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT for table `galleria`
 --
 ALTER TABLE `galleria`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `magazzino`
@@ -514,7 +516,7 @@ ALTER TABLE `maglia`
 -- AUTO_INCREMENT for table `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 
 --
 -- AUTO_INCREMENT for table `prodotto`
@@ -526,13 +528,13 @@ ALTER TABLE `prodotto`
 -- AUTO_INCREMENT for table `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
 
 --
 -- AUTO_INCREMENT for table `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT for table `utenti`

@@ -24,6 +24,27 @@
         </div>
     </div>
 </div>
+<!--Elimina-->
+<div class="modal fade" id="elimina" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h3 style="color:white" class="modal-title pl-3" id="eliminaLabel"><b>ELIMINA FOTO</b></h3>
+                <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form action="pagine/AreaSito/deleteGalleria.php" method="post">
+                <div class="modal-body">
+                    Sei sicuro di voler eliminare definitivamente la foto?
+                    <input type="text" name="idElimina" id="idElimina" hidden="true">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-danger" value="Elimina" data-bs-dismiss="modal">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <script>
     function readFoto(input) {
         if (input.files && input.files[0]) {
