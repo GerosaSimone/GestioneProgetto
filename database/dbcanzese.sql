@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 10, 2022 at 08:08 PM
+-- Generation Time: May 11, 2022 at 08:20 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -516,7 +516,7 @@ ALTER TABLE `maglia`
 -- AUTO_INCREMENT for table `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT for table `prodotto`
