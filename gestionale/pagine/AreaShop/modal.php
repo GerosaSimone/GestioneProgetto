@@ -1,10 +1,10 @@
 <!--Elimina-->
-<div class="modal fade" id="elimina" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminaLabel" aria-hidden="true">
+<div class="modal fade" id="eliminaProdotto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="eliminaLabel">Elimina Prodotto</h5>
-                <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            <div class="modal-header bg-danger">
+                <h3 style="color:white" class="modal-title" id="eliminaLabel"><b>ELIMINA PRODOTTO</b></h3>
+                <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
             <form action="pagine/AreaShop/deleteProdotto.php" method="post">
                 <div class="modal-body">
@@ -19,32 +19,34 @@
         </div>
     </div>
 </div>
-<!--Aggiungi Giocatore-->
-<div class="modal fade" id="addGiocatore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addGiocatoreLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+<!--Aggiungi Prodotto-->
+<div class="modal fade" id="addProdotto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addGiocatoreLabel" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-secondary">
-                <h3 style="color:white" class="modal-title pl-4" id="addGiocatoreLabel"><b>AGGIUNGI NUOVO GIOCATORE</b></h3>
+                <h3 style="color:white" class="modal-title " id="addGiocatoreLabel"><b>AGGIUNGI NUOVO PRODOTTO</b></h3>
                 <button style="color:white" type="button" class="close" aria-label="Close" data-bs-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="pagine/AreaTesserati/giocatori/addGiocatore.php" method="post" enctype="multipart/form-data">
+            <form action="pagine/AreaShop/addProdotto.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body" id="modalAggiungi">
+                    
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" name="submit" class="btn btn-primary" value="Salva">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Salva">
                 </div>
             </form>
         </div>
     </div>
 </div>
 <!--Modifica-->
-<div class="modal fade" id="modifica" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modificaLabel" aria-hidden="true">
+<div class="modal fade" id="modificaProdotto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modificaLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header bg-success">
-                <h3 style="color:white" class="modal-title pl-4" id="modificaLabel"><b>MODIFICA GIOCATORE</b></h3>
+                <h3 style="color:white" class="modal-title pl-4" id="modificaLabel"><b>MODIFICA PRODOTTO</b></h3>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
             </div>
             <form action="pagine/AreaTesserati/giocatori/editGiocatore.php" method="post" enctype="multipart/form-data">

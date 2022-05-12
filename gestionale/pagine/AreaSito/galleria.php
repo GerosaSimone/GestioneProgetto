@@ -54,11 +54,11 @@ $_SESSION['ultimaPage'] = "galleria";
             <h1 class="display-5 font-weight-bold">Galleria US. Giovanile Canzese</h1>
             <p class="text-center">
                 <button type='button' class='btn btn-outline-secondary btn-lg' data-bs-toggle='modal' data-bs-target='#addGalleria'>
-                    Add Immagine
+                    Aggiungi Immagine
                 </button>
             </p>
         </header>
-        <div class="row photos mt-5">
+        <div class="row photos mt-3">
             <?php
             require "../../config.php";
             $sql = "SELECT galleria.foto, galleria.id FROM galleria ORDER BY id DESC";

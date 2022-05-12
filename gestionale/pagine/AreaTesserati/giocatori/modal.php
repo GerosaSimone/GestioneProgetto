@@ -23,7 +23,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-danger">
-                <h3 style="color:white" class="modal-title pl-4" id="eliminaLabel"><b>ELIMINA GIOCATORE</b></h3>
+                <h3 style="color:white" class="modal-title" id="eliminaLabel"><b>ELIMINA GIOCATORE</b></h3>
                 <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
             <form action="pagine/AreaTesserati/giocatori/deleteGiocatore.php" method="post">
