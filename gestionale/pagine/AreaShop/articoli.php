@@ -74,7 +74,7 @@ require_once '../../config.php';
             var id = button.getAttribute('data-bs-whatever')
             $.post("pagine/AreaShop/modifica.php?idProdotto=" + id, true, function(data, status) {
                 $("#modalModifica").html(data);
-            });
+            });          
         });
         var eliminaProdotto = document.getElementById('eliminaProdotto')
         eliminaProdotto.addEventListener('show.bs.modal', function(event) {

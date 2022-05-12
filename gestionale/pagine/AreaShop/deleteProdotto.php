@@ -7,6 +7,20 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../config.php';
 try {
     $id = $_POST['idElimina'];
+    $sql = "SELECT foto FROM prodotto WHERE id='" . $id . "'";
+    //echo "$sql<br>";
+    $foto = 0;
+    if ($result = mysqli_query($link, $sql)) {
+        $row = mysqli_fetch_array($result);
+        $foto = $row['foto'];
+    }
+    try {
+        if (file_exists('../../img/uploadsProdotti/' . $foto)) {
+            unlink('../../img/uploadsProdotti/' . $foto);
+        }
+    } catch (Exception $e) {
+        ////echo "<br/>" . "Errore eliminazione foto Profilo" . "<br/>";
+    }
     $sql = "DELETE FROM prodotto WHERE prodotto.id = '" . $id . "';";
     echo $sql;
     mysqli_query($link, $sql);

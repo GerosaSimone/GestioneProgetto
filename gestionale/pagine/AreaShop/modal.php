@@ -31,7 +31,7 @@
             </div>
             <form action="pagine/AreaShop/addProdotto.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body" id="modalAggiungi">
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -49,8 +49,9 @@
                 <h3 style="color:white" class="modal-title" id="modificaLabel"><b>MODIFICA PRODOTTO</b></h3>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="pagine/AreaTesserati/giocatori/editGiocatore.php" method="post" enctype="multipart/form-data">
+            <form action="pagine/AreaShop/editProdotto.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body" id="modalModifica">
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

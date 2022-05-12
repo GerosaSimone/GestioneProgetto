@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 11, 2022 at 08:20 PM
+-- Generation Time: May 12, 2022 at 06:33 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -169,7 +169,8 @@ INSERT INTO `maglia` (`id`, `foto`, `titolo`, `descrizione`) VALUES
 (33, 'fotoDivisaPrimaSquadrafffffffff.jpg', 'fffffffff', 'fffffffffffffffff'),
 (35, 'fotoDivisaPrimaSquadraaaaaaaa.jpg', 'aaaaaaa', 'vbbbbbbbb'),
 (36, 'fotoDivisaPrimaSquadrabbbbbbb.jpg', 'bbbbbbb', 'bbbbbbbbb'),
-(37, 'fotoDivisaAllieviaaaa.jpg', 'aaaa', 'aaa');
+(37, 'fotoDivisaAllieviaaaa.jpg', 'aaaa', 'aaa'),
+(38, 'fotoDivisaAllieviasdasdasdasd.jpg', 'asdasdasdasd', '');
 
 -- --------------------------------------------------------
 
@@ -196,7 +197,8 @@ INSERT INTO `mail` (`id`, `nome`, `mail`, `idTesserato`) VALUES
 (126, 'giocatore', 'andreamauri@gmail.com', 133),
 (127, 'fratello', 'andrea@gmail.com', 133),
 (156, 'aaaaa', 'andreamauri@gmail.com', 137),
-(157, 'bbbbb', 'asdas@gmail.com', 137);
+(157, 'bbbbb', 'asdas@gmail.com', 137),
+(158, '', '', 139);
 
 -- --------------------------------------------------------
 
@@ -209,18 +211,15 @@ CREATE TABLE `prodotto` (
   `nome` varchar(32) NOT NULL,
   `descrizione` varchar(255) NOT NULL,
   `costoUnitario` int(11) NOT NULL,
-  `linkFoto` varchar(255) NOT NULL
+  `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
 -- Dumping data for table `prodotto`
 --
 
-INSERT INTO `prodotto` (`id`, `nome`, `descrizione`, `costoUnitario`, `linkFoto`) VALUES
-(1, 'maglia', '', 10, 'https://dadasportweb.com/15451-large_default/maglia-calcio-umbro-derby.jpg'),
-(2, 'pantaloncini', '', 15, 'https://www.cisalfasport.it/dw/image/v2/BBVV_PRD/on/demandware.static/-/Sites-cisalfa-master/default/dwdb59c75a/cisalfa/files/S4047472-DKBLUE/WHI/image_sup04/S4047472_DKBLUE_S_WHIcl004.jpg?sw=960&sh=1200'),
-(3, 'pantaloni', '', 30, 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/i1-76a31840-5d2d-47f1-8eb6-4a606cbd207a/pantaloni-da-calcio-fc-essential-0DpQZf.png'),
-(4, 'felpa', '', 30, 'https://images.eprice.it/nobrand/0/hres/003/208180003/felpa-calcio-joma-sudadera-faraon.jpg');
+INSERT INTO `prodotto` (`id`, `nome`, `descrizione`, `costoUnitario`, `foto`) VALUES
+(10, 'aaaaaaa', 'aaaaaaa', 0, 'fotoProdotto1.jpg');
 
 -- --------------------------------------------------------
 
@@ -249,7 +248,8 @@ INSERT INTO `telefono` (`id`, `nome`, `telefono`, `idTesserato`) VALUES
 (189, 'aaaa', '3390456712', 137),
 (190, 'bbbbb', '1111111111111', 137),
 (193, 'mamma', '3390456712', 138),
-(194, 'papa', '23452356346', 138);
+(194, 'papa', '23452356346', 138),
+(195, '', '', 139);
 
 -- --------------------------------------------------------
 
@@ -287,12 +287,12 @@ INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNas
 (128, '1111111111111111', 'andrea', '111111', '2022-05-14', '11111111', 0, 'N', NULL, '111111111', '11', '111111111', NULL, 0, 0, 1),
 (129, 'provaprovaprovap', 'prova', 'prova', '2000-01-01', 'prova', 0, 'D', NULL, 'prova', 'pr', 'prova', NULL, 100, 100, 1),
 (130, '3333333333333333', 'aaaaaaaaaaaaaaaa', '3', '2022-05-15', '3', 0, 'N', NULL, '3', '33', '3', 'fotoProfilo3333333333333333.jpg', 0, 0, 1),
-(131, 'tentativo2tentat', 'tentativo2', 'tentativo2', '1111-11-11', 'tentativo2', 1, 'P', NULL, 'tentativo2', 'te', 'tentativo2', 'fotoProfilocf1awdawdawdawda.jpg', 0, 0, 1),
 (132, 'asdasdasd', 'tentativo1', 'sdasdasdasd', '2022-05-02', 'asdasdasdasd', 1, 'D', NULL, 'asd', 'adasdas', 'asdasd', 'fotoProfiloasdasdasd.jpg', 0, 0, 1),
 (133, 'asdddddddddddddd', 'a', 'as', '2022-04-28', 'asdasd', 0, 'M', NULL, 'Via Parini 6/b', 'as', 'asd', 'fotoProfiloasdddddddddddddd.jpg', 0, 0, 1),
 (134, 'dasdasdasdasdasd', 'asdas', 'dasdas', '2022-05-01', 'asdasda', 0, 'M', NULL, 'dasd', 'as', 'asdasd', NULL, 0, 0, 1),
 (137, 'provaprovaprovap', 'prova', 'prova', '2022-05-12', 'prova', 1, 'M', NULL, 'prova', 'pr', 'prova', 'fotoProfiloprovaprovaprovap.jpg', 0, 0, 1),
-(138, 'aaaaaaaaaaaaaaaa', 'a', 'a', '2022-05-11', 'aa', 1, 'N', NULL, 'a', 'aa', 'a', NULL, 0, 0, 1);
+(138, 'aaaaaaaaaaaaaaaa', 'a', 'a', '2022-05-11', 'aa', 1, 'N', NULL, 'a', 'aa', 'a', NULL, 0, 0, 1),
+(139, 'sdasdasdassdasda', 'asdasd', 'a', '2022-05-15', 'asdasdasd', 1, 'N', NULL, 'asdasd', 'sd', 'asda', NULL, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -314,7 +314,8 @@ INSERT INTO `usa` (`idMaglia`, `idCategoria`) VALUES
 (33, 1),
 (35, 1),
 (36, 1),
-(37, 3);
+(37, 3),
+(38, 3);
 
 -- --------------------------------------------------------
 
@@ -510,31 +511,31 @@ ALTER TABLE `magazzino`
 -- AUTO_INCREMENT for table `maglia`
 --
 ALTER TABLE `maglia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 
 --
 -- AUTO_INCREMENT for table `prodotto`
 --
 ALTER TABLE `prodotto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
 
 --
 -- AUTO_INCREMENT for table `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT for table `utenti`
