@@ -31,7 +31,7 @@ require_once '../../config.php';
                     echo "  <div class='col-md-3 mt-5'>
                         <div class='card rounded shadow-lg border-0'>
                                 <div class='card-body p-4'>
-                                    <img src='https://www.zeusnews.it/img/4/8/1/6/2/0/026184-620-google-vedi-immagini.jpg' alt='' class='img-fluid d-block mx-auto mb-3 rounded'>
+                                    <img src='img/uploadsProdotti/".$row['foto']."' alt='' class='img-fluid d-block mx-auto mb-3 rounded'>
                                     <h4> <a href='#' class='text-dark'><b>" . $row['nome'] . "</b></a>
                                     </h4>
                                     <p class=' text-muted '>" . $descrizione . "</p>
