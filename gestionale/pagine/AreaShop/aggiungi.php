@@ -19,7 +19,7 @@
                 $('#fotoProdotto')
                     .attr('src', e.target.result);
                 $('#fotoProdotto')
-                    .attr('style', " height: 250px; width: auto; object-fit: cover;");
+                    .attr('style', " height: 250px; width: auto; object-fit: cover;max-width:470px");
             };
             reader.readAsDataURL(input.files[0]);
         }

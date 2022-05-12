@@ -67,7 +67,7 @@ require_once '../../config.php';
             $.post("pagine/AreaShop/visualizza.php?idProdotto=" + id, true, function(data, status) {
                 $("#modalVisualizza").html(data);
             });
-        });
+        });*/
         var modificaProdotto = document.getElementById('modificaProdotto')
         modificaProdotto.addEventListener('show.bs.modal', function(event) {
             var button = event.relatedTarget
@@ -75,12 +75,11 @@ require_once '../../config.php';
             $.post("pagine/AreaShop/modifica.php?idProdotto=" + id, true, function(data, status) {
                 $("#modalModifica").html(data);
             });
-        });*/
+        });
         var eliminaProdotto = document.getElementById('eliminaProdotto')
         eliminaProdotto.addEventListener('show.bs.modal', function(event) {
             var button = event.relatedTarget
             var recipient = button.getAttribute('data-bs-whatever')
-            alert(recipient);
             document.getElementById("idElimina").value = recipient;
         });
         var addGiocatore = document.getElementById('addProdotto')
