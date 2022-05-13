@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 12, 2022 at 06:33 PM
+-- Generation Time: May 13, 2022 at 09:02 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -128,11 +128,17 @@ CREATE TABLE `galleria` (
 --
 
 INSERT INTO `galleria` (`id`, `titolo`, `foto`) VALUES
-(5, '3', 'fotoGalleria3.jpg'),
-(6, '4', 'fotoGalleria4.jpg'),
-(7, '4', 'fotoGalleria4.png'),
-(8, '5', 'fotoGalleria5.jpg'),
-(11, '5', 'fotoGalleria5.jpg');
+(13, '1', 'fotoGalleria1.jpg'),
+(14, '2', 'fotoGalleria2.jpg'),
+(15, '3', 'fotoGalleria3.jpg'),
+(16, '4', 'fotoGalleria4.jpg'),
+(17, '5', 'fotoGalleria5.jpg'),
+(18, '6', 'fotoGalleria6.jpg'),
+(19, '7', 'fotoGalleria7.jpg'),
+(20, '8', 'fotoGalleria8.jpg'),
+(21, '9', 'fotoGalleria9.jpg'),
+(22, '10', 'fotoGalleria10.jpg'),
+(23, '11', 'fotoGalleria11.png');
 
 -- --------------------------------------------------------
 
@@ -167,7 +173,6 @@ CREATE TABLE `maglia` (
 INSERT INTO `maglia` (`id`, `foto`, `titolo`, `descrizione`) VALUES
 (32, 'fotoDivisaPrimaSquadrasdfsafsdfsdfsdf.jpg', 'sdfsafsdfsdfsdf', ''),
 (33, 'fotoDivisaPrimaSquadrafffffffff.jpg', 'fffffffff', 'fffffffffffffffff'),
-(35, 'fotoDivisaPrimaSquadraaaaaaaa.jpg', 'aaaaaaa', 'vbbbbbbbb'),
 (36, 'fotoDivisaPrimaSquadrabbbbbbb.jpg', 'bbbbbbb', 'bbbbbbbbb'),
 (37, 'fotoDivisaAllieviaaaa.jpg', 'aaaa', 'aaa'),
 (38, 'fotoDivisaAllieviasdasdasdasd.jpg', 'asdasdasdasd', '');
@@ -203,6 +208,27 @@ INSERT INTO `mail` (`id`, `nome`, `mail`, `idTesserato`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `titolo` varchar(255) NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `descrizione` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `titolo`, `foto`, `descrizione`) VALUES
+(1, 'asdsadasd', 'fotoNews1.jpg', 'sadasd'),
+(4, 'asdasdas', 'fotoNews2.jpg', 'dasdasdasdasdasdasdasd');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `prodotto`
 --
 
@@ -219,7 +245,13 @@ CREATE TABLE `prodotto` (
 --
 
 INSERT INTO `prodotto` (`id`, `nome`, `descrizione`, `costoUnitario`, `foto`) VALUES
-(10, 'aaaaaaa', 'aaaaaaa', 0, 'fotoProdotto1.jpg');
+(11, 'teteteet', 'tetetet', 25, 'fotoProdotto1.jpg'),
+(12, 'aaaaa', 'aaaaa', 200, 'fotoProdotto2.jpg'),
+(13, 'rrrrr', 'rrrr', 5, 'fotoProdotto3.png'),
+(14, 'bbbb', 'bbbb', 5, 'fotoProdotto4.jpg'),
+(15, 'mmmm', 'mmmmm', 7, 'fotoProdotto5.jpg'),
+(16, 'jjjj', 'jjjjj', 9, 'fotoProdotto6.jpg'),
+(17, 'mmmmmmmm', 'mmmmmmmmmmmmmm', 6, 'fotoProdotto7.jpg');
 
 -- --------------------------------------------------------
 
@@ -312,7 +344,6 @@ CREATE TABLE `usa` (
 INSERT INTO `usa` (`idMaglia`, `idCategoria`) VALUES
 (32, 1),
 (33, 1),
-(35, 1),
 (36, 1),
 (37, 3),
 (38, 3);
@@ -428,6 +459,12 @@ ALTER TABLE `mail`
   ADD KEY `idtesserato` (`idTesserato`);
 
 --
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `prodotto`
 --
 ALTER TABLE `prodotto`
@@ -499,7 +536,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT for table `galleria`
 --
 ALTER TABLE `galleria`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `magazzino`
@@ -520,10 +557,16 @@ ALTER TABLE `mail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 
 --
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `prodotto`
 --
 ALTER TABLE `prodotto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `telefono`

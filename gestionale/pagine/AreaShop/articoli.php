@@ -11,13 +11,13 @@ require_once '../../config.php';
     <header class="text-center mb-2">
         <h1 class="display-5 font-weight-bold">Negozio</h1>
         <p class="text-center">
-            <button type='button' class='btn btn-outline-secondary btn-lg' data-bs-toggle='modal' data-bs-target='#addProdotto'>
+            <button type='button' class='btn btn-outline-primary btn-lg' data-bs-toggle='modal' data-bs-target='#addProdotto'>
                 Aggiungi Prodotto
             </button>
         </p>
     </header>
 
-    <div class="row pb-5 mb-4 ml-3 mr-3">
+    <div class="row pb-5 mb-4 ml-3 mr-3 align-items-center">
         <?php
         $sql = "SELECT * FROM prodotto";
         if ($result = mysqli_query($link, $sql)) {
@@ -28,14 +28,19 @@ require_once '../../config.php';
                         $descrizione = "<br>";
                     } else
                         $descrizione = $row['descrizione'];
-                    echo "  <div class='col-md-3 mt-5'>
-                        <div class='card rounded shadow-lg border-0'>
+                    echo "  <div class='col-md-3 mt-5 ' >
+                        <div class='card rounded shadow-lg border-0 '>
                                 <div class='card-body p-4'>
-                                    <img src='img/uploadsProdotti/".$row['foto']."' alt='' class='img-fluid d-block mx-auto mb-3 rounded'>
-                                    <h4> <a href='#' class='text-dark'><b>" . $row['nome'] . "</b></a>
+                                    <img src='img/uploadsProdotti/" . $row['foto'] . "' alt='' class='img-fluid d-block mx-auto mb-3 rounded'>
+                                    <h4> <b>" . $row['nome'] . "</b>
                                     </h4>
                                     <p class=' text-muted '>" . $descrizione . "</p>
-                                    <p class=' text-muted font-italic pull-right ' style='margin-bottom:0 !important; margin-top:3%;'>Prezzo: " . $row['costoUnitario'] . " €</p>
+                                    <p class=' text-primary font-italic pull-right ' style='margin-bottom:0 !important; margin-top:3%;'>Prezzo: " . $row['costoUnitario'] . " €</p>
+                                    <button type='button' class='btn btn-outline-primary rounded-circle' data-bs-toggle='modal' data-bs-target='#acquistaProdotto' data-bs-whatever='" . $row['id'] . "'>
+                                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='27' fill='currentColor' class='bi bi-bag' viewBox='0 0 16 16'>
+                                            <path d='M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z'/>
+                                        </svg>
+                                    </button>
                                     <button type='button' class='btn btn-outline-success rounded-circle' data-bs-toggle='modal' data-bs-target='#modificaProdotto' data-bs-whatever='" . $row['id'] . "'>
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='27' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>
                                             <path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z' />
@@ -74,7 +79,7 @@ require_once '../../config.php';
             var id = button.getAttribute('data-bs-whatever')
             $.post("pagine/AreaShop/modifica.php?idProdotto=" + id, true, function(data, status) {
                 $("#modalModifica").html(data);
-            });          
+            });
         });
         var eliminaProdotto = document.getElementById('eliminaProdotto')
         eliminaProdotto.addEventListener('show.bs.modal', function(event) {
@@ -86,6 +91,12 @@ require_once '../../config.php';
         addGiocatore.addEventListener('show.bs.modal', function(event) {
             $.post("pagine/AreaShop/aggiungi.php", true, function(data, status) {
                 $("#modalAggiungi").html(data);
+            });
+        });
+        var acquistaProdotto = document.getElementById('acquistaProdotto')
+        acquistaProdotto.addEventListener('show.bs.modal', function(event) {
+            $.post("pagine/AreaShop/acquista.php", true, function(data, status) {
+                $("#modalAcquista").html(data);
             });
         });
     </script>

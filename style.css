@@ -1,0 +1,242 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/* HEADER */
+#header {
+    width: 100%;
+    height: 180px;
+    text-align: center;
+}
+
+.topnav a {
+    float: center;
+    color: #ffffff;
+    text-align: center;
+    padding-left: 155px;
+    padding-right: 150px;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.topnav a:hover {
+    color: aliceblue;
+    text-shadow: 5px 5px 16px grey;
+}
+
+.bordo_destra {
+    border-right: 3px solid white;
+}
+
+/* BODY */
+.bg {
+    background-color: #ec5686;
+}
+
+.bg2 {
+    background-color: #f9abc4;
+}
+
+.colore {
+    color: #ec5686;
+}
+
+.colore2 {
+    color: #f9abc4;
+}
+
+#titolo {
+    display: block;
+    margin-left: 43%;
+    margin-right: auto;
+    color: #ec5686;
+}
+
+#prenotazioni {
+    width: 100%;
+    margin-left: 0px !important;
+}
+
+.immagine {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+#vetrina {
+    width: 900px;
+    height: 650px;
+    object-fit: cover;
+    margin: 50px;
+}
+
+#prodotti {
+    width: 600px;
+    height: 300px;
+    object-fit: cover;
+    margin: 10px;
+}
+
+#sede {
+    width: 500px;
+    height: 220px;
+    object-fit: cover;
+    margin: 30px;
+}
+
+
+/* SIDEBAR */
+.scrollbar {
+    background-color: #F5F5F5;
+    float: left;
+    height: 300px;
+    margin-bottom: 25px;
+    margin-left: 22px;
+    margin-top: 40px;
+    width: 65px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px light;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #f9abc4;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ec5686;
+}
+
+/* GENERAL */
+
+/* MARGIN */
+.mt-1 {
+    margin-top: .25rem !important
+}
+
+.mt-2 {
+    margin-top: .5rem !important
+}
+
+.mt-3 {
+    margin-top: 1rem !important
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important
+}
+
+.mt-5 {
+    margin-top: 3rem !important
+}
+
+/* PADDING */
+.p-0 {
+    padding: 0 !important
+}
+
+.p-1 {
+    padding: .25rem !important
+}
+
+.p-2 {
+    padding: .5rem !important
+}
+
+.p-3 {
+    padding: 1rem !important
+}
+
+.p-4 {
+    padding: 1.5rem !important
+}
+
+.p-5 {
+    padding: 3rem !important
+}
+
+/* GRID */
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+
+.col-3 {
+    flex: 0 0 auto;
+    width: 24.8%
+}
+
+.col-6 {
+    flex: 0 0 auto;
+    width: 41%
+}
+
+.col-6 {
+    flex: 0 0 auto;
+    width: 50%
+}
+
+.col-8 {
+    flex: 0 0 auto;
+    width: 66%
+}
+
+.rounded-circle {
+    border-radius: 50% !important
+}
+
+.border {
+    border: 1px solid #dee2e6 !important
+}
+
+.border-2 {
+    border-width: 2px !important
+}
+
+/* TEXT */
+.fw-bold {
+    font-weight: 700 !important
+}
+
+.text-light {
+    color: white !important
+}
+
+.text-center {
+    text-align: center !important
+}
+
+.text-end {
+    text-align: right !important
+}
+
+.text-decoration-none {
+    text-decoration: none !important
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    line-height: 1.2
+}

@@ -23,7 +23,7 @@
 <div class="modal fade" id="addProdotto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addGiocatoreLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header bg-secondary">
+            <div class="modal-header bg-primary">
                 <h3 style="color:white" class="modal-title " id="addGiocatoreLabel"><b>AGGIUNGI NUOVO PRODOTTO</b></h3>
                 <button style="color:white" type="button" class="close" aria-label="Close" data-bs-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
@@ -51,11 +51,31 @@
             </div>
             <form action="pagine/AreaShop/editProdotto.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body" id="modalModifica">
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <input type="submit" name="submit" class="btn btn-success" value="Salva">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Acquista-->
+<div class="modal fade" id="acquistaProdotto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="acquistaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h3 style="color:white" class="modal-title" id="acquistaLabel"><b>ACQUISTA PRODOTTO</b></h3>
+                <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form action="pagine/AreaShop/buyProdotto.php" method="post" enctype="multipart/form-data">
+                <div class="modal-body ui-front" id="modalAcquista">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" name="submit" class="btn btn-primary" value="Salva">
                 </div>
             </form>
         </div>

@@ -23,8 +23,8 @@ try {
     $provincia = "nessuna provincia";
     $ruolo = "nessun ruolo";
     $categoria = "nessuna categoria";
-    $daPagare = "0€";
-    $pagato = "0€";
+    $daPagare = "0";
+    $pagato = "0";
     $id = $_GET['idTesserato'];
     //select e set dei valori
     $sql = "SELECT tesserato.nome, tesserato.cognome, tesserato.cf, tesserato.dataNascita, tesserato.luogoNascita, tesserato.tipo, tesserato.ruolo, tesserato.via,tesserato.provincia,tesserato.citta,tesserato.linkFoto as fotoProfilo,tesserato.daPagare,tesserato.pagato, categoria.nome as cat , visita.scadenza, visita.tipo as tipoVisita, visita.foto as fotoVisita 

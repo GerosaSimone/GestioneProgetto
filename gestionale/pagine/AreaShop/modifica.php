@@ -29,7 +29,7 @@ if ($result = mysqli_query($link, $sql)) {
     <label>Descrizione</label>
     <input type="text" name="descrizione" class="form-control form-control-sm mb-2" required value="<?php echo $descrizione; ?>">
     <label>Costo Unitario</label>
-    <input type='currency' name="costo" value="0,00€" placeholder='Type a number & click outside' class="form-control form-control-sm mb-2" required value="<?php echo $costo; ?>" />
+    <input type='currency' name="costo" placeholder='Type a number & click outside' class="form-control form-control-sm mb-2" value="<?php echo $costo; ?>,00€" required />
     <input type="text" name="idModifica" value="<?php echo $id; ?>" hidden="true">
 </div>
 
