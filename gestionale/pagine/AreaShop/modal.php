@@ -70,14 +70,55 @@
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
             </div>
             <form action="pagine/AreaShop/buyProdotto.php" method="post" enctype="multipart/form-data">
+                <input type="text" name="idProdotto" id="idProdotto" hidden="true">
                 <div class="modal-body ui-front" id="modalAcquista">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" name="submit" class="btn btn-primary" value="Salva">
-                </div>
+                    <div class="container">
+                        <div class="row">
+                            <div style="width: 100%;"><label>Giocatore</label>
+                                <button type="button" class="close pull-rigth" aria-label="close" style="color:red;" onclick="azzeraComplete();"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <input type="text" name="city" id="search_city" placeholder="Type to search..." class="form-control">
+                            
+                            <div class="btn-group btn-group-toggle mt-3 mb-3" data-toggle="buttons">
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="options" id="XS" checked> XS
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="options" id="S"> S
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="options" id="M"> M
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="options" id="L"> L
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="options" id="XL"> XL
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="azzeraComplete()">Close</button>
+                        <input type="submit" name="submit" id="btnSalva" class="btn btn-primary" value="Salva" disabled>
+                    </div>
             </form>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $("#search_city").autocomplete({
+        source: 'pagine/AreaShop/giocatori-search.php',
+        select: function(event, ui) {
+            $("#search_city").prop('readonly', true);
+            $("#btnSalva").prop('disabled', false);
+        }
+    });
+
+    function azzeraComplete() {
+        $("#search_city").prop('readonly', false);
+        $("#btnSalva").prop('disabled', true);
+        $("#search_city").val("");
+    }
+</script>

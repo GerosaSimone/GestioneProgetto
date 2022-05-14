@@ -95,9 +95,11 @@ require_once '../../config.php';
         });
         var acquistaProdotto = document.getElementById('acquistaProdotto')
         acquistaProdotto.addEventListener('show.bs.modal', function(event) {
-            $.post("pagine/AreaShop/acquista.php", true, function(data, status) {
-                $("#modalAcquista").html(data);
-            });
+            var button = event.relatedTarget
+            var recipient = button.getAttribute('data-bs-whatever')
+
+            $("#idProdotto").val(recipient);
+
         });
     </script>
 </body>
