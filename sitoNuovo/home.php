@@ -45,7 +45,7 @@
                 <div class="swiper-slide slide" style="background:url(img/bg1.jpg) no-repeat">
                     <div class="content">
                         <span>News</span>
-                        <h3>Pagina 1</h3>                        
+                        <h3>Pagina 1</h3>
                     </div>
                 </div>
 
@@ -118,8 +118,7 @@
     <section class="home-map">
 
         <div class="image">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2779.224030129493!2d9.264436915570322!3d45.846815479107335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47841e33fb41a8db%3A0x5d7e49ca1e292000!2sCampo%20Sportivo%20S.Miro!5e0!3m2!1sit!2sit!4v1644660685152!5m2!1sit!2sit"
-                width="800" height="600" allowfullscreen="" loading="lazy"></iframe>
+            <iframe style="max-width:80%; display:block; margin:auto; margin-bottom:15px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2779.224030129493!2d9.264436915570322!3d45.846815479107335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47841e33fb41a8db%3A0x5d7e49ca1e292000!2sCampo%20Sportivo%20S.Miro!5e0!3m2!1sit!2sit!4v1644660685152!5m2!1sit!2sit" width="800" height="600" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
         <div class="content">
@@ -133,51 +132,43 @@
     </section>
 
     <!-- LE NOSTRE SQUADRE-->
-
     <section class="home-packages">
 
         <h1 class="heading-title"> SQUADRE </h1>
-     
+
         <div class="box-container">
-     
-           <div class="box">
-              <div class="image">
-                 <img src="img/sf1.jpg" alt="">
-              </div>
-              <div class="content">
-                 <h3>SQUADRA 1</h3>
-                 <p>bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                 <a href="#" class="btn">SCOPRI</a>
-              </div>
-           </div>
-     
-           <div class="box">
-            <div class="image">
-               <img src="img/sf1.jpg" alt="">
-            </div>
-            <div class="content">
-               <h3>SQUADRA 1</h3>
-               <p>bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-               <a href="#" class="btn">SCOPRI</a>
-            </div>
-         </div>
-           
-         <div class="box">
-            <div class="image">
-               <img src="img/sf1.jpg" alt="">
-            </div>
-            <div class="content">
-               <h3>SQUADRA 1</h3>
-               <p>bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-               <a href="#" class="btn">SCOPRI</a>
-            </div>
-         </div>
-     
+
+            <?php
+            require_once "config.php";
+            $sql = "SELECT * FROM categoria LIMIT 3";
+            if ($result = mysqli_query($link, $sql)) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo "<div class='box'>
+                        <div class='image'>
+                            <img src='img/sf1.jpg' alt=''>
+                        </div>
+                        <div class='content'>
+                            <h3>".$row["nome"]."</h3>
+                            <p></p>
+                            <a href='#' class='btn'>SCOPRI</a>
+                        </div>
+                    </div>";
+                    }
+                }
+            }
+            ?>
+
         </div>
-     
-        <div class="load-more"> <a href="" class="btn">Carica altre</a> </div>
-     
-     </section>
+
+        <div class="load-more"> <a id="squadre" href="#" class="btn">Carica tutte le squadre</a> </div>
+
+    </section>
+
+
+   
+
+
 
     <!-- FOOTER -->
     <section class="footer">
