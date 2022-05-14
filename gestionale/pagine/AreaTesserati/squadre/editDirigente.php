@@ -23,30 +23,30 @@ try {
         $target_file .= "." . $imageFileType;
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
         if ($check !== false) {
-            ////echo "File is an image - " . $check["mime"] . ".";
+            //echo "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
         } else {
-            ////echo "File is not an image.";
+            //echo "File is not an image.";
             $uploadOk = 0;
         }
         if ($_FILES["fileToUpload"]["size"] > 50000000) {
-            ////echo "Sorry, your file is too large.";
+            //echo "Sorry, your file is too large.";
             $uploadOk = 0;
         }
         if (
             $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
             && $imageFileType != "gif"
         ) {
-            ////echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             $uploadOk = 0;
         }
         if ($uploadOk == 0) {
-            ////echo "Sorry, your file was not uploaded.";
+            //echo "Sorry, your file was not uploaded.";
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                ////echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
+                //echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
             } else {
-                ////echo "Sorry, there was an error uploading your file.";
+                //echo "Sorry, there was an error uploading your file.";
             }
         }
         $nomeFoto = "fotoProfilo" . $_POST['cf'] . ".$imageFileType";
@@ -61,20 +61,20 @@ try {
                 $nomeFoto = $row['linkFoto'];
             }
         }
-        ////echo $nomeFoto;
+        //echo $nomeFoto;
         try {
             if (file_exists('../../../img/uploadsProfilo/' . $nomeFoto)) {
                 unlink('../../../img/uploadsProfilo/' . $nomeFoto);
             }
         } catch (Exception $e) {
-            ////echo "<br/>" . "Errore eliminazione foto Profilo" . "<br/>";
+            //echo "<br/>" . "Errore eliminazione foto Profilo" . "<br/>";
         }
         $query .= ", linkFoto" . "=null";
     }
     //eseguo query tesserato
     $query .= " WHERE tesserato.id = '" . $idTesserato . "'";
     mysqli_query($link, $query);
-    ////echo " $query<br>";
+    //echo " $query<br>";
     //associo tel e mail
     $numTel = $_POST['numTelefoni'];
     $numMail = $_POST['numMail'];
@@ -133,9 +133,9 @@ try {
     $sql = "DELETE FROM mail WHERE mail.mail = '';";
     mysqli_query($link, $sql);
 } catch (Exception $e) {
-    ////echo "<br/>" . $e->getMessage() . "<br/>";
+    //echo "<br/>" . $e->getMessage() . "<br/>";
     while ($e = $e->getPrevious()) {
-        ////echo 'Previous exception: ' . $e->getMessage() . "<br/>";
+        //echo 'Previous exception: ' . $e->getMessage() . "<br/>";
     }
 }
 header("Location: ../../../index.php");

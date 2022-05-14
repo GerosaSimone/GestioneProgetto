@@ -19,15 +19,15 @@ try {
             unlink('../../img/uploadsNews/' . $foto);
         }
     } catch (Exception $e) {
-        ////echo "<br/>" . "Errore eliminazione foto Profilo" . "<br/>";
+        //echo "<br/>" . "Errore eliminazione foto Profilo" . "<br/>";
     }
     $sql = "DELETE FROM news WHERE news.id = '" . $id . "';";
-    echo $sql;
+    //echo $sql;
     mysqli_query($link, $sql);
 } catch (Exception $e) {
-    ////echo $e->getMessage() . "<br/>";
+    //echo $e->getMessage() . "<br/>";
     while ($e = $e->getPrevious()) {
-        ////echo 'Previous exception: ' . $e->getMessage() . "<br/>";
+        //echo 'Previous exception: ' . $e->getMessage() . "<br/>";
     }
 }
 header("Location: ../../index.php");

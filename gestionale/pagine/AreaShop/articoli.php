@@ -23,18 +23,18 @@ require_once '../../config.php';
         if ($result = mysqli_query($link, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
-                    $descrizione = " ";
-                    if (empty($row['descrizione'])) {
-                        $descrizione = "<br>";
+                    $tipoTaglie = " ";
+                    if (!$row['tipoTaglie']) {
+                        $tipoTaglie = "Bambino";
                     } else
-                        $descrizione = $row['descrizione'];
+                        $tipoTaglie = "Adulto";
                     echo "  <div class='col-md-3 mt-5 ' >
                         <div class='card rounded shadow-lg border-0 '>
                                 <div class='card-body p-4'>
                                     <img src='img/uploadsProdotti/" . $row['foto'] . "' alt='' class='img-fluid d-block mx-auto mb-3 rounded'>
                                     <h4> <b>" . $row['nome'] . "</b>
                                     </h4>
-                                    <p class=' text-muted '>" . $descrizione . "</p>
+                                    <p class=' text-muted '>" . $tipoTaglie . "</p>
                                     <p class=' text-primary font-italic pull-right ' style='margin-bottom:0 !important; margin-top:3%;'>Prezzo: " . $row['costoUnitario'] . " €</p>
                                     <button type='button' class='btn btn-outline-primary rounded-circle' data-bs-toggle='modal' data-bs-target='#acquistaProdotto' data-bs-whatever='" . $row['id'] . "'>
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='27' fill='currentColor' class='bi bi-bag' viewBox='0 0 16 16'>
@@ -65,14 +65,6 @@ require_once '../../config.php';
     </div>
 
     <script>
-        /*var visualizzaProdotto = document.getElementById('visualizzaProdotto')
-        visualizzaProdotto.addEventListener('show.bs.modal', function(event) {
-            var button = event.relatedTarget
-            var id = button.getAttribute('data-bs-whatever')
-            $.post("pagine/AreaShop/visualizza.php?idProdotto=" + id, true, function(data, status) {
-                $("#modalVisualizza").html(data);
-            });
-        });*/
         var modificaProdotto = document.getElementById('modificaProdotto')
         modificaProdotto.addEventListener('show.bs.modal', function(event) {
             var button = event.relatedTarget
@@ -97,8 +89,9 @@ require_once '../../config.php';
         acquistaProdotto.addEventListener('show.bs.modal', function(event) {
             var button = event.relatedTarget
             var recipient = button.getAttribute('data-bs-whatever')
-
-            $("#idProdotto").val(recipient);
+            $.post("pagine/AreaShop/acquista.php?idProdotto=" + recipient, true, function(data, status) {
+                $("#modalAcquista").html(data);
+            });
 
         });
     </script>

@@ -4,7 +4,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 require_once '../../config.php';
 $nome;
-$descrizione;
+$tipoTaglie;
 $costo;
 $foto;
 $id = $_GET["idProdotto"];
@@ -13,7 +13,7 @@ if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
         $nome = $row['nome'];
-        $descrizione = $row['descrizione'];
+        $tipoTaglie = $row['tipoTaglie'];
         $costo = $row['costoUnitario'];
         $foto = $row['foto'];
     }
@@ -26,8 +26,15 @@ if ($result = mysqli_query($link, $sql)) {
     <input type='text' name='presenzaFotoProdotto' id="presenzaFotoProdotto" hidden=true value='0'>
     <label class="mt-2">Nome</label>
     <input type="text" name="nome" class="form-control form-control-sm mb-2" required value="<?php echo $nome; ?>">
-    <label>Descrizione</label>
-    <input type="text" name="descrizione" class="form-control form-control-sm mb-2" required value="<?php echo $descrizione; ?>">
+    <label>Tipo Taglie</label><br>
+    <div class="form-check form-check-inline ml-1">
+        <input class="form-check-input" type="radio" name="tipoTaglie" value="0" required <?php if (!$tipoTaglie) echo "checked"; ?>>
+        <label class="form-check-label" for="inlineCheckbox1">Bambino</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="tipoTaglie" value="1" <?php if ($tipoTaglie) echo "checked"; ?>>
+        <label class="form-check-label" for="inlineCheckbox2">Adulto</label>
+    </div><br>
     <label>Costo Unitario</label>
     <input type='currency' name="costo" placeholder='Type a number & click outside' class="form-control form-control-sm mb-2" value="<?php echo $costo; ?>,00€" required />
     <input type="text" name="idModifica" value="<?php echo $id; ?>" hidden="true">

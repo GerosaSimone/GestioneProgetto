@@ -5,20 +5,28 @@ if (!isset($_SESSION['user_id'])) {
 }
 require_once '../../config.php';
 $idProdotto = $_POST['idProdotto'];
-$idGiocatore = strtok($_POST['city'],")");
+$idTessearato = strtok($_POST['city'], ")");
+$taglia = $_POST['taglia'];
+$dataAcquisto = date("Y-m-d");
 //fotoprofilo
+
 try {
-    $sql = "SELECT count(prodotto.id) AS numRighe FROM prodotto";
+    $sql = "SELECT tesserato.daPagare,prodotto.costoUnitario FROM tesserato,prodotto WHERE tesserato.id='$idTessearato' and prodotto.id='$idProdotto'";
     //echo "$sql<br>";
-    $number = 0;
+    $daPagare = 0;
     if ($result = mysqli_query($link, $sql)) {
         $row = mysqli_fetch_array($result);
-        $number = $row['numRighe'] + 1;
+        $daPagare = $row['daPagare'] + $row['costoUnitario'];
+        //echo $daPagare . "<br>";
     }
+    $sql = "UPDATE tesserato SET daPagare='" . $daPagare . "' WHERE id='" . $idTessearato . "'";
+    mysqli_query($link, $sql);
+    $sql = "INSERT INTO acquistigiocatori (idTesserato, idProdotto, taglia, dataAcquisto) VALUES ('$idTessearato', '$idProdotto', '$taglia','$dataAcquisto')";
+    mysqli_query($link, $sql);
 } catch (Exception $e) {
     //echo $e->getMessage() . "<br/>";
     while ($e = $e->getPrevious()) {
         //echo 'Previous exception: ' . $e->getMessage() . "<br/>";
     }
 }
-//header("Location: ../../index.php");
+header("Location: ../../index.php");

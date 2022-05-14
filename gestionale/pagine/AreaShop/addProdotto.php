@@ -44,10 +44,10 @@ try {
             //echo "Sorry, your file was not uploaded.";
         } else {
             $nome = $_POST['nome'];
-            $descrizione = $_POST['descrizione'];
+            $tipoTaglie = $_POST['tipoTaglie'];
             $costo = strtok( $_POST['costo'], ',' );
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                $sql = "INSERT INTO prodotto (`nome`, `descrizione`, `costoUnitario`, `foto`) VALUES ('$nome', '$descrizione', '$costo', '$titolo');";
+                $sql = "INSERT INTO prodotto (`nome`, `tipoTaglie`, `costoUnitario`, `foto`) VALUES ('$nome', '$tipoTaglie', '$costo', '$titolo');";
                 mysqli_query($link, $sql);
                 //echo $sql . "<br>";
             } else {

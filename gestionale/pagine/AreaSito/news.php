@@ -48,6 +48,8 @@ require_once '../../config.php';
                             
                         </div>";
                 }
+            } else {
+                echo '<h5 class="card-title ml-5">Nessuna news presente</h5>';
             }
         }
         ?>
@@ -66,7 +68,6 @@ require_once '../../config.php';
                 $("#modalVisualizzaNews").html(data);
             });
         }
-
         var eliminaNews = document.getElementById('eliminaNews')
         eliminaNews.addEventListener('show.bs.modal', function(event) {
             var button = event.relatedTarget

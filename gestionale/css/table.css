@@ -105,6 +105,11 @@ tbody tr:hover {
   text-align: left;
 }
 
+.column3 {
+  text-align: start;
+  width: 20px;
+}
+
 .column4 {
   text-align: center;
   width: 170px;
@@ -208,7 +213,7 @@ th {
   display: inline-block;
 }
 
-.dot-green {  
+.dot-green {
   height: 0.7vw;
   width: 0.7vw;
   background-color: green;

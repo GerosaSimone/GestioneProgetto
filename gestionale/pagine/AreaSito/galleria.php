@@ -62,7 +62,7 @@ $_SESSION['ultimaPage'] = "galleria";
         <header class="text-center mb-5">
             <h1 class="display-5 font-weight-bold">Galleria US. Giovanile Canzese</h1>
             <p class="text-center">
-                <button type='button' class='btn btn-outline-secondary btn-lg' data-bs-toggle='modal' data-bs-target='#addGalleria'>
+                <button type='button' class='btn btn-outline-primary btn-lg' data-bs-toggle='modal' data-bs-target='#addGalleria'>
                     Aggiungi Immagine
                 </button>
             </p>

@@ -8,7 +8,7 @@ require_once '../../config.php';
 try {
     //inizializzo query update con param default
     $id = $_POST['idModifica'];
-    $query = "UPDATE prodotto SET nome='" . $_POST['nome'] . "', descrizione='" . $_POST['descrizione'] . "', costoUnitario='" . strtok($_POST['costo'], ',') . "'";
+    $query = "UPDATE prodotto SET nome='" . $_POST['nome'] . "', tipoTaglie='" . $_POST['tipoTaglie'] . "', costoUnitario='" . strtok($_POST['costo'], ',') . "'";
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
         $sql = "SELECT foto FROM prodotto WHERE id='" . $id . "'";
         //echo "$sql<br>";
@@ -45,7 +45,7 @@ try {
         if ($uploadOk == 0) {
             //echo "Sorry, your file was not uploaded.";
         } else {
-            echo $titolo;
+            //echo $titolo;
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 //echo "fatto";
             } else {
@@ -57,11 +57,11 @@ try {
     //eseguo query tesserato
     $query .= " WHERE id = '" . $id . "'";
     mysqli_query($link, $query);
-    echo " $query<br>";
+    //echo " $query<br>";
 } catch (Exception $e) {
-    ////echo "<br/>" . $e->getMessage() . "<br/>";
+    //echo "<br/>" . $e->getMessage() . "<br/>";
     while ($e = $e->getPrevious()) {
-        ////echo 'Previous exception: ' . $e->getMessage() . "<br/>";
+        //echo 'Previous exception: ' . $e->getMessage() . "<br/>";
     }
 }
 header("Location: ../../index.php");

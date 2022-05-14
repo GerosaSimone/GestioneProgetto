@@ -3,6 +3,8 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
+$_SESSION['ultimaPage'] = "acquistiGiocatori";
+require_once '../../config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +16,30 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
     <div class="page-header clearfix">
-        <h2 class="pull-left"> Acquisti dei giocatori </h2>
+        <h1 class="display-5 font-weight-bold pl-5">Acquisti dei Giocatori</h1>
     </div>
+    <div>
+        <?php include 'modal.php'; ?>
+    </div>
+    <?php include 'tabellaAcquistiGiocatori.php'; ?>
+    <script>
+        jQuery(document).ready(function($) {
+            $(document).ready(function() {
+                $('.tabellaAcquisti').DataTable({
+                    paging: false,
+                    searching: true,
+                    ordering: true,
+                    info: false
+                });
+            });            
+            var elimina = document.getElementById('eliminaAcquisto')
+            elimina.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget
+                var recipient = button.getAttribute('data-bs-whatever')
+                document.getElementById("idEliminaAcquisto").value = recipient;
+            });
+        });
+    </script>
 </body>
 
 </html>
