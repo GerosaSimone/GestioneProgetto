@@ -35,11 +35,13 @@ require_once '../../config.php';
                     echo "  <div class='col-md-3 mt-5 ' >
                         <div class='card rounded shadow-lg border-0 '>
                                 <div class='card-body p-4'>
-                                    <img src='img/uploadsProdotti/" . $row['foto'] . "' alt='' class='img-fluid d-block mx-auto mb-3 rounded'>
-                                    <h4> <b>" . $row['nome'] . "</b>
-                                    </h4>
-                                    <p class=' text-muted '>" . $tipoTaglie . "</p>
-                                    <p class=' text-primary font-italic pull-right ' style='margin-bottom:0 !important; margin-top:3%;'>Prezzo: " . $row['costoUnitario'] . " €</p>
+                                    <div onclick='apriModal(this)' data-bs-whatever='" . $row['id'] . "'>
+                                        <img src='img/uploadsProdotti/" . $row['foto'] . "' alt='' class='img-fluid d-block mx-auto mb-3 rounded'>
+                                        <h4> <b>" . $row['nome'] . "</b>
+                                        </h4>
+                                        <p class=' text-muted '>" . $tipoTaglie . "</p>
+                                        <p class=' text-primary font-italic pull-right ' style='margin-bottom:0 !important; margin-top:3%;'>Prezzo: " . $row['costoUnitario'] . " €</p>
+                                    </div>
                                     <button type='button' class='btn btn-outline-primary rounded-circle' data-bs-toggle='modal' data-bs-target='#buyDeposito' data-bs-whatever='" . $row['id'] . "'>
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='27' fill='currentColor' class='bi bi-bag' viewBox='0 0 16 16'>
                                             <path d='M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z'/>
@@ -98,7 +100,15 @@ require_once '../../config.php';
             });
 
         });
-       
+        function apriModal(div) {
+            $('#visualizzaDeposito').modal('show');
+            var recipient = div.getAttribute('data-bs-whatever');
+            $.post("pagine/AreaMagazzino/visualizza.php", {
+                id: recipient
+            }, function(data, status) {
+                $("#modalVisualizzaDeposito").html(data);
+            });
+        }
         
     </script>
 </body>

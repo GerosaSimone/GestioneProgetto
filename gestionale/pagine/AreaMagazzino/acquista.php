@@ -24,8 +24,13 @@ if ($result = mysqli_query($link, $sql)) {
     <label class=" text-dark font-weight-bold">Articolo Selezionato </label>
 </div>
 <label><?php echo $nome; ?></label>
+<?php
+if (!$tipoTaglie) 
+echo "<div class='mt-3' style='width: 100%'><label class='text-dark font-weight-bold'>Rifornisci Taglie Bambino</label></div>";
+else
+echo "<div class='mt-3' style='width: 100%'><label class='text-dark font-weight-bold'>Rifornisci Taglie Adulto</label></div>";
 
-<div class='mt-3' style='width: 100%'><label class="text-dark font-weight-bold">Rifornisci Taglie Bambino</label></div>
+?>
 <div class="container mt-2" style="margin-left:-10px">
     <div class="row">
         <div class="col-2 text-center">
@@ -47,10 +52,10 @@ if ($result = mysqli_query($link, $sql)) {
                             <label>" . $bambino[$i] . "</label>
                         </div>
                         <div class='col-5'>
-                            <input type='number' name='quantita" . $bambino[$i] . "' id='quantita" . $bambino[$i] . "' value='0' class='form-control'>
+                            <input type='number' name='quantita" . $bambino[$i] . "' id='quantita" . $bambino[$i] . "' value='0' class='form-control' required>
                         </div>
                         <div class='col-5'>
-                            <input type='currency' value='0,00€' name='totale" . $bambino[$i] . "' id='totale" . $bambino[$i] . "' value='0' min='0' class='form-control'>
+                            <input type='currency' value='0,00€' name='totale" . $bambino[$i] . "' id='totale" . $bambino[$i] . "' value='0' min='0' class='form-control' required>
                         </div>
                     </div>";
         }
@@ -61,10 +66,10 @@ if ($result = mysqli_query($link, $sql)) {
                             <label>" . $adulto[$i] . "</label>
                         </div>
                         <div class='col-5'>
-                            <input type='number' name='quantita" . $adulto[$i] . "' id='quantita" . $adulto[$i] . "' value='0' class='form-control'>
+                            <input type='number' name='quantita" . $adulto[$i] . "' id='quantita" . $adulto[$i] . "' value='0' class='form-control' required>
                         </div>
                         <div class='col-5'>                            
-                            <input type='currency' value='0,00€' name='totale" . $adulto[$i] . "' id='totale" . $adulto[$i] . "' value='0' min='0' class='form-control'>
+                            <input type='currency' value='0,00€' name='totale" . $adulto[$i] . "' id='totale" . $adulto[$i] . "' value='0' min='0' class='form-control' required>
                         </div>
                     </div>";
         }
