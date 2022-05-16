@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 16, 2022 alle 17:32
+-- Creato il: Mag 16, 2022 alle 23:04
 -- Versione del server: 10.4.22-MariaDB
 -- Versione PHP: 8.1.1
 
@@ -45,8 +45,18 @@ CREATE TABLE `acquistimagazzino` (
   `id` int(11) NOT NULL,
   `idProdotto` int(11) NOT NULL,
   `quantita` int(11) NOT NULL,
-  `prezzototale` int(11) NOT NULL
+  `prezzototale` int(11) NOT NULL,
+  `taglia` varchar(3) NOT NULL,
+  `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `acquistimagazzino`
+--
+
+INSERT INTO `acquistimagazzino` (`id`, `idProdotto`, `quantita`, `prezzototale`, `taglia`, `data`) VALUES
+(11, 1, 25, 0, 'XS', '2022-05-16'),
+(12, 1, 56, 0, 'L', '2022-05-16');
 
 -- --------------------------------------------------------
 
@@ -114,6 +124,14 @@ CREATE TABLE `galleria` (
   `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dump dei dati per la tabella `galleria`
+--
+
+INSERT INTO `galleria` (`id`, `titolo`, `foto`) VALUES
+(24, '1', 'fotoGalleria1.jpeg'),
+(25, '2', 'fotoGalleria2.jpeg');
+
 -- --------------------------------------------------------
 
 --
@@ -126,22 +144,6 @@ CREATE TABLE `magazzino` (
   `quantita` int(11) NOT NULL,
   `taglia` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Dump dei dati per la tabella `magazzino`
---
-
-INSERT INTO `magazzino` (`id`, `idProdotto`, `quantita`, `taglia`) VALUES
-(112, 1, 0, 'XXS'),
-(113, 1, 0, 'XS'),
-(114, 1, 0, 'S'),
-(115, 1, 0, 'M'),
-(116, 1, 0, 'L'),
-(117, 2, 0, 'XXS'),
-(118, 2, 0, 'XS'),
-(119, 2, 0, 'S'),
-(120, 2, 0, 'M'),
-(121, 2, 0, 'L');
 
 -- --------------------------------------------------------
 
@@ -174,7 +176,8 @@ CREATE TABLE `mail` (
 --
 
 INSERT INTO `mail` (`id`, `nome`, `mail`, `idTesserato`) VALUES
-(7, 'bbbb', 'aaaaa@gmail.com', 140);
+(7, 'bbbb', 'aaaaa@gmail.com', 140),
+(9, '', '', 142);
 
 -- --------------------------------------------------------
 
@@ -208,8 +211,7 @@ CREATE TABLE `prodotto` (
 --
 
 INSERT INTO `prodotto` (`id`, `nome`, `tipoTaglie`, `costoUnitario`, `foto`) VALUES
-(1, 'hiu', 0, 90, 'fotoProdotto1.jpeg'),
-(2, 'simone gerosa', 0, 89, 'fotoProdotto2.jpeg');
+(1, 'mauri', 0, 40, 'fotoProdotto1.jpeg');
 
 -- --------------------------------------------------------
 
@@ -229,7 +231,8 @@ CREATE TABLE `telefono` (
 --
 
 INSERT INTO `telefono` (`id`, `nome`, `telefono`, `idTesserato`) VALUES
-(6, 'bbb', '22222222222', 140);
+(6, 'bbb', '22222222222', 140),
+(7, '', '', 142);
 
 -- --------------------------------------------------------
 
@@ -261,7 +264,8 @@ CREATE TABLE `tesserato` (
 --
 
 INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `provincia`, `citta`, `linkFoto`, `daPagare`, `pagato`, `idCategoria`) VALUES
-(140, 'cf1aaaaaaaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaaaaaaa', '2022-05-01', 'aaaaaaaaaaaaaaaaaaaaaaaa', 1, 'M', NULL, 'aaaaaaaaaa', 'aa', 'aaaaaaaa', 'fotoProfilocf1aaaaaaaaaaaaa.jpeg', 0, 0, 1);
+(140, 'cf1aaaaaaaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaaaaaaa', '2022-05-01', 'aaaaaaaaaaaaaaaaaaaaaaaa', 1, 'M', NULL, 'aaaaaaaaaa', 'aa', 'aaaaaaaa', 'fotoProfilocf1aaaaaaaaaaaaa.jpeg', 0, 0, 1),
+(142, 'awdawdawdawdawda', 'simone', 'gerosa', '2022-04-29', 'erba', 0, 'P', NULL, 'via verza 116', 'wa', 'canzo', NULL, 0, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -426,13 +430,13 @@ ALTER TABLE `visita`
 -- AUTO_INCREMENT per la tabella `acquistigiocatori`
 --
 ALTER TABLE `acquistigiocatori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `acquistimagazzino`
 --
 ALTER TABLE `acquistimagazzino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT per la tabella `allenamento`
@@ -450,13 +454,13 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT per la tabella `galleria`
 --
 ALTER TABLE `galleria`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT per la tabella `magazzino`
 --
 ALTER TABLE `magazzino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT per la tabella `maglia`
@@ -468,13 +472,13 @@ ALTER TABLE `maglia`
 -- AUTO_INCREMENT per la tabella `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT per la tabella `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
@@ -486,13 +490,13 @@ ALTER TABLE `prodotto`
 -- AUTO_INCREMENT per la tabella `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`
