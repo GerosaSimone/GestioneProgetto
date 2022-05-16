@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 14, 2022 at 03:25 PM
--- Server version: 5.7.24
--- PHP Version: 8.0.1
+-- Host: 127.0.0.1
+-- Creato il: Mag 16, 2022 alle 17:32
+-- Versione del server: 10.4.22-MariaDB
+-- Versione PHP: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `acquistigiocatori`
+-- Struttura della tabella `acquistigiocatori`
 --
 
 CREATE TABLE `acquistigiocatori` (
@@ -38,7 +38,7 @@ CREATE TABLE `acquistigiocatori` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `acquistimagazzino`
+-- Struttura della tabella `acquistimagazzino`
 --
 
 CREATE TABLE `acquistimagazzino` (
@@ -51,7 +51,7 @@ CREATE TABLE `acquistimagazzino` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `acquistimateriale`
+-- Struttura della tabella `acquistimateriale`
 --
 
 CREATE TABLE `acquistimateriale` (
@@ -64,7 +64,7 @@ CREATE TABLE `acquistimateriale` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `allenamento`
+-- Struttura della tabella `allenamento`
 --
 
 CREATE TABLE `allenamento` (
@@ -78,7 +78,7 @@ CREATE TABLE `allenamento` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categoria`
+-- Struttura della tabella `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -90,7 +90,7 @@ CREATE TABLE `categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
--- Dumping data for table `categoria`
+-- Dump dei dati per la tabella `categoria`
 --
 
 INSERT INTO `categoria` (`id`, `nome`, `palloni`, `pettorine`, `linkFotoSquadra`) VALUES
@@ -105,7 +105,7 @@ INSERT INTO `categoria` (`id`, `nome`, `palloni`, `pettorine`, `linkFotoSquadra`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `galleria`
+-- Struttura della tabella `galleria`
 --
 
 CREATE TABLE `galleria` (
@@ -117,20 +117,36 @@ CREATE TABLE `galleria` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `magazzino`
+-- Struttura della tabella `magazzino`
 --
 
 CREATE TABLE `magazzino` (
   `id` int(11) NOT NULL,
   `idProdotto` int(11) NOT NULL,
   `quantita` int(11) NOT NULL,
-  `taglia` char(1) NOT NULL
+  `taglia` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `magazzino`
+--
+
+INSERT INTO `magazzino` (`id`, `idProdotto`, `quantita`, `taglia`) VALUES
+(112, 1, 0, 'XXS'),
+(113, 1, 0, 'XS'),
+(114, 1, 0, 'S'),
+(115, 1, 0, 'M'),
+(116, 1, 0, 'L'),
+(117, 2, 0, 'XXS'),
+(118, 2, 0, 'XS'),
+(119, 2, 0, 'S'),
+(120, 2, 0, 'M'),
+(121, 2, 0, 'L');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `maglia`
+-- Struttura della tabella `maglia`
 --
 
 CREATE TABLE `maglia` (
@@ -143,7 +159,7 @@ CREATE TABLE `maglia` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mail`
+-- Struttura della tabella `mail`
 --
 
 CREATE TABLE `mail` (
@@ -153,10 +169,17 @@ CREATE TABLE `mail` (
   `idTesserato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dump dei dati per la tabella `mail`
+--
+
+INSERT INTO `mail` (`id`, `nome`, `mail`, `idTesserato`) VALUES
+(7, 'bbbb', 'aaaaa@gmail.com', 140);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `news`
+-- Struttura della tabella `news`
 --
 
 CREATE TABLE `news` (
@@ -169,7 +192,7 @@ CREATE TABLE `news` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prodotto`
+-- Struttura della tabella `prodotto`
 --
 
 CREATE TABLE `prodotto` (
@@ -180,10 +203,18 @@ CREATE TABLE `prodotto` (
   `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dump dei dati per la tabella `prodotto`
+--
+
+INSERT INTO `prodotto` (`id`, `nome`, `tipoTaglie`, `costoUnitario`, `foto`) VALUES
+(1, 'hiu', 0, 90, 'fotoProdotto1.jpeg'),
+(2, 'simone gerosa', 0, 89, 'fotoProdotto2.jpeg');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `telefono`
+-- Struttura della tabella `telefono`
 --
 
 CREATE TABLE `telefono` (
@@ -193,10 +224,17 @@ CREATE TABLE `telefono` (
   `idTesserato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dump dei dati per la tabella `telefono`
+--
+
+INSERT INTO `telefono` (`id`, `nome`, `telefono`, `idTesserato`) VALUES
+(6, 'bbb', '22222222222', 140);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tesserato`
+-- Struttura della tabella `tesserato`
 --
 
 CREATE TABLE `tesserato` (
@@ -213,15 +251,22 @@ CREATE TABLE `tesserato` (
   `provincia` varchar(32) NOT NULL,
   `citta` varchar(32) NOT NULL,
   `linkFoto` varchar(255) DEFAULT NULL,
-  `daPagare` int(11) NOT NULL DEFAULT '0',
-  `pagato` int(11) NOT NULL DEFAULT '0',
+  `daPagare` int(11) NOT NULL DEFAULT 0,
+  `pagato` int(11) NOT NULL DEFAULT 0,
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `tesserato`
+--
+
+INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `provincia`, `citta`, `linkFoto`, `daPagare`, `pagato`, `idCategoria`) VALUES
+(140, 'cf1aaaaaaaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaaaaaaa', '2022-05-01', 'aaaaaaaaaaaaaaaaaaaaaaaa', 1, 'M', NULL, 'aaaaaaaaaa', 'aa', 'aaaaaaaa', 'fotoProfilocf1aaaaaaaaaaaaa.jpeg', 0, 0, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usa`
+-- Struttura della tabella `usa`
 --
 
 CREATE TABLE `usa` (
@@ -232,7 +277,7 @@ CREATE TABLE `usa` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utenti`
+-- Struttura della tabella `utenti`
 --
 
 CREATE TABLE `utenti` (
@@ -242,7 +287,7 @@ CREATE TABLE `utenti` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `utenti`
+-- Dump dei dati per la tabella `utenti`
 --
 
 INSERT INTO `utenti` (`id`, `user`, `password`) VALUES
@@ -252,7 +297,7 @@ INSERT INTO `utenti` (`id`, `user`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `visita`
+-- Struttura della tabella `visita`
 --
 
 CREATE TABLE `visita` (
@@ -263,11 +308,11 @@ CREATE TABLE `visita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
--- Indexes for dumped tables
+-- Indici per le tabelle scaricate
 --
 
 --
--- Indexes for table `acquistigiocatori`
+-- Indici per le tabelle `acquistigiocatori`
 --
 ALTER TABLE `acquistigiocatori`
   ADD PRIMARY KEY (`id`),
@@ -275,79 +320,79 @@ ALTER TABLE `acquistigiocatori`
   ADD KEY `acquistaProdotto` (`idProdotto`);
 
 --
--- Indexes for table `acquistimagazzino`
+-- Indici per le tabelle `acquistimagazzino`
 --
 ALTER TABLE `acquistimagazzino`
   ADD PRIMARY KEY (`id`),
   ADD KEY `maga` (`idProdotto`);
 
 --
--- Indexes for table `acquistimateriale`
+-- Indici per le tabelle `acquistimateriale`
 --
 ALTER TABLE `acquistimateriale`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `allenamento`
+-- Indici per le tabelle `allenamento`
 --
 ALTER TABLE `allenamento`
   ADD PRIMARY KEY (`id`,`giorno`,`idCategoria`),
   ADD KEY `idcategoria` (`idCategoria`);
 
 --
--- Indexes for table `categoria`
+-- Indici per le tabelle `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`,`nome`);
 
 --
--- Indexes for table `galleria`
+-- Indici per le tabelle `galleria`
 --
 ALTER TABLE `galleria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `magazzino`
+-- Indici per le tabelle `magazzino`
 --
 ALTER TABLE `magazzino`
   ADD PRIMARY KEY (`id`),
   ADD KEY `prodotto` (`idProdotto`);
 
 --
--- Indexes for table `maglia`
+-- Indici per le tabelle `maglia`
 --
 ALTER TABLE `maglia`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `foto` (`foto`);
 
 --
--- Indexes for table `mail`
+-- Indici per le tabelle `mail`
 --
 ALTER TABLE `mail`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idtesserato` (`idTesserato`);
 
 --
--- Indexes for table `news`
+-- Indici per le tabelle `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `prodotto`
+-- Indici per le tabelle `prodotto`
 --
 ALTER TABLE `prodotto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `telefono`
+-- Indici per le tabelle `telefono`
 --
 ALTER TABLE `telefono`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idtesse` (`idTesserato`);
 
 --
--- Indexes for table `tesserato`
+-- Indici per le tabelle `tesserato`
 --
 ALTER TABLE `tesserato`
   ADD PRIMARY KEY (`id`,`cf`),
@@ -355,162 +400,162 @@ ALTER TABLE `tesserato`
   ADD KEY `relazione4` (`idCategoria`);
 
 --
--- Indexes for table `usa`
+-- Indici per le tabelle `usa`
 --
 ALTER TABLE `usa`
   ADD PRIMARY KEY (`idMaglia`),
   ADD KEY `relazione1` (`idCategoria`);
 
 --
--- Indexes for table `utenti`
+-- Indici per le tabelle `utenti`
 --
 ALTER TABLE `utenti`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `visita`
+-- Indici per le tabelle `visita`
 --
 ALTER TABLE `visita`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT per le tabelle scaricate
 --
 
 --
--- AUTO_INCREMENT for table `acquistigiocatori`
+-- AUTO_INCREMENT per la tabella `acquistigiocatori`
 --
 ALTER TABLE `acquistigiocatori`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `acquistimagazzino`
+-- AUTO_INCREMENT per la tabella `acquistimagazzino`
 --
 ALTER TABLE `acquistimagazzino`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `allenamento`
+-- AUTO_INCREMENT per la tabella `allenamento`
 --
 ALTER TABLE `allenamento`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `categoria`
+-- AUTO_INCREMENT per la tabella `categoria`
 --
 ALTER TABLE `categoria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `galleria`
+-- AUTO_INCREMENT per la tabella `galleria`
 --
 ALTER TABLE `galleria`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `magazzino`
+-- AUTO_INCREMENT per la tabella `magazzino`
 --
 ALTER TABLE `magazzino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
--- AUTO_INCREMENT for table `maglia`
+-- AUTO_INCREMENT per la tabella `maglia`
 --
 ALTER TABLE `maglia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `mail`
+-- AUTO_INCREMENT per la tabella `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `news`
+-- AUTO_INCREMENT per la tabella `news`
 --
 ALTER TABLE `news`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `prodotto`
+-- AUTO_INCREMENT per la tabella `prodotto`
 --
 ALTER TABLE `prodotto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `telefono`
+-- AUTO_INCREMENT per la tabella `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tesserato`
+-- AUTO_INCREMENT per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 
 --
--- AUTO_INCREMENT for table `utenti`
+-- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `visita`
+-- AUTO_INCREMENT per la tabella `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- Constraints for dumped tables
+-- Limiti per le tabelle scaricate
 --
 
 --
--- Constraints for table `acquistigiocatori`
+-- Limiti per la tabella `acquistigiocatori`
 --
 ALTER TABLE `acquistigiocatori`
   ADD CONSTRAINT `acquistaProdotto` FOREIGN KEY (`idProdotto`) REFERENCES `prodotto` (`id`),
   ADD CONSTRAINT `tesserato` FOREIGN KEY (`idTesserato`) REFERENCES `tesserato` (`id`);
 
 --
--- Constraints for table `acquistimagazzino`
+-- Limiti per la tabella `acquistimagazzino`
 --
 ALTER TABLE `acquistimagazzino`
   ADD CONSTRAINT `maga` FOREIGN KEY (`idProdotto`) REFERENCES `prodotto` (`id`);
 
 --
--- Constraints for table `allenamento`
+-- Limiti per la tabella `allenamento`
 --
 ALTER TABLE `allenamento`
   ADD CONSTRAINT `idcategoria` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`);
 
 --
--- Constraints for table `magazzino`
+-- Limiti per la tabella `magazzino`
 --
 ALTER TABLE `magazzino`
   ADD CONSTRAINT `prodotto` FOREIGN KEY (`idProdotto`) REFERENCES `prodotto` (`id`);
 
 --
--- Constraints for table `mail`
+-- Limiti per la tabella `mail`
 --
 ALTER TABLE `mail`
   ADD CONSTRAINT `idtesserato` FOREIGN KEY (`idTesserato`) REFERENCES `tesserato` (`id`);
 
 --
--- Constraints for table `telefono`
+-- Limiti per la tabella `telefono`
 --
 ALTER TABLE `telefono`
   ADD CONSTRAINT `idtesse` FOREIGN KEY (`idTesserato`) REFERENCES `tesserato` (`id`);
 
 --
--- Constraints for table `tesserato`
+-- Limiti per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
   ADD CONSTRAINT `relazione3` FOREIGN KEY (`idVisita`) REFERENCES `visita` (`id`),
   ADD CONSTRAINT `relazione4` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`);
 
 --
--- Constraints for table `usa`
+-- Limiti per la tabella `usa`
 --
 ALTER TABLE `usa`
   ADD CONSTRAINT `relazione1` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`),
@@ -520,3 +565,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
