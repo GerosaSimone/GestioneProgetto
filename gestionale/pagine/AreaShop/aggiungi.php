@@ -4,8 +4,6 @@
     <div><img id="fotoProdotto" class="mt-3" src="" required /></div>
     <label class="mt-2">Nome</label>
     <input type="text" name="nome" class="form-control form-control-sm mb-2" required>
-    <label>Descrizione</label>
-    <input type="text" name="descrizione" class="form-control form-control-sm mb-2" required>
     <label>Tipo Taglie</label><br>
     <div class="form-check form-check-inline ml-1">
         <input class="form-check-input" type="radio" name="tipoTaglie" value="0" required>

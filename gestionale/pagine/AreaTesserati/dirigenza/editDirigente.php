@@ -89,7 +89,7 @@ try {
                 }
             }
         }
-        for ($i = 2; $i <= count($telefoniId); $i++) {
+        for ($i = 1; $i <= count($telefoniId); $i++) {
             $contatto = "contatto" . $i;
             $tel = "tel" . $i;
             if (isset($_POST[$contatto]) && isset($_POST[$tel])) {
@@ -107,7 +107,7 @@ try {
                 }
             }
         }
-        for ($i = 2; $i <= count($mailId); $i++) {
+        for ($i = 1; $i <= count($mailId); $i++) {
             $contatto = "cont" . $i;
             $mail = "mail" . $i;
             if (isset($_POST[$contatto]) && isset($_POST[$mail])) {

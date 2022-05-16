@@ -7,6 +7,11 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../config.php';
 try {
     $id = $_POST['idElimina'];
+
+    $sql = "DELETE FROM magazzino WHERE idProdotto = '" . $id . "';";
+    //echo $sql;
+    mysqli_query($link, $sql);
+
     $sql = "SELECT foto FROM prodotto WHERE id='" . $id . "'";
     //echo "$sql<br>";
     $foto = 0;

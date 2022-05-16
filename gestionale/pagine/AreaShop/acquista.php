@@ -17,6 +17,7 @@ if ($result = mysqli_query($link, $sql)) {
     }
 }
 ?>
+
 <input type="text" name="idProdotto" id="idProdotto" hidden="true" value="<?php echo $_GET["idProdotto"]; ?>">
 <div class="container">
     <div class="row">
@@ -26,7 +27,7 @@ if ($result = mysqli_query($link, $sql)) {
         <div style="width: 100%;" class="mt-2"><label>Giocatore</label>
             <button type="button" class="close pull-rigth" aria-label="close" style="color:red;" onclick="azzeraComplete();"><span aria-hidden="true">&times;</span></button>
         </div>
-        <input type="text" name="city" id="search_city" placeholder="Type to search..." class="form-control" required>
+        <input type="text" name="city" id="search_city" placeholder="Type to search..." class="form-control"  aria-autocomplete="both" aria-haspopup="false" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="" required>
         <?php
         if (!$tipoTaglie) {
             echo "  <div class='mt-3' style='width: 100%;'><label>Taglie Bambini</label></div>";
@@ -73,11 +74,14 @@ if ($result = mysqli_query($link, $sql)) {
     </div>
 </div>
 <script type="text/javascript">
+    var uuid = '<some random UUID generated each page load>';    
+
     $("#search_city").autocomplete({
         source: 'pagine/AreaShop/giocatori-search.php',
         select: function(event, ui) {
             $("#search_city").prop('readonly', true);
             $("#btnSalva").prop('disabled', false);
+            $("#search_city").attr("autocomplete", uuid);
         }
     });
 
@@ -85,5 +89,6 @@ if ($result = mysqli_query($link, $sql)) {
         $("#search_city").prop('readonly', false);
         $("#btnSalva").prop('disabled', true);
         $("#search_city").val("");
+        $("#search_city").attr("autocomplete", uuid);
     }
 </script>
