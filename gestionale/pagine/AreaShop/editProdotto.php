@@ -5,21 +5,11 @@ if (!isset($_SESSION['user_id'])) {
 }
 require_once '../../config.php';
 
-$bambino = ['XXS', 'XS', 'S', 'M', 'L'];
-$adulto = ['S', 'M', 'L', 'XL', 'XXL'];
-
 try {
     //inizializzo query update con param default
     $id = $_POST['idModifica'];
 
-    $sql = "DELETE FROM magazzino WHERE idProdotto = '" . $id . "';";
-    //echo $sql;
-    mysqli_query($link, $sql);
-
-    
-
-    
-    $query = "UPDATE prodotto SET nome='" . $_POST['nome'] . "', tipoTaglie='" . $_POST['tipoTaglie'] . "', costoUnitario='" . strtok($_POST['costo'], ',') . "'";
+    $query = "UPDATE prodotto SET nome='" . $_POST['nome'] . "',  costoUnitario='" . strtok($_POST['costo'], ',') . "'";
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
         $sql = "SELECT foto FROM prodotto WHERE id='" . $id . "';";
         //echo "$sql<br>";
@@ -65,21 +55,10 @@ try {
         }
         $query .= ", foto" . "='$titolo'";
     }
-    
+
     $query .= " WHERE id = '" . $id . "';";
-   
-    mysqli_query($link, $query);
 
-    $sql = "";
-    if ($_POST['tipoTaglie']) {
-        for ($i = 0; $i < count($adulto); $i++)
-            $sql .= "INSERT INTO magazzino (`idProdotto`, `quantita`, `taglia`) VALUES ('$id',0, '" . $adulto[$i] . "');";
-    } else {
-        for ($i = 0; $i < count($bambino); $i++)
-            $sql .= "INSERT INTO magazzino (`idProdotto`, `quantita`, `taglia`) VALUES ('$id',0, '" . $bambino[$i] . "');";
-    }
-
-    mysqli_multi_query($link, $sql);
+    mysqli_query($link, $query); 
 } catch (Exception $e) {
     //echo "<br/>" . $e->getMessage() . "<br/>";
     while ($e = $e->getPrevious()) {

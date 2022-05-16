@@ -35,7 +35,7 @@ require_once '../../config.php';
                                         <img src='img/uploadsNews/" . $row['foto'] . "' alt='' class='img-fluid d-block mx-auto mb-3 rounded' >
                                         <h4> <b>" . $row['titolo'] . "</b>
                                         </h4>
-                                        <p class=' text-muted '>" . $descrizione . "</p> 
+                                        <p class=' text-muted '>" . substr($descrizione, 0, 80) . "...</p> 
                                     </div>
                                     <button type='button' class='btn btn-outline-danger rounded-circle pull-right'  data-bs-toggle='modal' data-bs-target='#eliminaNews' data-bs-whatever='" . $row['id'] . "'>
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='27' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16' >

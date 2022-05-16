@@ -42,7 +42,6 @@
         </div>
     </div>
 </div>
-
 <!--Modifica-->
 <div class="modal fade" id="modificaProdotto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modificaLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -63,7 +62,7 @@
         </div>
     </div>
 </div>
-<!--Modifica-->
+<!--Acquista-->
 <div class="modal fade" id="buyDeposito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="buyDepositoLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -71,7 +70,7 @@
                 <h3 style="color:white" class="modal-title" id="buyDepositoLabel"><b>ACQUISTA PRODOTTO</b></h3>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="pagine/AreaMagazzino/buyProdotto.php" method="post" enctype="multipart/form-data">
+            <form action="pagine/AreaMagazzino/buyDeposito.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body" id="modalAcquista">
 
                 </div>
