@@ -87,7 +87,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h3 style="color:white" class="modal-title " id="eliminaLabel"><b>VISUALIZZA NEWS</b></h3>
+                <h3 style="color:white" class="modal-title " id="eliminaLabel"><b>VISUALIZZA SCORTA</b></h3>
                 <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body" id="modalVisualizzaDeposito">

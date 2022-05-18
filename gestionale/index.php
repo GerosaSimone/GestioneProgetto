@@ -61,9 +61,11 @@ if (!isset($_SESSION['user_id'])) {
                 $("#pagina").load("pagine/AreaTesserati/giocatori/giocatori.php");
             } else if (a == "dirigenza") {
                 $("#pagina").load("pagine/AreaTesserati/dirigenza/dirigenza.php");
-            }else if (a == "deposito") {
+            } else if (a == "deposito") {
                 $("#pagina").load("pagine/AreaMagazzino/deposito.php");
-            }  else if (a == "shop") {
+            } else if (a == "acquistiSocieta") {
+                $("#pagina").load("pagine/AreaMagazzino/acquistiDeposito.php");
+            } else if (a == "shop") {
                 $("#pagina").load("pagine/AreaShop/articoli.php");
             } else if (a == "acquistiGiocatori") {
                 $("#pagina").load("pagine/AreaShop/acquistiGiocatori.php");
@@ -74,7 +76,7 @@ if (!isset($_SESSION['user_id'])) {
             } else
                 $("#pagina").load("pagine/home.php");
         </script>
-
+        
     </div>
 </body>
 
