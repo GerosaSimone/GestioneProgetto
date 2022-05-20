@@ -26,7 +26,7 @@
                 <h3 style="color:white" class="modal-title" id="eliminaLabel"><b>ELIMINA GIOCATORE</b></h3>
                 <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="pagine/AreaTesserati/giocatori/deleteGiocatore.php" method="post">
+            <form action="pagine/AreaTesserati/delete.php" method="post">
                 <div class="modal-body">
                     Sei sicuro di voler eliminare definitivamente il giocatore?
                     <input type="text" name="idElimina" id="idElimina" hidden="true">

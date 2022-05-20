@@ -9,7 +9,9 @@
         <div class="wrap-table100">
             <div class="table100">
                 <?php
-                $sql = "SELECT tesserato.id, tesserato.nome, tesserato.cognome, tesserato.dataNascita, tesserato.ruolo FROM tesserato inner join categoria on categoria.id=tesserato.idCategoria WHERE tipo='1' and categoria.nome='" . $_GET['squadra'] . "'";
+                $sql = "SELECT tesserato.nascosto, tesserato.id, tesserato.nome, tesserato.cognome, tesserato.dataNascita, tesserato.ruolo 
+                        FROM tesserato inner join categoria on categoria.id=tesserato.idCategoria 
+                        WHERE tipo='1' and tesserato.nascosto='0' and categoria.nome='" . $_GET['squadra'] . "' ";                        
                 echo "<table class='display shadow-lg tabella' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> Nome</th>";
                 echo "      <th> Cognome</th>";

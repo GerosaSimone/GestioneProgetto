@@ -7,8 +7,19 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../config.php';
 try {
     $id = $_POST['idElimina'];
+    $sql = "UPDATE `prodotto` SET `nascosto`='1' WHERE id='$id'";
+    mysqli_query($link, $sql);
+} catch (Exception $e) {
+    //echo $e->getMessage() . "<br/>";
+    while ($e = $e->getPrevious()) {
+        //echo 'Previous exception: ' . $e->getMessage() . "<br/>";
+    }
+}
+header("Location: ../../index.php");
 
-    $sql = "DELETE FROM magazzino WHERE idProdotto = '" . $id . "';";
+
+/*
+$sql = "DELETE FROM magazzino WHERE idProdotto = '" . $id . "';";
     //echo $sql;
     mysqli_query($link, $sql);
 
@@ -35,3 +46,5 @@ try {
     }
 }
 //header("Location: ../../index.php");
+=======
+*/

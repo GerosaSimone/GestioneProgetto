@@ -14,7 +14,7 @@
                 INNER JOIN categoria 
                 on idCategoria=categoria.id)
                 LEFT JOIN visita ON visita.id=tesserato.idVisita
-                WHERE tesserato.tipo='0' and categoria.nome='" . $_GET['squadra'] . "'";
+                WHERE tesserato.tipo='0' and categoria.nome='" . $_GET['squadra'] . "' and tesserato.nascosto='0'";
                 echo "<table class='display shadow-lg tabella' style='width:100%; min-width:800px'><thead><tr>";
                 echo "      <th class='pl-4'> Nome</th>";
                 echo "      <th> Cognome</th>";

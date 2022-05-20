@@ -4,7 +4,6 @@ if (!isset($_SESSION['user_id'])) {
 }
 require_once '../../config.php';
 
-
 $tipoTaglie;
 $id = $_POST["idProdotto"];
 $sql = "SELECT * FROM prodotto WHERE id='" . $id . "'";
@@ -14,29 +13,29 @@ if ($result = mysqli_query($link, $sql)) {
         $tipoTaglie = $row['tipoTaglie'];
     }
 }
-
 $quantita = [];
 if (!$tipoTaglie) {
     $vett = ['XXS', 'XS', 'S', 'M', 'L'];
-    $sql = "SELECT quantita,taglia from magazzino where idProdotto='$id'";
-    if ($result = mysqli_query($link, $sql))
-        if (mysqli_num_rows($result) > 0)
-            while ($row = mysqli_fetch_array($result))
-                array_push($quantita, $row['quantita']);
-} else
+} else {
     $vett = ['S', 'M', 'L', 'XL', 'XXL'];
+}
+$sql = "SELECT quantita,taglia from magazzino where idProdotto='$id'";
+if ($result = mysqli_query($link, $sql))
+    if (mysqli_num_rows($result) > 0)
+        while ($row = mysqli_fetch_array($result))
+            array_push($quantita, $row['quantita']);
+$sql = "";
 for ($i = 0; $i < count($quantita); $i++) {
-
     if ($_POST['quantita' . $vett[$i]] != '0') {
-        $somma = 0;
         $somma = $quantita[$i] + $_POST['quantita' . $vett[$i]];
-        $sql = "UPDATE `magazzino` SET `quantita`='" . $somma . "' WHERE idProdotto=$id and taglia='" . $vett[$i] . "'";
-        mysqli_query($link, $sql);
-        
-        $sql = "INSERT INTO `acquistimagazzino`( `idProdotto`, `quantita`, `prezzototale`, `taglia`, `data`) VALUES ('$id','".$_POST['quantita' . $vett[$i]]."','".strtok($_POST['totale' . $vett[$i]], ',')."','".$vett[$i]."','".date('Y-m-d')."')";
-        mysqli_query($link, $sql);
+        if ($_POST['quantita' . $vett[$i]]  > 0) {
+            $sql .= "UPDATE `magazzino` SET `quantita`='" . $somma . "' WHERE idProdotto=$id and taglia='" . $vett[$i] . "';";
+            $sql .= "INSERT INTO `acquistimagazzino` (idProdotto, quantita, prezzototale) VALUES ('$id','" . $_POST['quantita' . $vett[$i]] . "' ,'" . strtok($_POST['totale' . $vett[$i]], ',') . "');";
+        }
     }
 }
+if ($sql != "")
+    mysqli_multi_query($link, $sql);
 
 //totale aggiungi transazione
 header("Location: ../../index.php");

@@ -3,7 +3,9 @@
         <div class="wrap-table100">
             <div class="table100">
                 <?php
-                $sql = "SELECT tesserato.id, tesserato.nome, tesserato.cognome, categoria.nome as squadra, tesserato.dataNascita, tesserato.ruolo FROM tesserato inner join categoria on categoria.id=tesserato.idCategoria WHERE tipo='1'";
+                $sql = "SELECT tesserato.id, tesserato.nome, tesserato.cognome, categoria.nome as squadra, tesserato.dataNascita, tesserato.ruolo 
+                FROM tesserato inner join categoria on categoria.id=tesserato.idCategoria 
+                WHERE tipo='1' and tesserato.nascosto='0'";
                 echo "<table class='display shadow-lg tabellaDirigenza' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> Nome</th>";
                 echo "      <th> Cognome</th>";

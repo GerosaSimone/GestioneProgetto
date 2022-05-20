@@ -50,7 +50,7 @@
                 <h3 style="color:white" class="modal-title pl-4" id="eliminaDirigenteLabel"><b>ELIMINA DIRIGENTE</b></h3>
                 <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="pagine/AreaTesserati/squadre/deleteDirigente.php?squadra=<?php echo $_GET['squadra']; ?>" method="post">
+            <form action="pagine/AreaTesserati/delete.php" method="post">
                 <div class="modal-body">
                     Sei sicuro di voler eliminare definitivamente il dirigente?
                     <input type="text" name="idElimina" id="idEliminaDirigente" hidden="true">
@@ -71,7 +71,7 @@
                 <h3 style="color:white" class="modal-title pl-4" id="eliminaLabel"><b>ELIMINA GIOCATORE</b></h3>
                 <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="pagine/AreaTesserati/squadre/deleteGiocatore.php?squadra=<?php echo $_GET['squadra']; ?>" method="post">
+            <form action="pagine/AreaTesserati/delete.php" method="post">
                 <div class="modal-body">
                     Sei sicuro di voler eliminare definitivamente il giocatore?
                     <input type="text" name="idElimina" id="idElimina" hidden="true">
@@ -160,8 +160,6 @@
         </div>
     </div>
 </div>
-
-
 <!--Modifica Materiale-->
 <div class="modal fade" id="oggetti" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="oggettiLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -279,7 +277,6 @@
         </div>
     </div>
 </div>
-
 <!--Divise-->
 <div class="modal fade" id="divise" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="diviseLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">

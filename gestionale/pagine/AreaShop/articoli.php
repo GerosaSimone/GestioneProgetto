@@ -19,7 +19,7 @@ require_once '../../config.php';
 
     <div class="row pb-5 mb-4 ml-3 mr-3 align-items-center">
         <?php
-        $sql = "SELECT * FROM prodotto";
+        $sql = "SELECT * FROM prodotto WHERE nascosto='0'";
         if ($result = mysqli_query($link, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
