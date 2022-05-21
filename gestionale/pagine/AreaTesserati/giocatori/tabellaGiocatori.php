@@ -24,18 +24,22 @@
                             echo "<tr>";
                             echo "<td class='pl-4'>" . $row['nome'] . "</td>";
                             echo "<td>" . $row['cognome'] . "</td>";
-                            echo "<td>" . $row['dataNascita'] . "</td>";
+                            $date = str_replace('-"', '/', $row['dataNascita']);
+                            $newDate = date("d/m/Y", strtotime($date));
+                            echo "<td>" . $newDate . "</td>";
                             echo "<td>" . $row['prova'] . "</td>";
                             if (!empty($row['scadenza'])) {
                                 $date1 = $row['scadenza'];
                                 $dataOggi = date("Y/m/d");
                                 $differenza = floor((strtotime($date1) - strtotime($dataOggi)) / 86400);
+                                $date = str_replace('-"', '/', $row['scadenza']);
+                                $newDate = date("d/m/Y", strtotime($date));
                                 if ($differenza > 30) {
-                                    echo "<td><span class='dot-green mr-3 '></span>"  . $row['scadenza'] . "</td>";
+                                    echo "<td><span class='dot-green mr-3 '></span>"  . $newDate . "</td>";
                                 } else if ($differenza > 0) {
-                                    echo "<td><span class='dot-orange mr-3 '></span>" . $row['scadenza'] . "</td>";
+                                    echo "<td><span class='dot-orange mr-3 '></span>" . $newDate . "</td>";
                                 } else {
-                                    echo "<td><span class='dot-red mr-3 '></span>" . $row['scadenza'] . "</td>";
+                                    echo "<td><span class='dot-red mr-3 '></span>" . $newDate . "</td>";
                                 }
                             } else
                                 echo "<td> Nessuna visita!</td>";

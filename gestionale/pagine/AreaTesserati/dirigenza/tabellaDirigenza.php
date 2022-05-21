@@ -20,7 +20,9 @@
                             echo "<tr>";
                             echo "<td class='pl-4'>" . $row['nome'] . "</td>";
                             echo "<td>" . $row['cognome'] . "</td>";
-                            echo "<td>" . $row['dataNascita'] . "</td>";
+                            $date = str_replace('-"', '/', $row['dataNascita']);
+                            $newDate = date("d/m/Y", strtotime($date));
+                            echo "<td>" . $newDate . "</td>";
                             if ($row['ruolo'] == "M") {
                                 echo "<td>Mister</td>";
                             } else if ($row['ruolo'] == "D") {

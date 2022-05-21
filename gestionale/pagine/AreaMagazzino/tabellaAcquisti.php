@@ -1,31 +1,30 @@
-
 <div class="limiter pt-3" style="margin-left:-1%">
     <div class="container-table100">
         <div class="wrap-table100">
             <div class="table100">
                 <?php
-                $sql = "SELECT acquistimagazzino.id,prodotto.nome as articolo, acquistimagazzino.quantita, acquistimagazzino.prezzoTotale, acquistimagazzino.taglia, acquistimagazzino.data as dataAcquisto
-                FROM acquistimagazzino
-                INNER JOIN prodotto ON acquistimagazzino.idProdotto=prodotto.id";
-        
+                $sql = "SELECT acquistimagazzino.id,prodotto.nome,magazzino.taglia,acquistimagazzino.quantita,acquistimagazzino.prezzototale,acquistimagazzino.data FROM acquistimagazzino INNER JOIN magazzino ON magazzino.id=acquistimagazzino.idMagazzino INNER JOIN prodotto ON magazzino.idProdotto = prodotto.id;";
+
                 echo "<table class='display shadow-lg tabellaAcquisti' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> Articolo</th>";
                 echo "      <th> Quantita</th>";
                 echo "      <th> Taglia</th>";
                 echo "      <th> Prezzo Totale </th>";
                 echo "      <th> Data Acquisto </th>";
-               
+
                 echo "      <th class='column3'> Actions</th>";
                 echo "</tr></thead><tbody>";
                 if ($result = mysqli_query($link, $sql)) {
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_array($result)) {
                             echo "<tr>";
-                            echo "<td class='pl-4'>" . $row['articolo'] . "</td>";
-                            echo "<td>" . $row['quantita'] . "</td>";
+                            echo "<td class='pl-4'>" . $row['nome'] . "</td>";
                             echo "<td>" . $row['taglia'] . "</td>";
-                            echo "<td>" . $row['prezzoTotale'] . "€</td>";
-                            echo "<td>" . $row['dataAcquisto'] . "</td>";                          
+                            echo "<td>" . $row['quantita'] . "</td>";
+                            echo "<td>" . $row['prezzototale'] . "€</td>";
+                            $date = str_replace('-"', '/', $row['data']);
+                            $newDate = date("d/m/Y", strtotime($date));
+                            echo "<td>" . $newDate . "</td>";
                             echo "<td class='column3'>                                            
                                             <button type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#eliminaAcquisto' data-bs-whatever='" . $row['id'] . "'>
                                                 <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor'class='bi bi-trash' viewBox='0 0 16 16'>

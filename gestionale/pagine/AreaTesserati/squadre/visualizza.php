@@ -138,7 +138,9 @@ try {
             <div class="row" style="margin-left: -2%">
                 <div class="col">
                     <label class="titoliBlu">Data Nascita</label>
-                    <p><?php echo $dataNascita ?></p>
+                    <p><?php $date = str_replace('-"', '/', $dataNascita);
+                $newDate = date("d/m/Y", strtotime($date));
+                echo "$newDate"; ?></p>
                 </div>
                 <div class="col">
                     <label class="titoliBlu">Luogo di Nascita</label>
@@ -155,7 +157,9 @@ try {
                 else if ($tipo == 1) echo "Agonistica";
                 else echo "Nessuna Visita" ?></p>
             <label class="titoliBlu">Scadenza</label><br>
-            <p><?php echo $scadenza ?></p>
+            <p><?php if($scadenza!="nessuna data di scadenza"){$date = str_replace('-"', '/', $scadenza);
+                $newDate = date("d/m/Y", strtotime($date));
+                echo "$newDate";}else{echo $scadenza;} ?></p>
             <?php
             if ($fotoVisita != null) {
                 echo "<label class='titoliBlu'>Foto</label><br>";

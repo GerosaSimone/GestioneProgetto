@@ -53,10 +53,10 @@ try {
     }
     //aggiungo daPagare e pagato
     if (!empty($_POST['daPagare'])) {
-        $query .= ", daPagare" . "='" . strtok( $_POST['daPagare'], ',' ) . "'";
+        $query .= ", daPagare" . "='" . strtok($_POST['daPagare'], ',') . "'";
     }
     if (!empty($_POST['pagato'])) {
-        $query .= ", pagato" . "='" . strtok( $_POST['pagato'], ',' ) . "'";
+        $query .= ", pagato" . "='" . strtok($_POST['pagato'], ',') . "'";
     }
     //cerca visita
     $idVisita = null;
@@ -78,8 +78,10 @@ try {
             if ($result = mysqli_query($link, $sql)) {
                 if (mysqli_num_rows($result) > 0) {
                     $row = mysqli_fetch_array($result);
-                    if (file_exists('../../../img/uploadsVisita/' . $row['foto'])) {
-                        unlink('../../../img/uploadsVisita/' . $row['foto']);
+                    if (!is_dir('../../../img/uploadsVisita/' . $row['foto'])) {
+                        if (file_exists('../../../img/uploadsVisita/' . $row['foto'])) {
+                            unlink('../../../img/uploadsVisita/' . $row['foto']);
+                        }
                     }
                 }
             }
@@ -181,9 +183,10 @@ try {
         }
         //echo $nomeFoto;
         try {
+            if (!is_dir('../../../img/uploadsVisita/' . $nomeFoto)) {
             if (file_exists('../../../img/uploadsProfilo/' . $nomeFoto)) {
                 unlink('../../../img/uploadsProfilo/' . $nomeFoto);
-            }
+            }}
         } catch (Exception $e) {
             //echo "<br/>" . "Errore eliminazione foto Profilo" . "<br/>";
         }

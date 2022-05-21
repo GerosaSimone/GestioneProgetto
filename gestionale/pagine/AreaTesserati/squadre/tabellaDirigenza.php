@@ -11,7 +11,7 @@
                 <?php
                 $sql = "SELECT tesserato.nascosto, tesserato.id, tesserato.nome, tesserato.cognome, tesserato.dataNascita, tesserato.ruolo 
                         FROM tesserato inner join categoria on categoria.id=tesserato.idCategoria 
-                        WHERE tipo='1' and tesserato.nascosto='0' and categoria.nome='" . $_GET['squadra'] . "' ";                        
+                        WHERE tipo='1' and tesserato.nascosto='0' and categoria.nome='" . $_GET['squadra'] . "' ";
                 echo "<table class='display shadow-lg tabella' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> Nome</th>";
                 echo "      <th> Cognome</th>";
@@ -25,7 +25,9 @@
                             echo "<tr>";
                             echo "<td class='pl-4'>" . $row['nome'] . "</td>";
                             echo "<td>" . $row['cognome'] . "</td>";
-                            echo "<td>" . $row['dataNascita'] . "</td>";
+                            $date = str_replace('-"', '/', $row['dataNascita']);
+                            $newDate = date("d/m/Y", strtotime($date));
+                            echo "<td>" . $newDate . "</td>";
                             if ($row['ruolo'] == "M") {
                                 echo "<td>Mister</td>";
                             } else if ($row['ruolo'] == "D") {

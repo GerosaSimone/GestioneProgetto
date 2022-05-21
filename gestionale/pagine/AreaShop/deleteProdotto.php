@@ -8,7 +8,7 @@ require_once '../../config.php';
 try {
     $id = $_POST['idElimina'];
     $sql = "UPDATE `prodotto` SET `nascosto`='1' WHERE id='$id'";
-    mysqli_query($link, $sql);
+    mysqli_query($link, $sql);    
 } catch (Exception $e) {
     //echo $e->getMessage() . "<br/>";
     while ($e = $e->getPrevious()) {

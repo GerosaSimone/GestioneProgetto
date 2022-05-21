@@ -21,18 +21,21 @@ require_once '../../config.php';
         </p>
     </header>
 
-    <div class="row pb-5 mb-4 ml-3 mr-3 align-items-center">
-        <?php
-        $sql = "SELECT * FROM prodotto WHERE nascosto='0'";
-        if ($result = mysqli_query($link, $sql)) {
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
-                    $tipoTaglie = " ";
-                    if (!$row['tipoTaglie']) {
-                        $tipoTaglie = "Bambino";
-                    } else
-                        $tipoTaglie = "Adulto";
-                    echo "  <div class='col-md-3 mt-5 ' >
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="row pb-5 mb-4 align-items-center">
+                    <?php
+                    $sql = "SELECT * FROM magazzino INNER JOIN prodotto ON magazzino.idProdotto=prodotto.id GROUP BY idProdotto HAVING magazzino.nascosto='0'";
+                    if ($result = mysqli_query($link, $sql)) {
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_array($result)) {
+                                $tipoTaglie = " ";
+                                if (!$row['tipoTaglie']) {
+                                    $tipoTaglie = "Bambino";
+                                } else
+                                    $tipoTaglie = "Adulto";
+                                echo "  <div class='col-md-6 mt-5 ' >
                         <div class='card rounded shadow-lg border-0 '>
                                 <div class='card-body p-4'>
                                     <div onclick='apriModal(this)' data-bs-whatever='" . $row['id'] . "'>
@@ -61,11 +64,21 @@ require_once '../../config.php';
                                 </div>
                             </div>
                         </div>";
-                }
-            }
-        }
-        ?>
+                            }
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="col-6">
+                One of three columns
+            </div>
+
+        </div>
     </div>
+
+
+
     <div>
         <?php include "modal.php"; ?>
     </div>

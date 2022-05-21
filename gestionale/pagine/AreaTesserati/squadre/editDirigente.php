@@ -63,8 +63,10 @@ try {
         }
         //echo $nomeFoto;
         try {
-            if (file_exists('../../../img/uploadsProfilo/' . $nomeFoto)) {
-                unlink('../../../img/uploadsProfilo/' . $nomeFoto);
+            if (!is_dir('../../../img/uploadsVisita/' . $nomeFoto)) {
+                if (file_exists('../../../img/uploadsProfilo/' . $nomeFoto)) {
+                    unlink('../../../img/uploadsProfilo/' . $nomeFoto);
+                }
             }
         } catch (Exception $e) {
             //echo "<br/>" . "Errore eliminazione foto Profilo" . "<br/>";

@@ -26,7 +26,9 @@
                             echo "<td class='pl-4'>" . $row['nomeTesserato'] . "</td>";
                             echo "<td>" . $row['cognome'] . "</td>";
                             echo "<td>" . $row['nomeCategoria'] . "</td>";
-                            echo "<td>" . $row['dataAcquisto'] . "</td>";
+                            $date = str_replace('-"', '/', $row['dataAcquisto']);
+                            $newDate = date("d/m/Y", strtotime($date));
+                            echo "<td>" . $newDate . "</td>";
                             echo "<td>" . $row['nomeProdotto'] . "</td>";
                             echo "<td>" . $row['taglia'] . "</td>";
                             echo "<td>" . $row['costoUnitario'] . "€</td>";

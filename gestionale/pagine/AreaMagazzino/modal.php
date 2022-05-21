@@ -6,10 +6,32 @@
                 <h3 style="color:white" class="modal-title" id="eliminaLabel"><b>ELIMINA PRODOTTO</b></h3>
                 <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="pagine/AreaShop/deleteProdotto.php" method="post">
+            <form action="pagine/AreaMagazzino/deleteMagazzino.php" method="post">
                 <div class="modal-body">
                     Sei sicuro di voler eliminare definitivamente il prodotto?
                     <input type="text" name="idElimina" id="idElimina" hidden="true">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-danger" value="Elimina" data-bs-dismiss="modal">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Elimina Acquisto-->
+<div class="modal fade" id="eliminaAcquisto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h3 style="color:white" class="modal-title" id="eliminaLabel"><b>ELIMINA ACQUISTO</b></h3>
+                <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form action="pagine/AreaMagazzino/deleteAcquisto.php" method="post">
+                <div class="modal-body">
+                    Sei sicuro di voler eliminare definitivamente la trasazione?
+                    <input type="text" name="idEliminaAcquisto" id="idEliminaAcquisto" hidden="true">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

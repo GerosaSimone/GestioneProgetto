@@ -64,7 +64,7 @@ if (!isset($_SESSION['user_id'])) {
             } else if (a == "deposito") {
                 $("#pagina").load("pagine/AreaMagazzino/deposito.php");
             } else if (a == "acquistiSocieta") {
-                $("#pagina").load("pagine/AreaMagazzino/acquistiMagazzino.php");
+                $("#pagina").load("pagine/AreaMagazzino/acquistiSocieta.php");
             } else if (a == "shop") {
                 $("#pagina").load("pagine/AreaShop/articoli.php");
             } else if (a == "acquistiGiocatori") {

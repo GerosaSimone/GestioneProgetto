@@ -3,7 +3,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
 require_once '../../config.php';
-
+$dataAcquisto = date("Y-m-d");
 $tipoTaglie;
 $id = $_POST["idProdotto"];
 $sql = "SELECT * FROM prodotto WHERE id='" . $id . "'";
@@ -30,7 +30,14 @@ for ($i = 0; $i < count($quantita); $i++) {
         $somma = $quantita[$i] + $_POST['quantita' . $vett[$i]];
         if ($_POST['quantita' . $vett[$i]]  > 0) {
             $sql .= "UPDATE `magazzino` SET `quantita`='" . $somma . "' WHERE idProdotto=$id and taglia='" . $vett[$i] . "';";
-            $sql .= "INSERT INTO `acquistimagazzino` (idProdotto, quantita, prezzototale) VALUES ('$id','" . $_POST['quantita' . $vett[$i]] . "' ,'" . strtok($_POST['totale' . $vett[$i]], ',') . "');";
+            $query = "SELECT id FROM magazzino  WHERE idProdotto=$id and taglia='" . $vett[$i] . "';";
+            if ($result = mysqli_query($link, $query))
+                if (mysqli_num_rows($result) > 0){
+                    $row = mysqli_fetch_array($result);
+                    $sql .= "INSERT INTO `acquistimagazzino` (idMagazzino, quantita, prezzototale,data) VALUES ('" . $row['id'] . "','" . $_POST['quantita' . $vett[$i]] . "' ,'" . strtok($_POST['totale' . $vett[$i]], ',') . "','$dataAcquisto');";
+                }
+
+
         }
     }
 }

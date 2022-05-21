@@ -121,7 +121,9 @@ try {
             <div class="row" style="margin-left: -2%">
                 <div class="col">
                     <label class="titoliBlu">Data Nascita</label>
-                    <p><?php echo $dataNascita ?></p>
+                    <p><?php $date = str_replace('-"', '/', $row['dataNascita']);
+                                $newDate = date("d/m/Y", strtotime($date));
+                            echo "$newDate";?></p>
                 </div>
                 <div class="col">
                     <label class="titoliBlu">Luogo di Nascita</label>

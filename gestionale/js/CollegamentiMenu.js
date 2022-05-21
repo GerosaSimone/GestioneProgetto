@@ -85,13 +85,7 @@ $(document).ready(function () {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
-    });
-    $(document).on('click', "#acquistiSocieta", function () {
-        $.post("pagine/AreaFinanziaria/acquistiSocieta.php", true, function (data, status) {
-            $("#pagina").html(data);
-        });
-        $(document).scrollTop(0);
-    });
+    });    
 
     //AREA MAGAZZINO
     $(document).on('click', "#deposito", function () {
@@ -100,8 +94,8 @@ $(document).ready(function () {
         });
         $(document).scrollTop(0);
     });
-    $(document).on('click', "#acquistiDeposito", function () {
-        $.post("pagine/AreaMagazzino/acquistiDeposito.php", true, function (data, status) {
+    $(document).on('click', "#acquistiSocieta", function () {
+        $.post("pagine/AreaMagazzino/acquistiSocieta.php", true, function (data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
