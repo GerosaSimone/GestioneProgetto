@@ -64,6 +64,28 @@
         </div>
     </div>
 </div>
+<!--Aggiungi Generico-->
+<div class="modal fade" id="addGenerico" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addGenericoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h3 style="color:white" class="modal-title " id="addGiocatoreLabel"><b>AGGIUNGI NUOVO GENERICO</b></h3>
+                <button style="color:white" type="button" class="close" aria-label="Close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="pagine/AreaMagazzino/addGenerico.php" method="post" enctype="multipart/form-data">
+                <div class="modal-body" id="modalGenerico">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Salva">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <!--Modifica-->
 <div class="modal fade" id="modificaProdotto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modificaLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -122,4 +144,3 @@
         </div>
     </div>
 </div>
-

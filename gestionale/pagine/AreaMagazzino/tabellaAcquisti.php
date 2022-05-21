@@ -4,14 +4,12 @@
             <div class="table100">
                 <?php
                 $sql = "SELECT acquistimagazzino.id,prodotto.nome,magazzino.taglia,acquistimagazzino.quantita,acquistimagazzino.prezzototale,acquistimagazzino.data FROM acquistimagazzino INNER JOIN magazzino ON magazzino.id=acquistimagazzino.idMagazzino INNER JOIN prodotto ON magazzino.idProdotto = prodotto.id;";
-
                 echo "<table class='display shadow-lg tabellaAcquisti' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> Articolo</th>";
                 echo "      <th> Quantita</th>";
                 echo "      <th> Taglia</th>";
                 echo "      <th> Prezzo Totale </th>";
                 echo "      <th> Data Acquisto </th>";
-
                 echo "      <th class='column3'> Actions</th>";
                 echo "</tr></thead><tbody>";
                 if ($result = mysqli_query($link, $sql)) {

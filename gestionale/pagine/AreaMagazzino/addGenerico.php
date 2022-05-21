@@ -10,7 +10,6 @@ $adulto = ['S', 'M', 'L', 'XL', 'XXL'];
 
 //fotoprofilo
 try {
-
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
         $sql = "SELECT MAX(prodotto.id) AS numRighe FROM prodotto";
         //echo "$sql<br>";
@@ -48,7 +47,7 @@ try {
             //echo "Sorry, your file was not uploaded.";
         } else {
             $nome = $_POST['nome'];
-            $tipoTaglie = $_POST['tipoTaglie'];
+            $descrizione = $_POST['descrizione'];
             $costo = strtok($_POST['costo'], ',');
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 $sql = "INSERT INTO prodotto (id,`nome`, `tipoTaglie`, `costoUnitario`, `foto`) VALUES ('$number','$nome', '$tipoTaglie', '$costo', '$titolo');";
@@ -68,6 +67,8 @@ try {
         }
         //echo "<br>" . $sql;
         mysqli_multi_query($link, $sql);
+    } else {
+
     }
 } catch (Exception $e) {
     //echo $e->getMessage() . "<br/>";

@@ -32,12 +32,10 @@ for ($i = 0; $i < count($quantita); $i++) {
             $sql .= "UPDATE `magazzino` SET `quantita`='" . $somma . "' WHERE idProdotto=$id and taglia='" . $vett[$i] . "';";
             $query = "SELECT id FROM magazzino  WHERE idProdotto=$id and taglia='" . $vett[$i] . "';";
             if ($result = mysqli_query($link, $query))
-                if (mysqli_num_rows($result) > 0){
+                if (mysqli_num_rows($result) > 0) {
                     $row = mysqli_fetch_array($result);
                     $sql .= "INSERT INTO `acquistimagazzino` (idMagazzino, quantita, prezzototale,data) VALUES ('" . $row['id'] . "','" . $_POST['quantita' . $vett[$i]] . "' ,'" . strtok($_POST['totale' . $vett[$i]], ',') . "','$dataAcquisto');";
                 }
-
-
         }
     }
 }

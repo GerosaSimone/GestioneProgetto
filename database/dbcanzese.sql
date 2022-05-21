@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 21, 2022 alle 11:53
--- Versione del server: 10.4.6-MariaDB
--- Versione PHP: 7.3.8
+-- Creato il: Mag 21, 2022 alle 20:10
+-- Versione del server: 10.4.24-MariaDB
+-- Versione PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -35,13 +34,6 @@ CREATE TABLE `acquistigiocatori` (
   `taglia` varchar(3) NOT NULL,
   `dataAcquisto` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Dump dei dati per la tabella `acquistigiocatori`
---
-
-INSERT INTO `acquistigiocatori` (`id`, `idTesserato`, `idProdotto`, `taglia`, `dataAcquisto`) VALUES
-(7, 145, 5, 'XS', '2022-05-21');
 
 -- --------------------------------------------------------
 
@@ -142,26 +134,16 @@ CREATE TABLE `magazzino` (
 --
 
 INSERT INTO `magazzino` (`id`, `idProdotto`, `quantita`, `taglia`, `nascosto`) VALUES
-(127, 1, 51, 'XXS', 0),
-(128, 1, 0, 'XS', 0),
-(129, 1, 0, 'S', 0),
-(130, 1, 0, 'M', 0),
-(131, 1, 0, 'L', 0),
-(137, 3, 7, 'XXS', 0),
-(138, 3, 7, 'XS', 0),
-(139, 3, 0, 'S', 0),
-(140, 3, 0, 'M', 0),
-(141, 3, 10, 'L', 0),
-(142, 4, 0, 'XXS', 1),
-(143, 4, 0, 'XS', 1),
-(144, 4, 0, 'S', 1),
-(145, 4, 0, 'M', 1),
-(146, 4, 0, 'L', 1),
-(147, 5, 0, 'XXS', 0),
-(148, 5, 0, 'XS', 0),
-(149, 5, 0, 'S', 0),
-(150, 5, 0, 'M', 0),
-(151, 5, 0, 'L', 0);
+(155, 1, 0, 'XXS', 0),
+(156, 1, 0, 'XS', 0),
+(157, 1, 0, 'S', 0),
+(158, 1, 0, 'M', 0),
+(159, 1, 0, 'L', 0),
+(160, 2, 0, 'S', 0),
+(161, 2, 0, 'M', 0),
+(162, 2, 0, 'L', 0),
+(163, 2, 0, 'XL', 0),
+(164, 2, 0, 'XXL', 0);
 
 -- --------------------------------------------------------
 
@@ -188,13 +170,6 @@ CREATE TABLE `mail` (
   `mail` varchar(40) NOT NULL,
   `idTesserato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Dump dei dati per la tabella `mail`
---
-
-INSERT INTO `mail` (`id`, `nome`, `mail`, `idTesserato`) VALUES
-(20, 'papa', 'asdasdasd@gmail.com', 148);
 
 -- --------------------------------------------------------
 
@@ -229,11 +204,8 @@ CREATE TABLE `prodotto` (
 --
 
 INSERT INTO `prodotto` (`id`, `nome`, `tipoTaglie`, `costoUnitario`, `foto`, `nascosto`) VALUES
-(1, 'asdasdasd', 0, 1, 'fotoProdotto1.jpg', 1),
-(2, 'asdasdas', 0, 1, 'fotoProdotto2.jpg', 1),
-(3, 'dfgdgdfg', 0, 1, 'fotoProdotto3.png', 1),
-(4, 'asdasdasd', 0, 1, 'fotoProdotto4.png', 1),
-(5, 'sdfasdfsd', 0, 3, 'fotoProdotto5.jpg', 0);
+(1, 'aaaaaaaa', 0, 1, 'fotoProdotto1.jpg', 0),
+(2, 'vvvvvvvv', 1, 2, 'fotoProdotto2.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -247,14 +219,6 @@ CREATE TABLE `telefono` (
   `telefono` varchar(15) NOT NULL,
   `idTesserato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Dump dei dati per la tabella `telefono`
---
-
-INSERT INTO `telefono` (`id`, `nome`, `telefono`, `idTesserato`) VALUES
-(12, 'gioca', '1231242452', 147),
-(17, 'gioca', '1231242452', 148);
 
 -- --------------------------------------------------------
 
@@ -281,20 +245,6 @@ CREATE TABLE `tesserato` (
   `idCategoria` int(11) NOT NULL,
   `nascosto` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Dump dei dati per la tabella `tesserato`
---
-
-INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `provincia`, `citta`, `linkFoto`, `daPagare`, `pagato`, `idCategoria`, `nascosto`) VALUES
-(142, 'asdasdasdasdasda', 'asdasd', 'asdasd', '2022-04-29', 'asdasdasd', 1, 'N', NULL, 'asd', 'as', 'adasds', NULL, 0, 0, 1, 0),
-(143, 'DASDASDASDASDASD', 'ASDASD', 'ASDASDAS', '2022-05-07', 'ASDASDA', 1, 'N', NULL, 'SDASD', 'AS', 'ASDASD', NULL, 0, 0, 2, 1),
-(144, 'dasdasdasdasdasd', 'asdasdas', 'dasdasdas', '2022-05-12', 'asdasdasd', 1, 'N', NULL, 'asdasd', 'da', 'asdas', NULL, 0, 0, 2, 1),
-(145, 'dasdasdasdasdasd', 'asdasd', 'asdas', '2022-05-04', 'asdasdasd', 0, 'N', NULL, 'asdas', 'da', 'sdas', NULL, 3, 0, 2, 1),
-(146, 'asdasdasdasdasdd', 'asdasd', 'asdasd', '2022-05-07', 'asdasda', 1, 'N', NULL, 'sdasd', 'da', 'das', NULL, 0, 0, 1, 1),
-(147, 'wrwdaeqweqweqweq', 'admin', 'gerosa', '2022-05-11', 'qwewqeqe', 0, 'N', NULL, 'asdasd', 'eq', 'canzo', 'fotoProfilowrwdaeqweqweqweq.jpg', 0, 0, 2, 0),
-(148, 'awdawdawdawdawda', 'asdasd', 'gerosa', '2022-04-30', 'adawdadawdawdawdawd', 0, 'N', 42, 'awdawd', 'aw', 'awdawd', NULL, 0, 0, 1, 1),
-(149, 'awdawdawdawdawda', 'asdasd', 'gerosa', '2022-05-06', 'erba', 0, 'N', NULL, 'asdasd', 'aw', 'canzo', NULL, 0, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -340,13 +290,6 @@ CREATE TABLE `visita` (
   `foto` varchar(255) NOT NULL,
   `nascosto` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Dump dei dati per la tabella `visita`
---
-
-INSERT INTO `visita` (`id`, `tipo`, `scadenza`, `foto`, `nascosto`) VALUES
-(42, 1, '2022-05-05', '', 1);
 
 --
 -- Indici per le tabelle scaricate
@@ -497,7 +440,7 @@ ALTER TABLE `galleria`
 -- AUTO_INCREMENT per la tabella `magazzino`
 --
 ALTER TABLE `magazzino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
 -- AUTO_INCREMENT per la tabella `maglia`
