@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 21, 2022 alle 20:10
+-- Creato il: Mag 22, 2022 alle 22:42
 -- Versione del server: 10.4.24-MariaDB
 -- Versione PHP: 8.1.6
 
@@ -57,10 +57,20 @@ CREATE TABLE `acquistimagazzino` (
 
 CREATE TABLE `acquistimateriale` (
   `id` int(11) NOT NULL,
-  `descrizione` varchar(32) NOT NULL,
+  `nome` varchar(32) NOT NULL,
+  `descrizione` text NOT NULL,
   `quantita` int(11) NOT NULL,
-  `prezzoTotale` int(11) NOT NULL
+  `prezzo` int(11) NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `acquistimateriale`
+--
+
+INSERT INTO `acquistimateriale` (`id`, `nome`, `descrizione`, `quantita`, `prezzo`, `foto`, `data`) VALUES
+(10, 'Acquisto Generico 1', 'Questo e un esempio di aacquisto intero generico prova Questo e un esempio di aacquisto intero generico provaQuesto e un esempio di aacquisto intero generico provaQuesto e un esempio di aacquisto intero generico prova', 21, 9, 'fotoGenerico4.jpg', '2022-05-22');
 
 -- --------------------------------------------------------
 
@@ -183,6 +193,13 @@ CREATE TABLE `news` (
   `foto` varchar(255) NOT NULL,
   `descrizione` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `news`
+--
+
+INSERT INTO `news` (`id`, `titolo`, `foto`, `descrizione`) VALUES
+(6, 'sgvdvdfvbdf', 'fotoNews1.jpg', 'vsdfcsdvsdfvvsdfcsdvsdfvvsdfcsdvsdfvvsdfcsdvsdfvvsdfcsdvsdfvvsdfcsdvsdfvvsdfcsdvsdfvvsdfcsdvsdfvvsdfcsdvsdfvvsdfcsdvsdfvvsdfcsdvsdfv');
 
 -- --------------------------------------------------------
 
@@ -419,6 +436,12 @@ ALTER TABLE `acquistimagazzino`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
+-- AUTO_INCREMENT per la tabella `acquistimateriale`
+--
+ALTER TABLE `acquistimateriale`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT per la tabella `allenamento`
 --
 ALTER TABLE `allenamento`
@@ -458,7 +481,7 @@ ALTER TABLE `mail`
 -- AUTO_INCREMENT per la tabella `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotto`

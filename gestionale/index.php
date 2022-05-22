@@ -65,7 +65,9 @@ if (!isset($_SESSION['user_id'])) {
                 $("#pagina").load("pagine/AreaMagazzino/deposito.php");
             } else if (a == "acquistiSocieta") {
                 $("#pagina").load("pagine/AreaMagazzino/acquistiSocieta.php");
-            } else if (a == "shop") {
+            } else if (a == "materiale") {
+                $("#pagina").load("pagine/AreaMagazzino/materiale.php");
+            }else if (a == "shop") {
                 $("#pagina").load("pagine/AreaShop/articoli.php");
             } else if (a == "acquistiGiocatori") {
                 $("#pagina").load("pagine/AreaShop/acquistiGiocatori.php");

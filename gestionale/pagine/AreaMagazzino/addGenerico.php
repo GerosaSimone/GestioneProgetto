@@ -10,8 +10,9 @@ $adulto = ['S', 'M', 'L', 'XL', 'XXL'];
 
 //fotoprofilo
 try {
+    $dataAcquisto = date("Y-m-d");
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
-        $sql = "SELECT MAX(prodotto.id) AS numRighe FROM prodotto";
+        $sql = "SELECT MAX(id) AS numRighe FROM acquistiMateriale";
         //echo "$sql<br>";
         $number = 0;
         if ($result = mysqli_query($link, $sql)) {
@@ -19,10 +20,10 @@ try {
             $number = $row['numRighe'] + 1;
         }
         $target_dir = "../../img/uploadsProdotti/";
-        $target_file = $target_dir . "fotoProdotto" . $number;
+        $target_file = $target_dir . "fotoGenerico" . $number;
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_dir . basename($_FILES["fileToUpload"]["name"]), PATHINFO_EXTENSION));
-        $titolo =  "fotoProdotto" . $number . ".$imageFileType";
+        $titolo =  "fotoGenerico" . $number . ".$imageFileType";
         $target_file .= "." . $imageFileType;
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
         if ($check !== false) {
@@ -48,27 +49,23 @@ try {
         } else {
             $nome = $_POST['nome'];
             $descrizione = $_POST['descrizione'];
+            $quantita = $_POST['quantita'];
             $costo = strtok($_POST['costo'], ',');
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                $sql = "INSERT INTO prodotto (id,`nome`, `tipoTaglie`, `costoUnitario`, `foto`) VALUES ('$number','$nome', '$tipoTaglie', '$costo', '$titolo');";
-                mysqli_query($link, $sql);
+                $sql = "INSERT INTO acquistiMateriale (`nome`, `descrizione`, `quantita`, `prezzo`,foto,data) VALUES ('$nome', '$descrizione', '$quantita', '$costo','$titolo', '$dataAcquisto');";
                 //echo $sql . "<br>";
+                mysqli_query($link, $sql);
             } else {
                 //echo "Sorry, there was an error uploading your file.";
             }
         }
-        $sql = "";
-        if ($tipoTaglie) {
-            for ($i = 0; $i < count($adulto); $i++)
-                $sql .= "INSERT INTO magazzino (`idProdotto`, `quantita`, `taglia`) VALUES ('$number',0, '" . $adulto[$i] . "');";
-        } else {
-            for ($i = 0; $i < count($bambino); $i++)
-                $sql .= "INSERT INTO magazzino (`idProdotto`, `quantita`, `taglia`) VALUES ('$number',0, '" . $bambino[$i] . "');";
-        }
-        //echo "<br>" . $sql;
-        mysqli_multi_query($link, $sql);
     } else {
-
+        $nome = $_POST['nome'];
+        $descrizione = $_POST['descrizione'];
+        $quantita = $_POST['quantita'];
+        $costo = strtok($_POST['costo'], ',');
+        $sql = "INSERT INTO acquistiMateriale (`nome`, `descrizione`, `quantita`, `prezzo`, data) VALUES ('$nome', '$descrizione', '$quantita', '$costo', '$dataAcquisto');";
+        mysqli_query($link, $sql);
     }
 } catch (Exception $e) {
     //echo $e->getMessage() . "<br/>";

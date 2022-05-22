@@ -4,10 +4,20 @@
     <div><img id="fotoProdotto" class="mt-3" src="" /></div>
     <label class="mt-2 text-dark font-weight-bold">Nome</label>
     <input type="text" name="nome" class="form-control form-control-sm mb-2" required>
-    <label class="mt-2 text-dark font-weight-bold">Descrizione</label>
-    <input type="text" name="descrizione" class="form-control form-control-sm mb-2" required>
-    <label class="mt-2 text-dark font-weight-bold">Prezzo</label>
-    <input type='currency' name="costo" value="0,00€" placeholder='Type a number & click outside' class="form-control form-control-sm mb-2" required />
+    <label>Descrizione</label>
+    <textarea class="form-control" name="descrizione" rows="4" cols="50" required></textarea>
+    <div class="row" style="margin-left:-2%;margin-right:-2%">
+        <div class="col-6">
+            <label class="mt-2 text-dark font-weight-bold">Quantita</label>
+            <input type="number" name="quantita" class="form-control form-control-sm mb-2" required value="1">
+        </div>
+        <div class="col-6">
+            <label class="mt-2 text-dark font-weight-bold">Prezzo</label>
+            <input type='currency' name="costo" value="0,00€" placeholder='Type a number & click outside' class="form-control form-control-sm mb-2" required />
+        </div>
+    </div>
+
+
 </div>
 
 

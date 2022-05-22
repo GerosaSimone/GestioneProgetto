@@ -54,6 +54,12 @@ require_once '../../config.php';
             var recipient = button.getAttribute('data-bs-whatever')
             document.getElementById("idElimina").value = recipient;
         });
+        var eliminaGenerico = document.getElementById('eliminaGenerico')
+        eliminaGenerico.addEventListener('show.bs.modal', function(event) {
+            var button = event.relatedTarget
+            var recipient = button.getAttribute('data-bs-whatever')
+            document.getElementById("idEliminaGenerico").value = recipient;
+        });
         var addProdotto = document.getElementById('addProdotto')
         addProdotto.addEventListener('show.bs.modal', function(event) {
             $.post("pagine/AreaShop/aggiungi.php", true, function(data, status) {
@@ -81,6 +87,15 @@ require_once '../../config.php';
                 id: recipient
             }, function(data, status) {
                 $("#modalVisualizzaDeposito").html(data);
+            });
+        }
+        function apriModalGenerico(div) {
+            $('#visualizzaGenerico').modal('show');
+            var recipient = div.getAttribute('data-bs-whatever');
+            $.post("pagine/AreaMagazzino/visualizzaGenerico.php", {
+                id: recipient
+            }, function(data, status) {
+                $("#modalVisualizzaGenerico").html(data);
             });
         }
     </script>
