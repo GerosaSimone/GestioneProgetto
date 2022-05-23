@@ -3,7 +3,7 @@ require_once('../../config.php');
 
 function get_city($link, $term)
 {
-    $query = "SELECT tesserato.id, tesserato.dataNascita, tesserato.nome as nomeTesserato,cognome,categoria.nome as nomeCategoria FROM tesserato inner join categoria on tesserato.idCategoria= categoria.id WHERE (tesserato.nome LIKE '%" . $term . "%' or cognome LIKE '%" . $term . "%') and tesserato.tipo='0' ORDER BY tesserato.nome,cognome ASC LIMIT 5";
+    $query = "SELECT tesserato.id, tesserato.dataNascita, tesserato.nome as nomeTesserato,cognome,categoria.nome as nomeCategoria FROM tesserato inner join categoria on tesserato.idCategoria= categoria.id WHERE (tesserato.nome LIKE '%" . $term . "%' or cognome LIKE '%" . $term . "%') and tesserato.tipo='0' and tesserato.nascosto='0' ORDER BY tesserato.nome,cognome ASC LIMIT 5";
     $result = mysqli_query($link, $query);
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $data;

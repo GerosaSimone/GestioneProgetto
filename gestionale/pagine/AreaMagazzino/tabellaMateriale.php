@@ -3,7 +3,9 @@
         <div class="wrap-table100">
             <div class="table100">
                 <?php
-                $sql = "SELECT id,nome,descrizione,quantita,prezzo, data FROM acquistimateriale";
+                $sql = "SELECT id,nome,descrizione,quantita,prezzo, data 
+                        FROM acquistimateriale
+                        ORDER BY id DESC";
                 echo "<table class='display shadow-lg tabellaMateriale' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> Nome</th>";
                 echo "      <th> Descrizione</th>";
@@ -12,12 +14,12 @@
                 echo "      <th> Data Acquisto </th>";
                 echo "      <th class='column3'> Actions</th>";
                 echo "</tr></thead><tbody>";
-                if ($result = mysqli_query($link, $sql)) {
+                if ($result = mysqli_query($link, $sql)) {                    
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_array($result)) {
                             echo "<tr>";
                             echo "<td class='pl-4'>" . $row['nome'] . "</td>";
-                            echo "<td>" . substr($row['descrizione'], 0, 80) . "...</td>";
+                            echo "<td>" . substr($row['descrizione'], 0, 40) . "...</td>";
                             echo "<td>" . $row['quantita'] . "</td>";
                             echo "<td>" . $row['prezzo'] . " €</td>";
                             $date = str_replace('-"', '/', $row['data']);
@@ -33,7 +35,7 @@
                                             " . "</td>";
                         }
                         mysqli_free_result($result);
-                    }
+                    } 
                 } else {
                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
                 }

@@ -52,10 +52,10 @@ try {
     }
     //aggiungo daPagare e pagato
     if (!empty($_POST['daPagare'])) {
-        $query .= ", daPagare" . "='" . strtok( $_POST['daPagare'], ',' ) . "'";
+        $query .= ", daPagare" . "='" . str_replace('.', '', strtok($_POST['daPagare'], ','))  . "'";
     }
     if (!empty($_POST['pagato'])) {
-        $query .= ", pagato" . "='" . strtok( $_POST['pagato'], ',' ) . "'";
+        $query .= ", pagato" . "='" . str_replace('.', '', strtok($_POST['pagato'], ','))  . "'";
     }
     //cerca visita
     $idVisita = null;

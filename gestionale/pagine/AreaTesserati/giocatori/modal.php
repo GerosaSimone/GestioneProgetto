@@ -76,3 +76,22 @@
         </div>
     </div>
 </div>
+<!--Acquista-->
+<div class="modal fade" id="acquistaProdotto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="acquistaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h3 style="color:white" class="modal-title" id="acquistaLabel"><b>ACQUISTA PRODOTTO</b></h3>
+                <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form action="pagine/AreaTesserati/giocatori/buyProdotto.php" method="post" enctype="multipart/form-data">
+                <div class="modal-body ui-front" id="modalAcquista">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="azzeraComplete()">Close</button>
+                    <input type="submit" name="submit" id="btnSalva" class="btn btn-primary" value="Acquista" disabled>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

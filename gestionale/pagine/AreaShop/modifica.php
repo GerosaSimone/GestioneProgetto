@@ -20,13 +20,13 @@ if ($result = mysqli_query($link, $sql)) {
 }
 ?>
 <div class="form-group mt-2" style="max-height:45%">
-    <label>Foto</label>
+    <label class="text-dark font-weight-bold">Foto</label>
     <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="readFoto(this);" style="margin-left:-2%">
     <div><img id="fotoProdotto" class="mt-3" src="img/uploadsProdotti/<?php echo $foto; ?>" required style="height: 250px; width: auto; object-fit: cover;max-width:470px" /></div>
     <input type='text' name='presenzaFotoProdotto' id="presenzaFotoProdotto" hidden=true value='0'>
-    <label class="mt-2">Nome</label>
-    <input type="text" name="nome" class="form-control form-control-sm mb-2" required value="<?php echo $nome; ?>">   
-    <label>Costo Unitario</label>
+    <label class="mt-2 text-dark font-weight-bold">Nome</label>
+    <input type="text" name="nome" class="form-control form-control-sm mb-2" required value="<?php echo $nome; ?>">
+    <label class="text-dark font-weight-bold">Costo Unitario</label>
     <input type='currency' name="costo" placeholder='Type a number & click outside' class="form-control form-control-sm mb-2" value="<?php echo $costo; ?>,00€" required />
     <input type="text" name="idModifica" value="<?php echo $id; ?>" hidden="true">
 </div>

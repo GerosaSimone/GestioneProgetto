@@ -8,8 +8,7 @@ require_once '../../config.php';
 try {
     //inizializzo query update con param default
     $id = $_POST['idModifica'];
-
-    $query = "UPDATE prodotto SET nome='" . $_POST['nome'] . "',  costoUnitario='" . strtok($_POST['costo'], ',') . "'";
+    $query = "UPDATE prodotto SET nome='" . $_POST['nome'] . "',  costoUnitario='" . str_replace('.', '', strtok($_POST['costo'], ','))  . "'";
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
         $sql = "SELECT foto FROM prodotto WHERE id='" . $id . "';";
         //echo "$sql<br>";

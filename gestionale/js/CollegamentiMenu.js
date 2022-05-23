@@ -99,13 +99,7 @@ $(document).ready(function () {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
-    });
-    $(document).on('click', "#materiale", function () {
-        $.post("pagine/AreaMagazzino/materiale.php", true, function (data, status) {
-            $("#pagina").html(data);
-        });
-        $(document).scrollTop(0);
-    });
+    });   
 
     //AREA SITO
     $(document).on('click', "#galleria", function () {

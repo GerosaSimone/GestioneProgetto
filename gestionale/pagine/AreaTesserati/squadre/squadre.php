@@ -15,10 +15,12 @@ else {
 $_SESSION['ultimaPage'] = $_GET['squadra'];
 ?>
 <html>
-<div class="page-header clearfix">
-    <strong>
-        <h2 class="pull-left" style="margin-left:3.5%"> <?php echo $squadra ?> </h2>
-    </strong>
+<div class="page-header clearfix mt-5">
+    <div class="page-header clearfix">
+        <strong>
+            <h1 class="display-5 font-weight-bold pl-5 ml-2"><?php echo $squadra ?> </h1>
+        </strong>
+    </div>
 </div>
 
 <body style="background-color: rgba(250, 250, 250, 255)">
@@ -102,6 +104,14 @@ $_SESSION['ultimaPage'] = $_GET['squadra'];
                 var id = button.getAttribute('data-bs-whatever')
                 $.post("pagine/AreaTesserati/squadre/modifica.php?idTesserato=" + id + "&squadra=<?php echo $_GET['squadra']; ?>", true, function(data, status) {
                     $("#modalModifica").html(data);
+                });
+            });
+            var acquistaProdotto = document.getElementById('acquistaProdotto')
+            acquistaProdotto.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget
+                var id = button.getAttribute('data-bs-whatever')
+                $.post("pagine/AreaTesserati/giocatori/acquista.php?idTesserato=" + id, true, function(data, status) {
+                    $("#modalAcquista").html(data);
                 });
             });
         });

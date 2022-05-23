@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <label>Giocatore</label>
+        <label class="text-dark font-weight-bold">Giocatore</label>
         <input type="text" name="city" id="search_city" placeholder="Type to search..." class="form-control">
     </div>
 </div>

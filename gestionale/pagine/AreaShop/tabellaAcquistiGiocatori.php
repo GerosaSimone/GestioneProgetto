@@ -8,7 +8,8 @@
                 FROM acquistigiocatori
                 INNER JOIN tesserato ON acquistigiocatori.idTesserato=tesserato.id
                 INNER JOIN categoria ON categoria.id=tesserato.idCategoria
-                INNER JOIN prodotto ON acquistigiocatori.idProdotto=prodotto.id";
+                INNER JOIN prodotto ON acquistigiocatori.idProdotto=prodotto.id
+                ORDER BY acquistigiocatori.id DESC";
                 echo "<table class='display shadow-lg tabellaAcquisti' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> Nome</th>";
                 echo "      <th> Cognome</th>";

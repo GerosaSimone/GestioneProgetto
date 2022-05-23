@@ -1,10 +1,10 @@
 <div class="form-group mt-2" style="max-height:45%">
-    <label>Foto</label>
+    <label class="text-dark font-weight-bold">Foto</label>
     <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="readFoto(this);" style="margin-left:-2%" required>
     <div><img id="fotoNews" class="mt-3" src="" required /></div>
-    <label class="mt-2">Titolo</label>
+    <label class="mt-2 text-dark font-weight-bold">Titolo</label>
     <input type="text" name="titolo" class="form-control form-control-sm mb-2" required>
-    <label>Descrizione</label>
+    <label class="text-dark font-weight-bold">Descrizione</label>
     <textarea class="form-control" name="descrizione" rows="4" cols="50" required></textarea>
 </div>
 

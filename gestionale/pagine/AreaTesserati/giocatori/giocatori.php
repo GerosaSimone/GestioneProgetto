@@ -8,12 +8,14 @@ $_SESSION['ultimaPage'] = "giocatori";
 ?>
 
 <body style="background-color: rgba(250, 250, 250, 255)">
-    <div class="page-header clearfix">
+
+    <div class="page-header clearfix text-center">
         <strong>
-            <h2 class="pull-left pl-5"> Giocatori </h2>
-            <button type='button' class='btn btn-outline-secondary pull-right' data-bs-toggle='modal' data-bs-target='#addGiocatore' style="margin-right:3%">
-                Add Giocatore
-            </button>
+            <h1 class="display-5 font-weight-bold pl-5">Giocatori
+                <button type='button' class='btn btn-outline-secondary pull-right mt-3' data-bs-toggle='modal' data-bs-target='#addGiocatore' style="margin-right:3%">
+                    Add Giocatore
+                </button>
+            </h1>
         </strong>
     </div>
     <div>
@@ -50,6 +52,14 @@ $_SESSION['ultimaPage'] = "giocatori";
             addGiocatore.addEventListener('show.bs.modal', function(event) {
                 $.post("pagine/AreaTesserati/giocatori/aggiungi.php", true, function(data, status) {
                     $("#modalAggiungi").html(data);
+                });
+            });
+            var acquistaProdotto = document.getElementById('acquistaProdotto')
+            acquistaProdotto.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget
+                var id = button.getAttribute('data-bs-whatever')
+                $.post("pagine/AreaTesserati/giocatori/acquista.php?idTesserato=" + id, true, function(data, status) {
+                    $("#modalAcquista").html(data);
                 });
             });
             var elimina = document.getElementById('elimina')

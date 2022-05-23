@@ -36,7 +36,7 @@ if (!isset($_SESSION['user_id'])) {
             <button type="button" id="sidebarCollapse" class="btn btn-primary m-3">
                 <i class="fa fa-bars"></i>
             </button>
-            <div id="pagina">
+            <div id="pagina" style="margin-top:-3%">
             </div>
         </div>
         <script src="js/bootstrap.min.js"></script>
@@ -75,6 +75,8 @@ if (!isset($_SESSION['user_id'])) {
                 $("#pagina").load("pagine/AreaSito/galleria.php");
             } else if (a == "news") {
                 $("#pagina").load("pagine/AreaSito/news.php");
+            } else if (a == "finanziaria") {
+                $("#pagina").load("pagine/AreaFinanaziaria/bilancio.php");
             } else
                 $("#pagina").load("pagine/home.php");
         </script>

@@ -3,13 +3,12 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
-require_once '../../config.php';
-$idProdotto = $_POST['idProdotto'];
-$idTesserato = strtok($_POST['city'], ")");
+require_once '../../../config.php';
+$idTesserato = $_POST['idTesserato'];
+$idProdotto = strtok($_POST['city'], ")");
 $taglia = $_POST['taglia'];
 $dataAcquisto = date("Y-m-d");
-//fotoprofilo
-
+echo $idTesserato . " " . $idProdotto . " " . $taglia . " " . $dataAcquisto;
 try {
     $sql = "SELECT tesserato.daPagare,prodotto.costoUnitario FROM tesserato,prodotto WHERE tesserato.id='$idTesserato' and prodotto.id='$idProdotto'";
     //echo "$sql<br>";
@@ -37,4 +36,4 @@ try {
         //echo 'Previous exception: ' . $e->getMessage() . "<br/>";
     }
 }
-header("Location: ../../index.php");
+header("Location: ../../../index.php");

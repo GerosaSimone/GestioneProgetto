@@ -11,9 +11,9 @@
             <form action="pagine/AreaSito/addGalleria.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group mt-2" style="max-height:45%">
-                        <label>Foto</label>
+                        <label class="text-dark font-weight-bold">Foto</label>
                         <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="readFoto(this);" style="margin-left:-2%" required>
-                        <img id="fotoGalleria" class="mt-3" src="" />
+                        <img id="fotoGalleria" class="mt-3" src=""  />
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -115,7 +115,7 @@
                 $('#fotoGalleria')
                     .attr('src', e.target.result);
                 $('#fotoGalleria')
-                    .attr('style', "width: 400px; height: 480px; object-fit: cover;");
+                    .attr('style', "width: 470px; height: auto; object-fit: cover;");
             };
             reader.readAsDataURL(input.files[0]);
         }

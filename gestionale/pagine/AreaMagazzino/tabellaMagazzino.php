@@ -1,6 +1,10 @@
 <div class="row ">
     <?php
-    $sql = "SELECT * FROM magazzino INNER JOIN prodotto ON magazzino.idProdotto=prodotto.id GROUP BY idProdotto HAVING magazzino.nascosto='0'";
+    $sql = "SELECT * FROM magazzino 
+            INNER JOIN prodotto ON magazzino.idProdotto=prodotto.id 
+            GROUP BY idProdotto 
+            HAVING magazzino.nascosto='0'
+            ORDER BY magazzino.id DESC";
     if ($result = mysqli_query($link, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result)) {
@@ -39,6 +43,8 @@
                                                 </div>
                                             </div>";
             }
+        } else {
+            echo '<div class="text-center" style="width:100%"> <h5>Nessun prodotto presente</h5></div>';
         }
     }
     ?></div>

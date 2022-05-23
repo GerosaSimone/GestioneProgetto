@@ -49,7 +49,7 @@ try {
         } else {
             $nome = $_POST['nome'];
             $tipoTaglie = $_POST['tipoTaglie'];
-            $costo = strtok($_POST['costo'], ',');
+            $costo = str_replace('.', '', strtok($_POST['costo'], ','));              
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 $sql = "INSERT INTO prodotto (id,`nome`, `tipoTaglie`, `costoUnitario`, `foto`) VALUES ('$number','$nome', '$tipoTaglie', '$costo', '$titolo');";
                 mysqli_query($link, $sql);

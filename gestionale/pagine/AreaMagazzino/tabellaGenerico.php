@@ -1,6 +1,6 @@
 <div class="row ">
     <?php
-    $sql = "SELECT * FROM acquistiMateriale";
+    $sql = "SELECT * FROM acquistiMateriale ORDER BY id DESC";
     if ($result = mysqli_query($link, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result)) {
@@ -28,6 +28,8 @@
                                 </div>
                             </div>";
             }
+        } else {
+            echo '<div class="text-center" style="width:100%"> <h5>Nessun prodotto presente</h5></div>';
         }
     }
     ?>

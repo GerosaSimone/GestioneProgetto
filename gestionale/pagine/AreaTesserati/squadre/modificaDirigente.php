@@ -88,10 +88,10 @@ try {
 <div class="container">
     <div class="row">
         <div class="col-sm-6 border-right">
-            <h4 style="color:dark">DATI ANAGRAFICI</h4>
+            <h4 class="text-dark font-weight-bold">DATI ANAGRAFICI</h4>
             <div class="form-group mt-2" style="max-height:45%">
                 <button type="button" class="close" aria-label="Close" style="color:red" id="eliminaProfilo"><span aria-hidden="true">&times;</span></button>
-                <label>Foto</label>
+                <label class="text-dark font-weight-bold">Foto</label>
                 <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="modificaFotoProfiloDirigente(this);" style="margin-left:-2%;color:transparent">
                 <?php
                 if (isset($fotoProfilo)) {
@@ -102,29 +102,29 @@ try {
                 ?>
                 <input type='text' name='presenzaFotoProfilo' id="presenzaFotoProfilo" hidden=true value='0'>
             </div>
-            <label>Nome</label>
+            <label class="text-dark font-weight-bold">Nome</label>
             <input type=" text" name="nome" class="form-control form-control-sm mb-2" value="<?php echo $nome ?>" required>
-            <label>Cognome</label>
+            <label class="text-dark font-weight-bold">Cognome</label>
             <input type="text" name="cognome" class="form-control form-control-sm mb-2" value="<?php echo $cognome ?>" required>
-            <label>Codice Fiscale</label>
+            <label class="text-dark font-weight-bold">Codice Fiscale</label>
             <input type="text" name="cf" class="form-control form-control-sm mb-2" minlength="16" maxlength="16" value="<?php echo $cf ?>" required autocomplete="rutjfkde">
-            <label>Data di Nascita</label>
+            <label class="text-dark font-weight-bold">Data di Nascita</label>
             <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="dataNascita" value="<?php echo $dataNascita ?>" required>
-            <label>Luogo di Nascita</label>
+            <label class="text-dark font-weight-bold">Luogo di Nascita</label>
             <input type="text" name="luogoNascita" class="form-control form-control-sm" value="<?php echo $luogoNascita ?>" required>
         </div>
         <div class="col-sm-6">
-            <h4 style="color:dark">RESIDENZA</h4>
-            <label>Indirizzo</label>
+            <h4 class="text-dark font-weight-bold">RESIDENZA</h4>
+            <label class="text-dark font-weight-bold">Indirizzo</label>
             <input type="text" name="via" class="form-control form-control-sm mb-2" value="<?php echo $indirizzo ?>" required>
-            <label>Citta </label>
+            <label class="text-dark font-weight-bold">Citta </label>
             <input type="text" name="citta" class="form-control form-control-sm mb-2" value="<?php echo $citta ?>" required>
-            <label>Provincia </label>
+            <label class="text-dark font-weight-bold">Provincia </label>
             <input type="text" name="provincia" class="form-control form-control-sm mb-2" minlength="2" maxlength="2" value="<?php echo $provincia ?>" required autocomplete="rutjfkde">
             <input type="text" name="id" value="<?php echo $id ?>" hidden="true">
             <div class="row" style="margin-left:-2%">
                 <div class="col-sm-6">
-                    <label>Ruolo</label>
+                    <label class="text-dark font-weight-bold">Ruolo</label>
                     <select class="custom-select custom-select-sm" name="ruolo">
                         <option value="M" <?php if ($ruolo == "Mister") echo "selected"; ?>>Mister</option>
                         <option value="D" <?php if ($ruolo == "Dirigente") echo "selected"; ?>>Dirigenza</option>
@@ -133,7 +133,7 @@ try {
                     </select>
                 </div>
                 <div class="col-sm-6">
-                    <label>Categoria</label>
+                    <label class="text-dark font-weight-bold">Categoria</label>
                     <select class="custom-select custom-select-sm" name="categoria" required>
                         <?php if ($categoria == "1") echo '<option value="1">Prima Squadra</option>'; ?>
                         <?php if ($categoria == "2") echo '<option value="2">Juniores</option>'; ?>
@@ -145,13 +145,13 @@ try {
                     </select>
                 </div>
             </div>
-            <h4 style="color:dark; margin-top:4%">CONTATTI</h4>
+            <h4 class="text-dark font-weight-bold" style=" margin-top:4%">CONTATTI</h4>
             <div class="container" style="margin-left:-2%">
                 <div class="row">
-                    <div class="col-sm-7">
+                    <div class="col-sm-7 text-dark font-weight-bold">
                         Telefono
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 text-dark font-weight-bold">
                         Contatto
                     </div>
                     <div class="col-sm-1">
@@ -181,10 +181,10 @@ try {
             </div>
             <div class="container" style="margin-left:-2%; margin-top:2%">
                 <div class="row">
-                    <div class="col-sm-7">
+                    <div class="col-sm-7 text-dark font-weight-bold">
                         Mail
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 text-dark font-weight-bold">
                         Contatto
                     </div>
                     <div class="col-sm-1">

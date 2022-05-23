@@ -1,34 +1,34 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6 border-right">
-            <h4 style="color:dark">DATI ANAGRAFICI</h4>
+            <h4 class="text-dark font-weight-bold">DATI ANAGRAFICI</h4>
             <div class="form-group mt-2" style="max-height:45%">
-                <label>Foto</label>
+                <label class="text-dark font-weight-bold">Foto</label>
                 <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="readFotoProfilo(this);" style="margin-left:-2%">
                 <img id="fotoProfilo" src="" />
             </div>
-            <label>Nome</label>
+            <label class="text-dark font-weight-bold">Nome</label>
             <input type="text" name="nome" class="form-control form-control-sm mb-2" required>
-            <label>Cognome</label>
+            <label class="text-dark font-weight-bold">Cognome</label>
             <input type="text" name="cognome" class="form-control form-control-sm mb-2" required>
-            <label>Codice Fiscale</label>
+            <label class="text-dark font-weight-bold">Codice Fiscale</label>
             <input type="text" name="cf" class="form-control form-control-sm mb-2" minlength="16" maxlength="16" required autocomplete="rutjfkde">
-            <label>Data di Nascita</label>
+            <label class="text-dark font-weight-bold">Data di Nascita</label>
             <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="dataNascita" required>
-            <label>Luogo di Nascita</label>
+            <label class="text-dark font-weight-bold">Luogo di Nascita</label>
             <input type="text" name="luogoNascita" class="form-control form-control-sm" required>
         </div>
         <div class="col-sm-6">
-            <h4 style="color:dark">RESIDENZA</h4>
-            <label>Indirizzo</label>
+            <h4 class="text-dark font-weight-bold">RESIDENZA</h4>
+            <label class="text-dark font-weight-bold">Indirizzo</label>
             <input type="text" name="via" class="form-control form-control-sm mb-2" required>
-            <label>Citta </label>
+            <label class="text-dark font-weight-bold">Citta </label>
             <input type="text" name="citta" class="form-control form-control-sm mb-2" required>
-            <label>Provincia </label>
+            <label class="text-dark font-weight-bold">Provincia </label>
             <input type="text" name="provincia" class="form-control form-control-sm mb-2" minlength="2" maxlength="2" required autocomplete="rutjfkde">
             <div class="row" style="margin-left:-2%">
                 <div class="col-sm-6">
-                    <label>Ruolo</label>
+                    <label class="text-dark font-weight-bold">Ruolo</label>
                     <select class="custom-select custom-select-sm" name="ruolo">
                         <option selected value="N">Nessun ruolo</option>
                         <option value="M">Mister</option>
@@ -37,7 +37,7 @@
                     </select>
                 </div>
                 <div class="col-sm-6">
-                    <label>Categoria</label>
+                    <label class="text-dark font-weight-bold"> Categoria</label>
                     <select class="custom-select custom-select-sm" name="categoria" required>
                         <option value="">Choose...</option>
                         <option value="1">Prima Squadra</option>
@@ -50,14 +50,14 @@
                     </select>
                 </div>
             </div>
-            <h4 style="color:dark; margin-top:4%">CONTATTI</h4>
+            <h4 class="text-dark font-weight-bold" style="margin-top:4%">CONTATTI</h4>
             <div class="container" style="margin-left:-2%">
                 <div class="row">
                     <div class="col-sm-7">
-                        Telefono
+                        <label class="text-dark font-weight-bold">Telefono</label>
                     </div>
                     <div class="col-sm-4">
-                        Contatto
+                        <label class="text-dark font-weight-bold">Contatto</label>
                     </div>
                     <div class="col-sm-1">
                         <input type="text" id="numTelefoni" name="numTelefoni" hidden="true" value="1" class="form-control form-control-sm mb-2">
@@ -78,10 +78,10 @@
             <div class="container" style="margin-left:-2%; margin-top:2%">
                 <div class="row">
                     <div class="col-sm-7">
-                        Mail
+                        <label class="text-dark font-weight-bold">Mail</label>
                     </div>
                     <div class="col-sm-4">
-                        Contatto
+                        <label class="text-dark font-weight-bold">Contatto</label>
                     </div>
                     <div class="col-sm-1">
                         <input type="text" id="numMail" name="numMail" hidden="true" value="1" class="form-control form-control-sm mb-2">

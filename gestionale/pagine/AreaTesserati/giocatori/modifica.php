@@ -96,19 +96,19 @@ try {
         }
     }
 } catch (Exception $e) {
-    echo $e->getMessage() . "<br/>";
+    //echo $e->getMessage() . "<br/>";
     while ($e = $e->getPrevious()) {
-        echo 'Previous exception: ' . $e->getMessage() . "<br/>";
+        //echo 'Previous exception: ' . $e->getMessage() . "<br/>";
     }
 }
 ?>
 <div class="container">
     <div class="row">
         <div class="col-sm-4 border-right">
-            <h4 style="color:dark">DATI ANAGRAFICI</h4>
+            <h4 class="text-dark font-weight-bold">DATI ANAGRAFICI</h4>
             <div class="form-group mt-2" style="max-height:45%">
                 <button type="button" class="close" aria-label="Close" style="color:red" id="eliminaProfilo"><span aria-hidden="true">&times;</span></button>
-                <label>Foto</label>
+                <label class="text-dark font-weight-bold">Foto</label>
                 <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="modificaFotoProfilo(this);" style="margin-left:-2%;color:transparent">
                 <?php
                 if (isset($fotoProfilo)) {
@@ -119,20 +119,20 @@ try {
                 ?>
                 <input type='text' name='presenzaFotoProfilo' id="presenzaFotoProfilo" hidden=true value='0'>
             </div>
-            <label>Nome</label>
+            <label class="text-dark font-weight-bold">Nome</label>
             <input type=" text" name="nome" class="form-control form-control-sm mb-2" value="<?php echo $nome ?>" required>
-            <label>Cognome</label>
+            <label class="text-dark font-weight-bold">Cognome</label>
             <input type="text" name="cognome" class="form-control form-control-sm mb-2" value="<?php echo $cognome ?>" required>
-            <label>Codice Fiscale</label>
+            <label class="text-dark font-weight-bold">Codice Fiscale</label>
             <input type="text" name="cf" class="form-control form-control-sm mb-2" minlength="16" maxlength="16" value="<?php echo $cf ?>" required autocomplete="rutjfkde">
-            <label>Data di Nascita</label>
+            <label class="text-dark font-weight-bold">Data di Nascita</label>
             <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="dataNascita" value="<?php echo $dataNascita ?>" required>
-            <label>Luogo di Nascita</label>
+            <label class="text-dark font-weight-bold">Luogo di Nascita</label>
             <input type="text" name="luogoNascita" class="form-control form-control-sm" value="<?php echo $luogoNascita ?>" required>
         </div>
         <div class="col-sm-4 border-right">
-            <h4 style="color:dark">VISITA</h4>
-            <label>Tipo</label><button type="button" id="eliminaVisita" class="close" aria-label="Close" style="color:red"><span aria-hidden="true">&times;</span></button><br>
+            <h4 class="text-dark font-weight-bold">VISITA</h4>
+            <label class="text-dark font-weight-bold">Tipo</label><button type="button" id="eliminaVisita" class="close" aria-label="Close" style="color:red"><span aria-hidden="true">&times;</span></button><br>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="tipoVisita" id="tipo0" value="0" <?php if ($tipo == 0) echo "checked"; ?>>
                 <label class="form-check-label" for="inlineRadio1">Normale</label>
@@ -141,10 +141,10 @@ try {
                 <input class="form-check-input" type="radio" name="tipoVisita" id="tipo1" value="1" <?php if ($tipo == 1) echo "checked"; ?>>
                 <label class="form-check-label" for="inlineRadio2">Agonistica</label>
             </div><br>
-            <label>Scadenza</label>
+            <label class="text-dark font-weight-bold">Scadenza</label>
             <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="scadenza" id="scadenza" value="<?php echo $scadenza ?>">
             <div class="form-group mt-2">
-                <label>Foto</label>
+                <label class="text-dark font-weight-bold">Foto</label>
                 <input type="file" class="form-control-file" name="fileToUpload1" id="fileToUpload1" onchange="modificaFotoVisita(this);" style="margin-left:-2%; color:transparent">
                 <?php
                 if ($fotoVisita != null) {
@@ -154,14 +154,14 @@ try {
                 }
                 ?>
             </div>
-            <h4 style="color:dark; margin-left:-2%">CONTATTI</h4>
+            <h4 class="text-dark font-weight-bold" style="margin-left:-2%">CONTATTI</h4>
             <div class="container" style="margin-left:-4%">
                 <div class="row">
                     <div class="col-sm-7">
-                        Telefono
+                        <label class="text-dark font-weight-bold">Telefono</label>
                     </div>
                     <div class="col-sm-4">
-                        Contatto
+                        <label class="text-dark font-weight-bold">Contatto</label>
                     </div>
                     <div class="col-sm-1">
                         <input type="text" id="numTelefoni" name="numTelefoni" hidden="true" value="1" class="form-control form-control-sm mb-2">
@@ -191,10 +191,10 @@ try {
             <div class="container" style="margin-left:-4%; margin-top:2%">
                 <div class="row">
                     <div class="col-sm-7">
-                        Mail
+                        <label class="text-dark font-weight-bold">Mail</label>
                     </div>
                     <div class="col-sm-4">
-                        Contatto
+                        <label class="text-dark font-weight-bold">Contatto</label>
                     </div>
                     <div class="col-sm-1">
                         <input type="text" id="numMail" name="numMail" hidden="true" value="1" class="form-control form-control-sm mb-2">
@@ -224,17 +224,17 @@ try {
             </div>
         </div>
         <div class="col-sm-4">
-            <h4 style="color:dark">RESIDENZA</h4>
-            <label>Indirizzo</label>
+            <h4 class="text-dark font-weight-bold">RESIDENZA</h4>
+            <label class="text-dark font-weight-bold">Indirizzo</label>
             <input type="text" name="via" class="form-control form-control-sm mb-2" value="<?php echo $indirizzo ?>" required>
-            <label>Citta </label>
+            <label class="text-dark font-weight-bold">Citta </label>
             <input type="text" name="citta" class="form-control form-control-sm mb-2" value="<?php echo $citta ?>" required>
-            <label>Provincia </label>
+            <label class="text-dark font-weight-bold">Provincia </label>
             <input type="text" name="provincia" class="form-control form-control-sm mb-2" minlength="2" maxlength="2" value="<?php echo $provincia ?>" required autocomplete="rutjfkde">
             <input type="text" name="id" value="<?php echo $id ?>" hidden="true">
             <div class="row" style="margin-left:-2%">
                 <div class="col-sm-6">
-                    <label>Ruolo</label>
+                    <label class="text-dark font-weight-bold">Ruolo</label>
                     <select class="custom-select custom-select-sm" name="ruolo">
                         <option value="P" <?php if ($ruolo == "Portiere") echo "selected"; ?>>Portiere</option>
                         <option value="D" <?php if ($ruolo == "Difensore") echo "selected"; ?>>Difensore</option>
@@ -244,7 +244,7 @@ try {
                     </select>
                 </div>
                 <div class="col-sm-6">
-                    <label>Categoria</label>
+                    <label class="text-dark font-weight-bold">Categoria</label>
                     <select class="custom-select custom-select-sm" name="categoria">
                         <option value="1" <?php if ($categoria == "1") echo "selected"; ?>>Prima Squadra</option>
                         <option value="2" <?php if ($categoria == "2") echo "selected"; ?>>Juniores</option>
@@ -256,15 +256,15 @@ try {
                     </select>
                 </div>
             </div><br>
-            <h4 style="color:dark">CONTABILITA'</h4>
+            <h4 class="text-dark font-weight-bold">CONTABILITA'</h4>
             <div class="container" style="margin-left:-2%">
                 <div class="row">
                     <div class="col-sm-6">
-                        <label>Da Pagare</label>
+                        <label class="text-dark font-weight-bold">Da Pagare</label>
                         <input type='currency' name="daPagare" placeholder='Type a number & click outside' value="<?php echo $daPagare ?>,00  €" class="form-control form-control-sm mb-2" />
                     </div>
                     <div class="col-sm-6">
-                        <label>Pagato</label>
+                        <label class="text-dark font-weight-bold">Pagato</label>
                         <input type='currency' name="pagato" placeholder='Type a number & click outside' value="<?php echo $pagato ?>,00  €" class="form-control form-control-sm mb-2" />
                     </div>
                 </div>

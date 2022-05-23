@@ -15,7 +15,7 @@ require_once '../../config.php';
 </head>
 
 <body>
-    <div class="page-header clearfix">
+    <div class="page-header clearfix text-center">
         <h1 class="display-5 font-weight-bold pl-5">Acquisti dei Giocatori</h1>
     </div>
     <div>

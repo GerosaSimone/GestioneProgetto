@@ -172,11 +172,10 @@
             </div>
             <form action="pagine/AreaTesserati/squadre/modificaCategoriaMateriale.php" method="GET">
                 <div class="modal-body">
-                    <label>Num Pettorine: </label>
+                    <label class="text-dark font-weight-bold">Num Pettorine: </label>
                     <input type="text" name="pettorine" class="form-control form-control-sm mb-2" value="<?php echo $numPettorine ?>">
-                    <label>Num Palloni:</label>
+                    <label class="text-dark font-weight-bold">Num Palloni:</label>
                     <input type="text" name="palloni" class="form-control form-control-sm mb-2" value="<?php echo $numPalloni ?>">
-
                     <input type="text" name="squadra" hidden=true class="form-control form-control-sm mb-2" value="<?php echo $_GET['squadra'] ?>">
                 </div>
                 <div class="modal-footer">
@@ -201,7 +200,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col">
-                            <label>Giorno:</label>
+                            <label class="text-dark font-weight-bold">Giorno:</label>
                             <select class="custom-select custom-select-sm form-control form-control-sm mb-2" name="giorno1">
                                 <option selected><?php echo $giorni[0] ?></option>
                                 <option value="Lunedi">Lunedi</option>
@@ -224,13 +223,13 @@
                             </select>
                         </div>
                         <div class="col">
-                            <label>Ora Inizio:</label>
+                            <label class="text-dark font-weight-bold">Ora Inizio:</label>
                             <input type="text" name="oraInizio1" value="<?php echo $orariInizio[0] ?>" class="form-control form-control-sm mb-2">
                             <input type="text" name="oraInizio2" value="<?php echo $orariInizio[1] ?>" class="form-control form-control-sm mb-2">
 
                         </div>
                         <div class="col">
-                            <label>Ora Fine:</label>
+                            <label class="text-dark font-weight-bold">Ora Fine:</label>
                             <input type="text" name="oraFine1" value="<?php echo $orariFine[0] ?>" class="form-control form-control-sm mb-2">
                             <input type="text" name="oraFine2" value="<?php echo $orariFine[1] ?>" class="form-control form-control-sm mb-2">
 
@@ -259,13 +258,13 @@
             <form action="pagine/AreaTesserati/squadre/addDivisa.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group mt-2" style="max-height:45%">
-                        <label>Foto</label>
+                        <label class="text-dark font-weight-bold">Foto</label>
                         <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload" onchange="readFoto(this);" style="margin-left:-2%" required>
                         <img id="fotoDivisa" class="mt-3" src="" />
                     </div>
-                    <label>Titolo</label>
+                    <label class="text-dark font-weight-bold">Titolo</label>
                     <input type="text" name="titolo" class="form-control form-control-sm mb-2" required>
-                    <label>Descrizione</label>
+                    <label class="text-dark font-weight-bold">Descrizione</label>
                     <input type="text" name="descrizione" class="form-control form-control-sm mb-2">
                     <input type="text" name="squadra" hidden=true class="form-control form-control-sm mb-2" value="<?php echo $_GET['squadra'] ?>">
                 </div>
@@ -328,8 +327,25 @@
         </div>
     </div>
 </div>
-
-
+<!--Acquista-->
+<div class="modal fade" id="acquistaProdotto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="acquistaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h3 style="color:white" class="modal-title" id="acquistaLabel"><b>ACQUISTA PRODOTTO</b></h3>
+                <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form action="pagine/AreaTesserati/giocatori/buyProdotto.php" method="post" enctype="multipart/form-data">
+                <div class="modal-body ui-front" id="modalAcquista">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="azzeraComplete()">Close</button>
+                    <input type="submit" name="submit" id="btnSalva" class="btn btn-primary" value="Acquista" disabled>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <!-- usare un swal al posto dell alert -->
 <script>
     function readFoto(input) {

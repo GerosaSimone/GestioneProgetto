@@ -9,12 +9,13 @@ $_SESSION['ultimaPage'] = "dirigenza";
 ?>
 
 <body style="background-color: rgba(250, 250, 250, 255)">
-    <div class="page-header clearfix">
+    <div class="page-header clearfix text-center">
         <strong>
-            <h2 class="pull-left pl-5"> Dirigenza </h2>
-            <button type='button' class='btn btn-outline-secondary pull-right' data-bs-toggle='modal' data-bs-target='#addDirigente' style="margin-right:3%">
-                Add Mister/Dirigente
-            </button>
+            <h1 class="display-5 font-weight-bold pl-5">Dirigenza
+                <button type='button' class='btn btn-outline-secondary pull-right mt-3' data-bs-toggle='modal' data-bs-target='#addDirigente' style="margin-right:3%">
+                    Add Mister/Dirigente
+                </button>
+            </h1>
         </strong>
     </div>
     <div>
@@ -35,7 +36,6 @@ $_SESSION['ultimaPage'] = "dirigenza";
             visualizza.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
-               
                 $.post("pagine/AreaTesserati/dirigenza/visualizza.php?idTesserato=" + id, true, function(data, status) {
                     $("#modalVisualizza").html(data);
                 });

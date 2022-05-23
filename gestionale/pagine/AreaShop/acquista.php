@@ -21,16 +21,17 @@ if ($result = mysqli_query($link, $sql)) {
 <input type="text" name="idProdotto" id="idProdotto" hidden="true" value="<?php echo $_GET["idProdotto"]; ?>">
 <div class="container">
     <div class="row">
-        <div style="width: 100%;"><label>Articolo Selezionato: <?php echo $nome; ?> </label>
-            <label class="pull-right mr-1">Prezzo: <?php echo $costo; ?> € </label>
+        <div style="width: 100%;">
+            <label class="text-dark font-weight-bold">Articolo Selezionato: </label><label><?php echo "&nbsp;" . $nome; ?> </label><br>
+            <label class="mr-1 text-dark font-weight-bold">Prezzo: </label><label><?php echo " " . $costo; ?> €</label>
         </div>
-        <div style="width: 100%;" class="mt-2"><label>Giocatore</label>
+        <div style="width: 100%;" class="mt-2"><label class="text-dark font-weight-bold">Giocatore</label>
             <button type="button" class="close pull-rigth" aria-label="close" style="color:red;" onclick="azzeraComplete();"><span aria-hidden="true">&times;</span></button>
-        </div>
-        <input type="text" name="city" id="search_city" placeholder="Type to search..." class="form-control"  aria-autocomplete="both" aria-haspopup="false" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="" required>
+        </div>        
+        <input type="text" name="city" id="search_city" placeholder="Type to search..." class="form-control" aria-autocomplete="both" aria-haspopup="false" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="" required>
         <?php
         if (!$tipoTaglie) {
-            echo "  <div class='mt-3' style='width: 100%;'><label>Taglie Bambini</label></div>";
+            echo "  <div class='mt-3' style='width: 100%;'><label class='text-dark font-weight-bold'> Taglie Bambini</label></div>";
             echo "  <div class='btn-group btn-group-toggle mb-3' data-toggle='buttons'>
                         <label class='btn btn-secondary'>
                             <input type='radio' name='taglia' id='XXS' value='XXS'> XXS
@@ -49,7 +50,7 @@ if ($result = mysqli_query($link, $sql)) {
                         </label>
                     </div>";
         } else {
-            echo "  <div class='mt-3' style='width: 100%;'><label>Taglie Adulto</label></div>";
+            echo "  <div class='mt-3' style='width: 100%;'><label class='text-dark font-weight-bold'>Taglie Adulto</label></div>";
             echo "  <div class='btn-group btn-group-toggle mb-3' data-toggle='buttons'>                        
                         <label class='btn btn-secondary'>
                             <input type='radio' name='taglia' id='S' value='S'> S
@@ -74,7 +75,7 @@ if ($result = mysqli_query($link, $sql)) {
     </div>
 </div>
 <script type="text/javascript">
-    var uuid = '<some random UUID generated each page load>';    
+    var uuid = '<some random UUID generated each page load>';
 
     $("#search_city").autocomplete({
         source: 'pagine/AreaShop/giocatori-search.php',

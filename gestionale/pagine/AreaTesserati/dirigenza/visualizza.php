@@ -96,9 +96,9 @@ try {
 <div class="container">
     <div class="row">
         <div class="col-sm-6 border-right">
-            <h4 style="color:dark ">DATI ANAGRAFICI</h4>
+            <h4 class="text-dark font-weight-bold">DATI ANAGRAFICI</h4>
             <div class="form-group mt-2" style="max-height:45%">
-                <label class="titoliBlu">Foto</label><br>
+                <label class="text-dark font-weight-bold">Foto</label><br>
                 <?php
                 if ($fotoProfilo != null)
                     echo "<img id='fotoProfilo' src='img/uploadsProfilo/$fotoProfilo' /> ";
@@ -108,63 +108,63 @@ try {
             </div>
             <div class="row" style="margin-left: -2%">
                 <div class="col">
-                    <label class="titoliBlu">Nome</label>
+                    <label class="text-dark font-weight-bold">Nome</label>
                     <p><?php echo $nome ?></p>
                 </div>
                 <div class="col">
-                    <label class="titoliBlu">Cognome</label>
+                    <label class="text-dark font-weight-bold">Cognome</label>
                     <p><?php echo $cognome ?></p>
                 </div>
             </div>
-            <label class="titoliBlu">Codice Fiscale</label>
+            <label class="text-dark font-weight-bold">Codice Fiscale</label>
             <p><?php echo $cf ?></p>
             <div class="row" style="margin-left: -2%">
                 <div class="col">
-                    <label class="titoliBlu">Data Nascita</label>
+                    <label class="text-dark font-weight-bold">Data Nascita</label>
                     <p><?php $date = str_replace('-"', '/', $dataNascita);
                         $newDate = date("d/m/Y", strtotime($date));
                         echo "$newDate"; ?></p>
                 </div>
                 <div class="col">
-                    <label class="titoliBlu">Luogo di Nascita</label>
+                    <label class="text-dark font-weight-bold">Luogo di Nascita</label>
                     <p><?php echo $luogoNascita ?></p>
                 </div>
             </div>
         </div>
         <div class="col-sm-6">
-            <h4 style="color:dark">RESIDENZA</h4>
-            <label class="titoliBlu">Indirizzo</label>
+            <h4 class="text-dark font-weight-bold">RESIDENZA</h4>
+            <label class="text-dark font-weight-bold">Indirizzo</label>
             <p><?php echo $indirizzo ?></p>
             <div class="row" style="margin-left: -2%">
                 <div class="col">
-                    <label class="titoliBlu">Citta </label>
+                    <label class="text-dark font-weight-bold">Citta </label>
                     <p><?php echo $citta ?></p>
                 </div>
                 <div class="col">
-                    <label class="titoliBlu">Provincia </label>
+                    <label class="text-dark font-weight-bold">Provincia </label>
                     <p><?php echo $provincia ?></p>
                 </div>
             </div>
             <div class="row" style="margin-left: -2%">
                 <div class="col">
-                    <label class="titoliBlu">Ruolo </label>
+                    <label class="text-dark font-weight-bold">Ruolo </label>
                     <p><?php echo $ruolo ?></p>
                 </div>
                 <div class="col">
-                    <label class="titoliBlu">Categoria </label>
+                    <label class="text-dark font-weight-bold">Categoria </label>
                     <p><?php echo $categoria ?></p>
                 </div>
             </div>
-            <h4 style="color:dark">CONTATTI</h4>
+            <h4 class="text-dark font-weight-bold">CONTATTI</h4>
             <?php
             if (count($telefoniCont)) {
                 echo '<div class="container" style="margin-left:-2%">
                     <div class="row">
                         <div class="col-sm-9">
-                            <label class="titoliBlu">Telefono</label>
+                            <label class="text-dark font-weight-bold">Telefono</label>
                         </div>
                         <div class="col-sm-3">
-                            <label class="titoliBlu">Contatto</label>
+                            <label class="text-dark font-weight-bold">Contatto</label>
                         </div>
                     </div>
                     ';
@@ -186,10 +186,10 @@ try {
                 echo '<div class="container" style="margin-top:2%;margin-left:-2%">
                         <div class="row">
                             <div class="col-sm-9">
-                                <label class="titoliBlu">Mail</label>
+                                <label class="text-dark font-weight-bold">Mail</label>
                             </div>
                             <div class="col-sm-3">
-                                <label class="titoliBlu">Contatto</label>
+                                <label class="text-dark font-weight-bold">Contatto</label>
                             </div>
                         </div>';
                 for ($i = 0; $i < count($mailCont); $i++) {

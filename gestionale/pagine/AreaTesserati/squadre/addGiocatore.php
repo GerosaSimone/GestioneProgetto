@@ -15,11 +15,11 @@ try {
     //daPagare e pagato
     if (!empty($_POST['daPagare'])) {
         $campi .= ", daPagare";
-        $param .= ",'" . strtok( $_POST['daPagare'], ',' ) . "'";
+        $param .= ",'" . str_replace('.', '', strtok($_POST['daPagare'], ','))  . "'";
     }
     if (!empty($_POST['pagato'])) {
         $campi .= ", pagato";
-        $param .= ",'" . strtok( $_POST['pagato'], ',' ) . "'";
+        $param .= ",'" . str_replace('.', '', strtok($_POST['pagato'], ','))  . "'";
     }
     //crea visita
     $idVisita = null;

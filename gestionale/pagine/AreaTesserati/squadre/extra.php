@@ -16,18 +16,15 @@ $orariFine = array("", "");
 $sql = "SELECT oraInizio ,oraFine ,giorno FROM allenamento INNER JOIN categoria on allenamento.idCategoria=categoria.id WHERE categoria.nome='" . $_GET['squadra'] . "'";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) == 2) {
-
         $row = mysqli_fetch_array($result);
         $giorni[0] = $row['giorno'];
         $orariInizio[0] = $row['oraInizio'];
         $orariFine[0] = $row['oraFine'];
-
         $row = mysqli_fetch_array($result);
         $giorni[1] = $row['giorno'];
         $orariInizio[1] = $row['oraInizio'];
         $orariFine[1] = $row['oraFine'];
     } else if (mysqli_num_rows($result) == 1) {
-
         $row = mysqli_fetch_array($result);
         $giorni[0] = $row['giorno'];
         $orariInizio[0] = $row['oraInizio'];
@@ -45,7 +42,7 @@ if ($result = mysqli_query($link, $sql)) {
         </button>
     </h4>
     <hr>
-    <p>Num Pettorine: <?php echo $numPettorine ?></p>
+    <p >Num Pettorine: <?php echo $numPettorine ?></p>
     <p class=" mb-0">Num Palloni: <?php echo $numPalloni ?></p>
 </div>
 <div class="alert alert-secondary ml-3" role="alert" style="min-width:300px">

@@ -15,23 +15,45 @@ require_once '../../config.php';
 </head>
 
 <body>
-    <div class="page-header clearfix">
+    <div class="page-header clearfix text-center">
         <h1 class="display-5 font-weight-bold pl-5">Acquisti Societa</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6" style="padding-left:0.5% !important; padding-right:0.5% !important;">
+                <?php include 'tabellaAcquisti.php'; ?>
+            </div>
+            <div class="col-6" style="padding-left:0.5% !important; padding-right:0.5% !important;">
+                <?php include 'tabellaMateriale.php'; ?>
+            </div>
+        </div>
     </div>
     <div>
         <?php include 'modal.php'; ?>
     </div>
-    <?php include 'tabellaAcquisti.php'; ?>
+
     <script>
         jQuery(document).ready(function($) {
             $(document).ready(function() {
                 $('.tabellaAcquisti').DataTable({
-                    paging: false,
+                    paging: true,
                     searching: true,
                     ordering: true,
-                    info: false
+                    info: false,
+                    lengthChange: false,
+                    pageLength: 12
                 });
-            });            
+            });
+            $(document).ready(function() {
+                $('.tabellaMateriale').DataTable({
+                    paging: true,
+                    searching: true,
+                    ordering: true,
+                    info: false,
+                    lengthChange: false,
+                    pageLength: 12
+                });
+            });
             var elimina = document.getElementById('eliminaAcquisto')
             elimina.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget

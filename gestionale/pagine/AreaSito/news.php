@@ -9,7 +9,7 @@ require_once '../../config.php';
 
 <body>
     <header class="text-center mb-2">
-        <h1 class="display-5 font-weight-bold">NEWS</h1>
+        <h1 class="display-5 font-weight-bold">News</h1>
         <p class="text-center">
             <button type='button' class='btn btn-outline-primary btn-lg' data-bs-toggle='modal' data-bs-target='#addNews'>
                 Aggiungi News
@@ -19,7 +19,7 @@ require_once '../../config.php';
 
     <div class="row pb-5 mb-4 ml-3 mr-3 align-items-center">
         <?php
-        $sql = "SELECT * FROM news";
+        $sql = "SELECT * FROM news ORDER BY id DESC";
         if ($result = mysqli_query($link, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
