@@ -16,7 +16,7 @@ require_once '../../config.php';
 
 <body>
     <div class="page-header clearfix text-center">
-        <h1 class="display-5 font-weight-bold pl-5">Acquisti dei Giocatori</h1>
+        <h1 class="display-5 font-weight-bold">Acquisti dei Giocatori</h1>
     </div>
     <div>
         <?php include 'modal.php'; ?>

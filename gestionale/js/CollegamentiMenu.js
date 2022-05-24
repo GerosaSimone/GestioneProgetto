@@ -1,12 +1,11 @@
 $(document).ready(function () {
     //HOME
     $(document).on('click', "#home", function () {
-        $.post("pagine/home.php", true, function (data, status) {            
+        $.post("pagine/home.php", true, function (data, status) {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
     });
-
     //AREA TESSERATI
     //GENERELE
     $(document).on('click', "#dirigenza", function () {
@@ -85,7 +84,7 @@ $(document).ready(function () {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
-    });    
+    });
 
     //AREA MAGAZZINO
     $(document).on('click', "#deposito", function () {
@@ -99,7 +98,7 @@ $(document).ready(function () {
             $("#pagina").html(data);
         });
         $(document).scrollTop(0);
-    });   
+    });
 
     //AREA SITO
     $(document).on('click', "#galleria", function () {

@@ -80,6 +80,7 @@ require_once '../../config.php';
                 $("#modalAcquista").html(data);
             });
         });
+
         function apriModal(div) {
             $('#visualizzaDeposito').modal('show');
             var recipient = div.getAttribute('data-bs-whatever');
@@ -89,6 +90,7 @@ require_once '../../config.php';
                 $("#modalVisualizzaDeposito").html(data);
             });
         }
+
         function apriModalGenerico(div) {
             $('#visualizzaGenerico').modal('show');
             var recipient = div.getAttribute('data-bs-whatever');

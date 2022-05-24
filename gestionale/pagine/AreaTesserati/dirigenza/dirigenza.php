@@ -11,7 +11,7 @@ $_SESSION['ultimaPage'] = "dirigenza";
 <body style="background-color: rgba(250, 250, 250, 255)">
     <div class="page-header clearfix text-center">
         <strong>
-            <h1 class="display-5 font-weight-bold pl-5">Dirigenza
+            <h1 class="display-5 font-weight-bold">Dirigenza
                 <button type='button' class='btn btn-outline-secondary pull-right mt-3' data-bs-toggle='modal' data-bs-target='#addDirigente' style="margin-right:3%">
                     Add Mister/Dirigente
                 </button>

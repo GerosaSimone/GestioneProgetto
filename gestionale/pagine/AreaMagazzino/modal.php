@@ -19,7 +19,6 @@
         </div>
     </div>
 </div>
-
 <!--Elimina Acquisto-->
 <div class="modal fade" id="eliminaAcquisto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminaLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -62,7 +61,6 @@
         </div>
     </div>
 </div>
-
 <!--Aggiungi Prodotto-->
 <div class="modal fade" id="addProdotto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addGiocatoreLabel" aria-hidden="true">
     <div class="modal-dialog">

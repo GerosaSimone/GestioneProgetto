@@ -16,7 +16,7 @@ require_once '../../config.php';
 
 <body>
     <div class="page-header clearfix text-center">
-        <h1 class="display-5 font-weight-bold pl-5">Acquisti Societa</h1>
+        <h1 class="display-5 font-weight-bold">Acquisti Societa</h1>
     </div>
     <div class="container">
         <div class="row">
@@ -59,6 +59,12 @@ require_once '../../config.php';
                 var button = event.relatedTarget
                 var recipient = button.getAttribute('data-bs-whatever')
                 document.getElementById("idEliminaAcquisto").value = recipient;
+            });
+            var eliminaGenerico = document.getElementById('eliminaGenerico')
+            eliminaGenerico.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget
+                var recipient = button.getAttribute('data-bs-whatever')
+                document.getElementById("idEliminaGenerico").value = recipient;
             });
         });
     </script>

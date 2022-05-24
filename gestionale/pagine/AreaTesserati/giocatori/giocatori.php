@@ -8,10 +8,14 @@ $_SESSION['ultimaPage'] = "giocatori";
 ?>
 
 <body style="background-color: rgba(250, 250, 250, 255)">
-
+    <script>
+        $(window).on("load", function() {
+            $(".loader-wrapper").fadeOut("slow");
+        });
+    </script>
     <div class="page-header clearfix text-center">
         <strong>
-            <h1 class="display-5 font-weight-bold pl-5">Giocatori
+            <h1 class="display-5 font-weight-bold ">Giocatori
                 <button type='button' class='btn btn-outline-secondary pull-right mt-3' data-bs-toggle='modal' data-bs-target='#addGiocatore' style="margin-right:3%">
                     Add Giocatore
                 </button>
@@ -68,6 +72,7 @@ $_SESSION['ultimaPage'] = "giocatori";
                 var recipient = button.getAttribute('data-bs-whatever')
                 document.getElementById("idElimina").value = recipient;
             });
+
         });
     </script>
 </body>
