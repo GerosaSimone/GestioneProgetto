@@ -112,6 +112,15 @@ $(document).ready(function () {
         });
         
     });
+    //AREA SPONSOR
+    $(document).on('click', "#sponsor", function () {
+        $.post("pagine/AreaSponsor/sponsor.php", true, function (data, status) {
+            $("#pagina").html(data);
+            $(".loader-wrapper").fadeIn(0);
+            $(".loader-wrapper").fadeOut(1000);
+        });
+        
+    });
 
     //AREA MAGAZZINO
     $(document).on('click', "#deposito", function () {

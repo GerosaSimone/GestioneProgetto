@@ -363,7 +363,6 @@ try {
 
     }
 
-
     function sottraiPagare() {
         var num = $('#AggdaPagare').val();
         num = num.replace(".", "");

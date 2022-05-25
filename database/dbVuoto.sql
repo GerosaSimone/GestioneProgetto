@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 23, 2022 alle 21:58
+-- Creato il: Mag 25, 2022 alle 22:58
 -- Versione del server: 10.4.24-MariaDB
 -- Versione PHP: 8.1.6
 
@@ -189,6 +189,19 @@ CREATE TABLE `prodotto` (
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `sponsor`
+--
+
+CREATE TABLE `sponsor` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `entrata` int(10) UNSIGNED NOT NULL,
+  `data` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `telefono`
 --
 
@@ -348,6 +361,12 @@ ALTER TABLE `prodotto`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indici per le tabelle `sponsor`
+--
+ALTER TABLE `sponsor`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indici per le tabelle `telefono`
 --
 ALTER TABLE `telefono`
@@ -389,25 +408,25 @@ ALTER TABLE `visita`
 -- AUTO_INCREMENT per la tabella `acquistigiocatori`
 --
 ALTER TABLE `acquistigiocatori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT per la tabella `acquistimagazzino`
 --
 ALTER TABLE `acquistimagazzino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT per la tabella `acquistimateriale`
 --
 ALTER TABLE `acquistimateriale`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT per la tabella `allenamento`
 --
 ALTER TABLE `allenamento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT per la tabella `categoria`
@@ -419,13 +438,13 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT per la tabella `galleria`
 --
 ALTER TABLE `galleria`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT per la tabella `magazzino`
 --
 ALTER TABLE `magazzino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
 
 --
 -- AUTO_INCREMENT per la tabella `maglia`
@@ -437,13 +456,13 @@ ALTER TABLE `maglia`
 -- AUTO_INCREMENT per la tabella `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT per la tabella `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
@@ -452,16 +471,22 @@ ALTER TABLE `prodotto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
+-- AUTO_INCREMENT per la tabella `sponsor`
+--
+ALTER TABLE `sponsor`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT per la tabella `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`

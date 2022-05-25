@@ -87,7 +87,9 @@ if (!isset($_SESSION['user_id'])) {
             $("#pagina").load("pagine/AreaSito/news.php");
         } else if (a == "finanziaria") {
             $("#pagina").load("pagine/AreaFinanziaria/bilancio.php");
-        } else if (a == "home") {
+        } else if (a == "sponsor") {
+            $("#pagina").load("pagine/AreaSponsor/sponsor.php");
+        }else if (a == "home") {
             $("#pagina").load("pagine/home.php");
         }
     </script>

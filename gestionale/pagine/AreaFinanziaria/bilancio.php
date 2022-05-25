@@ -12,30 +12,64 @@ $_SESSION['ultimaPage'] = "finanziaria";
         <h1 class="display-5 font-weight-bold">Area Finanziaria</h1>
     </header>
     <div class="container">
-        <div class="row pt-5">
-            <div class="col-6">
-                <canvas id="Entrate"></canvas>
+        <div class="row mt-5">
+            <div class="col-3">
+                <div class="alert alert-light border text-center" role="alert">
+                    <h3 class="alert-heading text-dark font-weight-bold">Entrate Effettive</h3>
+                    <hr>
+                    <h5 class="text-muted">+ 50,00 €</h5>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success" style="width: 100%"></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-6">
-                <canvas id="Uscite"></canvas>
+            <div class="col-3">
+                <div class="alert alert-light border text-center" role="alert">
+                    <h3 class="alert-heading text-dark font-weight-bold">Entrate Ipotetiche</h3>
+                    <hr>
+                    <h5 class="text-muted">+ 75,00 €</h5>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-info" style="width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="alert alert-light border text-center" role="alert">
+                    <h3 class="alert-heading text-dark font-weight-bold">Entrate Sponsor</h3>
+                    <hr>
+                    <h5 class="text-muted">+ 90,50 €</h5>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-warning" style="width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="alert alert-light border text-center" role="alert">
+                    <h3 class="alert-heading text-dark font-weight-bold">Uscite</h3>
+                    <hr>
+                    <h5 class="text-muted">- 900,00 €</h5>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-danger" style="width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-7">
+                <div class="alert alert-light border text-center" role="alert" style="padding-top:56px; padding-bottom:56px">
+                    <canvas class="p-3" id="Uscite"></canvas>
+                </div>
+            </div>
+            <div class="col-5 text-end" style="padding-left:90px">
+                <div class="alert alert-light border text-center" role="alert">
+                    <canvas class="p-3" id="Torta"></canvas>
+                </div>
             </div>
         </div>
 
-        <div class="row mt-5">
-            <div class="col-3 text-start">
-                I dati sono relativi agli acquisti fatti dalla societa
-                e dai giocatori durante l'ultimo trimestre
-            </div>
-            <div class="col-6 text-center" style="padding-left:200px;padding-right:200px">
-                <canvas id="Torta"></canvas>
-            </div>
-            <div class="col-3 text-end">
-                Tramite i grafici si possono osservare varie statistiche
-                che possono risultare utili alla societa' per tener conto
-                dei bilanci
-            </div>
-        </div>
+
         <?php
+        //Squadre
         $sql = "SELECT SUM(tesserato.daPagare) AS totale FROM tesserato WHERE tesserato.tipo=0 AND tesserato.idCategoria=1 GROUP BY tesserato.idCategoria";
         $result = mysqli_query($link, $sql);
         if (mysqli_num_rows($result) > 0) {
@@ -91,54 +125,20 @@ $_SESSION['ultimaPage'] = "finanziaria";
             $piccoli = $row['totale'];
         } else
             $piccoli = 0;
+        //Uscite
+        $sql = "SELECT SUM(tesserato.daPagare) AS totale FROM tesserato WHERE tesserato.tipo=0 AND tesserato.idCategoria=7 GROUP BY tesserato.idCategoria";
+        $result = mysqli_query($link, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_array($result);
+            $piccoli = $row['totale'];
+        } else
+            $piccoli = 0;
         ?>
+        ?>
+
     </div>
 
     <script>
-        const dataEntrate = {
-            labels: [
-                'Gennaio',
-                'Febbraio',
-                'Marzo',
-                'Aprile',
-                'Maggio',
-                'Giugno',
-                'Luglio',
-                'Agosto',
-                'Settembre',
-                'Ottobre',
-                'Novembre',
-                'Dicembre'
-            ],
-            datasets: [{
-                label: 'Entrate Mensili',
-                backgroundColor: 'green',
-                borderColor: 'green',
-                data: [0, 12, 5, 2, 5, 30, 5],
-            }]
-        };
-        const dataUscite = {
-            labels: [
-                'Gennaio',
-                'Febbraio',
-                'Marzo',
-                'Aprile',
-                'Maggio',
-                'Giugno',
-                'Luglio',
-                'Agosto',
-                'Settembre',
-                'Ottobre',
-                'Novembre',
-                'Dicembre'
-            ],
-            datasets: [{
-                label: 'Uscite Mensili',
-                backgroundColor: 'red',
-                borderColor: 'red',
-                data: [0, 12, 5, 2, 5, 300, 5],
-            }]
-        };
         const dataTorta = {
             labels: [
                 'Prima Squadra',
@@ -164,16 +164,32 @@ $_SESSION['ultimaPage'] = "finanziaria";
                 hoverOffset: 4
             }]
         };
-        const Entrate = new Chart(document.getElementById('Entrate'), {
-            type: 'line',
-            data: dataEntrate,
-            options: {
-                scales: {
-                    y: {
-                        stacked: true
-                    }
-                }
-            }
+        const dataUscite = {
+            labels: [
+                'Gennaio',
+                'Febbraio',
+                'Marzo',
+                'Aprile',
+                'Maggio',
+                'Giugno',
+                'Luglio',
+                'Agosto',
+                'Settembre',
+                'Ottobre',
+                'Novembre',
+                'Dicembre'
+            ],
+            datasets: [{
+                label: 'Uscite Mensili',
+                backgroundColor: 'red',
+                borderColor: 'red',
+                data: [0, 12, 5, 2, 5, 8, 5, 3, 2, 6, 9, 0],
+            }]
+        };
+        const Torta = new Chart(document.getElementById('Torta'), {
+            type: 'doughnut',
+            data: dataTorta,
+            options: {}
         });
         const Uscite = new Chart(document.getElementById('Uscite'), {
             type: 'line',
@@ -185,11 +201,6 @@ $_SESSION['ultimaPage'] = "finanziaria";
                     }
                 }
             }
-        });
-        const Torta = new Chart(document.getElementById('Torta'), {
-            type: 'doughnut',
-            data: dataTorta,
-            options: {}
         });
     </script>
 </body>

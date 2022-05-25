@@ -46,7 +46,7 @@
         </div>
     </div>
 </div>
-<!--Elimina-->
+<!--Elimina Galleria-->
 <div class="modal fade" id="elimina" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -67,7 +67,7 @@
         </div>
     </div>
 </div>
-<!--Elimina-->
+<!--Elimina News-->
 <div class="modal fade" id="eliminaNews" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
