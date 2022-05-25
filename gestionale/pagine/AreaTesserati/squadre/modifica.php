@@ -262,11 +262,17 @@ try {
                 <div class="row">
                     <div class="col-sm-6">
                         <label class="text-dark font-weight-bold">Da Pagare</label>
-                        <input type='currency' name="daPagare" placeholder='Type a number & click outside' value="<?php echo $daPagare ?>,00  €" class="form-control form-control-sm mb-2" />
+                        <input type='text' id="daPagare" name="daPagare" placeholder='Type a number & click outside' value="<?php echo $daPagare ?>,00 €" class="form-control form-control-sm mb-2" readonly />
+                        <button type="button" onclick="aggiungiPagare()" class="btn btn-secondary btn-sm d-inline mb-2"> +</button>
+                        <button type="button" onclick="sottraiPagare()" class="btn btn-secondary btn-sm d-inline mb-2"> -</button>
+                        <input type='currency' id="AggdaPagare" name="AggdaPagare" value="00,00 €" style class="form-control form-control-sm mb-2 d-inline" />
                     </div>
                     <div class="col-sm-6">
                         <label class="text-dark font-weight-bold">Pagato</label>
-                        <input type='currency' name="pagato" placeholder='Type a number & click outside' value="<?php echo $pagato ?>,00  €" class="form-control form-control-sm mb-2" />
+                        <input type='text' name="pagato" id="pagato" placeholder='Type a number & click outside' value="<?php echo $pagato ?>,00 €" class="form-control form-control-sm mb-2" readonly />
+                        <button type="button" onclick="aggiungiPagato()" class="btn btn-secondary btn-sm d-inline mb-2"> +</button>
+                        <button type="button" onclick="sottraiPagato()" class="btn btn-secondary btn-sm d-inline mb-2"> -</button>
+                        <input type='currency' id="AggPagato" name="AggPagato" value="00,00 €" style class="form-control form-control-sm mb-2 d-inline" />
                     </div>
                 </div>
             </div>
@@ -359,5 +365,89 @@ try {
         e.target.value = (value || value === 0) ?
             localStringToNumber(value).toLocaleString(undefined, options) :
             ''
+    }
+    //aggiungi sottrai pagato dapagare
+    function aggiungiPagare() {
+        var num = $('#AggdaPagare').val();
+        num = num.replace(".", "");
+        var num = num.split(',', 1)[0]
+        num = parseInt(num)
+
+        var daPagare = $('#daPagare').val();
+        daPagare = daPagare.replace(".", "");
+        var daPagare = daPagare.split(',', 1)[0]
+        daPagare = parseInt(daPagare)
+
+        ris = num + daPagare;
+        $('#daPagare').val(ris + ",00 €");
+        $('#AggdaPagare').val("00,00 €");
+    }
+
+    function aggiungiPagato() {
+
+        var num = $('#AggPagato').val();
+        num = num.replace(".", "");
+        var num = num.split(',', 1)[0]
+        num = parseInt(num)
+
+        var pagato = $('#pagato').val();
+        pagato = pagato.replace(".", "");
+        var pagato = pagato.split(',', 1)[0]
+        pagato = parseInt(pagato)
+
+        ris = num + pagato;
+        $('#pagato').val(ris + ",00 €");
+        $('#AggPagato').val("00,00 €");
+        var pagare = $('#daPagare').val();
+        pagare = pagare.replace(".", "");
+        var pagare = pagare.split(',', 1)[0]
+        pagare = parseInt(pagare);
+
+        ris = pagare - num;
+        $('#daPagare').val(ris + ",00 €");
+
+    }
+
+    function sottraiPagato() {
+
+        var num = $('#AggPagato').val();
+        num = num.replace(".", "");
+        var num = num.split(',', 1)[0]
+        num = parseInt(num)
+
+        var pagato = $('#pagato').val();
+        pagato = pagato.replace(".", "");
+        var pagato = pagato.split(',', 1)[0]
+        pagato = parseInt(pagato)
+
+        ris = pagato - num;
+        $('#pagato').val(ris + ",00 €");
+        $('#AggPagato').val("00,00 €");
+
+        var pagare = $('#daPagare').val();
+        pagare = pagare.replace(".", "");
+        var pagare = pagare.split(',', 1)[0]
+        pagare = parseInt(pagare);
+
+        ris = pagare + num;
+        $('#daPagare').val(ris + ",00 €");
+
+    }
+
+
+    function sottraiPagare() {
+        var num = $('#AggdaPagare').val();
+        num = num.replace(".", "");
+        var num = num.split(',', 1)[0]
+        num = parseInt(num)
+
+        var daPagare = $('#daPagare').val();
+        daPagare = daPagare.replace(".", "");
+        var daPagare = daPagare.split(',', 1)[0]
+        daPagare = parseInt(daPagare)
+
+        ris = daPagare - num;
+        $('#daPagare').val(ris + ",00 €");
+        $('#AggdaPagare').val("00,00 €");
     }
 </script>

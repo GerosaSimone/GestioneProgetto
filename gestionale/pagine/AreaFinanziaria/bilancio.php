@@ -52,7 +52,7 @@ $_SESSION['ultimaPage'] = "finanziaria";
                 label: 'Entrate Giornaliere',
                 backgroundColor: 'green',
                 borderColor: 'green',
-                data: [0, 12, 5, 2, 5, 30, 5],
+                data: [0, 90, 5, 2, 5, 30, 5],
             }]
         };
         const dataUscite = {
