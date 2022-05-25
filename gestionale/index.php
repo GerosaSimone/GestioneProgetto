@@ -27,7 +27,7 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
     <!--CARICAMENTO!-->
-    <div class="loader-wrapper">
+    <div class="loader-wrapper" >
         <span class="loader"><span class="loader-inner"></span></span>
     </div>
     <!--CONTENUTO!-->
@@ -55,7 +55,8 @@ if (!isset($_SESSION['user_id'])) {
     <script>
         $(window).on("load", function() {
             $(".loader-wrapper").fadeOut(1000);
-        });
+        });       
+
         $(function() {
             $("#sidebar").load("menu.html");
         });

@@ -74,17 +74,19 @@ $_SESSION['ultimaPage'] = "finanziaria";
         };
         const dataTorta = {
             labels: [
-                'Red',
-                'Blue',
-                'Yellow'
+                'Prima Squadra',
+                'Juniores',
+                'Allievi',
+                'Giovanissimi'
             ],
             datasets: [{
-                label: 'My First Dataset',
-                data: [300, 50, 100],
+                label: 'Entrate Squadre',
+                data: [300, 50, 100,79],
                 backgroundColor: [
                     'rgb(255, 99, 132)',
                     'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)'
+                    'rgb(255, 205, 86)',
+                    'rgb(124,252,0)'
                 ],
                 hoverOffset: 4
             }]
