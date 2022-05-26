@@ -5,7 +5,50 @@ if (!isset($_SESSION['user_id'])) {
 }
 require_once '../../config.php';
 $_SESSION['ultimaPage'] = "finanziaria";
+
+
+$entrateEffettive = 0;
+$sql = "SELECT sum(pagato) as somma FROM tesserato WHERE tesserato.tipo='0'";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $entrateEffettive = $row['somma'];
+    }
+}
+$entrateIpotetiche = 0;
+$sql = "SELECT sum(daPagare) as somma FROM tesserato WHERE tesserato.tipo='0'";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $entrateIpotetiche = $row['somma'];
+    }
+}
+$entrateSponsor = 0;
+$sql = "SELECT sum(entrata) as merda FROM sponsor ";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $entrateSponsor = $row['merda'];
+    }
+}
+$uscita1 = 0;
+$uscita2 = 0;
+$sql = "SELECT sum(prezzoTotale) as temp FROM `acquistimagazzino`";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $uscita1 = $row['temp'];
+    }
+}
+$sql = "SELECT sum(prezzo) as temp FROM `acquistimateriale`";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $uscita2 = $row['temp'];
+    }
+}
 ?>
+
 
 <body>
     <header class="text-center mb-2">
@@ -17,7 +60,7 @@ $_SESSION['ultimaPage'] = "finanziaria";
                 <div class="alert alert-light border text-center" role="alert">
                     <h3 class="alert-heading text-dark font-weight-bold">Entrate Effettive</h3>
                     <hr>
-                    <h5 class="text-muted">+ 50,00 €</h5>
+                    <h5 class="text-muted">+ <?php echo $entrateEffettive ?>,00 €</h5>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped bg-success" style="width: 100%"></div>
                     </div>
@@ -27,7 +70,7 @@ $_SESSION['ultimaPage'] = "finanziaria";
                 <div class="alert alert-light border text-center" role="alert">
                     <h3 class="alert-heading text-dark font-weight-bold">Entrate Ipotetiche</h3>
                     <hr>
-                    <h5 class="text-muted">+ 75,00 €</h5>
+                    <h5 class="text-muted">+ <?php echo $entrateIpotetiche ?>,00 €</h5>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped bg-info" style="width: 100%"></div>
                     </div>
@@ -37,7 +80,7 @@ $_SESSION['ultimaPage'] = "finanziaria";
                 <div class="alert alert-light border text-center" role="alert">
                     <h3 class="alert-heading text-dark font-weight-bold">Entrate Sponsor</h3>
                     <hr>
-                    <h5 class="text-muted">+ 90,50 €</h5>
+                    <h5 class="text-muted">+ <?php echo $entrateSponsor ?>,00 €</h5>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped bg-warning" style="width: 100%"></div>
                     </div>
@@ -47,7 +90,7 @@ $_SESSION['ultimaPage'] = "finanziaria";
                 <div class="alert alert-light border text-center" role="alert">
                     <h3 class="alert-heading text-dark font-weight-bold">Uscite</h3>
                     <hr>
-                    <h5 class="text-muted">- 900,00 €</h5>
+                    <h5 class="text-muted">+ <?php echo $uscita1 + $uscita2 ?>,00 €</h5>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped bg-danger" style="width: 100%"></div>
                     </div>
@@ -67,9 +110,7 @@ $_SESSION['ultimaPage'] = "finanziaria";
             </div>
         </div>
 
-
         <?php
-        //Squadre
         $sql = "SELECT SUM(tesserato.daPagare) AS totale FROM tesserato WHERE tesserato.tipo=0 AND tesserato.idCategoria=1 GROUP BY tesserato.idCategoria";
         $result = mysqli_query($link, $sql);
         if (mysqli_num_rows($result) > 0) {
@@ -134,8 +175,6 @@ $_SESSION['ultimaPage'] = "finanziaria";
         } else
             $piccoli = 0;
         ?>
-        ?>
-
     </div>
 
     <script>

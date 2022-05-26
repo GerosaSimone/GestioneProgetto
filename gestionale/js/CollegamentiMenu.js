@@ -102,6 +102,14 @@ $(document).ready(function () {
         });
         $(document).scrollTop(0);
     });
+    $(document).on('click', "#acquistiDirigenza", function () {
+        $.post("pagine/AreaShop/acquistiDirigenza.php", true, function (data, status) {
+            $("#pagina").html(data);
+            $(".loader-wrapper").fadeIn(0);
+            $(".loader-wrapper").fadeOut(1000);
+        });
+        $(document).scrollTop(0);
+    });
 
     //AREA FINANZIARIA
     $(document).on('click', "#bilancio", function () {
@@ -110,7 +118,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        
+        location.reload();
     });
     //AREA SPONSOR
     $(document).on('click', "#sponsor", function () {
@@ -119,7 +127,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        
+
     });
 
     //AREA MAGAZZINO

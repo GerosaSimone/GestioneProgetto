@@ -6,14 +6,6 @@ if (!isset($_SESSION['user_id'])) {
 $_SESSION['ultimaPage'] = "acquistiSocieta";
 require_once '../../config.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Document</title>
-</head>
-
 <body>
     <div class="page-header clearfix text-center">
         <h1 class="display-5 font-weight-bold">Acquisti Societa</h1>
@@ -21,15 +13,15 @@ require_once '../../config.php';
     <div class="container">
         <div class="row">
             <div class="col-6" style="padding-left:0.5% !important; padding-right:0.5% !important;">
-                <?php include 'tabellaAcquisti.php'; ?>
+                <?php include 'tabelle/tabellaAcquisti.php'; ?>
             </div>
             <div class="col-6" style="padding-left:0.5% !important; padding-right:0.5% !important;">
-                <?php include 'tabellaMateriale.php'; ?>
+                <?php include 'tabelle/tabellaMateriale.php'; ?>
             </div>
         </div>
     </div>
     <div>
-        <?php include 'modal.php'; ?>
+        <?php include 'modal/modal.php'; ?>
     </div>
 
     <script>

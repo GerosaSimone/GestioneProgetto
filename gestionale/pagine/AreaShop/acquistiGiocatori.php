@@ -19,9 +19,11 @@ require_once '../../config.php';
         <h1 class="display-5 font-weight-bold">Acquisti dei Giocatori</h1>
     </div>
     <div>
-        <?php include 'modal.php'; ?>
+        <?php include 'tabelle/tabellaAcquistiGiocatori.php'; ?>
     </div>
-    <?php include 'tabellaAcquistiGiocatori.php'; ?>
+    <div>
+        <?php include 'modal/modal.php'; ?>
+    </div>
     <script>
         jQuery(document).ready(function($) {
             $(document).ready(function() {
@@ -31,7 +33,7 @@ require_once '../../config.php';
                     ordering: true,
                     info: false
                 });
-            });            
+            });
             var elimina = document.getElementById('eliminaAcquisto')
             elimina.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget

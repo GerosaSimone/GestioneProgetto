@@ -13,7 +13,10 @@ $giorni = array("", "");
 $orariInizio = array("", "");
 $orariFine = array("", "");
 
-$sql = "SELECT oraInizio ,oraFine ,giorno FROM allenamento INNER JOIN categoria on allenamento.idCategoria=categoria.id WHERE categoria.nome='" . $_GET['squadra'] . "'";
+$sql = "SELECT oraInizio ,oraFine ,giorno 
+        FROM allenamento 
+        INNER JOIN categoria on allenamento.idCategoria=categoria.id 
+        WHERE categoria.nome='" . $_GET['squadra'] . "'";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) == 2) {
         $row = mysqli_fetch_array($result);
@@ -42,7 +45,7 @@ if ($result = mysqli_query($link, $sql)) {
         </button>
     </h4>
     <hr>
-    <p >Num Pettorine: <?php echo $numPettorine ?></p>
+    <p>Num Pettorine: <?php echo $numPettorine ?></p>
     <p class=" mb-0">Num Palloni: <?php echo $numPalloni ?></p>
 </div>
 <div class="alert alert-secondary ml-3" role="alert" style="min-width:300px">
@@ -55,16 +58,12 @@ if ($result = mysqli_query($link, $sql)) {
     </h4>
     <hr>
     <?php
-    if ($giorni[0] != "") {
+    if ($giorni[0] != "")
         echo "<p>" . $giorni[0] . " " . $orariInizio[0] . " | " . $orariFine[0] . "</p>";
-    }
-    if ($giorni[1] != "") {
+    if ($giorni[1] != "")
         echo "<p>" . $giorni[1] . " " . $orariInizio[1] . " | " . $orariFine[1] . "</p>";
-    }
-
-    if ($giorni[1] == "" && $giorni[0] == "") {
+    if ($giorni[1] == "" && $giorni[0] == "")
         echo "<p> Nessun Allenamento Salvato </p>";
-    }
     ?>
     <p style="margin-bottom:-5%"></p>
 </div>
@@ -78,7 +77,7 @@ if ($result = mysqli_query($link, $sql)) {
     </h4>
     <hr>
     <div class="row" style="margin-left:0.1%; margin-right:0.1%; min-height:90px; max-height:90px">
-        <?php $sql = "  SELECT maglia.foto
+        <?php $sql = "SELECT maglia.foto
                     FROM `maglia` inner JOIN usa on maglia.id=usa.idMaglia 
                     INNER JOIN categoria on usa.idCategoria=categoria.id
                     WHERE categoria.nome='" . $_GET['squadra'] . "'";

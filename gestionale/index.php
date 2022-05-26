@@ -16,8 +16,8 @@ if (!isset($_SESSION['user_id'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/table.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- jQuery UI -->
@@ -27,7 +27,7 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
     <!--CARICAMENTO!-->
-    <div class="loader-wrapper" >
+    <div class="loader-wrapper">
         <span class="loader"><span class="loader-inner"></span></span>
     </div>
     <!--CONTENUTO!-->
@@ -51,12 +51,10 @@ if (!isset($_SESSION['user_id'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script>
         $(window).on("load", function() {
             $(".loader-wrapper").fadeOut(1000);
-        });       
-
+        });
         $(function() {
             $("#sidebar").load("menu.html");
         });
@@ -81,6 +79,8 @@ if (!isset($_SESSION['user_id'])) {
             $("#pagina").load("pagine/AreaShop/articoli.php");
         } else if (a == "acquistiGiocatori") {
             $("#pagina").load("pagine/AreaShop/acquistiGiocatori.php");
+        } else if (a == "acquistiDirigenza") {
+            $("#pagina").load("pagine/AreaShop/acquistiDirigenza.php");
         } else if (a == "galleria") {
             $("#pagina").load("pagine/AreaSito/galleria.php");
         } else if (a == "news") {
@@ -89,11 +89,10 @@ if (!isset($_SESSION['user_id'])) {
             $("#pagina").load("pagine/AreaFinanziaria/bilancio.php");
         } else if (a == "sponsor") {
             $("#pagina").load("pagine/AreaSponsor/sponsor.php");
-        }else if (a == "home") {
+        } else if (a == "home") {
             $("#pagina").load("pagine/home.php");
         }
     </script>
-
 </body>
 
 </html>

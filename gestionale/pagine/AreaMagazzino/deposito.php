@@ -24,30 +24,56 @@ require_once '../../config.php';
         <div class="ml-3 row ">
             <div class="col-6 ">
                 <?php
-                include "tabellaMagazzino.php"
+                include "tabelle/tabellaMagazzino.php"
                 ?>
             </div>
             <div class="col-6">
                 <?php
-                include "tabellaGenerico.php"
+                include "tabelle/tabellaGenerico.php"
                 ?>
             </div>
         </div>
     </div>
 
     <div>
-        <?php include "modal.php"; ?>
+        <?php include "modal/modal.php"; ?>
     </div>
 
     <script>
-        var modificaProdotto = document.getElementById('modificaProdotto')
-        modificaProdotto.addEventListener('show.bs.modal', function(event) {
-            var button = event.relatedTarget
-            var id = button.getAttribute('data-bs-whatever')
-            $.post("pagine/AreaShop/modifica.php?idProdotto=" + id, true, function(data, status) {
-                $("#modalModifica").html(data);
+        //VISUALIZZA
+        function apriModal(div) {
+            $('#visualizzaDeposito').modal('show');
+            var recipient = div.getAttribute('data-bs-whatever');
+            $.post("pagine/AreaMagazzino/modal/visualizza.php", {
+                id: recipient
+            }, function(data, status) {
+                $("#modalVisualizzaDeposito").html(data);
+            });
+        }
+
+        function apriModalGenerico(div) {
+            $('#visualizzaGenerico').modal('show');
+            var recipient = div.getAttribute('data-bs-whatever');
+            $.post("pagine/AreaMagazzino/modal/visualizzaGenerico.php", {
+                id: recipient
+            }, function(data, status) {
+                $("#modalVisualizzaGenerico").html(data);
+            });
+        }
+        //AGGIUNGI
+        var addProdotto = document.getElementById('addProdotto')
+        addProdotto.addEventListener('show.bs.modal', function(event) {
+            $.post("pagine/AreaShop/modal/aggiungi.php", true, function(data, status) {
+                $("#modalAggiungi").html(data);
             });
         });
+        var addGenerico = document.getElementById('addGenerico')
+        addGenerico.addEventListener('show.bs.modal', function(event) {
+            $.post("pagine/AreaMagazzino/modal/aggiungiGenerico.php", true, function(data, status) {
+                $("#modalGenerico").html(data);
+            });
+        });
+        //ELIMINA
         var eliminaProdotto = document.getElementById('eliminaProdotto')
         eliminaProdotto.addEventListener('show.bs.modal', function(event) {
             var button = event.relatedTarget
@@ -60,45 +86,23 @@ require_once '../../config.php';
             var recipient = button.getAttribute('data-bs-whatever')
             document.getElementById("idEliminaGenerico").value = recipient;
         });
-        var addProdotto = document.getElementById('addProdotto')
-        addProdotto.addEventListener('show.bs.modal', function(event) {
-            $.post("pagine/AreaShop/aggiungi.php", true, function(data, status) {
-                $("#modalAggiungi").html(data);
-            });
-        });
-        var addGenerico = document.getElementById('addGenerico')
-        addGenerico.addEventListener('show.bs.modal', function(event) {
-            $.post("pagine/AreaMagazzino/aggiungiGenerico.php", true, function(data, status) {
-                $("#modalGenerico").html(data);
-            });
-        });
+        //ACQUISTA
         var buyDeposito = document.getElementById('buyDeposito')
         buyDeposito.addEventListener('show.bs.modal', function(event) {
             var button = event.relatedTarget
             var recipient = button.getAttribute('data-bs-whatever')
-            $.post("pagine/AreaMagazzino/acquista.php?idProdotto=" + recipient, true, function(data, status) {
+            $.post("pagine/AreaMagazzino/modal/acquista.php?idProdotto=" + recipient, true, function(data, status) {
                 $("#modalAcquista").html(data);
             });
         });
-
-        function apriModal(div) {
-            $('#visualizzaDeposito').modal('show');
-            var recipient = div.getAttribute('data-bs-whatever');
-            $.post("pagine/AreaMagazzino/visualizza.php", {
-                id: recipient
-            }, function(data, status) {
-                $("#modalVisualizzaDeposito").html(data);
+        //MODIFICA
+        var modificaProdotto = document.getElementById('modificaProdotto')
+        modificaProdotto.addEventListener('show.bs.modal', function(event) {
+            var button = event.relatedTarget
+            var id = button.getAttribute('data-bs-whatever')
+            $.post("pagine/AreaShop/modifica.php?idProdotto=" + id, true, function(data, status) {
+                $("#modalModifica").html(data);
             });
-        }
-
-        function apriModalGenerico(div) {
-            $('#visualizzaGenerico').modal('show');
-            var recipient = div.getAttribute('data-bs-whatever');
-            $.post("pagine/AreaMagazzino/visualizzaGenerico.php", {
-                id: recipient
-            }, function(data, status) {
-                $("#modalVisualizzaGenerico").html(data);
-            });
-        }
+        });
     </script>
 </body>

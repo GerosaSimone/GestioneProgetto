@@ -5,9 +5,34 @@ if (!isset($_SESSION['user_id'])) {
 }
 require_once '../../../config.php';
 $_SESSION['ultimaPage'] = "giocatori";
+
+//controllo se si devono eliminare telefoni o mail
+$sql = "SELECT telefono.id,telefono.telefono FROM telefono";
+$query = "";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            if ($row['telefono'] == "") {
+                $query .= "DELETE FROM `telefono` WHERE id='" . $row['id'] . "';";
+            }
+        }
+    }
+}
+$sql = "SELECT mail.id,mail.mail FROM mail";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            if ($row['mail'] == "") {
+                $query .= "DELETE FROM `mail` WHERE id='" . $row['id'] . "';";
+            }
+        }
+    }
+}
+if ($query != "")
+    mysqli_multi_query($link, $query);
 ?>
 
-<body style="background-color: rgba(250, 250, 250, 255)">
+<body>
     <script>
         $(window).on("load", function() {
             $(".loader-wrapper").fadeOut("slow");
@@ -23,9 +48,9 @@ $_SESSION['ultimaPage'] = "giocatori";
         </strong>
     </div>
     <div>
-        <?php include 'modal.php'; ?>
+        <?php include 'modal/modal.php'; ?>
     </div>
-    <?php include 'tabellaGiocatori.php'; ?>
+    <?php include '../tabelle/tabellaGiocatori.php'; ?>
     <script>
         jQuery(document).ready(function($) {
             $(document).ready(function() {
@@ -40,7 +65,7 @@ $_SESSION['ultimaPage'] = "giocatori";
             visualizza.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
-                $.post("pagine/AreaTesserati/giocatori/visualizza.php?idTesserato=" + id, true, function(data, status) {
+                $.post("pagine/AreaTesserati/giocatori/modal/visualizza.php?idTesserato=" + id, true, function(data, status) {
                     $("#modalVisualizza").html(data);
                 });
             });
@@ -48,13 +73,13 @@ $_SESSION['ultimaPage'] = "giocatori";
             modifica.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
-                $.post("pagine/AreaTesserati/giocatori/modifica.php?idTesserato=" + id, true, function(data, status) {
+                $.post("pagine/AreaTesserati/giocatori/modal/modifica.php?idTesserato=" + id, true, function(data, status) {
                     $("#modalModifica").html(data);
                 });
             });
             var addGiocatore = document.getElementById('addGiocatore')
             addGiocatore.addEventListener('show.bs.modal', function(event) {
-                $.post("pagine/AreaTesserati/giocatori/aggiungi.php", true, function(data, status) {
+                $.post("pagine/AreaTesserati/giocatori/modal/aggiungi.php", true, function(data, status) {
                     $("#modalAggiungi").html(data);
                 });
             });
@@ -62,7 +87,7 @@ $_SESSION['ultimaPage'] = "giocatori";
             acquistaProdotto.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
-                $.post("pagine/AreaTesserati/giocatori/acquista.php?idTesserato=" + id, true, function(data, status) {
+                $.post("pagine/AreaTesserati/giocatori/modal/acquista.php?idTesserato=" + id, true, function(data, status) {
                     $("#modalAcquista").html(data);
                 });
             });

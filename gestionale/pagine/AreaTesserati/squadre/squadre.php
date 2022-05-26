@@ -13,6 +13,33 @@ else {
     $squadra = $_GET['squadra'];
 }
 $_SESSION['ultimaPage'] = $_GET['squadra'];
+//controllo se si devono eliminare telefoni o mail
+try {
+    $sql = "SELECT telefono.id,telefono.telefono FROM telefono";
+    $query = "";
+    if ($result = mysqli_query($link, $sql)) {
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_array($result)) {
+                if ($row['telefono'] == "") {
+                    $query .= "DELETE FROM `telefono` WHERE id='" . $row['id'] . "';";
+                }
+            }
+        }
+    }
+    $sql = "SELECT mail.id,mail.mail FROM mail";
+    if ($result = mysqli_query($link, $sql)) {
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_array($result)) {
+                if ($row['mail'] == "") {
+                    $query .= "DELETE FROM `mail` WHERE id='" . $row['id'] . "';";
+                }
+            }
+        }
+    }
+    if ($query != "")
+        mysqli_multi_query($link, $query);
+} catch (Exception $e) {
+}
 ?>
 <html>
 <div class="page-header clearfix mt-5">
@@ -23,21 +50,20 @@ $_SESSION['ultimaPage'] = $_GET['squadra'];
     </div>
 </div>
 
-<body style="background-color: rgba(250, 250, 250, 255)">
+<body>
     <div class="contenitore">
         <div class="row">
             <div class="col-sm-9 border-right" style="min-width:875px">
-                <?php include 'tabellaDirigenza.php'; ?>
-                <?php include 'tabellaGiocatori.php'; ?>
+                <?php include '../tabelle/tabellaDirigenzaSquadre.php'; ?>
+                <?php include '../tabelle/tabellaGiocatoriSquadre.php'; ?>
             </div>
             <div class="col-sm-3">
                 <?php include 'extra.php' ?>
             </div>
         </div>
     </div>
-
     <div>
-        <?php include 'modal.php'; ?>
+        <?php include 'modal/modal.php'; ?>
     </div>
 
     <script>
@@ -50,47 +76,25 @@ $_SESSION['ultimaPage'] = $_GET['squadra'];
                     info: false
                 });
             });
+            //AGGIUNGI
             var addDirigente = document.getElementById('addDirigente')
             addDirigente.addEventListener('show.bs.modal', function(event) {
-                $.post("pagine/AreaTesserati/squadre/aggiungiDirigente.php?squadra=<?php echo $_GET['squadra']; ?>", true, function(data, status) {
+                $.post("pagine/AreaTesserati/squadre/modal/aggiungiDirigente.php?squadra=<?php echo $_GET['squadra']; ?>", true, function(data, status) {
                     $("#modalAggiungiDirigente").html(data);
                 });
             });
+            var addGiocatore = document.getElementById('addGiocatore')
+            addGiocatore.addEventListener('show.bs.modal', function(event) {
+                $.post("pagine/AreaTesserati/squadre/modal/aggiungi.php?squadra=<?php echo $_GET['squadra']; ?>", true, function(data, status) {
+                    $("#modalAggiungi").html(data);
+                });
+            });
+            //ELIMINA
             var eliminaDirigente = document.getElementById('eliminaDirigente')
             eliminaDirigente.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var recipient = button.getAttribute('data-bs-whatever')
                 document.getElementById("idEliminaDirigente").value = recipient;
-            });
-            var visualizzaDirigente = document.getElementById('visualizzaDirigente')
-            visualizzaDirigente.addEventListener('show.bs.modal', function(event) {
-                var button = event.relatedTarget
-                var id = button.getAttribute('data-bs-whatever')
-                $.post("pagine/AreaTesserati/squadre/visualizzaDirigente.php?idTesserato=" + id, true, function(data, status) {
-                    $("#modalVisualizzaDirigente").html(data);
-                });
-            });
-            var modificaDirigente = document.getElementById('modificaDirigente')
-            modificaDirigente.addEventListener('show.bs.modal', function(event) {
-                var button = event.relatedTarget
-                var id = button.getAttribute('data-bs-whatever')
-                $.post("pagine/AreaTesserati/squadre/modificaDirigente.php?idTesserato=" + id + "&squadra=<?php echo $_GET['squadra']; ?>", true, function(data, status) {
-                    $("#modalModificaDirigente").html(data);
-                });
-            });
-            var visualizza = document.getElementById('visualizzaGiocatore')
-            visualizza.addEventListener('show.bs.modal', function(event) {
-                var button = event.relatedTarget
-                var id = button.getAttribute('data-bs-whatever')
-                $.post("pagine/AreaTesserati/squadre/visualizza.php?idTesserato=" + id, true, function(data, status) {
-                    $("#modalVisualizza").html(data);
-                });
-            });
-            var addGiocatore = document.getElementById('addGiocatore')
-            addGiocatore.addEventListener('show.bs.modal', function(event) {
-                $.post("pagine/AreaTesserati/squadre/aggiungi.php?squadra=<?php echo $_GET['squadra']; ?>", true, function(data, status) {
-                    $("#modalAggiungi").html(data);
-                });
             });
             var elimina = document.getElementById('elimina')
             elimina.addEventListener('show.bs.modal', function(event) {
@@ -98,19 +102,46 @@ $_SESSION['ultimaPage'] = $_GET['squadra'];
                 var recipient = button.getAttribute('data-bs-whatever')
                 document.getElementById("idElimina").value = recipient;
             });
+            //VISUALIZZA
+            var visualizzaDirigente = document.getElementById('visualizzaDirigente')
+            visualizzaDirigente.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget
+                var id = button.getAttribute('data-bs-whatever')
+                $.post("pagine/AreaTesserati/squadre/modal/visualizzaDirigente.php?idTesserato=" + id, true, function(data, status) {
+                    $("#modalVisualizzaDirigente").html(data);
+                });
+            });
+            var visualizza = document.getElementById('visualizzaGiocatore')
+            visualizza.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget
+                var id = button.getAttribute('data-bs-whatever')
+                $.post("pagine/AreaTesserati/squadre/modal/visualizza.php?idTesserato=" + id, true, function(data, status) {
+                    $("#modalVisualizza").html(data);
+                });
+            });
+            //MODIFICA
+            var modificaDirigente = document.getElementById('modificaDirigente')
+            modificaDirigente.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget
+                var id = button.getAttribute('data-bs-whatever')
+                $.post("pagine/AreaTesserati/squadre/modal/modificaDirigente.php?idTesserato=" + id + "&squadra=<?php echo $_GET['squadra']; ?>", true, function(data, status) {
+                    $("#modalModificaDirigente").html(data);
+                });
+            });
             var modifica = document.getElementById('modifica')
             modifica.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
-                $.post("pagine/AreaTesserati/squadre/modifica.php?idTesserato=" + id + "&squadra=<?php echo $_GET['squadra']; ?>", true, function(data, status) {
+                $.post("pagine/AreaTesserati/squadre/modal/modifica.php?idTesserato=" + id + "&squadra=<?php echo $_GET['squadra']; ?>", true, function(data, status) {
                     $("#modalModifica").html(data);
                 });
             });
+            //ACQUISTA
             var acquistaProdotto = document.getElementById('acquistaProdotto')
             acquistaProdotto.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
-                $.post("pagine/AreaTesserati/giocatori/acquista.php?idTesserato=" + id, true, function(data, status) {
+                $.post("pagine/AreaTesserati/giocatori/modal/acquista.php?idTesserato=" + id, true, function(data, status) {
                     $("#modalAcquista").html(data);
                 });
             });

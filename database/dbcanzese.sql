@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 25, 2022 alle 22:58
+-- Creato il: Mag 26, 2022 alle 21:08
 -- Versione del server: 10.4.24-MariaDB
 -- Versione PHP: 8.1.6
 
@@ -35,6 +35,16 @@ CREATE TABLE `acquistigiocatori` (
   `dataAcquisto` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dump dei dati per la tabella `acquistigiocatori`
+--
+
+INSERT INTO `acquistigiocatori` (`id`, `idTesserato`, `idProdotto`, `taglia`, `dataAcquisto`) VALUES
+(16, 159, 1, 'M', '2022-05-26'),
+(22, 163, 2, 'S', '2022-05-26'),
+(23, 164, 2, 'L', '2022-05-26'),
+(24, 163, 2, 'M', '2022-05-26');
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +58,16 @@ CREATE TABLE `acquistimagazzino` (
   `prezzototale` int(11) NOT NULL,
   `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `acquistimagazzino`
+--
+
+INSERT INTO `acquistimagazzino` (`id`, `idMagazzino`, `quantita`, `prezzototale`, `data`) VALUES
+(82, 188, 12, 0, '2022-05-26'),
+(83, 189, 2, 0, '2022-05-26'),
+(84, 190, 34, 0, '2022-05-26'),
+(85, 192, 54, 0, '2022-05-26');
 
 -- --------------------------------------------------------
 
@@ -65,6 +85,13 @@ CREATE TABLE `acquistimateriale` (
   `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dump dei dati per la tabella `acquistimateriale`
+--
+
+INSERT INTO `acquistimateriale` (`id`, `nome`, `descrizione`, `quantita`, `prezzo`, `foto`, `data`) VALUES
+(28, 'dbdfb', 'dfbdfbdf', 1, 124, 'fotoGenerico1.jpg', '2022-05-26');
+
 -- --------------------------------------------------------
 
 --
@@ -78,6 +105,14 @@ CREATE TABLE `allenamento` (
   `giorno` varchar(32) NOT NULL,
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `allenamento`
+--
+
+INSERT INTO `allenamento` (`id`, `oraInizio`, `oraFine`, `giorno`, `idCategoria`) VALUES
+(11, '22:00', '22:00', 'Venerdi', 1),
+(22, '20:00', '11:00', 'Martedi', 1);
 
 -- --------------------------------------------------------
 
@@ -98,7 +133,7 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`id`, `nome`, `palloni`, `pettorine`, `linkFotoSquadra`) VALUES
-(1, 'PrimaSquadra', 0, 0, ''),
+(1, 'PrimaSquadra', 0, 111, ''),
 (2, 'Juniores', 0, 0, ''),
 (3, 'Allievi', 0, 0, ''),
 (4, 'Giovanissimi', 0, 0, ''),
@@ -118,6 +153,13 @@ CREATE TABLE `galleria` (
   `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dump dei dati per la tabella `galleria`
+--
+
+INSERT INTO `galleria` (`id`, `titolo`, `foto`) VALUES
+(29, '1', 'fotoGalleria1.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -132,6 +174,22 @@ CREATE TABLE `magazzino` (
   `nascosto` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dump dei dati per la tabella `magazzino`
+--
+
+INSERT INTO `magazzino` (`id`, `idProdotto`, `quantita`, `taglia`, `nascosto`) VALUES
+(183, 1, 0, 'XXS', 1),
+(184, 1, 12, 'XS', 1),
+(185, 1, 0, 'S', 1),
+(186, 1, 11, 'M', 1),
+(187, 1, 14, 'L', 1),
+(188, 2, 12, 'XXS', 0),
+(189, 2, 2, 'XS', 0),
+(190, 2, 33, 'S', 0),
+(191, 2, 11, 'M', 0),
+(192, 2, 12, 'L', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -144,6 +202,14 @@ CREATE TABLE `maglia` (
   `titolo` varchar(50) NOT NULL,
   `descrizione` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `maglia`
+--
+
+INSERT INTO `maglia` (`id`, `foto`, `titolo`, `descrizione`) VALUES
+(40, 'fotoDivisaPrimaSquadradfvdfbdfb.jpg', 'dfvdfbdfb', 'dfbdfbdf'),
+(41, 'fotoDivisaPrimaSquadrasfbdfb.jpg', 'sfbdfb', 'dfbdfb');
 
 -- --------------------------------------------------------
 
@@ -186,6 +252,14 @@ CREATE TABLE `prodotto` (
   `nascosto` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dump dei dati per la tabella `prodotto`
+--
+
+INSERT INTO `prodotto` (`id`, `nome`, `tipoTaglie`, `costoUnitario`, `foto`, `nascosto`) VALUES
+(1, 'bdgndfbndbndf', 0, 45, 'fotoProdotto1.jpg', 1),
+(2, 'dio cane', 0, 2456, 'fotoProdotto2.jpg', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -199,6 +273,13 @@ CREATE TABLE `sponsor` (
   `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dump dei dati per la tabella `sponsor`
+--
+
+INSERT INTO `sponsor` (`id`, `nome`, `entrata`, `data`) VALUES
+(6, 'asdasd', 23, '2022-05-26');
+
 -- --------------------------------------------------------
 
 --
@@ -211,6 +292,15 @@ CREATE TABLE `telefono` (
   `telefono` varchar(15) NOT NULL,
   `idTesserato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `telefono`
+--
+
+INSERT INTO `telefono` (`id`, `nome`, `telefono`, `idTesserato`) VALUES
+(39, 'mamma', '111111111111', 159),
+(41, 'mamma', '3390456712', 160),
+(44, 'mamma', '3390456712', 161);
 
 -- --------------------------------------------------------
 
@@ -238,6 +328,20 @@ CREATE TABLE `tesserato` (
   `nascosto` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dump dei dati per la tabella `tesserato`
+--
+
+INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `provincia`, `citta`, `linkFoto`, `daPagare`, `pagato`, `idCategoria`, `nascosto`) VALUES
+(158, 'asdfsdvsvbsdvsvd', 'dfbdbfd', 'fbdbdfb', '2022-05-04', 'sdvsv', 1, 'P', NULL, 'sdvsdvs', 'vs', 'dvsdvsd', 'fotoProfiloasdfsdvsvbsdvsvd.jpg', 0, 0, 2, 1),
+(159, 'bdfbdfbdbdfbdfbd', 'dfbdfb', 'dfbdfbdf', '2022-05-15', 'dfbdfbdfb', 0, 'N', NULL, 'dfbdf', 'df', 'dfbdfb', NULL, 135, 0, 3, 1),
+(160, 'dfbdfbdfbdfbdfbd', 'sdfsvbsfbdfbbbbbb', 'bdfbdfb', '2022-05-26', 'dbfdfbdf', 1, 'N', NULL, 'bdfb', 'bd', 'dbdff', NULL, 0, 0, 1, 1),
+(161, 'dfbdfbdfbdfbdfbd', 'bbbbbbbbb', 'dfbdfbdfb', '2022-05-28', 'dfbdfbd', 0, 'N', NULL, 'dfbdf', 'bd', 'bdfbdf', NULL, 0, 0, 1, 1),
+(162, 'nfgnfgdfgnbfgnfg', 'dfbdfb', 'sdvsdfbg', '2022-04-28', 'fgnfgn', 1, 'N', NULL, 'fgnfgnfg', 'fg', 'nfgnfgn', NULL, 0, 0, 1, 1),
+(163, 'fgbnfgnfgnfgnfgn', 'dfbdfbndf', 'nbdfndfn', '2022-04-29', 'fgnfnfgn', 1, 'N', NULL, 'fgn', 'nf', 'fgnfgn', 'fotoProfilofgbnfgnfgnfgnfgn.jpg', 4912, 0, 1, 0),
+(164, 'dfbndfbndfbdfbdf', 'dfbdfbn', 'dfnbdfn', '2022-05-12', 'sdfvbsdfb', 0, 'N', NULL, 'dfbdfb', 'df', 'dfbdfb', NULL, 2456, 0, 1, 0),
+(165, 'aaaaaaaaaaaaaaaa', 'aaaaaaa', 'aaaaaa', '2022-04-30', 'aaaaa', 0, 'N', NULL, 'Via Parini 6/b', 'aa', 'aaaaa', NULL, 10, 20, 2, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -248,6 +352,14 @@ CREATE TABLE `usa` (
   `idMaglia` int(11) NOT NULL,
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dump dei dati per la tabella `usa`
+--
+
+INSERT INTO `usa` (`idMaglia`, `idCategoria`) VALUES
+(40, 1),
+(41, 1);
 
 -- --------------------------------------------------------
 
@@ -408,25 +520,25 @@ ALTER TABLE `visita`
 -- AUTO_INCREMENT per la tabella `acquistigiocatori`
 --
 ALTER TABLE `acquistigiocatori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT per la tabella `acquistimagazzino`
 --
 ALTER TABLE `acquistimagazzino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT per la tabella `acquistimateriale`
 --
 ALTER TABLE `acquistimateriale`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT per la tabella `allenamento`
 --
 ALTER TABLE `allenamento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT per la tabella `categoria`
@@ -438,31 +550,31 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT per la tabella `galleria`
 --
 ALTER TABLE `galleria`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT per la tabella `magazzino`
 --
 ALTER TABLE `magazzino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=193;
 
 --
 -- AUTO_INCREMENT per la tabella `maglia`
 --
 ALTER TABLE `maglia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT per la tabella `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT per la tabella `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT per la tabella `prodotto`
@@ -474,19 +586,19 @@ ALTER TABLE `prodotto`
 -- AUTO_INCREMENT per la tabella `sponsor`
 --
 ALTER TABLE `sponsor`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`
@@ -498,7 +610,7 @@ ALTER TABLE `utenti`
 -- AUTO_INCREMENT per la tabella `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Limiti per le tabelle scaricate
