@@ -11949,9 +11949,10 @@ h5,
 
 #sidebar .logo {
     display: block;
-    width: 70px;
-    height: 100px;
+    width: 90%;
+    height: 100%;
     margin: 0 auto;
+    object-fit: cover;
 }
 
 #sidebar .logo span {
@@ -11994,9 +11995,56 @@ h5,
     color: rgb(33, 164, 245);
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 500.98px) {
+
+    .card, .rounded, .shadow-lg, .border-0 {
+        max-width: 50%;
+    }
+
+    .col-3 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: none;
+        min-width: 100%;
+    }
+
+    h1, .h1 {
+        font-size: 1.75rem;
+    }
+
+    h4, .h4 {
+        font-size: 1.25rem;
+    }
+
+    .mt-2, .my-2 {
+        margin-top: 0.75rem !important;
+    }
+
+    h3, .h3 {
+        font-size: 1.25rem;
+    }
+
+    .p-3 {
+        padding: 0.5rem !important;
+    }
+
+    .p-4 {
+        padding: 0.5rem !important;
+    }
+
+    #sidebar ul li>ul li {
+        font-size: 11px;
+    }
+
+    #sidebar ul li {
+        font-size: 13px;
+    }
+
     #sidebar {
-        margin-left: -300px;
+        margin-left: -50%;
+        max-width: 100%;
+        min-width: 50%;
     }
 
     #sidebar.active {
