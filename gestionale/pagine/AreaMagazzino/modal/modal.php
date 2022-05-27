@@ -103,6 +103,7 @@
         </div>
     </div>
 </div>
+
 <!--Modifica-->
 <div class="modal fade" id="modificaProdotto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modificaLabel" aria-hidden="true">
     <div class="modal-dialog">

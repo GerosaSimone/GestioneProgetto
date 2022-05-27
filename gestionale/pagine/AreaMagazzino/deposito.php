@@ -59,7 +59,7 @@ require_once '../../config.php';
             }, function(data, status) {
                 $("#modalVisualizzaGenerico").html(data);
             });
-        }
+        }       
         //AGGIUNGI
         var addProdotto = document.getElementById('addProdotto')
         addProdotto.addEventListener('show.bs.modal', function(event) {

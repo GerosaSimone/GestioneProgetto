@@ -50,9 +50,10 @@ try {
             $nome = $_POST['nome'];
             $descrizione = $_POST['descrizione'];
             $quantita = $_POST['quantita'];
+            $nascosto=$_POST['nascosto'];
             $costo = str_replace('.', '', strtok($_POST['costo'], ','));         
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                $sql = "INSERT INTO acquistimateriale (`nome`, `descrizione`, `quantita`, `prezzo`,foto,data) VALUES ('$nome', '$descrizione', '$quantita', '$costo','$titolo', '$dataAcquisto');";
+                $sql = "INSERT INTO acquistimateriale (`nome`, `descrizione`, `quantita`, `prezzo`,foto,data) VALUES ('$nome', '$descrizione', '$quantita', '$costo','$titolo', '$dataAcquisto','$nascosto');";
                 //echo $sql . "<br>";
                 mysqli_query($link, $sql);
             } else {
@@ -63,8 +64,9 @@ try {
         $nome = $_POST['nome'];
         $descrizione = $_POST['descrizione'];
         $quantita = $_POST['quantita'];
+        $nascosto=$_POST['nascosto'];
         $costo = str_replace('.', '', strtok($_POST['costo'], ','));        
-        $sql = "INSERT INTO acquistimateriale (`nome`, `descrizione`, `quantita`, `prezzo`, data) VALUES ('$nome', '$descrizione', '$quantita', '$costo', '$dataAcquisto');";
+        $sql = "INSERT INTO acquistimateriale (`nome`, `descrizione`, `quantita`, `prezzo`, data,nascosto) VALUES ('$nome', '$descrizione', '$quantita', '$costo', '$dataAcquisto','$nascosto');";
         mysqli_query($link, $sql);
     }
 } catch (Exception $e) {

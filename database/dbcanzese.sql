@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 26, 2022 alle 21:08
--- Versione del server: 10.4.24-MariaDB
--- Versione PHP: 8.1.6
+-- Creato il: Mag 27, 2022 alle 09:54
+-- Versione del server: 10.4.22-MariaDB
+-- Versione PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,16 +35,6 @@ CREATE TABLE `acquistigiocatori` (
   `dataAcquisto` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
---
--- Dump dei dati per la tabella `acquistigiocatori`
---
-
-INSERT INTO `acquistigiocatori` (`id`, `idTesserato`, `idProdotto`, `taglia`, `dataAcquisto`) VALUES
-(16, 159, 1, 'M', '2022-05-26'),
-(22, 163, 2, 'S', '2022-05-26'),
-(23, 164, 2, 'L', '2022-05-26'),
-(24, 163, 2, 'M', '2022-05-26');
-
 -- --------------------------------------------------------
 
 --
@@ -59,16 +49,6 @@ CREATE TABLE `acquistimagazzino` (
   `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
---
--- Dump dei dati per la tabella `acquistimagazzino`
---
-
-INSERT INTO `acquistimagazzino` (`id`, `idMagazzino`, `quantita`, `prezzototale`, `data`) VALUES
-(82, 188, 12, 0, '2022-05-26'),
-(83, 189, 2, 0, '2022-05-26'),
-(84, 190, 34, 0, '2022-05-26'),
-(85, 192, 54, 0, '2022-05-26');
-
 -- --------------------------------------------------------
 
 --
@@ -82,15 +62,18 @@ CREATE TABLE `acquistimateriale` (
   `quantita` int(11) NOT NULL,
   `prezzo` int(11) NOT NULL,
   `foto` varchar(255) NOT NULL,
-  `data` date NOT NULL
+  `data` date NOT NULL,
+  `nascosto` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
 -- Dump dei dati per la tabella `acquistimateriale`
 --
 
-INSERT INTO `acquistimateriale` (`id`, `nome`, `descrizione`, `quantita`, `prezzo`, `foto`, `data`) VALUES
-(28, 'dbdfb', 'dfbdfbdf', 1, 124, 'fotoGenerico1.jpg', '2022-05-26');
+INSERT INTO `acquistimateriale` (`id`, `nome`, `descrizione`, `quantita`, `prezzo`, `foto`, `data`, `nascosto`) VALUES
+(28, 'dbdfb', 'dfbdfbdf', 1, 124, 'fotoGenerico1.jpg', '2022-05-26', 0),
+(29, 'simone', 'geroas', 1, 780, '', '2022-05-27', 1),
+(30, 'sdbvfbdfb', 'awdawda', 1, 87, '', '2022-05-27', 1);
 
 -- --------------------------------------------------------
 
@@ -182,13 +165,13 @@ INSERT INTO `magazzino` (`id`, `idProdotto`, `quantita`, `taglia`, `nascosto`) V
 (183, 1, 0, 'XXS', 1),
 (184, 1, 12, 'XS', 1),
 (185, 1, 0, 'S', 1),
-(186, 1, 11, 'M', 1),
+(186, 1, 12, 'M', 1),
 (187, 1, 14, 'L', 1),
-(188, 2, 12, 'XXS', 0),
-(189, 2, 2, 'XS', 0),
-(190, 2, 33, 'S', 0),
-(191, 2, 11, 'M', 0),
-(192, 2, 12, 'L', 0);
+(193, 3, 0, 'S', 0),
+(194, 3, 0, 'M', 0),
+(195, 3, 0, 'L', 0),
+(196, 3, 0, 'XL', 0),
+(197, 3, 0, 'XXL', 0);
 
 -- --------------------------------------------------------
 
@@ -258,7 +241,7 @@ CREATE TABLE `prodotto` (
 
 INSERT INTO `prodotto` (`id`, `nome`, `tipoTaglie`, `costoUnitario`, `foto`, `nascosto`) VALUES
 (1, 'bdgndfbndbndf', 0, 45, 'fotoProdotto1.jpg', 1),
-(2, 'dio cane', 0, 2456, 'fotoProdotto2.jpg', 0);
+(3, 'sdbvfbdfb', 1, 42, 'fotoProdotto3.jpeg', 0);
 
 -- --------------------------------------------------------
 
@@ -334,7 +317,7 @@ CREATE TABLE `tesserato` (
 
 INSERT INTO `tesserato` (`id`, `cf`, `nome`, `cognome`, `dataNascita`, `luogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `provincia`, `citta`, `linkFoto`, `daPagare`, `pagato`, `idCategoria`, `nascosto`) VALUES
 (158, 'asdfsdvsvbsdvsvd', 'dfbdbfd', 'fbdbdfb', '2022-05-04', 'sdvsv', 1, 'P', NULL, 'sdvsdvs', 'vs', 'dvsdvsd', 'fotoProfiloasdfsdvsvbsdvsvd.jpg', 0, 0, 2, 1),
-(159, 'bdfbdfbdbdfbdfbd', 'dfbdfb', 'dfbdfbdf', '2022-05-15', 'dfbdfbdfb', 0, 'N', NULL, 'dfbdf', 'df', 'dfbdfb', NULL, 135, 0, 3, 1),
+(159, 'bdfbdfbdbdfbdfbd', 'dfbdfb', 'dfbdfbdf', '2022-05-15', 'dfbdfbdfb', 0, 'N', NULL, 'dfbdf', 'df', 'dfbdfb', NULL, 90, 0, 3, 1),
 (160, 'dfbdfbdfbdfbdfbd', 'sdfsvbsfbdfbbbbbb', 'bdfbdfb', '2022-05-26', 'dbfdfbdf', 1, 'N', NULL, 'bdfb', 'bd', 'dbdff', NULL, 0, 0, 1, 1),
 (161, 'dfbdfbdfbdfbdfbd', 'bbbbbbbbb', 'dfbdfbdfb', '2022-05-28', 'dfbdfbd', 0, 'N', NULL, 'dfbdf', 'bd', 'bdfbdf', NULL, 0, 0, 1, 1),
 (162, 'nfgnfgdfgnbfgnfg', 'dfbdfb', 'sdvsdfbg', '2022-04-28', 'fgnfgn', 1, 'N', NULL, 'fgnfgnfg', 'fg', 'nfgnfgn', NULL, 0, 0, 1, 1),
@@ -370,16 +353,18 @@ INSERT INTO `usa` (`idMaglia`, `idCategoria`) VALUES
 CREATE TABLE `utenti` (
   `id` int(10) UNSIGNED NOT NULL,
   `user` varchar(32) NOT NULL,
-  `password` char(32) NOT NULL
+  `password` char(32) NOT NULL,
+  `tipo` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `utenti`
 --
 
-INSERT INTO `utenti` (`id`, `user`, `password`) VALUES
-(7, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99'),
-(8, ' ', '7215ee9c7d9dc229d2921a40e899ec5f');
+INSERT INTO `utenti` (`id`, `user`, `password`, `tipo`) VALUES
+(7, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 0),
+(10, 'simone', '1a1bc3af5c1aa3ec5343e6997660075d', 1),
+(11, '', '7215ee9c7d9dc229d2921a40e899ec5f', 0);
 
 -- --------------------------------------------------------
 
@@ -532,7 +517,7 @@ ALTER TABLE `acquistimagazzino`
 -- AUTO_INCREMENT per la tabella `acquistimateriale`
 --
 ALTER TABLE `acquistimateriale`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT per la tabella `allenamento`
@@ -556,7 +541,7 @@ ALTER TABLE `galleria`
 -- AUTO_INCREMENT per la tabella `magazzino`
 --
 ALTER TABLE `magazzino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=193;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
 
 --
 -- AUTO_INCREMENT per la tabella `maglia`
@@ -604,7 +589,7 @@ ALTER TABLE `tesserato`
 -- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT per la tabella `visita`

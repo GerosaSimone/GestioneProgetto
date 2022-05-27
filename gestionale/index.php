@@ -4,7 +4,6 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
 ?>
-
 <!doctype html>
 <html lang="en">
 
@@ -56,7 +55,7 @@ if (!isset($_SESSION['user_id'])) {
             $(".loader-wrapper").fadeOut(1000);
         });
         $(function() {
-            $("#sidebar").load("menu.html");
+            $("#sidebar").load("menu.php");
         });
         <?php if (isset($_SESSION['ultimaPage']))
             $c = $_SESSION['ultimaPage'];
@@ -89,7 +88,11 @@ if (!isset($_SESSION['user_id'])) {
             $("#pagina").load("pagine/AreaFinanziaria/bilancio.php");
         } else if (a == "sponsor") {
             $("#pagina").load("pagine/AreaSponsor/sponsor.php");
+        } else if (a == "registrazioni") {
+            $("#pagina").load("pagine/AreaRegistrazioni/registrazioni.php");
         } else if (a == "home") {
+            $("#pagina").load("pagine/home.php");
+        } else {
             $("#pagina").load("pagine/home.php");
         }
     </script>

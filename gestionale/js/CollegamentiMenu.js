@@ -129,6 +129,15 @@ $(document).ready(function () {
         });
 
     });
+    //AREA REGISTRAZIONI
+    $(document).on('click', "#registrazioni", function () {
+        $.post("pagine/AreaRegistrazioni/registrazioni.php", true, function (data, status) {
+            $("#pagina").html(data);
+            $(".loader-wrapper").fadeIn(0);
+            $(".loader-wrapper").fadeOut(1000);
+        });
+
+    });
 
     //AREA MAGAZZINO
     $(document).on('click', "#deposito", function () {

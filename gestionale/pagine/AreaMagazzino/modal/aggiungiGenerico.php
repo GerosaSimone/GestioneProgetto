@@ -4,7 +4,7 @@
     <div><img id="fotoProdotto" class="mt-3" src="" /></div>
     <label class="mt-2 text-dark font-weight-bold">Nome</label>
     <input type="text" name="nome" class="form-control form-control-sm mb-2" required>
-    <label>Descrizione</label>
+    <label class="text-dark font-weight-bold">Descrizione</label>
     <textarea class="form-control" name="descrizione" rows="4" cols="50" required></textarea>
     <div class="row" style="margin-left:-2%;margin-right:-2%">
         <div class="col-6">
@@ -16,10 +16,18 @@
             <input type='currency' name="costo" value="0,00€" placeholder='Type a number & click outside' class="form-control form-control-sm mb-2" required />
         </div>
     </div>
+    <label class="text-dark font-weight-bold">Visibilie</label><br>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="nascosto" value="0" required>
+        <label class="form-check-label" for="inlineRadio1">Si</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="nascosto" value="1" required>
+        <label class="form-check-label" for="inlineRadio2">No</label>
+    </div><br>
 
 
 </div>
-
 
 <script>
     function readFoto(input) {

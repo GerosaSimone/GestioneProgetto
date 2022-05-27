@@ -6,10 +6,12 @@ if (!isset($_SESSION['user_id'])) {
 $_SESSION['ultimaPage'] = "acquistiSocieta";
 require_once '../../config.php';
 ?>
+
 <body>
-    <div class="page-header clearfix text-center">
+    <header class="text-center mb-2">
         <h1 class="display-5 font-weight-bold">Acquisti Societa</h1>
-    </div>
+       
+    </header>
     <div class="container">
         <div class="row">
             <div class="col-6" style="padding-left:0.5% !important; padding-right:0.5% !important;">
@@ -57,6 +59,15 @@ require_once '../../config.php';
                 var button = event.relatedTarget
                 var recipient = button.getAttribute('data-bs-whatever')
                 document.getElementById("idEliminaGenerico").value = recipient;
+            });
+          
+            var visualizzaGenerico = document.getElementById('visualizzaGenerico')          
+            visualizzaGenerico.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget
+                var id = button.getAttribute('data-bs-whatever')
+                $.post("pagine/AreaMagazzino/modal/visualizzaGenerico.php?id="+id, true, function(data, status) {
+                    $("#modalVisualizzaGenerico").html(data);
+                });
             });
         });
     </script>
