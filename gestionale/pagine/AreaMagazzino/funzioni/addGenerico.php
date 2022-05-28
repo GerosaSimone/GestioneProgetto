@@ -53,7 +53,7 @@ try {
             $nascosto=$_POST['nascosto'];
             $costo = str_replace('.', '', strtok($_POST['costo'], ','));         
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                $sql = "INSERT INTO acquistimateriale (`nome`, `descrizione`, `quantita`, `prezzo`,foto,data) VALUES ('$nome', '$descrizione', '$quantita', '$costo','$titolo', '$dataAcquisto','$nascosto');";
+                $sql = "INSERT INTO acquistimateriale (`nome`, `descrizione`, `quantita`, `prezzo`,foto,data,nascosto) VALUES ('$nome', '$descrizione', '$quantita', '$costo','$titolo', '$dataAcquisto','$nascosto');";
                 //echo $sql . "<br>";
                 mysqli_query($link, $sql);
             } else {

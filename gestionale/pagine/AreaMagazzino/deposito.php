@@ -54,8 +54,7 @@ require_once '../../config.php';
         function apriModalGenerico(div) {
             $('#visualizzaGenerico').modal('show');
             var recipient = div.getAttribute('data-bs-whatever');
-            $.post("pagine/AreaMagazzino/modal/visualizzaGenerico.php", {
-                id: recipient
+            $.post("pagine/AreaMagazzino/modal/visualizzaGenerico.php?id="+recipient, {            
             }, function(data, status) {
                 $("#modalVisualizzaGenerico").html(data);
             });
