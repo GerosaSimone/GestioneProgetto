@@ -226,7 +226,7 @@ if ($result = mysqli_query($link, $sql)) {
             }]
         };
         const Torta = new Chart(document.getElementById('Torta'), {
-            type: 'doughnut',
+            type: 'pie',
             data: dataTorta,
             options: {}
         });

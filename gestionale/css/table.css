@@ -133,6 +133,7 @@ th {
 
   table thead {
     display: none;
+   
   }
 
   table tbody tr {
@@ -141,7 +142,7 @@ th {
   }
 
   table tbody tr td {
-    padding-left: 40% !important;
+    padding-left: 5% !important;
     margin-bottom: 24px;
   }
 
@@ -160,26 +161,15 @@ th {
     top: 0;
   }
 
-  table tbody tr td:nth-child(1):before {
-    content: "Nome";
-  }
-
-  table tbody tr td:nth-child(2):before {
-    content: "Cognome";
-  }
-
-  table tbody tr td:nth-child(3):before {
-    content: "Data Nascita";
-  }
-
-  table tbody tr td:nth-child(4):before {
-    content: "Visita";
-  }
-
-  table tbody tr td:nth-child(5):before {
-    content: "Scadenza";
-  }
-
+  tr.odd {   
+    border-bottom: 1px solid grey !important;
+}
+tr.even {   
+  border-bottom: 1px solid grey !important;
+}
+table{
+width:90% !important;
+}
   .column4,
   .column5 {
     text-align: left;
