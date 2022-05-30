@@ -1,6 +1,10 @@
 <?php
-$_GET["squadra"];
-//inter-milan,data,ora partita,via partita,ora ritrovo,luogo ritrovo, giocatori, 
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: pagine/login/login.html");
+}
+$_SESSION['ultimaPage'] = $_GET['squadra'];
+require_once '../../../../config.php';
 ?>
 
 <body>
@@ -77,35 +81,42 @@ $_GET["squadra"];
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-6">
-                <label>Simone Gerosa</label>
-            </div>
-            <div class="col-3">
-                <label>06/08/2022</label>
-            </div>
-            <div class="col-3">
-                <div class="text-center">
-                    <input type="checkbox" class="form-check-input " id="exampleCheck1"  style="margin-left:-2.5%" checked>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <label>Andrea Locatelli</label>
-            </div>
-            <div class="col-3">
-                <label>06/08/2020</label>
-            </div>
-            <div class="col-3">
-                <div class="text-center">
-                    <input type="checkbox" class="form-check-input " id="exampleCheck1"  style="margin-left:-2.5%" checked>
-                </div>
-            </div>
-        </div>
+        <?php
+        $sql = "SELECT tesserato.id, tesserato.nome, tesserato.cognome, tesserato.dataNascita
+                FROM `tesserato`          
+                INNER JOIN categoria 
+                on idCategoria=categoria.id
+                WHERE categoria.nome='" . $_GET["squadra"] . "' and tesserato.nascosto='0' and tesserato.tipo='0'   
+                ORDER BY tesserato.nome, tesserato.cognome";
+        //inter-milan,data,ora partita,via partita,ora ritrovo,luogo ritrovo, giocatori, 
+        if ($result = mysqli_query($link, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $date1 = $row['dataNascita'];
+                    $dataOggi = date("Y/m/d");
+                    $differenza = floor((strtotime($date1) - strtotime($dataOggi)) / 86400);
+                    $date = str_replace('-', '/', $row['dataNascita']);
+                    $newDate = date("d/m/Y", strtotime($date));
+                    echo '<div class="row">
+                    <div class="col-6">
+                        <label>' . $row['nome'] . ' ' . $row['cognome'] . '</label>
+                    </div>
+                    <div class="col-3">
+                        <label>' .$newDate. '</label>
+                    </div>
+                    <div class="col-3">
+                        <div class="text-center">
+                            <input type="checkbox" class="form-check-input " id="g' . $row['id'] . '" style="margin-left:-2.5%" checked>
+                        </div>
+                    </div>
+                </div>';
+                }
+            }
+        }
+        ?>
+
+
     </div>
-
-
 </body>
 <script>
 
