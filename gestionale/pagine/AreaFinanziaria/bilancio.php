@@ -40,11 +40,11 @@ if ($result = mysqli_query($link, $sql)) {
         $uscita1 = $row['temp'];
     }
 }
-$sql = "SELECT sum(prezzo) as temp FROM `acquistimateriale`";
+$sql = "SELECT sum(prezzo) as somma FROM acquistimateriale";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
-        $uscita2 = $row['temp'];
+        $uscita2 = $row['somma'];
     }
 }
 ?>
@@ -168,9 +168,10 @@ if ($result = mysqli_query($link, $sql)) {
             $piccoli = 0;
         //Uscite
         $materiale = [];
-        $sql = "SELECT 	sum(acquistimateriale.prezzo*acquistimateriale.quantita) as risultato,		
+        $sql = "SELECT 	sum(acquistimateriale.prezzo) as risultato,		
                         month(acquistimateriale.data) as data
                 FROM acquistimateriale
+                where year(acquistimateriale.data)=year(CURRENT_TIMESTAMP)
                 GROUP BY month(acquistimateriale.data)";
         $result = mysqli_query($link, $sql);
         if ($result = mysqli_query($link, $sql)) {
@@ -181,10 +182,11 @@ if ($result = mysqli_query($link, $sql)) {
             }
         }
         $magazzino = [];
-        $sql = "SELECT SUM(acquistimagazzino.prezzototale * acquistimagazzino.quantita) AS risultato,
+        $sql = "SELECT SUM(acquistimagazzino.prezzototale) AS risultato,
                     MONTH(acquistimagazzino.data) AS data
                 FROM
                     acquistimagazzino
+                where year(acquistimagazzino.data)=year(CURRENT_TIMESTAMP)
                 GROUP BY
                     MONTH(acquistimagazzino.data)";
         $result = mysqli_query($link, $sql);

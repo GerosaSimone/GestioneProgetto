@@ -344,6 +344,25 @@
         </div>
     </div>
 </div>
+<!--Distinta-->
+<div class="modal fade" id="distinta" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="distintaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h3 style="color:white" class="modal-title" id="distintaLabel"><b>DISTINTA SQUADRA</b></h3>
+                <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form action="pagine/AreaTesserati/giocatori/funzioni/downloadDistinta.php" method="post" enctype="multipart/form-data">
+                <div class="modal-body ui-front" id="modalDistinta">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Download">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <!-- usare un swal al posto dell alert -->
 <script>
     function readFoto(input) {
