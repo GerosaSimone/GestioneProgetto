@@ -6,7 +6,6 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-
         $(document).scrollTop(0);
     });
     //AREA TESSERATI
@@ -127,7 +126,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-
+        $(document).scrollTop(0);
     });
     //AREA REGISTRAZIONI
     $(document).on('click', "#registrazioni", function () {
@@ -136,7 +135,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-
+        $(document).scrollTop(0);
     });
 
     //AREA MAGAZZINO

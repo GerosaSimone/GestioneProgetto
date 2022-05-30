@@ -167,13 +167,56 @@ if ($result = mysqli_query($link, $sql)) {
         } else
             $piccoli = 0;
         //Uscite
-        $sql = "SELECT SUM(tesserato.daPagare) AS totale FROM tesserato WHERE tesserato.tipo=0 AND tesserato.idCategoria=7 GROUP BY tesserato.idCategoria";
+        $materiale = [];
+        $sql = "SELECT 	sum(acquistimateriale.prezzo*acquistimateriale.quantita) as risultato,		
+                        month(acquistimateriale.data) as data
+                FROM acquistimateriale
+                GROUP BY month(acquistimateriale.data)";
         $result = mysqli_query($link, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result);
-            $piccoli = $row['totale'];
-        } else
-            $piccoli = 0;
+        if ($result = mysqli_query($link, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $materiale += [$row['data'] => $row['risultato']];
+                }
+            }
+        }
+        $magazzino = [];
+        $sql = "SELECT SUM(acquistimagazzino.prezzototale * acquistimagazzino.quantita) AS risultato,
+                    MONTH(acquistimagazzino.data) AS data
+                FROM
+                    acquistimagazzino
+                GROUP BY
+                    MONTH(acquistimagazzino.data)";
+        $result = mysqli_query($link, $sql);
+        if ($result = mysqli_query($link, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $magazzino += [$row['data'] => $row['risultato']];
+                }
+            }
+        }
+        $risultato = [
+            1 => 0,
+            2 => 0,
+            3 => 0,
+            4 => 0,
+            5 => 0,
+            6 => 0,
+            7 => 0,
+            8 => 0,
+            9 => 0,
+            10 => 0,
+            11 => 0,
+            12 => 0
+        ];
+        for ($i = 0; $i < 13; $i++) {
+            if (array_key_exists($i, $materiale)) {
+                $risultato[$i] += $materiale[$i];
+            }
+            if (array_key_exists($i, $magazzino)) {
+                $risultato[$i] += $magazzino[$i];
+            }
+        }        
         ?>
     </div>
 
@@ -222,7 +265,7 @@ if ($result = mysqli_query($link, $sql)) {
                 label: 'Uscite Mensili',
                 backgroundColor: 'red',
                 borderColor: 'red',
-                data: [0, 12, 5, 2, 5, 8, 5, 3, 2, 6, 9, 0],
+                data: [<?php echo $risultato[1] ?>, <?php echo $risultato[2] ?>, <?php echo $risultato[3] ?>, <?php echo $risultato[4] ?>, <?php echo $risultato[5] ?>, <?php echo $risultato[6] ?>, <?php echo $risultato[7] ?>, <?php echo $risultato[8] ?>, <?php echo $risultato[9] ?>, <?php echo $risultato[10] ?>, <?php echo $risultato[11] ?>, <?php echo $risultato[12] ?>],
             }]
         };
         const Torta = new Chart(document.getElementById('Torta'), {

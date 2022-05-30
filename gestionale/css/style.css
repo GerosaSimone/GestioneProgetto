@@ -9397,7 +9397,7 @@ button.bg-dark:focus {
 
 .mt-3,
 .my-3 {
-    margin-top: 1rem ;
+    margin-top: 1rem;
 }
 
 .mr-3,
@@ -9580,7 +9580,7 @@ button.bg-dark:focus {
 
 .pl-4,
 .px-4 {
-    padding-left: 1.5rem ;
+    padding-left: 1.5rem;
 }
 
 .p-5 {
@@ -11996,10 +11996,12 @@ h5,
 }
 
 @media (max-width: 500.98px) {
+
     .mt-3,
     .my-3 {
         margin-top: 0px !important;
     }
+
     .card, .rounded, .shadow-lg, .border-0 {
         max-width: 50%;
     }
@@ -12035,7 +12037,8 @@ h5,
     .p-4 {
         padding: 0.5rem !important;
     }
-    .pl-4, .px-4{
+
+    .pl-4, .px-4 {
         padding-left: 0p !important;
     }
 

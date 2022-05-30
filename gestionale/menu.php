@@ -29,8 +29,8 @@ if ($result = mysqli_query($link, $sql)) {
                         <li>
                             <a href="#TesseratiSubmenu" data-toggle="collapse" aria-expanded="false"
                                 class="dropdown-toggle">Area Tesserati</a>
-                            <ul class="collapse list-unstyled" id="TesseratiSubmenu">
-                                <li>
+                            <ul class="collapse list-unstyled" id="TesseratiSubmenu" >
+                                <li >
                                     <a href="#MisterSubmenu" data-toggle="collapse" aria-expanded="false"
                                         class="dropdown-toggle">Generale</a>
                                     <ul class="collapse list-unstyled" id="MisterSubmenu">
