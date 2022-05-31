@@ -12052,13 +12052,13 @@ h5,
     }
 
     #sidebar {
-        margin-left: -50%;
+        margin-left: -100%;
         max-width: 100%;
         min-width: 50%;
     }
 
     #sidebar.active {
-        margin-left: 0;
+        margin-left: 0%;
     }
 }
 
@@ -12076,11 +12076,12 @@ a[data-toggle="collapse"] {
     transform: translateY(-50%);
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 1030px) {
     #sidebarCollapse span {
         display: none;
     }
 }
+
 
 #content {
     width: 100%;
