@@ -8,12 +8,8 @@ $nome = $_POST["user"];
 $tipo = $_POST["tipo"];
 $password = md5($_POST["password"]);
 try {
-    $sql = "INSERT INTO utenti (`user`, `password`, `tipo`) VALUES (?,?,?);";
-    if ($stmt = mysqli_prepare($link, $sql)) {
-        mysqli_stmt_bind_param($stmt, "sss", $nome, $password, $tipo);
-        $sql = "INSERT INTO utenti (`user`, `password`, `tipo`) VALUES ('$nome', '$password', '$tipo');";
-        mysqli_query($link, $sql);
-    }
+    $sql = "INSERT INTO utenti (`user`, `password`, `tipo`) VALUES ('$nome', '$password', '$tipo');";
+    mysqli_query($link, $sql);
 } catch (Exception $e) {
 }
 header("Location: ../../index.php");

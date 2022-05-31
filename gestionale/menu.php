@@ -17,11 +17,11 @@ if ($result = mysqli_query($link, $sql)) {
                         <div class="row " >
                             <div class="col ">
                                 <a href="#" id="home" class=" mb-3" ><img src="img/logo.png" class="img-fluid" alt="Responsive image"></a>
-                            </div>                            
-                            <div class="col my-auto">                               
-                                    <a href="#" id="home">                                    
-                                        <h3 class="text-light ">Giovanile<br>Canzese</h3>                          
-                                    </a>                                
+                            </div>
+                            <div class="col my-auto">
+                                    <a href="#" id="home">
+                                        <h3 class="text-light ">Giovanile<br>Canzese</h3>
+                                    </a>
                             </div>
                         </div>
                     </div>

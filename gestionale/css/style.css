@@ -1,3 +1,4 @@
+
 /*LOADER*/
 .loader-wrapper {
     z-index: 100000;
@@ -11931,6 +11932,7 @@ h5,
     margin: 40px 0;
 }
 
+
 #sidebar {
     min-width: 15%;
     max-width: 15%;
@@ -11946,10 +11948,12 @@ h5,
     margin-left: -15%;
 }
 
-.logo {
+#sidebar .logo {
     display: block;
+    width: 90%;
     height: 100%;
-    object-fit: scale-down;
+    margin: 0 auto;
+    object-fit: cover;
 }
 
 #sidebar .logo span {
@@ -11993,6 +11997,7 @@ h5,
 }
 
 @media (max-width: 500.98px) {
+
     .mt-3,
     .my-3 {
         margin-top: 0px !important;

@@ -7,11 +7,8 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../config.php';
 try {
     $id = $_POST['idElimina'];
-    $sql = "DELETE FROM `utenti` WHERE id=?;";
-    if ($stmt = mysqli_prepare($link, $sql)) {
-        mysqli_stmt_bind_param($stmt, "i", $id);        
+    $sql = "DELETE FROM `utenti` WHERE id='$id';";
     mysqli_query($link, $sql);
-    }
 } catch (Exception $e) {
 }
 header("Location: ../../index.php");

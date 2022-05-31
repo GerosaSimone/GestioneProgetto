@@ -54,6 +54,7 @@ if (!isset($_SESSION['user_id'])) {
         $(window).on("load", function() {
             $(".loader-wrapper").fadeOut(1000);
         });
+        
         $(function() {
             $("#sidebar").load("menu.php");
         });
