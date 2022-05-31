@@ -54,18 +54,6 @@ if (!isset($_SESSION['user_id'])) {
         $(window).on("load", function() {
             $(".loader-wrapper").fadeOut(1000);
         });
-        $("#sidebarCollapse").click(function() {
-            $('#sidebarCollapse').animate({
-                deg: 90
-            }, {
-                duration: 600,
-                step: function(now) {                                      
-                    $(this).css({                      
-                        transform: 'rotate(' + now + 'deg)'
-                    });        
-                }
-            });
-        });
         $(function() {
             $("#sidebar").load("menu.php");
         });

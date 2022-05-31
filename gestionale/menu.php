@@ -14,14 +14,14 @@ if ($result = mysqli_query($link, $sql)) {
             <div id="menu" class="item">
                 <div class="p-4">
                     <div class="container" style="margin-left: -5%;">
-                        <div class="row">
-                            <div class="col">
-                                <a href="#" id="home" class="img logo mb-3" style="background-image: url(img/logo.png);"></a>
-                            </div>
-                            <div class="col">
-                                <a href="#" id="home">
-                                    <h3 class="text-light mt-2">Giovanile<br>Canzese</h3>
-                                </a>
+                        <div class="row " >
+                            <div class="col ">
+                                <a href="#" id="home" class=" mb-3" ><img src="img/logo.png" class="img-fluid" alt="Responsive image"></a>
+                            </div>                            
+                            <div class="col my-auto">                               
+                                    <a href="#" id="home">                                    
+                                        <h3 class="text-light ">Giovanile<br>Canzese</h3>                          
+                                    </a>                                
                             </div>
                         </div>
                     </div>
