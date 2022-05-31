@@ -8,12 +8,15 @@ $tipoTaglie;
 $bambino = ['XXS', 'XS', 'S', 'M', 'L'];
 $adulto = ['S', 'M', 'L', 'XL', 'XXL'];
 $id = $_GET["idProdotto"];
-$sql = "SELECT * FROM prodotto WHERE id='" . $id . "'";
-if ($result = mysqli_query($link, $sql)) {
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_array($result);
-        $nome = $row['nome'];
-        $tipoTaglie = $row['tipoTaglie'];
+$sql = "SELECT * FROM prodotto WHERE id=?";
+if ($stmt = mysqli_prepare($link, $sql)) {
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    if ($result = $stmt->get_result()) {
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_array($result);
+            $nome = $row['nome'];
+            $tipoTaglie = $row['tipoTaglie'];
+        }
     }
 }
 ?>
