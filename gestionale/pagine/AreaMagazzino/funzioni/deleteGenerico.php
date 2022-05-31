@@ -7,13 +7,16 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../../config.php';
 try {
     $id = $_POST['idEliminaGenerico'];
-    $sql = "SELECT foto FROM acquistimateriale WHERE id = '" . $id . "';";
-    if ($result = mysqli_query($link, $sql)) {
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result);
-            $foto = $row['foto'];
-            if (file_exists('../../../img/uploadsProdotti/' . $foto)) {
-                unlink('../../../img/uploadsProdotti/' . $foto);
+    $sql = "SELECT foto FROM acquistimateriale WHERE id =?;";
+    if ($stmt = mysqli_prepare($link, $sql)) {
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        if ($result = $stmt->get_result()) {
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_array($result);
+                $foto = $row['foto'];
+                if (file_exists('../../../img/uploadsProdotti/' . $foto)) {
+                    unlink('../../../img/uploadsProdotti/' . $foto);
+                }
             }
         }
     }

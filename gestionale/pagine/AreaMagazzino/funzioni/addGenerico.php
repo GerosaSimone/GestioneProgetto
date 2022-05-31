@@ -50,12 +50,25 @@ try {
             $nome = $_POST['nome'];
             $descrizione = $_POST['descrizione'];
             $quantita = $_POST['quantita'];
-            $nascosto=$_POST['nascosto'];
-            $costo = str_replace('.', '', strtok($_POST['costo'], ','));         
+            $nascosto = $_POST['nascosto'];
+            $costo = str_replace('.', '', strtok($_POST['costo'], ','));
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                $sql = "INSERT INTO acquistimateriale (`nome`, `descrizione`, `quantita`, `prezzo`,foto,data,nascosto) VALUES ('$nome', '$descrizione', '$quantita', '$costo','$titolo', '$dataAcquisto','$nascosto');";
+                $sql = "INSERT INTO acquistimateriale (`nome`, `descrizione`, `quantita`, `prezzo`,`foto`,`data`,`nascosto`) VALUES (?,?,?,?,?,?,?)";
+                if ($stmt = mysqli_prepare($link, $sql)) {
+                    mysqli_stmt_bind_param($stmt, "ssiissi", $nome, $descrizione, $quantita, $costo, $titolo, $dataAcquisto, $nascosto);
+                    echo $nome . '<br>';
+                    echo $descrizione . '<br>';
+                    echo $quantita . '<br>';
+                    echo $costo . '<br>';
+                    echo $titolo . '<br>';
+                    echo $dataAcquisto . '<br>';
+                    echo $nascosto;
+                    if (!mysqli_stmt_execute($stmt)) {
+                        echo "Something went wrong. Please try again later.";
+                        exit();
+                    }
+                }
                 //echo $sql . "<br>";
-                mysqli_query($link, $sql);
             } else {
                 //echo "Sorry, there was an error uploading your file.";
             }
@@ -64,10 +77,16 @@ try {
         $nome = $_POST['nome'];
         $descrizione = $_POST['descrizione'];
         $quantita = $_POST['quantita'];
-        $nascosto=$_POST['nascosto'];
-        $costo = str_replace('.', '', strtok($_POST['costo'], ','));        
-        $sql = "INSERT INTO acquistimateriale (`nome`, `descrizione`, `quantita`, `prezzo`, data,nascosto) VALUES ('$nome', '$descrizione', '$quantita', '$costo', '$dataAcquisto','$nascosto');";
-        mysqli_query($link, $sql);
+        $nascosto = $_POST['nascosto'];
+        $costo = str_replace('.', '', strtok($_POST['costo'], ','));
+        $sql = "INSERT INTO acquistimateriale (`nome`, `descrizione`, `quantita`, `prezzo`, `data`,`nascosto`) VALUES (?,?,?,?,?,?)";
+        if ($stmt = mysqli_prepare($link, $sql)) {
+            mysqli_stmt_bind_param($stmt, "ssissi", $nome, $descrizione, $quantita, $costo, $dataAcquisto, $nascosto);
+            if (!mysqli_stmt_execute($stmt)) {
+                echo "Something went wrong. Please try again later.";
+                exit();
+            }
+        }
     }
 } catch (Exception $e) {
     //echo $e->getMessage() . "<br/>";
