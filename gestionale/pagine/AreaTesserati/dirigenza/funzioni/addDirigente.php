@@ -4,15 +4,16 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
 require_once '../../../../config.php';
+
 try {
-    $campi = "cf, nome, cognome, dataNascita, luogoNascita, tipo, via, provincia, Citta, idCategoria";
-    $param = "'" . $_POST['cf'] . "','" . $_POST['nome'] . "','" . $_POST['cognome'] . "','" . $_POST['dataNascita'] . "','" . $_POST['luogoNascita'] . "','1','" . $_POST['via'] . "','" . $_POST['provincia'] . "','" . $_POST['citta'] . "','" . $_POST['categoria'] . "'";
+
     //ruolo
+    $ruolo = "N";
     if (!empty($_POST['ruolo'])) {
-        $campi .= ", ruolo";
-        $param .= ",'" . $_POST['ruolo'] . "'";
+        $ruolo = $_POST['ruolo'];
     }
     //fotoprofilo
+    $foto = null;
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
         $target_dir = "../../../../img/uploadsProfilo/";
         $target_file = $target_dir . "fotoProfilo" . $_POST['cf'];
@@ -36,14 +37,29 @@ try {
         }
         if ($uploadOk != 0) {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                $campi .= ", linkFoto";
-                $param .= ",'" . "fotoProfilo" . $_POST['cf'] . "." . $imageFileType . "'";
+                $foto = "fotoProfilo" . $_POST['cf'] . "." . $imageFileType;
             }
         }
     }
     //creazione tesserato
-    $sql = "INSERT INTO tesserato ($campi) VALUES ($param);";
-    mysqli_query($link, $sql);
+    $stmt = $link->prepare("INSERT INTO tesserato (cf, nome, cognome, dataNascita, luogoNascita, tipo, via, provincia, citta, idCategoria, ruolo, linkFoto) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+    $stmt->bind_param("ssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l);
+    $a = $_POST['cf'];
+    $b = $_POST['nome'];
+    $c = $_POST['cognome'];
+    $d = $_POST['dataNascita'];
+    $e = $_POST['luogoNascita'];
+    $f = "1";
+    $g = $_POST['via'];
+    $h = $_POST['provincia'];
+    $i = $_POST['citta'];
+    $j = $_POST['categoria'];
+    $k = $ruolo;
+    $l = $foto;
+    // set parameters and execute
+    $stmt->execute();
+    $stmt->close();
+
     //prendo idTesserato
     $idTesserato = null;
     $sql = "SELECT id FROM `tesserato` WHERE cf='" . $_POST['cf'] . "'";
@@ -60,8 +76,14 @@ try {
             $contatto = "contatto" . $i;
             $tel = "tel" . $i;
             if (isset($_POST[$contatto]) && isset($_POST[$tel])) {
-                $sql = "INSERT INTO telefono (nome, telefono, idTesserato) VALUES ('" . $_POST[$contatto] . "', '" . $_POST[$tel] . "', '$idTesserato');";
-                mysqli_query($link, $sql);
+                $stmt = $link->prepare("INSERT INTO telefono (nome, telefono, idTesserato) VALUES (?, ?, ?)");
+                $stmt->bind_param("sss", $a, $b, $c);
+                // set parameters and execute
+                $a = $_POST[$contatto];
+                $b = $_POST[$tel];
+                $c = $idTesserato;
+                $stmt->execute();
+                $stmt->close();
             }
         }
     if (isset($_POST["cont1"]) && isset($_POST["mail1"]))
@@ -69,8 +91,14 @@ try {
             $contatto = "cont" . $i;
             $mail = "mail" . $i;
             if (isset($_POST[$contatto]) && isset($_POST[$mail])) {
-                $sql = "INSERT INTO mail (nome, mail, idTesserato) VALUES ('" . $_POST[$contatto] . "', '" . $_POST[$mail] . "', '$idTesserato');";
-                mysqli_query($link, $sql);
+                $stmt = $link->prepare("INSERT INTO mail (nome, mail, idTesserato) VALUES (?, ?, ?)");
+                $stmt->bind_param("sss", $a, $b, $c);
+                // set parameters and execute
+                $a = $_POST[$contatto];
+                $b = $_POST[$mail];
+                $c = $idTesserato;
+                $stmt->execute();
+                $stmt->close();
             }
         }
 } catch (Exception $e) {

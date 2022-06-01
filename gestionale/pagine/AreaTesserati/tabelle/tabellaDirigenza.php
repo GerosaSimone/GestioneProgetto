@@ -3,6 +3,7 @@
         <div class="wrap-table100">
             <div class="table100">
                 <?php
+               
                 $sql = "SELECT tesserato.id, tesserato.nome, tesserato.cognome, categoria.nome as squadra, tesserato.dataNascita, tesserato.ruolo 
                 FROM tesserato inner join categoria on categoria.id=tesserato.idCategoria 
                 WHERE tipo='1' and tesserato.nascosto='0'
@@ -16,6 +17,7 @@
                 echo "      <th class='column4'> Actions</th>";
                 echo "</tr></thead><tbody>";
                 if ($result = mysqli_query($link, $sql)) {
+                   
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_array($result)) {
                             echo "<tr>";
@@ -59,14 +61,13 @@
                                             </button>
                                             " . "</td>";
                         }
-                        mysqli_free_result($result);
                     } else {
                     }
                 } else {
                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
                 }
                 echo "</tbody></table>";
-
+                
                 ?>
             </div>
         </div>
