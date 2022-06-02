@@ -23,13 +23,13 @@
             <label class="text-dark font-weight-bold">Tipo</label><br>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="tipoVisita" value="0">
-                <label class="form-check-label" for="inlineRadio1">Normale</label>
+                <label class="form-check-label" for="inlineRadio1">Certificato Medico</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="tipoVisita" value="1">
-                <label class="form-check-label" for="inlineRadio2">Agonistica</label>
+                <label class="form-check-label" for="inlineRadio2">Visita Agonistica</label>
             </div><br>
-            <label class="text-dark font-weight-bold">Scadenza</label>
+            <label class="text-dark font-weight-bold mt-1">Scadenza</label>
             <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="scadenza">
             <div class="form-group mt-2">
                 <label class="text-dark font-weight-bold">Foto</label>

@@ -132,13 +132,13 @@ try {
                 <label class="text-dark font-weight-bold">Tipo</label><button type="button" id="eliminaVisita" class="close" aria-label="Close" style="color:red"><span aria-hidden="true">&times;</span></button><br>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="tipoVisita" id="tipo0" value="0" <?php if ($tipo == 0) echo "checked"; ?>>
-                    <label class="form-check-label" for="inlineRadio1">Normale</label>
+                    <label class="form-check-label" for="inlineRadio1">Certificato Medico</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="tipoVisita" id="tipo1" value="1" <?php if ($tipo == 1) echo "checked"; ?>>
-                    <label class="form-check-label" for="inlineRadio2">Agonistica</label>
+                    <label class="form-check-label" for="inlineRadio2">Visita Agonistica</label>
                 </div><br>
-                <label class="text-dark font-weight-bold">Scadenza</label>
+                <label class="text-dark font-weight-bold mt-1">Scadenza</label>
                 <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="scadenza" id="scadenza" value="<?php echo $scadenza ?>">
                 <div class="form-group mt-2">
                     <label class="text-dark font-weight-bold">Foto</label>

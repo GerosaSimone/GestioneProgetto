@@ -12,7 +12,8 @@ $sql = "SELECT sum(pagato) as somma FROM tesserato WHERE tesserato.tipo='0'";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
-        $entrateEffettive = $row['somma'];
+        if ($row['somma'] != null)
+            $entrateEffettive = $row['somma'];
     }
 }
 $entrateIpotetiche = 0;
@@ -20,15 +21,18 @@ $sql = "SELECT sum(daPagare) as somma FROM tesserato WHERE tesserato.tipo='0'";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
-        $entrateIpotetiche = $row['somma'];
+        if ($row['somma'] != null)
+            $entrateIpotetiche = $row['somma'];
     }
 }
 $entrateSponsor = 0;
-$sql = "SELECT sum(entrata) as merda FROM sponsor ";
+
+$sql = "SELECT sum(entrata) as somma FROM sponsor ";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
-        $entrateSponsor = $row['merda'];
+        if ($row['somma'] != null)
+            $entrateSponsor = $row['somma'];
     }
 }
 $uscita1 = 0;
@@ -37,14 +41,16 @@ $sql = "SELECT sum(prezzoTotale) as temp FROM `acquistimagazzino`";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
-        $uscita1 = $row['temp'];
+        if ($row['temp'] != null)
+            $uscita1 = $row['temp'];
     }
 }
 $sql = "SELECT sum(prezzo) as somma FROM acquistimateriale";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
-        $uscita2 = $row['somma'];
+        if ($row['somma'] != null)
+            $uscita2 = $row['somma'];
     }
 }
 ?>
@@ -68,7 +74,7 @@ if ($result = mysqli_query($link, $sql)) {
             </div>
             <div class="col-3">
                 <div class="alert alert-light border text-center" role="alert">
-                    <h3 class="alert-heading text-dark font-weight-bold">Entrate Ipotetiche</h3>
+                    <h3 class="alert-heading text-dark font-weight-bold">Entrate Potenziali</h3>
                     <hr>
                     <h5 class="text-muted">+ <?php echo $entrateIpotetiche ?>,00 €</h5>
                     <div class="progress">
@@ -88,7 +94,7 @@ if ($result = mysqli_query($link, $sql)) {
             </div>
             <div class="col-3">
                 <div class="alert alert-light border text-center" role="alert">
-                    <h3 class="alert-heading text-dark font-weight-bold">Uscite</h3>
+                    <h3 class="alert-heading text-dark font-weight-bold">Uscite Società</h3>
                     <hr>
                     <h5 class="text-muted">+ <?php echo $uscita1 + $uscita2 ?>,00 €</h5>
                     <div class="progress">
@@ -218,7 +224,7 @@ if ($result = mysqli_query($link, $sql)) {
             if (array_key_exists($i, $magazzino)) {
                 $risultato[$i] += $magazzino[$i];
             }
-        }        
+        }
         ?>
     </div>
 

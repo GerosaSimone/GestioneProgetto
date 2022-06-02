@@ -141,14 +141,14 @@ try {
             <h4 class="text-dark font-weight-bold">VISITA</h4>
             <p><?php
                 $visita = true;
-                if ($tipo == 0) echo " <label class='text-dark font-weight-bold'>Tipo</label><br>Normale<br>";
-                else if ($tipo == 1) echo " <label class='text-dark font-weight-bold'>Tipo</label><br>Agonistica<br>";
+                if ($tipo == 0) echo " <label class='text-dark font-weight-bold'>Tipo</label><br>Certificato Medico<br>";
+                else if ($tipo == 1) echo " <label class='text-dark font-weight-bold'>Tipo</label><br>Visita Agonistica<br>";
                 else  $visita = false;
                 if (!$visita)
                     echo "Nessuna visita!";
                 else {
                     echo "
-                    <label class='text-dark font-weight-bold'>Scadenza</label>
+                    <label class='text-dark font-weight-bold mt-1'>Scadenza</label>
                     <br>";
                     if ($scadenza != 'nessuna data di scadenza') {
                         $date = str_replace("-", "/", $scadenza);
