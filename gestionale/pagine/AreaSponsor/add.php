@@ -7,14 +7,14 @@ require_once '../../config.php';
 $data = date("Y-m-d");
 $nome = $_POST["nome"];
 $entrata = str_replace('.', '', strtok($_POST['entrata'], ','));
-//fotoprofilo
 try {
-    $sql = "INSERT INTO sponsor (`nome`, `entrata`, `data`) VALUES ('$nome', '$entrata', '$data');";
-    mysqli_query($link, $sql);
+    $stmt = $link->prepare("INSERT INTO sponsor (`nome`, `entrata`, `data`) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $a, $b, $c);
+    $a = $nome;
+    $b = $entrata;
+    $c = $data;
+    $stmt->execute();
+    $stmt->close();
 } catch (Exception $e) {
-    //echo $e->getMessage() . "<br/>";
-    while ($e = $e->getPrevious()) {
-        //echo 'Previous exception: ' . $e->getMessage() . "<br/>";
-    }
 }
 header("Location: ../../index.php");

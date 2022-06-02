@@ -37,11 +37,16 @@ try {
             $titolo = $_POST['titolo'];
             $descrizione = $_POST['descrizione'];
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                $sql = "INSERT INTO news (`titolo`, `descrizione`, `foto`) VALUES ('$titolo', '$descrizione', '$foto');";
-                mysqli_query($link, $sql);
+                $stmt = $link->prepare("INSERT INTO news (`titolo`, `descrizione`, `foto`) VALUES (?, ?, ?);");
+                $stmt->bind_param("sss", $a, $b, $c);
+                $a = $titolo;
+                $b = $descrizione;
+                $c = $foto;
+                $stmt->execute();
+                $stmt->close();
             }
         }
     }
-} catch (Exception $e) {   
+} catch (Exception $e) {
 }
 header("Location: ../../../index.php");

@@ -13,14 +13,10 @@ else {
     $squadra = $_GET['squadra'];
 }
 $_SESSION['ultimaPage'] = $_GET['squadra'];
-//controllo se si devono eliminare telefoni o mail
-try {
-    $query = "DELETE FROM `telefono` WHERE telefono='';";
-    mysqli_query($link, $query);
-    $query = "DELETE FROM `mail` WHERE mail='';";
-    mysqli_query($link, $query);
-} catch (Exception $e) {
-}
+$query = "DELETE FROM `telefono` WHERE telefono='';";
+mysqli_query($link, $query);
+$query = "DELETE FROM `mail` WHERE mail='';";
+mysqli_query($link, $query);
 ?>
 <html>
 <div class="page-header clearfix mt-5">

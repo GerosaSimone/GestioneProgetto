@@ -230,6 +230,11 @@
                             <label class="text-dark font-weight-bold">Ora Fine:</label>
                             <input type="text" name="oraFine1" value="<?php echo $orariFine[0] ?>" class="form-control form-control-sm mb-2">
                             <input type="text" name="oraFine2" value="<?php echo $orariFine[1] ?>" class="form-control form-control-sm mb-2">
+                        </div>
+                        <div class="col">
+                            <label class="text-dark font-weight-bold">Spogliatoio:</label>
+                            <input type="text" name="spogliatoio1" value="<?php echo $spogliatoi[0] ?>" class="form-control form-control-sm mb-2">
+                            <input type="text" name="spogliatoio2" value="<?php echo $spogliatoi[1] ?>" class="form-control form-control-sm mb-2">
 
                         </div>
                         <input type="text" name="squadra" hidden=true class="form-control form-control-sm mb-2" value="<?php echo $_GET['squadra'] ?>">

@@ -8,7 +8,6 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../../../config.php';
 
 try {
-
     //ruolo
     $ruolo = "N";
     if (!empty($_POST['ruolo'])) {
@@ -44,8 +43,8 @@ try {
         }
     }
     //creazione tesserato
-    $stmt = $link->prepare("INSERT INTO tesserato (cf, nome, cognome, dataNascita, luogoNascita, tipo, via, provincia, citta, idCategoria, ruolo, linkFoto) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-    $stmt->bind_param("ssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l);
+    $stmt = $link->prepare("INSERT INTO tesserato (cf, nome, cognome, dataNascita, luogoNascita, tipo, via, provincia, citta, idCategoria, ruolo, linkFoto,matricola ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $stmt->bind_param("sssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m);
     $a = $_POST['cf'];
     $b = $_POST['nome'];
     $c = $_POST['cognome'];
@@ -58,6 +57,7 @@ try {
     $j = $_POST['categoria'];
     $k = $ruolo;
     $l = $foto;
+    $m = $_POST['matricola'];
     // set parameters and execute
     $stmt->execute();
     $stmt->close();

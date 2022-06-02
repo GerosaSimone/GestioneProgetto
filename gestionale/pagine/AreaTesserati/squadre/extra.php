@@ -12,8 +12,9 @@ if ($result = mysqli_query($link, $sql)) {
 $giorni = array("", "");
 $orariInizio = array("", "");
 $orariFine = array("", "");
+$spogliatoi = array("", "");
 
-$sql = "SELECT oraInizio ,oraFine ,giorno 
+$sql = "SELECT *
         FROM allenamento 
         INNER JOIN categoria on allenamento.idCategoria=categoria.id 
         WHERE categoria.nome='" . $_GET['squadra'] . "'";
@@ -23,15 +24,18 @@ if ($result = mysqli_query($link, $sql)) {
         $giorni[0] = $row['giorno'];
         $orariInizio[0] = $row['oraInizio'];
         $orariFine[0] = $row['oraFine'];
+        $spogliatoi[0] = $row['spogliatoio'];
         $row = mysqli_fetch_array($result);
         $giorni[1] = $row['giorno'];
         $orariInizio[1] = $row['oraInizio'];
         $orariFine[1] = $row['oraFine'];
+        $spogliatoi[1] = $row['spogliatoio'];
     } else if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_array($result);
         $giorni[0] = $row['giorno'];
         $orariInizio[0] = $row['oraInizio'];
         $orariFine[0] = $row['oraFine'];
+        $spogliatoi[0] = $row['spogliatoio'];
     }
 }
 
@@ -59,9 +63,9 @@ if ($result = mysqli_query($link, $sql)) {
     <hr>
     <?php
     if ($giorni[0] != "")
-        echo "<p>" . $giorni[0] . " " . $orariInizio[0] . " | " . $orariFine[0] . "</p>";
+        echo "<p>" . $giorni[0] . " " . $orariInizio[0] . " | " . $orariFine[0] . " -> " . $spogliatoi[0] . "</p>";
     if ($giorni[1] != "")
-        echo "<p>" . $giorni[1] . " " . $orariInizio[1] . " | " . $orariFine[1] . "</p>";
+        echo "<p>" . $giorni[1] . " " . $orariInizio[1] . " | " . $orariFine[1] . " -> " . $spogliatoi[1] . "</p>";
     if ($giorni[1] == "" && $giorni[0] == "")
         echo "<p> Nessun Allenamento Salvato </p>";
     ?>

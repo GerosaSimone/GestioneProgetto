@@ -9,6 +9,7 @@ try {
     $nome = "nessun nome";
     $cognome = "nessun cognome";
     $cf = "nessun codicefFiscale";
+    $matricola = "nessuna matricola";
     $dataNascita = "nessuna data di nascita";
     $luogoNascita = "nessun luogo di nascita";
     $telefoniTel = array();
@@ -22,7 +23,7 @@ try {
     $categoria = "nessuna categoria";
     $id = $_GET['idTesserato'];
     //select e set dei valori
-    $sql = "SELECT tesserato.nome, tesserato.cognome, tesserato.cf, tesserato.dataNascita, tesserato.luogoNascita, tesserato.tipo, tesserato.ruolo, tesserato.via,tesserato.provincia,tesserato.citta,tesserato.linkFoto as fotoProfilo, categoria.nome as cat
+    $sql = "SELECT tesserato.nome, tesserato.matricola, tesserato.cognome, tesserato.cf, tesserato.dataNascita, tesserato.luogoNascita, tesserato.tipo, tesserato.ruolo, tesserato.via,tesserato.provincia,tesserato.citta,tesserato.linkFoto as fotoProfilo, categoria.nome as cat
                 FROM tesserato         
                 INNER JOIN categoria 
                 on idCategoria=categoria.id                
@@ -37,6 +38,8 @@ try {
                 $cognome = $row['cognome'];
             if (!empty($row['cf']))
                 $cf = $row['cf'];
+            if (!empty($row['matricola']))
+                $matricola = $row['matricola'];
             if (!empty($row['dataNascita']))
                 $dataNascita = $row['dataNascita'];
             if (!empty($row['luogoNascita']))
@@ -109,6 +112,8 @@ try {
             </div>
             <label class="text-dark font-weight-bold">Codice Fiscale</label>
             <p><?php echo $cf ?></p>
+            <label class="text-dark font-weight-bold">Matricola</label>
+            <p><?php echo $matricola ?></p>
             <div class="row" style="margin-left: -2%">
                 <div class="col">
                     <label class="text-dark font-weight-bold">Data Nascita</label>

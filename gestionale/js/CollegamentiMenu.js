@@ -1,3 +1,11 @@
+function menuTelefono() {
+    $(document).scrollTop(0);
+    if ($(window).width() < 501) {
+        $("#sidebar").removeClass("active");
+        $("#pagina").css("display", "block");
+        stato = false
+    }
+}
 $(document).ready(function () {
     //HOME
     $(document).on('click', "#home", function () {
@@ -6,7 +14,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     //AREA TESSERATI
     //GENERELE
@@ -16,7 +24,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     $(document).on('click', "#giocatori", function () {
         $.post("pagine/AreaTesserati/giocatori/giocatori.php", true, function (data, status) {
@@ -24,7 +32,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     //SQUADRE
     $(document).on('click', "#prima", function () {
@@ -33,7 +41,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     $(document).on('click', "#juniores", function () {
         $.post("pagine/AreaTesserati/squadre/squadre.php?squadra=Juniores", true, function (data, status) {
@@ -41,7 +49,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     $(document).on('click', "#allievi", function () {
         $.post("pagine/AreaTesserati/squadre/squadre.php?squadra=Allievi", true, function (data, status) {
@@ -49,7 +57,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     $(document).on('click', "#giovanissimi", function () {
         $.post("pagine/AreaTesserati/squadre/squadre.php?squadra=Giovanissimi", true, function (data, status) {
@@ -57,7 +65,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     $(document).on('click', "#esordienti", function () {
         $.post("pagine/AreaTesserati/squadre/squadre.php?squadra=Esordienti", true, function (data, status) {
@@ -65,7 +73,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     $(document).on('click', "#pulcini", function () {
         $.post("pagine/AreaTesserati/squadre/squadre.php?squadra=Pulcini", true, function (data, status) {
@@ -73,7 +81,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     $(document).on('click', "#piccoli", function () {
         $.post("pagine/AreaTesserati/squadre/squadre.php?squadra=PiccoliAmici", true, function (data, status) {
@@ -81,7 +89,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
 
     //AREA SHOP
@@ -91,7 +99,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     $(document).on('click', "#acquistiGiocatori", function () {
         $.post("pagine/AreaShop/acquistiGiocatori.php", true, function (data, status) {
@@ -99,7 +107,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     $(document).on('click', "#acquistiDirigenza", function () {
         $.post("pagine/AreaShop/acquistiDirigenza.php", true, function (data, status) {
@@ -107,7 +115,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
 
     //AREA FINANZIARIA
@@ -117,7 +125,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        location.reload();
+        menuTelefono();
     });
     //AREA SPONSOR
     $(document).on('click', "#sponsor", function () {
@@ -126,7 +134,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     //AREA REGISTRAZIONI
     $(document).on('click', "#registrazioni", function () {
@@ -135,7 +143,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
 
     //AREA MAGAZZINO
@@ -145,7 +153,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     $(document).on('click', "#acquistiSocieta", function () {
         $.post("pagine/AreaMagazzino/acquistiSocieta.php", true, function (data, status) {
@@ -153,7 +161,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
 
     //AREA SITO
@@ -163,7 +171,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
     $(document).on('click', "#news", function () {
         $.post("pagine/AreaSito/news.php", true, function (data, status) {
@@ -171,6 +179,6 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        $(document).scrollTop(0);
+        menuTelefono();
     });
 })

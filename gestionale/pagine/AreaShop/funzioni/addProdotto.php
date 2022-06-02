@@ -20,7 +20,7 @@ try {
         $imageFileType = strtolower(pathinfo($target_dir . basename($_FILES["fileToUpload"]["name"]), PATHINFO_EXTENSION));
         $titolo =  "fotoProdotto" . $number . ".$imageFileType";
         $target_file .= "." . $imageFileType;
-        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);        
+        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
         if ($check !== false) {
             $uploadOk = 1;
         } else {
@@ -40,17 +40,38 @@ try {
             $tipoTaglie = $_POST['tipoTaglie'];
             $costo = str_replace('.', '', strtok($_POST['costo'], ','));
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                $sql = "INSERT INTO prodotto (id,`nome`, `tipoTaglie`, `costoUnitario`, `foto`) VALUES ('$number','$nome', '$tipoTaglie', '$costo', '$titolo');";
-                mysqli_query($link, $sql);
+                $stmt = $link->prepare("INSERT INTO prodotto (id,`nome`, `tipoTaglie`, `costoUnitario`, `foto`) VALUES (?,?, ?, ?, ?)");
+                $stmt->bind_param("sssss", $a, $b, $c, $d, $e);
+                $a = $number;
+                $b = $nome;
+                $c = $tipoTaglie;
+                $d = $costo;
+                $e = $titolo;
+                $stmt->execute();
+                $stmt->close();
             }
         }
         $sql = "";
         if ($tipoTaglie) {
-            for ($i = 0; $i < count($adulto); $i++)
-                $sql .= "INSERT INTO magazzino (`idProdotto`, `quantita`, `taglia`) VALUES ('$number',0, '" . $adulto[$i] . "');";
+            $stmt = $link->prepare("INSERT INTO magazzino (`idProdotto`, `quantita`, `taglia`) VALUES (?,?,?)");
+            $stmt->bind_param("sss", $a, $b, $c);
+            for ($i = 0; $i < count($adulto); $i++) {
+                $a = $number;
+                $b = 0;
+                $c = $adulto[$i];
+            }
+            $stmt->execute();
+            $stmt->close();
         } else {
-            for ($i = 0; $i < count($bambino); $i++)
-                $sql .= "INSERT INTO magazzino (`idProdotto`, `quantita`, `taglia`) VALUES ('$number',0, '" . $bambino[$i] . "');";
+            $stmt = $link->prepare("INSERT INTO magazzino (`idProdotto`, `quantita`, `taglia`) VALUES (?,?,?)");
+            $stmt->bind_param("sss", $a, $b, $c);
+            for ($i = 0; $i < count($bambino); $i++) {
+                $a = $number;
+                $b = 0;
+                $c = $bambino[$i];
+            }
+            $stmt->execute();
+            $stmt->close();
         }
         mysqli_multi_query($link, $sql);
     }

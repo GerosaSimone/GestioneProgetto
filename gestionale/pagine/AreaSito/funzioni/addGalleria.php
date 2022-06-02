@@ -36,8 +36,12 @@ try {
         }
         if ($uploadOk != 0) {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                $sql = "INSERT INTO galleria (titolo, foto) VALUES ('$number', '$titolo');";
-                mysqli_query($link, $sql);
+                $stmt = $link->prepare("INSERT INTO galleria (titolo, foto) VALUES (?, ?);");
+                $stmt->bind_param("ss", $a, $b);
+                $a = $number;
+                $b = $titolo;
+                $stmt->execute();
+                $stmt->close();
             }
         }
     }

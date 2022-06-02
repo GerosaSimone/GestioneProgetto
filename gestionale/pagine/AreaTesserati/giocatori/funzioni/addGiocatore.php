@@ -8,18 +8,18 @@ try {
     $campi = "cf, nome, cognome, dataNascita, luogoNascita, tipo, via, provincia, Citta, idCategoria";
     $param = "'" . $_POST['cf'] . "','" . $_POST['nome'] . "','" . $_POST['cognome'] . "','" . $_POST['dataNascita'] . "','" . $_POST['luogoNascita'] . "','0','" . $_POST['via'] . "','" . $_POST['provincia'] . "','" . $_POST['citta'] . "','" . $_POST['categoria'] . "'";
     //ruolo
-    $ruolo=null;
+    $ruolo = null;
     if (!empty($_POST['ruolo'])) {
-        $ruolo=$_POST['ruolo'];
+        $ruolo = $_POST['ruolo'];
     }
     //daPagare e pagato
-    $daPagare=0;
-    if (!empty($_POST['daPagare'])) {      
+    $daPagare = 0;
+    if (!empty($_POST['daPagare'])) {
         $daPagare .= str_replace('.', '', strtok($_POST['daPagare'], ','));
     }
-    $pagato=0;
+    $pagato = 0;
     if (!empty($_POST['pagato'])) {
-        $pagato .=str_replace('.', '', strtok($_POST['pagato'], ','));
+        $pagato .= str_replace('.', '', strtok($_POST['pagato'], ','));
     }
     //crea visita
     $idVisita = null;
@@ -121,9 +121,8 @@ try {
             }
         }
     }
-    //creazione tesserato
-    $stmt = $link->prepare("INSERT INTO tesserato (cf, nome, cognome, dataNascita, luogoNascita, tipo, via, provincia, citta, idCategoria, ruolo, linkFoto,idVisita,daPagare,pagato) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-    $stmt->bind_param("sssssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m,$n,$o);
+    $stmt = $link->prepare("INSERT INTO tesserato (cf, nome, cognome, dataNascita, luogoNascita, tipo, via, provincia, citta, idCategoria, ruolo, linkFoto,idVisita,daPagare,pagato,matricola) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $stmt->bind_param("ssssssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n, $o, $p);
     $a = $_POST['cf'];
     $b = $_POST['nome'];
     $c = $_POST['cognome'];
@@ -137,13 +136,11 @@ try {
     $k = $ruolo;
     $l = $foto;
     $m = $idVisita;
-    $n=$daPagare;
-    $o=$pagato;
-    // set parameters and execute
+    $n = $daPagare;
+    $o = $pagato;
+    $p = $_POST['matricola'];
     $stmt->execute();
     $stmt->close();
-
-
     //prendo idTesserato
     $idTesserato = null;
     $sql = "SELECT id FROM `tesserato` WHERE cf='" . $_POST['cf'] . "'";
@@ -152,7 +149,6 @@ try {
         $row = mysqli_fetch_array($result);
         $idTesserato = $row['id'];
     }
-
     //associo tel mail
     $numTel = $_POST['numTelefoni'];
     $numMail = $_POST['numMail'];

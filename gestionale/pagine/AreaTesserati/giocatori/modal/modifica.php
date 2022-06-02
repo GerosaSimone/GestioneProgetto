@@ -8,6 +8,7 @@ try {
     $nome = "nessun nome";
     $cognome = "nessun cognome";
     $cf = "nessun codicefFiscale";
+    $matricola = "nessuna matricola";
     $dataNascita = "nessuna data di nascita";
     $luogoNascita = "nessun luogo di nascita";
     $tipo = -1;
@@ -25,7 +26,7 @@ try {
     $daPagare = "0€";
     $pagato = "0€";
     $id = $_GET['idTesserato'];
-    $sql = "SELECT tesserato.idCategoria, tesserato.nome, tesserato.cognome, tesserato.cf, tesserato.dataNascita, tesserato.luogoNascita, tesserato.ruolo, tesserato.via,tesserato.provincia,tesserato.citta,tesserato.linkFoto as fotoProfilo,tesserato.daPagare,tesserato.pagato, visita.scadenza, visita.tipo, visita.foto as fotoVisita 
+    $sql = "SELECT tesserato.idCategoria, tesserato.matricola,tesserato.nome, tesserato.cognome, tesserato.cf, tesserato.dataNascita, tesserato.luogoNascita, tesserato.ruolo, tesserato.via,tesserato.provincia,tesserato.citta,tesserato.linkFoto as fotoProfilo,tesserato.daPagare,tesserato.pagato, visita.scadenza, visita.tipo, visita.foto as fotoVisita 
                 FROM `tesserato`
                 LEFT JOIN visita ON visita.id=tesserato.idVisita
                 WHERE tesserato.id='" . $id . "'";
@@ -40,6 +41,8 @@ try {
                 $cognome = $row['cognome'];
             if (!empty($row['cf']))
                 $cf = $row['cf'];
+            if (!empty($row['matricola']))
+                $matricola = $row['matricola'];
             if (!empty($row['dataNascita']))
                 $dataNascita = $row['dataNascita'];
             if (!empty($row['luogoNascita']))
@@ -122,6 +125,8 @@ try {
                 <input type="text" name="cognome" class="form-control form-control-sm mb-2" value="<?php echo $cognome ?>" required>
                 <label class="text-dark font-weight-bold">Codice Fiscale</label>
                 <input type="text" name="cf" class="form-control form-control-sm mb-2" minlength="16" maxlength="16" value="<?php echo $cf ?>" required autocomplete="rutjfkde">
+                <label class="text-dark font-weight-bold">Matricola</label>
+                <input type="text" name="matricola" class="form-control form-control-sm mb-2" value="<?php echo $matricola ?>" required autocomplete="rutjfkde">
                 <label class="text-dark font-weight-bold">Data di Nascita</label>
                 <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="dataNascita" value="<?php echo $dataNascita ?>" required>
                 <label class="text-dark font-weight-bold">Luogo di Nascita</label>

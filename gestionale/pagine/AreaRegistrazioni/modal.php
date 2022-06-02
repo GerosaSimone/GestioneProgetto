@@ -30,22 +30,8 @@
                 </button>
             </div>
             <form action="pagine/AreaRegistrazioni/add.php" method="post" enctype="multipart/form-data">
-                <div class="modal-body">
-                    <div class="form-group mt-2" style="max-height:45%">
-                        <label class="text-dark font-weight-bold">User</label>
-                        <input type="text" name="user" class="form-control form-control-sm mb-2" required>
-                        <label class="text-dark font-weight-bold">Password</label>
-                        <input type="text" name="password" class="form-control form-control-sm mb-2" required>
-                        <label class="text-dark font-weight-bold">Tipo</label><br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tipo" value="0" required>
-                            <label class="form-check-label" for="inlineRadio1">Admin</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tipo" value="1" required>
-                            <label class="form-check-label" for="inlineRadio2">Mister</label>
-                        </div><br>
-                    </div>
+                <div class="modal-body" id="modalAggiungi">
+                   
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

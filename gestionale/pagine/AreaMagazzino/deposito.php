@@ -99,7 +99,7 @@ require_once '../../config.php';
         modificaProdotto.addEventListener('show.bs.modal', function(event) {
             var button = event.relatedTarget
             var id = button.getAttribute('data-bs-whatever')
-            $.post("pagine/AreaShop/modifica.php?idProdotto=" + id, true, function(data, status) {
+            $.post("pagine/AreaShop/modal/modifica.php?idProdotto=" + id, true, function(data, status) {
                 $("#modalModifica").html(data);
             });
         });

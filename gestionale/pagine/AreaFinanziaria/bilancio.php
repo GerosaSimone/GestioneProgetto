@@ -103,7 +103,7 @@ if ($result = mysqli_query($link, $sql)) {
                 </div>
             </div>
         </div>
-        <div class="row pt-5">
+        <div class="row pt-5" id="grafici">
             <div class="col-7">
                 <div class="alert alert-light border text-center" role="alert" style="padding-top:56px; padding-bottom:56px">
                     <canvas class="p-3" id="Uscite"></canvas>
@@ -292,5 +292,9 @@ if ($result = mysqli_query($link, $sql)) {
                 }
             }
         });
+        if ($(window).width() < 501) {
+            $("#grafici").css("display", "none");
+        } else
+            $("#grafici").css("display", "flex");
     </script>
 </body>

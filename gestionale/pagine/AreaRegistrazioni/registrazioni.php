@@ -37,11 +37,11 @@ $_SESSION['ultimaPage'] = "registrazioni";
                 var recipient = button.getAttribute('data-bs-whatever')
                 document.getElementById("idElimina").value = recipient;
             });
-            var elimina = document.getElementById('visualizza')
-            elimina.addEventListener('show.bs.modal', function(event) {
-                var button = event.relatedTarget
-                var recipient = button.getAttribute('data-bs-whatever')
-                document.getElementById("idPassword").innerHTML= recipient;
+            var add = document.getElementById('add')
+            add.addEventListener('show.bs.modal', function(event) {
+                $.post("pagine/AreaRegistrazioni/aggiungi.php", true, function(data, status) {
+                    $("#modalAggiungi").html(data);
+                });
             });
         });
     </script>

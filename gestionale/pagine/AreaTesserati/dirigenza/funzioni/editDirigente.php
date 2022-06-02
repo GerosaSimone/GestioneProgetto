@@ -58,8 +58,8 @@ try {
         }
         $foto = null;
     }
-    $stmt = $link->prepare("UPDATE tesserato SET cf=?, nome=?, cognome=?, dataNascita=?, luogoNascita=?, tipo=?, via=?, provincia=?, citta=?, idCategoria=?, ruolo=?, linkFoto=? WHERE id=?");
-    $stmt->bind_param("sssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m);
+    $stmt = $link->prepare("UPDATE tesserato SET cf=?, nome=?, cognome=?, dataNascita=?, luogoNascita=?, tipo=?, via=?, provincia=?, citta=?, idCategoria=?, ruolo=?, linkFoto=?,matricola=? WHERE id=?");
+    $stmt->bind_param("ssssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $n, $m);
     $a = $_POST['cf'];
     $b = $_POST['nome'];
     $c = $_POST['cognome'];
@@ -73,11 +73,9 @@ try {
     $k = $ruolo;
     $l = $foto;
     $m = $idTesserato;
-    // set parameters and execute
+    $n = $_POST['matricola'];
     $stmt->execute();
     $stmt->close();
-    //eseguo query tesserato
-
     //associo tel e mail
     $numTel = $_POST['numTelefoni'];
     $numMail = $_POST['numMail'];
@@ -156,7 +154,6 @@ try {
         $stmt->execute();
         $stmt->close();
     }
-    
 } catch (Exception $e) {
 }
 header("Location: ../../../../index.php");

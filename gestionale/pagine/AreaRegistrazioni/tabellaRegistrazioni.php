@@ -3,12 +3,14 @@
         <div class="wrap-table100">
             <div class="table100">
                 <?php
-                $sql = "SELECT *
+                $sql = "SELECT utenti.user,utenti.password,categoria.nome, utenti.id
                             FROM utenti
+                            left JOIN categoria on utenti.idCategoria=categoria.id
                             ORDER BY id DESC";
                 echo "<table class='display shadow-lg tabellaGiocatori' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> User</th>";
                 echo "      <th> Password</th>";
+                echo "      <th> Categoria</th>";
                 echo "      <th class='column4'> Actions</th>";
                 echo "</tr></thead><tbody>";
                 if ($result = mysqli_query($link, $sql)) {
@@ -17,6 +19,7 @@
                             echo "<tr>";
                             echo "<td class='pl-4'>" . $row['user'] . "</td>";
                             echo "<td>" . $row['password'] . "</td>";
+                            echo "<td>" . $row['nome'] . "</td>";
                             echo "<td class='column4 pr-4'>
                                         <button type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#elimina' data-bs-whatever='" . $row['id'] . "'>
                                             <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>

@@ -50,13 +50,14 @@ if (!isset($_SESSION['user_id'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
     <script>
         $(window).on("load", function() {
             $(".loader-wrapper").fadeOut(1000);
         });
-        
+
         $(function() {
-            $("#sidebar").load("menu.php");
+            $("#sidebar").load("menu/menu.php");
         });
         <?php if (isset($_SESSION['ultimaPage']))
             $c = $_SESSION['ultimaPage'];
@@ -97,6 +98,18 @@ if (!isset($_SESSION['user_id'])) {
         } else {
             $("#pagina").load("pagine/home.php");
         }
+        var stato = false
+        $("#sidebarCollapse").click(function() {
+            if ($(window).width() < 501)
+                if (!stato) {
+                    $("#pagina").css("display", "none");
+                    stato = true
+                } else {
+                    $("#pagina").css("display", "block");
+                    stato = false
+                }
+        })
+       
     </script>
 </body>
 

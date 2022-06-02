@@ -13,6 +13,8 @@
             <input type="text" name="cognome" class="form-control form-control-sm mb-2" required>
             <label class="text-dark font-weight-bold">Codice Fiscale</label>
             <input type="text" name="cf" class="form-control form-control-sm mb-2" minlength="16" maxlength="16" required autocomplete="rutjfkde">
+            <label class="text-dark font-weight-bold">Matricola</label>
+            <input type="text" name="matricola" class="form-control form-control-sm mb-2" required autocomplete="rutjfkde">
             <label class="text-dark font-weight-bold">Data di Nascita</label>
             <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="dataNascita" required>
             <label class="text-dark font-weight-bold">Luogo di Nascita</label>

@@ -163,8 +163,8 @@ try {
         $foto=null;
     }
     //eseguo query tesserato
-    $stmt = $link->prepare("UPDATE tesserato SET cf=?, nome=?, cognome=?, dataNascita=?, luogoNascita=?, tipo=?, via=?, provincia=?, citta=?, idCategoria=?, ruolo=?, linkFoto=?, idVisita=?, daPagare=?, pagato=? WHERE id=?");
-    $stmt->bind_param("ssssssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l,$n,$o,$p, $m);
+    $stmt = $link->prepare("UPDATE tesserato SET cf=?, nome=?, cognome=?, dataNascita=?, luogoNascita=?, tipo=?, via=?, provincia=?, citta=?, idCategoria=?, ruolo=?, linkFoto=?, idVisita=?, daPagare=?, pagato=?,matricola=? WHERE id=?");
+    $stmt->bind_param("sssssssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l,$n,$o,$p, $q,$m);
     $a = $_POST['cf'];
     $b = $_POST['nome'];
     $c = $_POST['cognome'];
@@ -181,6 +181,7 @@ try {
     $o=$daPagare;
     $p=$pagato;
     $m = $idTesserato;
+    $q = $_POST['matricola'];
     // set parameters and execute
     $stmt->execute();
     $stmt->close();
