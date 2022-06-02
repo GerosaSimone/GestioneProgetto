@@ -66,10 +66,10 @@
             <div class="container" style="margin-left:-4%; margin-top:2%">
                 <div class="row">
                     <div class="col-sm-7">
-                    <label class="text-dark font-weight-bold">Mail</label>
+                        <label class="text-dark font-weight-bold">Mail</label>
                     </div>
                     <div class="col-sm-4">
-                    <label class="text-dark font-weight-bold">Contatto</label>
+                        <label class="text-dark font-weight-bold">Contatto</label>
                     </div>
                     <div class="col-sm-1">
                         <input type="text" id="numMail" name="numMail" hidden="true" value="1" class="form-control form-control-sm mb-2">
@@ -110,14 +110,14 @@
                 <div class="col-sm-6">
                     <label class="text-dark font-weight-bold">Categoria</label>
                     <select class="custom-select custom-select-sm" name="categoria" required>
-                        <option value="">Choose...</option>
-                        <option value="1">Prima Squadra</option>
-                        <option value="2">Juniores</option>
-                        <option value="3">Allievi</option>
-                        <option value="4">Giovanissimi</option>
-                        <option value="5">Esordienti</option>
-                        <option value="6">Pulcini</option>
-                        <option value="7">Piccoli Amici</option>
+                        <?php
+                        require_once "../../../../config.php";
+                        $sql = "SELECT id,nome FROM categoria";
+                        if ($result = mysqli_query($link, $sql)) {
+                            while ($row = mysqli_fetch_array($result))
+                                echo "<option value='" . $row["id"] . "'>" . $row["nome"] . "</option>";
+                        }
+                        ?>
                     </select>
                 </div>
             </div><br>

@@ -3,12 +3,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-danger">
-                <h3 style="color:white" class="modal-title" id="eliminaLabel"><b>ELIMINA UTENTE</b></h3>
+                <h3 style="color:white" class="modal-title" id="eliminaLabel"><b>ELIMINA CATEGORIA</b></h3>
                 <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="pagine/AreaRegistrazioni/delete.php" method="post">
+            <form action="pagine/AreaTesserati/categorie/delete.php" method="post">
                 <div class="modal-body">
-                    Sei sicuro di voler eliminare definitivamente l'utente?
+                    Sei sicuro di voler eliminare definitivamente la trasazione?
                     <input type="text" name="idElimina" id="idElimina" hidden="true">
                 </div>
                 <div class="modal-footer">
@@ -24,14 +24,17 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h3 class="modal-title text-light" id="addLabel"><b>AGGIUNGI UTENTE</b></h3>
+                <h3 class="modal-title text-light" id="addLabel"><b>AGGIUNGI CATEGORIA</b></h3>
                 <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="pagine/AreaRegistrazioni/add.php" method="post" enctype="multipart/form-data">
-                <div class="modal-body" id="modalAggiungi">
-                   
+            <form action="pagine/AreaTesserati/categorie/add.php" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group mt-2" style="max-height:45%">
+                        <label class="text-dark font-weight-bold">Nome</label>
+                        <input type="text" name="nome" class="form-control form-control-sm mb-2" required>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

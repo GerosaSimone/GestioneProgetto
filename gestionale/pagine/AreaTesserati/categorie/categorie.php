@@ -3,26 +3,26 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
-require_once '../../config.php';
-$_SESSION['ultimaPage'] = "registrazioni";
+require_once '../../../config.php';
+$_SESSION['ultimaPage'] = "categorie";
 ?>
 
 <body>
     <header class="text-center mb-2">
-        <h1 class="display-5 font-weight-bold">Gestione Registrazioni</h1>
+        <h1 class="display-5 font-weight-bold">Gestione Categorie</h1>
         <p class="text-center">
             <button type='button' class='btn btn-outline-primary btn-lg' data-bs-toggle='modal' data-bs-target='#add'>
-                Aggiungi Utente
+                Aggiungi Categoria
             </button>
         </p>
     </header>
-    <div><?php include "modal/tabellaRegistrazioni.php" ?></div>
-    <div><?php include "modal/modal.php" ?></div>
+    <div><?php include "tabellaCategorie.php" ?></div>
+    <div><?php include "modal.php" ?></div>
 
     <script>
         jQuery(document).ready(function($) {
             $(document).ready(function() {
-                $('.tabellaGiocatori').DataTable({
+                $('.tabellaCategorie').DataTable({
                     paging: true,
                     searching: false,
                     ordering: true,
@@ -36,12 +36,6 @@ $_SESSION['ultimaPage'] = "registrazioni";
                 var button = event.relatedTarget
                 var recipient = button.getAttribute('data-bs-whatever')
                 document.getElementById("idElimina").value = recipient;
-            });
-            var add = document.getElementById('add')
-            add.addEventListener('show.bs.modal', function(event) {
-                $.post("pagine/AreaRegistrazioni/modal/aggiungi.php", true, function(data, status) {
-                    $("#modalAggiungi").html(data);
-                });
             });
         });
     </script>

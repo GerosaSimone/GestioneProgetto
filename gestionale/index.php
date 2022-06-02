@@ -44,7 +44,7 @@ if (!isset($_SESSION['user_id'])) {
     <!--SCRIPT!-->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/CollegamentiMenu.js"></script>
+    <?php require_once "js/CollegamentiMenu.php"; ?>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -64,13 +64,12 @@ if (!isset($_SESSION['user_id'])) {
         else
             $c = "eccezione" ?>
         var a = "<?php echo $c; ?>";
-        if (a == "PrimaSquadra" || a == "Juniores" || a == "Allievi" || a == "Giovanissimi" || a == "Esordienti" || a == "Pulcini" || a == "PiccoliAmici")
-            $("#pagina").load("pagine/AreaTesserati/squadre/squadre.php?squadra=" + a);
-        else if (a == "giocatori") {
+        if (a == "giocatori") {
             $("#pagina").load("pagine/AreaTesserati/giocatori/giocatori.php");
-            $("#provaprova").trigger("click");
         } else if (a == "dirigenza") {
             $("#pagina").load("pagine/AreaTesserati/dirigenza/dirigenza.php");
+        } else if (a == "categorie") {
+            $("#pagina").load("pagine/AreaTesserati/categorie/categorie.php");
         } else if (a == "deposito") {
             $("#pagina").load("pagine/AreaMagazzino/deposito.php");
         } else if (a == "acquistiSocieta") {
@@ -93,10 +92,12 @@ if (!isset($_SESSION['user_id'])) {
             $("#pagina").load("pagine/AreaSponsor/sponsor.php");
         } else if (a == "registrazioni") {
             $("#pagina").load("pagine/AreaRegistrazioni/registrazioni.php");
+        } else if (a == "settings") {
+            $("#pagina").load("pagine/impostazioni/settings.php");
         } else if (a == "home") {
             $("#pagina").load("pagine/home.php");
         } else {
-            $("#pagina").load("pagine/home.php");
+            $("#pagina").load("pagine/AreaTesserati/squadre/squadre.php?squadra=" + a);
         }
         var stato = false
         $("#sidebarCollapse").click(function() {
@@ -109,7 +110,6 @@ if (!isset($_SESSION['user_id'])) {
                     stato = false
                 }
         })
-       
     </script>
 </body>
 

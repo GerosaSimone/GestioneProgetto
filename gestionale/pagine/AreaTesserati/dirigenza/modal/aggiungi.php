@@ -42,14 +42,14 @@
                     <div class="col-sm-6">
                         <label class="text-dark font-weight-bold"> Categoria</label>
                         <select class="custom-select custom-select-sm" name="categoria" required>
-                            <option value="">Choose...</option>
-                            <option value="1">Prima Squadra</option>
-                            <option value="2">Juniores</option>
-                            <option value="3">Allievi</option>
-                            <option value="4">Giovanissimi</option>
-                            <option value="5">Esordienti</option>
-                            <option value="6">Pulcini</option>
-                            <option value="7">Piccoli Amici</option>
+                            <?php
+                            require_once "../../../../config.php";
+                            $sql = "SELECT id,nome FROM categoria";
+                            if ($result = mysqli_query($link, $sql)) {
+                                while ($row = mysqli_fetch_array($result))
+                                    echo "<option value='" . $row["id"] . "'>" . $row["nome"] . "</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>

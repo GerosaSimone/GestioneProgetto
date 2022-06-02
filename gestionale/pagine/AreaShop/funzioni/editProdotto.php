@@ -7,7 +7,7 @@ require_once '../../../config.php';
 
 try {
     $id = $_POST['idModifica'];
-    $query = "UPDATE prodotto SET nome='" . $_POST['nome'] . "',  costoUnitario='" . str_replace('.', '', strtok($_POST['costo'], ','))  . "'";
+    $titolo = null;
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
         $foto = 0;
         $sql = "SELECT foto FROM prodotto WHERE id='" . $id . "';";
@@ -39,10 +39,15 @@ try {
         if ($uploadOk != 0) {
             move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
         }
-        $query .= ", foto" . "='$titolo'";
     }
-    $query .= " WHERE id = '" . $id . "';";
-    mysqli_query($link, $query);
+    $stmt = $link->prepare("UPDATE prodotto SET nome = ?, costoUnitario = ?, foto = ? WHERE id = ?");
+    $stmt->bind_param("ssss", $a, $b, $c, $d);
+    $a = $_POST['nome'];
+    $b = str_replace('.', '', strtok($_POST['costo'], ','));
+    $c = $titolo;
+    $d = $id;
+    $stmt->execute();
+    $stmt->close();
 } catch (Exception $e) {
 }
 header("Location: ../../../index.php");

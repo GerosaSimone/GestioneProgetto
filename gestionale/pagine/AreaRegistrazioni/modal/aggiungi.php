@@ -8,7 +8,7 @@
     <select name="categoria" class="form-control form-control-sm ">
         <option value=""></option>
         <?php
-        require_once "../../config.php";
+        require_once "../../../config.php";
         $query = "SELECT * FROM categoria";
         if ($result = mysqli_query($link, $query)) {
             if (mysqli_num_rows($result) > 0) {

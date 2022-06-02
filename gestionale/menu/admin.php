@@ -10,6 +10,9 @@
                 <li>
                     <a href="#" id="giocatori">Giocatori</a>
                 </li>
+                <li>
+                    <a href="#" id="categorie">Gestione Categorie</a>
+                </li>
             </ul>
         </li>
         <li>

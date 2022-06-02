@@ -54,7 +54,7 @@ mysqli_query($link, $query);
             $.post("pagine/AreaTesserati/dirigenza/modal/modifica.php?idTesserato=" + id, true, function(data, status) {
                 $("#modalModifica").html(data);
             });
-        });
+        });       
         var addDirigente = document.getElementById('addDirigente')
         addDirigente.addEventListener('show.bs.modal', function(event) {
             $.post("pagine/AreaTesserati/dirigenza/modal/aggiungi.php", true, function(data, status) {

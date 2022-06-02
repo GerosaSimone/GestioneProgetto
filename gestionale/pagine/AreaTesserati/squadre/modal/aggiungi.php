@@ -111,13 +111,16 @@
                     <div class="col-sm-6">
                         <label class="text-dark font-weight-bold">Categoria</label>
                         <select class="custom-select custom-select-sm" name="categoria" required>
-                            <?php if ($_GET['squadra'] == "PrimaSquadra") echo '<option value="1">Prima Squadra</option>'; ?>
-                            <?php if ($_GET['squadra'] == "Juniores") echo '<option value="2">Juniores</option>'; ?>
-                            <?php if ($_GET['squadra'] == "Allievi") echo '<option value="3">Allievi</option>'; ?>
-                            <?php if ($_GET['squadra'] == "Giovanissimi") echo '<option value="4">Giovanissimi</option>'; ?>
-                            <?php if ($_GET['squadra'] == "Esordienti") echo '<option value="5">Esordienti</option>'; ?>
-                            <?php if ($_GET['squadra'] == "Pulcini") echo '<option value="6">Pulcini</option>'; ?>
-                            <?php if ($_GET['squadra'] == "PiccoliAmici") echo '<option value="7">Piccoli Amici</option>'; ?>
+                            <?php
+                            require_once "../../../../config.php";
+                            $idCategoria = 0;
+                            $sql = "SELECT id FROM categoria WHERE nome='" . $_GET['squadra'] . "';";
+                            if ($result = mysqli_query($link, $sql)) {
+                                $row = mysqli_fetch_array($result);
+                                $idCategoria = $row["id"];
+                            }
+                            ?>
+                            <option value="<?php echo $idCategoria; ?>"><?php echo $_GET['squadra'] ?></option>
                         </select>
                     </div>
                 </div><br>

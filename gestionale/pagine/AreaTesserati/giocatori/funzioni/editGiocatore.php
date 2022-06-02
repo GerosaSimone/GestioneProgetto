@@ -36,18 +36,18 @@ try {
     //inizializzo query update con param default
     $idTesserato = $_POST['id'];
     //aggiungo ruolo
-    $ruolo=null;
+    $ruolo = null;
     if (!empty($_POST['ruolo'])) {
         $ruolo = $_POST['ruolo'];
     }
     //aggiungo daPagare e pagato
-    $daPagare=0;
+    $daPagare = 0;
     if (!empty($_POST['daPagare'])) {
         $daPagare = str_replace('.', '', strtok($_POST['daPagare'], ','));
     }
-    $pagato=0;
+    $pagato = 0;
     if (!empty($_POST['pagato'])) {
-        $pagato =str_replace('.', '', strtok($_POST['pagato'], ','));
+        $pagato = str_replace('.', '', strtok($_POST['pagato'], ','));
     }
     //cerca visita
     $idVisita = null;
@@ -143,28 +143,25 @@ try {
             move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
         }
         $foto = "fotoProfilo" . $_POST['cf'] . ".$imageFileType";
-        
     } else 
     if ($_POST['presenzaFotoProfilo']) {
         //se e' stata cancellata la foto dal modal
         $sql = "SELECT linkFoto FROM tesserato WHERE id='" . $idTesserato . "'";
-        if ($result = mysqli_query($link, $sql)) {
+        if ($result = mysqli_query($link, $sql))
             if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_array($result);
                 $foto = $row['linkFoto'];
             }
-        }
         try {
-            if (file_exists('../../../../img/uploadsProfilo/' . $foto)) {
+            if (file_exists('../../../../img/uploadsProfilo/' . $foto))
                 unlink('../../../../img/uploadsProfilo/' . $foto);
-            }
         } catch (Exception $e) {
         }
-        $foto=null;
+        $foto = null;
     }
     //eseguo query tesserato
     $stmt = $link->prepare("UPDATE tesserato SET cf=?, nome=?, cognome=?, dataNascita=?, luogoNascita=?, tipo=?, via=?, provincia=?, citta=?, idCategoria=?, ruolo=?, linkFoto=?, idVisita=?, daPagare=?, pagato=?,matricola=? WHERE id=?");
-    $stmt->bind_param("sssssssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l,$n,$o,$p, $q,$m);
+    $stmt->bind_param("sssssssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $n, $o, $p, $q, $m);
     $a = $_POST['cf'];
     $b = $_POST['nome'];
     $c = $_POST['cognome'];
@@ -177,9 +174,9 @@ try {
     $j = $_POST['categoria'];
     $k = $ruolo;
     $l = $foto;
-    $n=$idVisita;
-    $o=$daPagare;
-    $p=$pagato;
+    $n = $idVisita;
+    $o = $daPagare;
+    $p = $pagato;
     $m = $idTesserato;
     $q = $_POST['matricola'];
     // set parameters and execute
@@ -192,20 +189,16 @@ try {
     $mailId = array();
     if (isset($_POST["contatto1"]) && isset($_POST["tel1"])) {
         $sql = "SELECT id FROM telefono WHERE idTesserato='" . $idTesserato . "'";
-        if ($result = mysqli_query($link, $sql)) {
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
+        if ($result = mysqli_query($link, $sql))
+            if (mysqli_num_rows($result) > 0)
+                while ($row = mysqli_fetch_array($result))
                     array_push($telefoniId, $row['id']);
-                }
-            }
-        }
         for ($i = 1; $i <= count($telefoniId); $i++) {
             $contatto = "contatto" . $i;
             $tel = "tel" . $i;
             if (isset($_POST[$contatto]) && isset($_POST[$tel])) {
                 $stmt = $link->prepare("UPDATE telefono SET nome=?, telefono=?  WHERE id=?");
                 $stmt->bind_param("sss", $a, $b, $c);
-                // set parameters and execute
                 $a = $_POST[$contatto];
                 $b = $_POST[$tel];
                 $c = $telefoniId[$i - 1];
@@ -214,7 +207,7 @@ try {
             }
         }
     }
-    if (isset($_POST["cont1"]) && isset($_POST["mail1"])) {   
+    if (isset($_POST["cont1"]) && isset($_POST["mail1"])) {
         $sql = "SELECT id FROM mail WHERE idTesserato='" . $idTesserato . "'";
         if ($result = mysqli_query($link, $sql)) {
             if (mysqli_num_rows($result) > 0) {
@@ -229,7 +222,6 @@ try {
             if (isset($_POST[$contatto]) && isset($_POST[$mail])) {
                 $stmt = $link->prepare("UPDATE mail SET nome=?, mail=?  WHERE id=?");
                 $stmt->bind_param("sss", $a, $b, $c);
-                // set parameters and execute
                 $a = $_POST[$contatto];
                 $b = $_POST[$mail];
                 $c = $mailId[$i - 1];
@@ -243,27 +235,23 @@ try {
         $tel = $_POST["tel" . ($i + 1)];
         $stmt = $link->prepare("INSERT INTO telefono (nome, telefono, idTesserato) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $a, $b, $c);
-        // set parameters and execute
         $a = $contatto;
         $b = $tel;
         $c = $idTesserato;
         $stmt->execute();
         $stmt->close();
     }
-    for ($i = count($mailId); $i < $numMail; $i++) {    
+    for ($i = count($mailId); $i < $numMail; $i++) {
         $contatto = $_POST["cont" . ($i + 1)];
         $mail = $_POST["mail" . ($i + 1)];
         $stmt = $link->prepare("INSERT INTO mail (nome, mail, idTesserato) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $a, $b, $c);
-        // set parameters and execute
         $a = $contatto;
         $b = $mail;
         $c = $idTesserato;
-
         $stmt->execute();
         $stmt->close();
     }
- 
 } catch (Exception $e) {
 }
 header("Location: ../../../../index.php");

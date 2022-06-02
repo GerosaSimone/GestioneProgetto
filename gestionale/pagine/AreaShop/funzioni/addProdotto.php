@@ -51,29 +51,27 @@ try {
                 $stmt->close();
             }
         }
-        $sql = "";
         if ($tipoTaglie) {
-            $stmt = $link->prepare("INSERT INTO magazzino (`idProdotto`, `quantita`, `taglia`) VALUES (?,?,?)");
-            $stmt->bind_param("sss", $a, $b, $c);
             for ($i = 0; $i < count($adulto); $i++) {
+                $stmt = $link->prepare("INSERT INTO magazzino (`idProdotto`, `quantita`, `taglia`) VALUES (?,?,?)");
+                $stmt->bind_param("sss", $a, $b, $c);
                 $a = $number;
                 $b = 0;
                 $c = $adulto[$i];
+                $stmt->execute();
+                $stmt->close();
             }
-            $stmt->execute();
-            $stmt->close();
         } else {
-            $stmt = $link->prepare("INSERT INTO magazzino (`idProdotto`, `quantita`, `taglia`) VALUES (?,?,?)");
-            $stmt->bind_param("sss", $a, $b, $c);
             for ($i = 0; $i < count($bambino); $i++) {
+                $stmt = $link->prepare("INSERT INTO magazzino (`idProdotto`, `quantita`, `taglia`) VALUES (?,?,?)");
+                $stmt->bind_param("sss", $a, $b, $c);
                 $a = $number;
                 $b = 0;
                 $c = $bambino[$i];
+                $stmt->execute();
+                $stmt->close();
             }
-            $stmt->execute();
-            $stmt->close();
         }
-        mysqli_multi_query($link, $sql);
     }
 } catch (Exception $e) {
 }

@@ -4,9 +4,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
 require_once '../../../../config.php';
-try {
-    $campi = "cf, nome, cognome, dataNascita, luogoNascita, tipo, via, provincia, Citta, idCategoria";
-    $param = "'" . $_POST['cf'] . "','" . $_POST['nome'] . "','" . $_POST['cognome'] . "','" . $_POST['dataNascita'] . "','" . $_POST['luogoNascita'] . "','0','" . $_POST['via'] . "','" . $_POST['provincia'] . "','" . $_POST['citta'] . "','" . $_POST['categoria'] . "'";
+try {    
     //ruolo
     $ruolo = null;
     if (!empty($_POST['ruolo'])) {
@@ -48,17 +46,13 @@ try {
             if ($uploadOk != 0) {
                 move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file);
             }
-
             $stmt = $link->prepare("INSERT INTO visita (tipo, scadenza, foto) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $a, $b, $c);
-            // set parameters and execute
+            $stmt->bind_param("sss", $a, $b, $c);            
             $a = $_POST['tipoVisita'];
             $b = $_POST['scadenza'];
             $c = "fotoVisita" . $_POST['cf'] . "." . $imageFileType;
-
             $stmt->execute();
             $stmt->close();
-
             $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "'AND foto='" . "fotoVisita" . $_POST['cf'] . "." . $imageFileType . "'";
             $result = mysqli_query($link, $sql);
             if ($result = mysqli_query($link, $sql)) {
@@ -73,16 +67,12 @@ try {
                     $row = mysqli_fetch_array($result);
                     $idVisita = $row['id'];
                 } else {
-
                     $stmt = $link->prepare("INSERT INTO visita (tipo, scadenza) VALUES (?, ?)");
-                    $stmt->bind_param("ss", $a, $b);
-                    // set parameters and execute
+                    $stmt->bind_param("ss", $a, $b);                    
                     $a = $_POST['tipoVisita'];
                     $b = $_POST['scadenza'];
-
                     $stmt->execute();
                     $stmt->close();
-
                     $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "'";
                     if ($result = mysqli_query($link, $sql)) {
                         $row = mysqli_fetch_array($result);
