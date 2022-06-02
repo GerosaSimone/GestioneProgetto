@@ -5,7 +5,7 @@ $descrizione;
 $quantita;
 $foto;
 $prezzo;
-$sql = "SELECT * FROM acquistimateriale where id='" . $_GET['id'] . "' AND acquistimateriale.nascosto=0;";
+$sql = "SELECT * FROM acquistimateriale where id='" . $_GET['id'] . "'";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);

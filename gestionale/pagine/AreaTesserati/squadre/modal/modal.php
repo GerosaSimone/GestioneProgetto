@@ -8,7 +8,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="pagine/AreaTesserati/squadre/funzioni/addGiocatore.php" method="post" enctype="multipart/form-data">
+            <form action="pagine/AreaTesserati/giocatori/funzioni/addGiocatore.php" method="post" enctype="multipart/form-data">
                 <input type="text" hidden="true" name="squadra" value="<?php echo $_GET['squadra']; ?>">
                 <div class="modal-body" id="modalAggiungi">
                 </div>
@@ -29,7 +29,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="pagine/AreaTesserati/squadre/funzioni/addDirigente.php" method="post" enctype="multipart/form-data">
+            <form action="pagine/AreaTesserati/dirigenza/funzioni/addDirigente.php" method="post" enctype="multipart/form-data">
                 <input type="text" hidden="true" name="squadra" value="<?php echo $_GET['squadra']; ?>">
                 <div class="modal-body" id="modalAggiungiDirigente">
                 </div>
@@ -126,7 +126,7 @@
                 <h3 style="color:white" class="modal-title pl-4" id="modificaDirigenteLabel"><b>MODIFICA DIRIGENTE</b></h3>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="pagine/AreaTesserati/squadre/funzioni/editDirigente.php" method="post" enctype="multipart/form-data">
+            <form action="pagine/AreaTesserati/dirigenza/funzioni/editDirigente.php" method="post" enctype="multipart/form-data">
                 <input type="text" hidden="true" name="squadra" value="<?php echo $_GET['squadra']; ?>">
                 <div class="modal-body" id="modalModificaDirigente">
                 </div>
@@ -146,7 +146,7 @@
                 <h3 style="color:white" class="modal-title pl-4" id="modificaLabel"><b>MODIFICA GIOCATORE</b></h3>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="pagine/AreaTesserati/squadre/funzioni/editGiocatore.php" method="post" enctype="multipart/form-data">
+            <form action="pagine/AreaTesserati/giocatori/funzioni/editGiocatore.php" method="post" enctype="multipart/form-data">
                 <input type="text" hidden="true" name="squadra" value="<?php echo $_GET['squadra']; ?>">
                 <div class="modal-body" id="modalModifica">
                 </div>

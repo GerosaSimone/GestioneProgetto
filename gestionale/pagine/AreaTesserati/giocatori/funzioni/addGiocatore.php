@@ -8,18 +8,18 @@ try {
     $campi = "cf, nome, cognome, dataNascita, luogoNascita, tipo, via, provincia, Citta, idCategoria";
     $param = "'" . $_POST['cf'] . "','" . $_POST['nome'] . "','" . $_POST['cognome'] . "','" . $_POST['dataNascita'] . "','" . $_POST['luogoNascita'] . "','0','" . $_POST['via'] . "','" . $_POST['provincia'] . "','" . $_POST['citta'] . "','" . $_POST['categoria'] . "'";
     //ruolo
+    $ruolo=null;
     if (!empty($_POST['ruolo'])) {
-        $campi .= ", ruolo";
-        $param .= ",'" . $_POST['ruolo'] . "'";
+        $ruolo=$_POST['ruolo'];
     }
     //daPagare e pagato
-    if (!empty($_POST['daPagare'])) {
-        $campi .= ", daPagare";
-        $param .= ",'" . str_replace('.', '', strtok($_POST['daPagare'], ','))  . "'";
+    $daPagare=0;
+    if (!empty($_POST['daPagare'])) {      
+        $daPagare .= str_replace('.', '', strtok($_POST['daPagare'], ','));
     }
+    $pagato=0;
     if (!empty($_POST['pagato'])) {
-        $campi .= ", pagato";
-        $param .= ",'" . str_replace('.', '', strtok($_POST['pagato'], ',')) . "'";
+        $pagato .=str_replace('.', '', strtok($_POST['pagato'], ','));
     }
     //crea visita
     $idVisita = null;
@@ -48,8 +48,17 @@ try {
             if ($uploadOk != 0) {
                 move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file);
             }
-            $sql = "INSERT INTO visita (tipo, scadenza, foto) VALUES ('" . $_POST['tipoVisita'] . "', '" . $_POST['scadenza'] . "', '" . "fotoVisita" . $_POST['cf'] . "." . $imageFileType . "');";
-            mysqli_query($link, $sql);
+
+            $stmt = $link->prepare("INSERT INTO visita (tipo, scadenza, foto) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $a, $b, $c);
+            // set parameters and execute
+            $a = $_POST['tipoVisita'];
+            $b = $_POST['scadenza'];
+            $c = "fotoVisita" . $_POST['cf'] . "." . $imageFileType;
+
+            $stmt->execute();
+            $stmt->close();
+
             $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "'AND foto='" . "fotoVisita" . $_POST['cf'] . "." . $imageFileType . "'";
             $result = mysqli_query($link, $sql);
             if ($result = mysqli_query($link, $sql)) {
@@ -64,8 +73,16 @@ try {
                     $row = mysqli_fetch_array($result);
                     $idVisita = $row['id'];
                 } else {
-                    $sql = "INSERT INTO visita (tipo, scadenza) VALUES ('" . $_POST['tipoVisita'] . "', '" . $_POST['scadenza'] . "');";
-                    mysqli_query($link, $sql);
+
+                    $stmt = $link->prepare("INSERT INTO visita (tipo, scadenza) VALUES (?, ?)");
+                    $stmt->bind_param("ss", $a, $b);
+                    // set parameters and execute
+                    $a = $_POST['tipoVisita'];
+                    $b = $_POST['scadenza'];
+
+                    $stmt->execute();
+                    $stmt->close();
+
                     $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "'";
                     if ($result = mysqli_query($link, $sql)) {
                         $row = mysqli_fetch_array($result);
@@ -75,11 +92,8 @@ try {
             }
         }
     }
-    if ($idVisita != null) {
-        $campi .= ",idVisita";
-        $param .= ",'" . $idVisita . "'";
-    }
     //fotoprofilo
+    $foto = null;
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
         $target_dir = "../../../../img/uploadsProfilo/";
         $target_file = $target_dir . "fotoProfilo" . $_POST['cf'];
@@ -103,14 +117,33 @@ try {
         }
         if ($uploadOk != 0) {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                $campi .= ", linkFoto";
-                $param .= ",'" . "fotoProfilo" . $_POST['cf'] . "." . $imageFileType . "'";
+                $foto .= "fotoProfilo" . $_POST['cf'] . "." . $imageFileType;
             }
         }
     }
     //creazione tesserato
-    $sql = "INSERT INTO tesserato ($campi) VALUES ($param);";
-    mysqli_query($link, $sql);
+    $stmt = $link->prepare("INSERT INTO tesserato (cf, nome, cognome, dataNascita, luogoNascita, tipo, via, provincia, citta, idCategoria, ruolo, linkFoto,idVisita,daPagare,pagato) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $stmt->bind_param("sssssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m,$n,$o);
+    $a = $_POST['cf'];
+    $b = $_POST['nome'];
+    $c = $_POST['cognome'];
+    $d = $_POST['dataNascita'];
+    $e = $_POST['luogoNascita'];
+    $f = "0";
+    $g = $_POST['via'];
+    $h = $_POST['provincia'];
+    $i = $_POST['citta'];
+    $j = $_POST['categoria'];
+    $k = $ruolo;
+    $l = $foto;
+    $m = $idVisita;
+    $n=$daPagare;
+    $o=$pagato;
+    // set parameters and execute
+    $stmt->execute();
+    $stmt->close();
+
+
     //prendo idTesserato
     $idTesserato = null;
     $sql = "SELECT id FROM `tesserato` WHERE cf='" . $_POST['cf'] . "'";
@@ -119,6 +152,7 @@ try {
         $row = mysqli_fetch_array($result);
         $idTesserato = $row['id'];
     }
+
     //associo tel mail
     $numTel = $_POST['numTelefoni'];
     $numMail = $_POST['numMail'];
@@ -127,8 +161,14 @@ try {
             $contatto = "contatto" . $i;
             $tel = "tel" . $i;
             if (isset($_POST[$contatto]) && isset($_POST[$tel])) {
-                $sql = "INSERT INTO telefono (nome, telefono, idTesserato) VALUES ('" . $_POST[$contatto] . "', '" . $_POST[$tel] . "', '$idTesserato');";
-                mysqli_query($link, $sql);
+                $stmt = $link->prepare("INSERT INTO telefono (nome, telefono, idTesserato) VALUES (?, ?, ?)");
+                $stmt->bind_param("sss", $a, $b, $c);
+                // set parameters and execute
+                $a = $_POST[$contatto];
+                $b = $_POST[$tel];
+                $c = $idTesserato;
+                $stmt->execute();
+                $stmt->close();
             }
         }
     if (isset($_POST["cont1"]) && isset($_POST["mail1"]))
@@ -136,8 +176,14 @@ try {
             $contatto = "cont" . $i;
             $mail = "mail" . $i;
             if (isset($_POST[$contatto]) && isset($_POST[$mail])) {
-                $sql = "INSERT INTO mail (nome, mail, idTesserato) VALUES ('" . $_POST[$contatto] . "', '" . $_POST[$mail] . "', '$idTesserato');";
-                mysqli_query($link, $sql);
+                $stmt = $link->prepare("INSERT INTO mail (nome, mail, idTesserato) VALUES (?, ?, ?)");
+                $stmt->bind_param("sss", $a, $b, $c);
+                // set parameters and execute
+                $a = $_POST[$contatto];
+                $b = $_POST[$mail];
+                $c = $idTesserato;
+                $stmt->execute();
+                $stmt->close();
             }
         }
 } catch (Exception $e) {

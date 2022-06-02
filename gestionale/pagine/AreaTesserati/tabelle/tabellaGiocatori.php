@@ -70,12 +70,12 @@
                                             </button>
                                             " . "</td>";
                         }
-                        mysqli_free_result($result);
                     }
                 } else {
                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
                 }
                 echo "</tbody></table>";
+
                 ?>
             </div>
         </div>

@@ -1,4 +1,6 @@
 <?php
+//STMT
+
 session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");

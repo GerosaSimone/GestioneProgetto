@@ -6,29 +6,12 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../../config.php';
 $_SESSION['ultimaPage'] = "dirigenza";
 //controllo se si devono eliminare telefoni o mail
-$sql = "SELECT telefono.id,telefono.telefono FROM telefono";
-$query = "";
-if ($result = mysqli_query($link, $sql)) {
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_array($result)) {
-            if ($row['telefono'] == "") {
-                $query .= "DELETE FROM `telefono` WHERE id='" . $row['id'] . "';";
-            }
-        }
-    }
-}
-$sql = "SELECT mail.id,mail.mail FROM mail";
-if ($result = mysqli_query($link, $sql)) {
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_array($result)) {
-            if ($row['mail'] == "") {
-                $query .= "DELETE FROM `mail` WHERE id='" . $row['id'] . "';";
-            }
-        }
-    }
-}
-if ($query != "")
-    mysqli_multi_query($link, $query);
+$query = "DELETE FROM `telefono` WHERE telefono='';";
+mysqli_query($link, $query);
+$query = "DELETE FROM `mail` WHERE mail='';";
+mysqli_query($link, $query);
+
+
 ?>
 
 <body>
