@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 02, 2022 alle 22:55
--- Versione del server: 10.4.24-MariaDB
--- Versione PHP: 8.1.6
+-- Creato il: Giu 03, 2022 alle 09:38
+-- Versione del server: 10.4.22-MariaDB
+-- Versione PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -81,16 +81,6 @@ CREATE TABLE `allenamento` (
   `spogliatoio` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
---
--- Dump dei dati per la tabella `allenamento`
---
-
-INSERT INTO `allenamento` (`id`, `oraInizio`, `oraFine`, `giorno`, `idCategoria`, `spogliatoio`) VALUES
-(23, '20:00', '22:00', 'Lunedi', 1, ' aaa'),
-(24, '20:00', '22:00', 'Lunedi', 1, 'vv'),
-(25, '20:00', '22:00', 'Lunedi', 8, 'aaaa'),
-(26, '', '', '', 8, '');
-
 -- --------------------------------------------------------
 
 --
@@ -110,14 +100,7 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`id`, `nome`, `palloni`, `pettorine`, `linkFotoSquadra`) VALUES
-(1, 'PrimaSquadra', 0, 12, ''),
-(2, 'Juniores', 0, 0, ''),
-(3, 'Allievi', 0, 0, ''),
-(4, 'Giovanissimi', 0, 0, ''),
-(5, 'Esordienti', 0, 0, ''),
-(6, 'Pulcini', 0, 0, ''),
-(7, 'PiccoliAmici', 0, 0, ''),
-(8, 'Prova', 0, 12, '');
+(13, 'prova1', 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -291,17 +274,6 @@ CREATE TABLE `tesserato` (
   `nascosto` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
---
--- Dump dei dati per la tabella `tesserato`
---
-
-INSERT INTO `tesserato` (`id`, `cf`, `matricola`, `nome`, `cognome`, `dataNascita`, `luogoNascita`, `tipo`, `ruolo`, `idVisita`, `via`, `provincia`, `citta`, `linkFoto`, `daPagare`, `pagato`, `idCategoria`, `nascosto`) VALUES
-(174, 'aaaaaaaaaaaaaaaa', 'bbbbbbbb', 'aaaaaaaaaaa', 'aaaaaaa', '2022-06-01', 'aaaa', 1, 'N', NULL, 'aaaaa', 'aa', 'aaaaaaa', NULL, 0, 0, 1, 0),
-(175, 'bbbbbbbbbbbbbbbb', 'cccccc', 'bbbb', 'bbbbbbbb', '2022-06-19', 'bbbbbb', 0, 'N', NULL, 'bbb', 'bb', 'bbbb', NULL, -122, 122, 1, 0),
-(176, 'cccccccccccccccc', 'vvvvv', 'cccccc', 'ccccccc', '2022-06-02', 'ccc', 1, 'N', NULL, 'ccc', 'cc', 'cccc', NULL, 0, 0, 3, 0),
-(177, 'dddddddddddddddd', 'bbbbb', 'dddddd', 'ddddddd', '2022-06-18', 'ddddd', 0, 'N', NULL, 'dddd', 'dd', 'ddd', NULL, 0, 0, 6, 0),
-(179, 'bbbbbccaaaaaaaaa', 'aaaaaaaaaaa', 'ccccccccccccccccccc', 'aaaaaa', '2022-06-17', 'aaaaaa', 0, 'N', NULL, 'aaaaaa', 'aa', 'aaaaaa', NULL, 0, 0, 8, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -312,13 +284,6 @@ CREATE TABLE `usa` (
   `idMaglia` int(11) NOT NULL,
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Dump dei dati per la tabella `usa`
---
-
-INSERT INTO `usa` (`idMaglia`, `idCategoria`) VALUES
-(42, 8);
 
 -- --------------------------------------------------------
 
@@ -508,7 +473,7 @@ ALTER TABLE `allenamento`
 -- AUTO_INCREMENT per la tabella `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT per la tabella `galleria`
@@ -526,13 +491,13 @@ ALTER TABLE `magazzino`
 -- AUTO_INCREMENT per la tabella `maglia`
 --
 ALTER TABLE `maglia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT per la tabella `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT per la tabella `news`
@@ -556,13 +521,13 @@ ALTER TABLE `sponsor`
 -- AUTO_INCREMENT per la tabella `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`
@@ -574,7 +539,7 @@ ALTER TABLE `utenti`
 -- AUTO_INCREMENT per la tabella `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- Limiti per le tabelle scaricate
@@ -597,7 +562,7 @@ ALTER TABLE `acquistimagazzino`
 -- Limiti per la tabella `allenamento`
 --
 ALTER TABLE `allenamento`
-  ADD CONSTRAINT `idcategoria` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`);
+  ADD CONSTRAINT `idcategoria` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `magazzino`
@@ -609,27 +574,27 @@ ALTER TABLE `magazzino`
 -- Limiti per la tabella `mail`
 --
 ALTER TABLE `mail`
-  ADD CONSTRAINT `idtesserato` FOREIGN KEY (`idTesserato`) REFERENCES `tesserato` (`id`);
+  ADD CONSTRAINT `idtesserato` FOREIGN KEY (`idTesserato`) REFERENCES `tesserato` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `telefono`
 --
 ALTER TABLE `telefono`
-  ADD CONSTRAINT `idtesse` FOREIGN KEY (`idTesserato`) REFERENCES `tesserato` (`id`);
+  ADD CONSTRAINT `idtesse` FOREIGN KEY (`idTesserato`) REFERENCES `tesserato` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
   ADD CONSTRAINT `relazione3` FOREIGN KEY (`idVisita`) REFERENCES `visita` (`id`),
-  ADD CONSTRAINT `relazione4` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`);
+  ADD CONSTRAINT `relazione4` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `usa`
 --
 ALTER TABLE `usa`
-  ADD CONSTRAINT `relazione1` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`),
-  ADD CONSTRAINT `relazione2` FOREIGN KEY (`idMaglia`) REFERENCES `maglia` (`id`);
+  ADD CONSTRAINT `relazione1` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `relazione2` FOREIGN KEY (`idMaglia`) REFERENCES `maglia` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
