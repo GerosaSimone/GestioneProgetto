@@ -96,6 +96,8 @@ if (!isset($_SESSION['user_id'])) {
             $("#pagina").load("pagine/impostazioni/settings.php");
         } else if (a == "home") {
             $("#pagina").load("pagine/home.php");
+        } else if (a == "eccezione") {
+            $("#pagina").load("pagine/home.php");
         } else {
             $("#pagina").load("pagine/AreaTesserati/squadre/squadre.php?squadra=" + a);
         }

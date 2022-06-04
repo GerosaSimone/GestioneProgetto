@@ -5,19 +5,21 @@ if (isset($_SESSION['user_id'])) {
     header("Location: ../../index.php");
 }
 if (!empty($_POST['nome']) && !empty($_POST['password'])) {
-    $sql = "SELECT * from utenti where user='" . $_POST['nome'] . "' and password='" . md5($_POST['password']) . "'";
-    if (!($result = mysqli_query($link, $sql))) {
-        mysqli_close($link);
-        header("Location: login.html");
+    $stmt = $link->prepare("SELECT user from utenti where user=? and password=md5(?)");
+    $stmt->bind_param("ss", $a, $b);
+    $a = $_POST['nome'];
+    $b = $_POST['password'];
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $id);
+    if (mysqli_stmt_fetch($stmt)) {
+        $_SESSION['user_id'] = $id;
+        mysqli_stmt_close($stmt);
+        header("Location: ../../index.php");
         exit();
     } else {
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            $_SESSION['user_id'] = $row["user"];
-            mysqli_close($link);            
-            header("Location: ../../index.php");
-            exit();
-        }
+        mysqli_stmt_close($stmt);
+        header("Location: login.html");
+        exit();
     }
 }
 header("Location: login.html");

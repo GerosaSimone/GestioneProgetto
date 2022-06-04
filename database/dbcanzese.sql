@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 03, 2022 alle 09:38
--- Versione del server: 10.4.22-MariaDB
--- Versione PHP: 7.4.28
+-- Creato il: Giu 04, 2022 alle 12:02
+-- Versione del server: 10.4.6-MariaDB
+-- Versione PHP: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -100,7 +101,7 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`id`, `nome`, `palloni`, `pettorine`, `linkFotoSquadra`) VALUES
-(13, 'prova1', 0, 0, '');
+(15, 'prima', 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -296,7 +297,7 @@ CREATE TABLE `utenti` (
   `user` varchar(32) NOT NULL,
   `password` char(32) NOT NULL,
   `tipo` int(11) NOT NULL DEFAULT 0,
-  `idCategoria` int(10) UNSIGNED DEFAULT NULL
+  `idCategoria` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -304,10 +305,9 @@ CREATE TABLE `utenti` (
 --
 
 INSERT INTO `utenti` (`id`, `user`, `password`, `tipo`, `idCategoria`) VALUES
-(18, 'a', '0cc175b9c0f1b6a831c399e269772661', 1, 1),
-(19, 'b', '92eb5ffee6ae2fec3ad71c777531578f', 1, 2),
-(20, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 0, NULL),
-(21, ' ', '7215ee9c7d9dc229d2921a40e899ec5f', 0, NULL);
+(23, ' ', '7215ee9c7d9dc229d2921a40e899ec5f', 0, NULL),
+(24, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 0, NULL),
+(26, 'b', '92eb5ffee6ae2fec3ad71c777531578f', 1, 15);
 
 -- --------------------------------------------------------
 
@@ -433,7 +433,8 @@ ALTER TABLE `usa`
 -- Indici per le tabelle `utenti`
 --
 ALTER TABLE `utenti`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cat` (`idCategoria`);
 
 --
 -- Indici per le tabelle `visita`
@@ -473,7 +474,7 @@ ALTER TABLE `allenamento`
 -- AUTO_INCREMENT per la tabella `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT per la tabella `galleria`
@@ -533,7 +534,7 @@ ALTER TABLE `tesserato`
 -- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT per la tabella `visita`
@@ -595,6 +596,12 @@ ALTER TABLE `tesserato`
 ALTER TABLE `usa`
   ADD CONSTRAINT `relazione1` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `relazione2` FOREIGN KEY (`idMaglia`) REFERENCES `maglia` (`id`) ON DELETE CASCADE;
+
+--
+-- Limiti per la tabella `utenti`
+--
+ALTER TABLE `utenti`
+  ADD CONSTRAINT `cat` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
