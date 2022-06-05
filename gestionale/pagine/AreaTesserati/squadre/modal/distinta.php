@@ -102,11 +102,11 @@ require_once '../../../../config.php';
                         <label>' . $row['nome'] . ' ' . $row['cognome'] . '</label>
                     </div>
                     <div class="col-3">
-                        <label>' .$newDate. '</label>
+                        <label>' . $newDate . '</label>
                     </div>
                     <div class="col-3">
                         <div class="text-center">
-                            <input type="checkbox" class="form-check-input " id="g' . $row['id'] . '" style="margin-left:-2.5%" checked>
+                            <input type="checkbox" class="form-check-input " name="idTesserato[]" value="' . $row['id'] . '" style="margin-left:-2.5%" checked>
                         </div>
                     </div>
                 </div>';

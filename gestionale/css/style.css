@@ -11993,12 +11993,14 @@ h5,
     background: transparent;
     color: rgb(33, 164, 245);
 }
-.card, .rounded, .shadow-lg, .border-0 {
-    max-width: 45%;
-   
-}
 
 @media (max-width: 500px) {
+    #pagina{
+        max-width: 100%;
+    }
+    .modal-body {        
+        padding: 0.5rem;
+    }
 
     .mt-3,
     .my-3 {

@@ -133,7 +133,7 @@ th {
 
   table thead {
     display: none;
-   
+
   }
 
   table tbody tr {
@@ -161,15 +161,14 @@ th {
     top: 0;
   }
 
-  tr.odd {   
+  tr.odd {
     border-bottom: 1px solid grey !important;
-}
-tr.even {   
-  border-bottom: 1px solid grey !important;
-}
-table{
-width:90% !important;
-}
+  }
+
+  tr.even {
+    border-bottom: 1px solid grey !important;
+  }
+
   .column4,
   .column5 {
     text-align: left;
@@ -188,12 +187,6 @@ width:90% !important;
   }
 }
 
-@media (max-width: 500px) {
-  .container-table100 {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
 
 .dot-red {
   height: 0.7vw;

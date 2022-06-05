@@ -22,7 +22,7 @@ mysqli_query($link, $query);
     <div class="page-header clearfix text-center">
         <strong>
             <h1 class="display-5 font-weight-bold ">Giocatori
-                <button type='button' class='btn btn-outline-secondary pull-right mt-3' data-bs-toggle='modal' data-bs-target='#addGiocatore' style="margin-right:3%">
+                <button type='button' class='btn btn-outline-secondary pull-right mt-3' data-bs-toggle='modal' data-bs-target='#addGiocatore' style="margin-right:4%">
                     Add Giocatore
                 </button>
             </h1>

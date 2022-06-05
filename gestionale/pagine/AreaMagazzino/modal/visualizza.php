@@ -37,7 +37,6 @@ if (!$tipoTaglie) {
 
 ?>
 <div class="container mt-2" style="margin-left:-10px">
-
     <div class="row">
         <div class="col-2 ">
             <label>Taglia</label>

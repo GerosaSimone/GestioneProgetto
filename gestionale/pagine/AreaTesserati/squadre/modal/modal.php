@@ -357,7 +357,7 @@
                 <h3 style="color:white" class="modal-title" id="distintaLabel"><b>DISTINTA SQUADRA</b></h3>
                 <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="pagine/AreaTesserati/giocatori/funzioni/downloadDistinta.php" method="post" enctype="multipart/form-data">
+            <form action="pagine/AreaTesserati/squadre/funzioni/downloadDistinta.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body ui-front" id="modalDistinta">
                 </div>
                 <div class="modal-footer">

@@ -19,29 +19,29 @@ $query = "DELETE FROM `mail` WHERE mail='';";
 mysqli_query($link, $query);
 ?>
 <html>
-<div class="page-header clearfix mt-5">
+<div class="page-header clearfix mt-5" id="titolo">
     <div class="page-header clearfix">
         <strong>
-            <h1 class="display-5 font-weight-bold pl-5 ml-2"><?php echo $squadra ?> </h1>
+            <h1 class="display-5 font-weight-bold "><?php echo $squadra ?> </h1>
         </strong>
     </div>
 </div>
 
 <body>
-        <div class="contenitore">
-            <div class="row">
-                <div class="col-sm-9 border-right" style="min-width:875px">
-                    <?php include '../tabelle/tabellaDirigenzaSquadre.php'; ?>
-                    <?php include '../tabelle/tabellaGiocatoriSquadre.php'; ?>
-                </div>
-                <div class="col-sm-3">
-                    <?php include 'extra.php' ?>
-                </div>
+    <div class="contenitore">
+        <div class="row">
+            <div class="col-sm-9 border-right" style="min-width:60%">
+                <?php include '../tabelle/tabellaDirigenzaSquadre.php'; ?>
+                <?php include '../tabelle/tabellaGiocatoriSquadre.php'; ?>
+            </div>
+            <div class="col-sm-3" id="divExtra">
+                <?php include 'extra.php' ?>
             </div>
         </div>
-        <div>
-            <?php include 'modal/modal.php'; ?>
-        </div>
+    </div>
+    <div>
+        <?php include 'modal/modal.php'; ?>
+    </div>
 
     <script>
         jQuery(document).ready(function($) {
@@ -122,6 +122,17 @@ mysqli_query($link, $query);
                     $("#modalAcquista").html(data);
                 });
             });
+            if ($(window).width() < 501) {                
+                $("h1").css("margin-left", "6%");
+                $("#divExtra").css("margin-top", "40px");
+                $(".alert").removeClass("ml-3");
+                $("#titolo").removeClass("mt-5");
+            } else {                
+                $("h1").css("margin-left", "5%");
+                $("#divExtra").css("margin-top", "0");
+                $(".alert").addClass("ml-3");
+                $("#titolo").addClass("mt-5");
+            }
         });
     </script>
 </body>

@@ -21,7 +21,7 @@ if ($result = mysqli_query($link, $sql)) {
 ?>
 <div class="form-group mt-2" style="max-height:45%">
     <label class='text-dark font-weight-bold'>Foto</label>
-    <div><img id="fotoProdotto" class="mt-3" src="img/uploadsProdotti/<?php echo $foto; ?>" required style="height: 250px; width: auto; object-fit: cover;max-width:470px" /></div>
+    <div><img id="fotoProdotto" class="mt-3" src="img/uploadsProdotti/<?php echo $foto; ?>" required style="height: 90%; width: auto; object-fit: cover;max-width:100%" /></div>
     <label class='text-dark font-weight-bold mt-2'>Nome</label><br>
     <label value=""><?php echo $nome; ?></label> <br>
     <label class='text-dark font-weight-bold'>Costo Unitario</label><br>

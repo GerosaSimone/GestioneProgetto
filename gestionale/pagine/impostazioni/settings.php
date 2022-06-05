@@ -11,25 +11,37 @@ $_SESSION['ultimaPage'] = "settings";
     <header class="text-center mb-2">
         <h1 class="display-5 font-weight-bold">IMPOSTAZIONI</h1>
     </header>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-6 text-right pr-3">
-                <a href="">
-                    <button type="button" class="btn  btn-outline-secondary btn-lg p-4">Carica Backup</button>
-                </a>
-            </div>
-            <div class="col-6 text-start pl-3">
-                <a href="">
-                    <button type="button" class="btn btn-outline-secondary btn-lg p-4">Esegui Backup</button>
-                </a>
+    <div class="row text-center">
+        <div class="col-4 text-center">
+            <div class="card">
+                <div class="card-header">
+                    Carica Backup
+                </div>
+                <div class="card-body">
+                    <div class="input-group mb-3" style="width:100%">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile02">
+                            <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                        </div>
+                    </div>
+                    <a href="pagine/impostazioni/eseguiBackup.php">
+                        <button type="button" class="btn btn-outline-secondary btn-block" style="width:100%">Esegui Backup</button>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="row mt-5">
-            <div class="col text-center">
-                <a href="">
-                    <button type="button" class="btn btn-outline-secondary btn-lg" style="padding-left:9.5%; padding-right:9.5%">Carica PDF</button>
-                </a>
-            </div>
+
+        <div class="col-4">
+            <a href="pagine/impostazioni/eseguiBackup.php">
+                <button type="button" class="btn btn-outline-secondary " style="width:50%">Esegui Backup</button>
+            </a>
+        </div>
+
+        <div class="col-4">
+            <a href="">
+                <button type="button" class="btn btn-outline-secondary " style="width:50%">Carica PDF</button>
+            </a>
         </div>
     </div>
+
 </body>

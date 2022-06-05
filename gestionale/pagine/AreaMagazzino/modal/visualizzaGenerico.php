@@ -22,7 +22,7 @@ if ($result = mysqli_query($link, $sql)) {
 <div class="form-group mt-2" style="max-height:45%">
     <?php if ($foto != "")
         echo "  <label>Foto</label>
-            <div><img id='fotoNews' class='mt-3' src='img/uploadsProdotti/$foto' style='height: 250px; width: auto; object-fit: cover;max-width:470px' /></div>"; ?>
+            <div><img id='fotoNews' class='mt-3' src='img/uploadsProdotti/$foto' style='height: 90%; width: auto; object-fit: cover;max-width:100%' /></div>"; ?>
     <label class="mt-2 mt-2 text-dark font-weight-bold">Nome</label><br>
     <label class="mb-2"><?php echo $titolo; ?></label><br>
     <label class="mt-2 mt-2 text-dark font-weight-bold">Descrizione</label>

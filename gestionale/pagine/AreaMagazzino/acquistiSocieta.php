@@ -10,14 +10,14 @@ require_once '../../config.php';
 <body>
     <header class="text-center mb-2">
         <h1 class="display-5 font-weight-bold">Acquisti Societa</h1>
-       
+
     </header>
     <div class="container">
         <div class="row">
-            <div class="col-6" style="padding-left:0.5% !important; padding-right:0.5% !important;">
+            <div class="col-6" style="padding-left:0.5% !important; padding-right:0.5% !important;" id="primaColonna">
                 <?php include 'tabelle/tabellaAcquisti.php'; ?>
             </div>
-            <div class="col-6" style="padding-left:0.5% !important; padding-right:0.5% !important;">
+            <div class="col-6" style="padding-left:0.5% !important; padding-right:0.5% !important;" id="secondaColonna">
                 <?php include 'tabelle/tabellaMateriale.php'; ?>
             </div>
         </div>
@@ -60,15 +60,33 @@ require_once '../../config.php';
                 var recipient = button.getAttribute('data-bs-whatever')
                 document.getElementById("idEliminaGenerico").value = recipient;
             });
-          
-            var visualizzaGenerico = document.getElementById('visualizzaGenerico')          
+
+            var visualizzaGenerico = document.getElementById('visualizzaGenerico')
             visualizzaGenerico.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
                 var id = button.getAttribute('data-bs-whatever')
-                $.post("pagine/AreaMagazzino/modal/visualizzaGenerico.php?id="+id, true, function(data, status) {
+                $.post("pagine/AreaMagazzino/modal/visualizzaGenerico.php?id=" + id, true, function(data, status) {
                     $("#modalVisualizzaGenerico").html(data);
                 });
             });
+            if ($(window).width() < 501) {
+                $("#primaColonna").removeClass("col-6");
+                $("#primaColonna").addClass("col-12");
+                $("#primaColonna").addClass("mb-5");
+                $("#secondaColonna").removeClass("col-6");
+                $("#secondaColonna").addClass("col-12");
+                $(".container").css("padding-left", "0");
+                $(".container").css("padding-right", "0");
+
+            } else {
+                $("#primaColonna").removeClass("col-12");
+                $("#primaColonna").addClass("col-6");
+                $("#secondaColonna").removeClass("mb-5");
+                $("#secondaColonna").removeClass("col-12");
+                $("#secondaColonna").addClass("col-6");
+                $(".container").css("padding-left", "15px");
+                $(".container").css("padding-right", "15px");
+            }
         });
     </script>
 </body>

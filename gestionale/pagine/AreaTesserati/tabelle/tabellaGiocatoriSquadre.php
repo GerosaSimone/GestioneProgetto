@@ -1,6 +1,6 @@
 <div class="page-header clearfix">
-    <h4 class="pull-left font-weight-bold" style="margin-left:3.5%; margin-top:20px"> Giocatori </h4>
-    <button type='button' class='btn btn-outline-secondary pull-right' style="margin-right:2%; margin-top:20px" data-bs-toggle='modal' data-bs-target='#addGiocatore' <?php echo "data-bs-whatever='" . $_GET['squadra'] . "'" ?>>
+    <h4 class="pull-left font-weight-bold" style="margin-left:4.5%; margin-top:20px"> Giocatori </h4>
+    <button type='button' class='btn btn-outline-secondary pull-right' style="margin-right:3%; margin-top:20px" data-bs-toggle='modal' data-bs-target='#addGiocatore' <?php echo "data-bs-whatever='" . $_GET['squadra'] . "'" ?>>
         Add Giocatore
     </button>
 </div>
@@ -16,7 +16,7 @@
                 LEFT JOIN visita ON visita.id=tesserato.idVisita
                 WHERE tesserato.tipo='0' and categoria.nome='" . $_GET['squadra'] . "' and tesserato.nascosto='0'
                 ORDER BY tesserato.cognome, tesserato.nome DESC";
-                echo "<table class='display shadow-lg tabella' style='width:100%; min-width:800px'><thead><tr>";
+                echo "<table class='display shadow-lg tabella' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> Nome</th>";
                 echo "      <th> Cognome</th>";
                 echo "      <th> Data Nascita</th>";
@@ -39,7 +39,6 @@
                                 $differenza = floor((strtotime($date1) - strtotime($dataOggi)) / 86400);
                                 $date = str_replace('-', '/', $row['scadenza']);
                                 $newDate = date("d/m/Y", strtotime($date));
-
                                 if ($differenza > 30) {
                                     echo "<td><span class='dot-green mr-3 '></span>"  . $newDate . "</td>";
                                 } else if ($differenza > 0) {

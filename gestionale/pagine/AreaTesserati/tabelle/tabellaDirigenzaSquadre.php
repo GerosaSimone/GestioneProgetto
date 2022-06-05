@@ -1,10 +1,10 @@
 <div class="page-header clearfix">
-    <h4 class="pull-left font-weight-bold" style="margin-left:3.5%; margin-top:20px"> Dirigenza </h4>
-    <button type='button' class='btn btn-outline-secondary pull-right' style="margin-right:2%; margin-top:20px" data-bs-toggle='modal' data-bs-target='#addDirigente' <?php echo "data-bs-whatever='" . $_GET['squadra'] . "'" ?>>
+    <h4 class="pull-left font-weight-bold" style="margin-left:4.5%; margin-top:20px"> Dirigenza </h4>
+    <button type='button' class='btn btn-outline-secondary pull-right' style="margin-right:3%; margin-top:20px" data-bs-toggle='modal' data-bs-target='#addDirigente' <?php echo "data-bs-whatever='" . $_GET['squadra'] . "'" ?>>
         Add Dirigente/Mister
     </button>
 </div>
-<div class="limiter">
+<div class="limiter pt-3">
     <div class="container-table100">
         <div class="wrap-table100">
             <div class="table100">
@@ -38,7 +38,7 @@
                             } else {
                                 echo "<td>Nessun ruolo</td>";
                             }
-                            echo "<td class='column4 '>
+                            echo "<td >
                                             <button type='button' class='btn btn-outline-primary' data-bs-toggle='modal' data-bs-target='#acquistaProdotto' data-bs-whatever='" . $row['id'] . "'>
                                                 <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bag' viewBox='0 0 16 16'>
                                                     <path d='M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z'/>

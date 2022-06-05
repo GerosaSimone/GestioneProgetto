@@ -64,7 +64,7 @@
 <li>
     <a href="#" id="sponsor">Area Sponsor</a>
 </li>
-<li>
+<li id="areaSito">
     <a href="#SitoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Area
         Sito</a>
     <ul class="collapse list-unstyled" id="SitoSubmenu">
@@ -79,3 +79,10 @@
 <li>
     <a href="#" id="registrazioni">Area Registrazioni</a>
 </li>
+<script>
+    if ($(window).width() < 501) {       
+        $("#areaSito").css("display", "none");       
+    } else {
+        $("#areaSito").css("display", "block");    
+    }
+</script>

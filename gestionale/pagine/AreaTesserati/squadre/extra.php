@@ -90,20 +90,20 @@ if ($result = mysqli_query($link, $sql)) {
                 if (mysqli_num_rows($result) > 1) {
                     for ($i = 0; $i < 2; $i++) {
                         $row = mysqli_fetch_array($result);
-                        echo '  <div class="col-sm-4">
+                        echo '  <div class="col-4">
                                     <img src="img/uploadsDivise/' . $row['foto'] . '" class="rounded float-left mr-2" alt="..." style="max-height:90px" width="95%" height="95%">
                                 </div>';
                     }
                 } else if (mysqli_num_rows($result) == 1) {
                     $row = mysqli_fetch_array($result);
-                    echo '  <div class="col-sm-4">
+                    echo '  <div class="col-4">
                                 <img src="img/uploadsDivise/' . $row['foto'] . '" class="rounded float-left mr-2" alt="..." style="max-height:90px" width="95%" height="95%">
                             </div>';
                 }
             }
         }
         ?>
-        <div class="col-sm-4">
+        <div class="col-4">
             <button style="height:95%" class="btn btn-outline-secondary btn-block p-2" data-bs-toggle='modal' data-bs-target='#divise'>Show <br>more...</button>
         </div>
     </div>
