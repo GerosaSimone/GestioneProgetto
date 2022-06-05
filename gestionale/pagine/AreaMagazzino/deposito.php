@@ -11,11 +11,11 @@ require_once '../../config.php';
     <header class="text-center mb-2">
         <h1 class="display-5 font-weight-bold">Magazzino</h1>
         <p class="text-center">
-            <button type='button' class='btn btn-outline-primary btn-lg mr-3' data-bs-toggle='modal' data-bs-target='#addProdotto'>
+            <button type='button' class='btn btn-outline-primary btn-lg' data-bs-toggle='modal' data-bs-target='#addProdotto'>
                 Aggiungi Prodotto
             </button>
 
-            <button type='button' class='btn btn-outline-primary btn-lg ml-3' data-bs-toggle='modal' data-bs-target='#addGenerico'>
+            <button type='button' class='btn btn-outline-primary btn-lg' data-bs-toggle='modal' data-bs-target='#addGenerico'>
                 Aggiungi Generico
             </button>
         </p>

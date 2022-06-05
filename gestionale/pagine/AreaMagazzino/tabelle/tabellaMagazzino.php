@@ -13,8 +13,9 @@
                     $tipoTaglie = "Bambino";
                 } else
                     $tipoTaglie = "Adulto";
-                echo "      <div class='col-6 mt-5' >
-                                                <div class=' card rounded shadow-lg border-0' style='width: 20rem;'>
+                
+                echo "      
+                                                <div class='card rounded shadow-lg border-0 m-1'>
                                                     <div class='card-body p-4'>
                                                         <div onclick='apriModal(this)' data-bs-whatever='" . $row['id'] . "'>
                                                             <img src='img/uploadsProdotti/" . $row['foto'] . "' alt='' class='img-fluid d-block mx-auto mb-3 rounded'>
@@ -41,7 +42,7 @@
                                                         </button>
                                                     </div>
                                                 </div>
-                                            </div>";
+                                            ";
             }
         } else {
             echo '<div class="text-center" style="width:100%"> <h5>Nessun prodotto presente</h5></div>';

@@ -751,8 +751,7 @@ pre code {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+
 }
 
 .no-gutters {
@@ -12003,7 +12002,7 @@ h5,
     }
 
     .card, .rounded, .shadow-lg, .border-0 {
-        max-width: 50%;
+        max-width: 100%;
     }
 
     .col-3 {

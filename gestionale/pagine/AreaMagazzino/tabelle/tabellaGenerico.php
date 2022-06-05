@@ -4,15 +4,15 @@
     if ($result = mysqli_query($link, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result)) {
-                echo "      <div class='col-6 mt-5' >
-                                <div class=' card rounded shadow-lg border-0 mb-3' style='width: 20rem;'>
+                echo "      
+                                <div class='card rounded shadow-lg border-0 m-1'>
                                     <div class='card-body p-4'>
                                         <div onclick='apriModalGenerico(this)' data-bs-whatever='" . $row['id'] . "'>";
-                if ($row['foto'] != "") {
-                    echo "<img src='img/uploadsProdotti/" . $row['foto'] . "' alt='' class='img-fluid d-block mx-auto mb-3 rounded'>";
-                } else
-                    echo "<img src='img/uploadsProdotti/default.jpg' alt='' class='img-fluid d-block mx-auto mb-3 rounded'>";
-                echo "<h4> <b>" . $row['nome'] . "</b>
+                                            if ($row['foto'] != "") {
+                                                echo "<img src='img/uploadsProdotti/" . $row['foto'] . "' alt='' class='img-fluid d-block mx-auto mb-3 rounded'>";
+                                            } else
+                                                echo "<img src='img/uploadsProdotti/default.jpg' alt='' class='img-fluid d-block mx-auto mb-3 rounded'>";
+                                            echo "<h4> <b>" . $row['nome'] . "</b>
                                             </h4>
                                             <p class=' text-muted '>" . substr($row['descrizione'], 0, 80) . "...</p>                                             
                                             <p class=' text-muted '>n. Acquisti: " . $row['quantita']  . "</p>
@@ -26,7 +26,7 @@
                                         </button>
                                     </div>
                                 </div>
-                            </div>";
+                           ";
             }
         } else {
             echo '<div class="text-center" style="width:100%"> <h5>Nessun prodotto presente</h5></div>';

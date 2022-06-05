@@ -28,20 +28,20 @@ mysqli_query($link, $query);
 </div>
 
 <body>
-    <div class="contenitore">
-        <div class="row">
-            <div class="col-sm-9 border-right" style="min-width:875px">
-                <?php include '../tabelle/tabellaDirigenzaSquadre.php'; ?>
-                <?php include '../tabelle/tabellaGiocatoriSquadre.php'; ?>
-            </div>
-            <div class="col-sm-3">
-                <?php include 'extra.php' ?>
+        <div class="contenitore">
+            <div class="row">
+                <div class="col-sm-9 border-right" style="min-width:875px">
+                    <?php include '../tabelle/tabellaDirigenzaSquadre.php'; ?>
+                    <?php include '../tabelle/tabellaGiocatoriSquadre.php'; ?>
+                </div>
+                <div class="col-sm-3">
+                    <?php include 'extra.php' ?>
+                </div>
             </div>
         </div>
-    </div>
-    <div>
-        <?php include 'modal/modal.php'; ?>
-    </div>
+        <div>
+            <?php include 'modal/modal.php'; ?>
+        </div>
 
     <script>
         jQuery(document).ready(function($) {
