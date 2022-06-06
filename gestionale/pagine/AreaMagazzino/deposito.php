@@ -11,10 +11,10 @@ require_once '../../config.php';
     <header class="text-center mb-2">
         <h1 class="display-5 font-weight-bold">Magazzino</h1>
         <p class="text-center">
-            <button type='button' class='btn btn-outline-primary btn-lg' data-bs-toggle='modal' data-bs-target='#addProdotto' id="btnProdotto">
+            <button type='button' class='btn btn-outline-primary btn-lg btn2' data-bs-toggle='modal' data-bs-target='#addProdotto' id="btnProdotto">
                 Aggiungi Prodotto
             </button>
-            <button type='button' class='btn btn-outline-primary btn-lg' data-bs-toggle='modal' data-bs-target='#addGenerico' id="btnGenerico">
+            <button type='button' class='btn btn-outline-primary btn-lg btn2' data-bs-toggle='modal' data-bs-target='#addGenerico' id="btnGenerico">
                 Aggiungi Generico
             </button>
         </p>
@@ -102,19 +102,18 @@ require_once '../../config.php';
             });
         });
         if ($(window).width() < 501) {
-            $(".btn").removeClass("btn-lg");
-            $(".btn").addClass("btn-sm");
+            $(".btn2").removeClass("btn-lg");
+            $(".btn2").addClass("btn-sm");
             $("#contenitoreMagazzino").css("padding-left", "0");
             $("#contenitoreMagazzino").css("padding-right", "0");
             $(".card").css("margin-left", "0");
             $(".card").css("margin-top", "30px");
-
             $(".card").css("width", "100%");
             $(".prova").css("margin-top", "10px");
             $(".prezzo").removeClass("pull-right");
         } else {
-            $(".btn").removeClass("btn-sm");
-            $(".btn").addClass("btn-lg");
+            $(".btn2").removeClass("btn-sm");
+            $(".btn2").addClass("btn-lg");
             $("#contenitoreMagazzino").css("padding-left", "15px");
             $("#contenitoreMagazzino").css("padding-right", "15px");
             $(".card").css("margin-left", "30px");

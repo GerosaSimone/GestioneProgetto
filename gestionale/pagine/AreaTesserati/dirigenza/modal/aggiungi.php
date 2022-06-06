@@ -1,7 +1,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 border-right">
+            <div class="col-sm-6 border-right" id="destra">
                 <h4 class="text-dark font-weight-bold">DATI ANAGRAFICI</h4>
                 <div class="form-group mt-2" style="max-height:45%">
                     <label class="text-dark font-weight-bold">Foto</label>
@@ -54,50 +54,50 @@
                     </div>
                 </div>
                 <h4 class="text-dark font-weight-bold" style="margin-top:4%">CONTATTI</h4>
-                <div class="container" style="margin-left:-2%">
+                <div  style="margin-left:-2%">
                     <div class="row">
-                        <div class="col-sm-7">
+                        <div class="col-7">
                             <label class="text-dark font-weight-bold">Telefono</label>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-4">
                             <label class="text-dark font-weight-bold">Contatto</label>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-1">
                             <input type="text" id="numTelefoni" name="numTelefoni" hidden="true" value="1" class="form-control form-control-sm mb-2">
                         </div>
                     </div>
                     <div class="row telefoni" id="telefoni">
-                        <div class="col-sm-7">
+                        <div class="col-7">
                             <input type="tel" name="tel1" class="form-control form-control-sm mb-2" minlength="9" maxlength="14">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-4">
                             <input type="text" name="contatto1" class="form-control form-control-sm mb-2">
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-1">
                             <button type="button" onclick="aggiungiTel()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
                         </div>
                     </div>
                 </div>
-                <div class="container" style="margin-left:-2%; margin-top:2%">
+                <div style="margin-left:-2%; margin-top:2%">
                     <div class="row">
-                        <div class="col-sm-7">
+                        <div class="col-7">
                             <label class="text-dark font-weight-bold">Mail</label>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-4">
                             <label class="text-dark font-weight-bold">Contatto</label>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-1">
                             <input type="text" id="numMail" name="numMail" hidden="true" value="1" class="form-control form-control-sm mb-2">
                         </div>
                     </div>
                     <div class="row mail" id="mail">
-                        <div class="col-sm-7">
+                        <div class="col-7">
                             <input type="email" name="mail1" class="form-control form-control-sm mb-2">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-4">
                             <input type="text" name="cont1" class="form-control form-control-sm mb-2">
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-1">
                             <button type="button" onclick="aggiungiMail()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
                         </div>
                     </div>
@@ -130,5 +130,10 @@
             };
             reader.readAsDataURL(input.files[0]);
         }
+    }
+    if ($(window).width() < 501) {
+        $("#destra").removeClass("border-right");
+    } else {
+        $("#destra").addClass("border-right");
     }
 </script>

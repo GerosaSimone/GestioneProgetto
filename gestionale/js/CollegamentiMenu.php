@@ -97,7 +97,6 @@ if ($result = mysqli_query($link, $sql)) {
             });
             menuTelefono();
         });
-
         //AREA FINANZIARIA
         $(document).on('click', "#bilancio", function() {
             $.post("pagine/AreaFinanziaria/bilancio.php", true, function(data, status) {
@@ -106,6 +105,7 @@ if ($result = mysqli_query($link, $sql)) {
                 $(".loader-wrapper").fadeOut(1000);
             });
             menuTelefono();
+            location.reload();
         });
         //AREA SPONSOR
         $(document).on('click', "#sponsor", function() {

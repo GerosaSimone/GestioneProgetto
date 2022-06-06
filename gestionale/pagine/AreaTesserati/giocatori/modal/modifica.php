@@ -104,7 +104,7 @@ try {
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 border-right">
+            <div class="col-sm-4 border-right destra">
                 <h4 class="text-dark font-weight-bold">DATI ANAGRAFICI</h4>
                 <div class="form-group mt-2" style="max-height:45%">
                     <button type="button" class="close" aria-label="Close" style="color:red" id="eliminaProfilo"><span aria-hidden="true">&times;</span></button>
@@ -132,7 +132,7 @@ try {
                 <label class="text-dark font-weight-bold">Luogo di Nascita</label>
                 <input type="text" name="luogoNascita" class="form-control form-control-sm" value="<?php echo $luogoNascita ?>" required>
             </div>
-            <div class="col-sm-4 border-right">
+            <div class="col-sm-4 border-right destra">
                 <h4 class="text-dark font-weight-bold">VISITA</h4>
                 <label class="text-dark font-weight-bold">Tipo</label><button type="button" id="eliminaVisita" class="close" aria-label="Close" style="color:red"><span aria-hidden="true">&times;</span></button><br>
                 <div class="form-check form-check-inline">
@@ -156,76 +156,76 @@ try {
                     }
                     ?>
                 </div>
-                <h4 class="text-dark font-weight-bold" style="margin-left:-2%">CONTATTI</h4>
-                <div class="container" style="margin-left:-4%">
+                <h4 class="text-dark font-weight-bold">CONTATTI</h4>
+                <div style="margin-left:-2%">
                     <div class="row">
-                        <div class="col-sm-7">
+                        <div class="col-7">
                             <label class="text-dark font-weight-bold">Telefono</label>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-4">
                             <label class="text-dark font-weight-bold">Contatto</label>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-1">
                             <input type="text" id="numTelefoni" name="numTelefoni" hidden="true" value="1" class="form-control form-control-sm mb-2">
                         </div>
                     </div>
                     <div class="row telefoni" id="telefoni">
-                        <div class="col-sm-7">
+                        <div class="col-7">
                             <input type="tel" name="tel1" class="form-control form-control-sm mb-2" minlength="9" maxlength="14" value="<?php if (count($telefoniTel) > 0) echo $telefoniTel[0]; ?>">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-4">
                             <input type="text" name="contatto1" class="form-control form-control-sm mb-2" value="<?php if (count($telefoniCont) > 0) echo $telefoniCont[0]; ?>">
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-1">
                             <button type="button" onclick="modificaTel()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
                         </div>
                         <?php
                         for ($i = 1; $i < count($telefoniTel); $i++) {
-                            echo "  <div class='col-sm-7 telefoni'>
+                            echo "  <div class='col-7 telefoni'>
                                     <input type='tel' name='tel" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $telefoniTel[$i] . "' minlength='9' maxlength='14'>
                                 </div>
-                                <div class='col-sm-4'>
+                                <div class='col-4'>
                                     <input type='text' name='contatto" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $telefoniCont[$i] . "'>
                                 </div>";
                         } ?>
                     </div>
                 </div>
-                <div class="container" style="margin-left:-4%; margin-top:2%">
+                <div style="margin-left:-2%; margin-top:2%">
                     <div class="row">
-                        <div class="col-sm-7">
+                        <div class="col-7">
                             <label class="text-dark font-weight-bold">Mail</label>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-4">
                             <label class="text-dark font-weight-bold">Contatto</label>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-1">
                             <input type="text" id="numMail" name="numMail" hidden="true" value="1" class="form-control form-control-sm mb-2">
                         </div>
                     </div>
                     <div class="row mail" id="mail">
-                        <div class="col-sm-7">
+                        <div class="col-7">
                             <input type="email" name="mail1" class="form-control form-control-sm mb-2" value="<?php if (count($mailMail) > 0) echo $mailMail[0]; ?>">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-4">
                             <input type="text" name="cont1" class="form-control form-control-sm mb-2" value="<?php if (count($mailCont) > 0) echo $mailCont[0]; ?>">
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-1">
                             <button type="button" onclick="modificaMail()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
                         </div>
 
                         <?php
                         for ($i = 1; $i < count($mailMail); $i++) {
-                            echo "  <div class='col-sm-7 mail'>
+                            echo "  <div class='col-7 mail'>
                                 <input type='mail' name='mail" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailMail[$i] . "'>
                             </div>
-                            <div class='col-sm-4'>
+                            <div class='col-4'>
                                 <input type='text' name='cont" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailCont[$i] . "'>
                             </div>";
                         } ?>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4" id="residenza">
                 <h4 class="text-dark font-weight-bold">RESIDENZA</h4>
                 <label class="text-dark font-weight-bold">Indirizzo</label>
                 <input type="text" name="via" class="form-control form-control-sm mb-2" value="<?php echo $indirizzo ?>" required>
@@ -235,7 +235,7 @@ try {
                 <input type="text" name="provincia" class="form-control form-control-sm mb-2" minlength="2" maxlength="2" value="<?php echo $provincia ?>" required autocomplete="rutjfkde">
                 <input type="text" name="id" value="<?php echo $id ?>" hidden="true">
                 <div class="row" style="margin-left:-2%">
-                    <div class="col-sm-6">
+                    <div class="col-6">
                         <label class="text-dark font-weight-bold">Ruolo</label>
                         <select class="custom-select custom-select-sm" name="ruolo">
                             <option value="P" <?php if ($ruolo == "Portiere") echo "selected"; ?>>Portiere</option>
@@ -245,7 +245,7 @@ try {
                             <option value="N" <?php if ($ruolo == "Nessun ruolo") echo "selected"; ?>>Nessun ruolo</option>
                         </select>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-6">
                         <label class="text-dark font-weight-bold">Categoria</label>
                         <select class="custom-select custom-select-sm" name="categoria" required>
                             <?php
@@ -263,7 +263,7 @@ try {
                     </div>
                 </div><br>
                 <h4 class="text-dark font-weight-bold">CONTABILITA'</h4>
-                <div class="container" style="margin-left:-2%">
+                <div style="margin-left:-2%">
                     <div class="row">
                         <div class="col-sm-6">
                             <label class="text-dark font-weight-bold">Da Pagare</label>
@@ -451,5 +451,12 @@ try {
         e.target.value = (value || value === 0) ?
             localStringToNumber(value).toLocaleString(undefined, options) :
             ''
+    }
+    if ($(window).width() < 501) {
+        $(".destra").removeClass("border-right");
+        $("#residenza").css("margin-left", "-2%");
+    } else {
+        $(".destra").addClass("border-right");
+        $("#residenza").css("margin-left", "0");
     }
 </script>
