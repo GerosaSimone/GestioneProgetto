@@ -1,34 +1,17 @@
 <?php
-// Name of the data file
-$filename = 'mydump.sql';
-// MySQL host
-$mysqlHost = 'localhost';
-// MySQL username
-$mysqlUser = 'root';
-// MySQL password
-$mysqlPassword = '';
-// Database name
-$mysqlDatabase = 'newdatabase';
+require_once("../../config.php");
 
-// Connect to MySQL server
-$link = mysqli_connect($mysqlHost, $mysqlUser, $mysqlPassword, $mysqlDatabase) or die('Error connecting to MySQL Database: ' . mysqli_error());
-
-$tempLine = '';
-// Read in the full file
-$lines = file($filename);
-// Loop through each line
-foreach ($lines as $line) {
-    // Skip it if it's a comment
-    if (substr($line, 0, 2) == '--' || $line == '')
-        continue;
-    // Add this line to the current segment
-    $tempLine .= $line;
-    // If its semicolon at the end, so that is the end of one query
-    if (substr(trim($line), -1, 1) == ';')  {
-        // Perform the query
-        mysqli_query($link, $tempLine) or print("Error in " . $tempLine .":". mysqli_error());
-        // Reset temp variable to empty
-        $tempLine = '';
-    }
+$FileType = strtolower(pathinfo(basename($_FILES["fileToUpload"]["name"]), PATHINFO_EXTENSION));
+if ($FileType == "sql") {
+    $query = file_get_contents($_FILES["fileToUpload"]["tmp_name"]);
+    $sql="drop database dbcanzese";
+    //mysqli_query($link,$sql);
+    $sql="create database dbcanzese";
+    //mysqli_query($link,$sql);
+    echo $query;
+    mysqli_multi_query($link,$query);
+}else{
+    echo "<script type='text/javascript'>alert('file backup tipo errato');</script>";
 }
- echo "Tables imported successfully";
+header("Location: ../../index.php");
+

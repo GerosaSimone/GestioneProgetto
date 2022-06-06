@@ -12,21 +12,22 @@ $_SESSION['ultimaPage'] = "settings";
         <h1 class="display-5 font-weight-bold">IMPOSTAZIONI</h1>
     </header>
     <div class="row text-center">
+
         <div class="col-4 text-center">
             <div class="card">
                 <div class="card-header">
                     Carica Backup
                 </div>
                 <div class="card-body">
-                    <div class="input-group mb-3" style="width:100%">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile02">
-                            <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-                        </div>
-                    </div>
-                    <a href="pagine/impostazioni/eseguiBackup.php">
-                        <button type="button" class="btn btn-outline-secondary btn-block" style="width:100%">Esegui Backup</button>
-                    </a>
+                    <form action="pagine/impostazioni/caricaBackup.php" method="post" enctype="multipart/form-data">
+
+                        <div class="input-group mb-3" style="width:100%">
+                            <div class="custom-file">
+                            <input type="file" class="form-control-file" name="fileToUpload" id="fileToUpload"  style="margin-left:-2%" required>
+                            </div>
+                        </div>                      
+                            <button type="submit" class="btn btn-outline-secondary btn-block" style="width:100%">Esegui Backup</button>                   
+                    </form>
                 </div>
             </div>
         </div>
