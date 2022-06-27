@@ -105,7 +105,7 @@ try {
 ?>
 <div>
     <div class="row">
-        <div class="col-sm-4 border-right destra" >
+        <div class="col-sm-4 border-right destra">
             <h4 class="text-dark font-weight-bold">DATI ANAGRAFICI</h4>
             <div class="form-group mt-2" style="max-height:45%">
                 <label class="text-dark font-weight-bold">Foto</label><br>
@@ -218,7 +218,6 @@ try {
                                     </div>
                                 </div>";
                 }
-                echo "</div>";
             } else
                 echo '<div><p>Nessuna mail presente</p></div>';
             ?>

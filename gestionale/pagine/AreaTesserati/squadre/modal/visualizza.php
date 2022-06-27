@@ -217,7 +217,6 @@ try {
                                     </div>
                                 </div>";
                 }
-                echo "</div>";
             } else
                 echo '<div><p>Nessuna mail presente</p></div>';
             ?>
