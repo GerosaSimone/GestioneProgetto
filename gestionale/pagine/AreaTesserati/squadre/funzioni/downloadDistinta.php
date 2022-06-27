@@ -13,7 +13,5 @@ $luogoRitrovo = $_POST["luogoRitrovo"];
 $luogoPartita = $_POST["luogoPartita"];
 $idTesserato = $_POST['idTesserato'];
 echo $casa . "<br>" . $ospite . "<br>" . $data . "<br>" . $oraRitrovo . "<br>" . $oraPartita . "<br>" . $luogoRitrovo . "<br>" . $luogoPartita . "<br>";
-for ($i = 0; $i < count($idTesserato); $i++) {
-    echo ($idTesserato[$i] . " ");
-}
+print_r($idTesserato);
 //header("Location: ../../../../index.php");

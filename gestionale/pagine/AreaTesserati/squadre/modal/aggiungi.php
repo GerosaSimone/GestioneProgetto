@@ -1,7 +1,7 @@
 <body>
-    <div class="container">
+    <div>
         <div class="row">
-            <div class="col-sm-4 border-right">
+            <div class="col-sm-4 border-right destra">
                 <h4 class="text-dark font-weight-bold">DATI ANAGRAFICI</h4>
                 <div class="form-group mt-2" style="max-height:45%">
                     <label class="text-dark font-weight-bold">Foto</label>
@@ -21,7 +21,7 @@
                 <label class="text-dark font-weight-bold">Luogo di Nascita</label>
                 <input type="text" name="luogoNascita" class="form-control form-control-sm" required>
             </div>
-            <div class="col-sm-4 border-right">
+            <div class="col-sm-4 border-right destra">
                 <h4 class="text-dark font-weight-bold">VISITA</h4>
                 <label class="text-dark font-weight-bold">Tipo</label><br>
                 <div class="form-check form-check-inline">
@@ -39,51 +39,51 @@
                     <input type="file" class="form-control-file" name="fileToUpload1" id="fileToUpload1" onchange="readFotoVisita(this);" style="margin-left:-2%">
                     <img id="fotoVisita" src="" />
                 </div>
-                <h4 class="text-dark font-weight-bold" style="margin-left:-2%">CONTATTI</h4>
-                <div class="container" style="margin-left:-4%">
+                <h4 class="text-dark font-weight-bold" style=" margin-left:-2%">CONTATTI</h4>
+                <div style="margin-left:-4%">
                     <div class="row">
-                        <div class="col-sm-7 text-dark font-weight-bold">
-                            Telefono
+                        <div class="col-7">
+                            <label class="text-dark font-weight-bold">Telefono</label>
                         </div>
-                        <div class="col-sm-4 text-dark font-weight-bold">
-                            Contatto
+                        <div class="col-4">
+                            <label class="text-dark font-weight-bold">Contatto</label>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-1">
                             <input type="text" id="numTelefoni" name="numTelefoni" hidden="true" value="1" class="form-control form-control-sm mb-2">
                         </div>
                     </div>
                     <div class="row telefoni" id="telefoni">
-                        <div class="col-sm-7">
+                        <div class="col-7">
                             <input type="tel" name="tel1" class="form-control form-control-sm mb-2" minlength="9" maxlength="14">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-4">
                             <input type="text" name="contatto1" class="form-control form-control-sm mb-2">
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-1">
                             <button type="button" onclick="aggiungiTel()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
                         </div>
                     </div>
                 </div>
-                <div class="container" style="margin-left:-4%; margin-top:2%">
+                <div style="margin-left:-4%; margin-top:2%">
                     <div class="row">
-                        <div class="col-sm-7 text-dark font-weight-bold">
-                            Mail
+                        <div class="col-7">
+                            <label class="text-dark font-weight-bold">Mail</label>
                         </div>
-                        <div class="col-sm-4 text-dark font-weight-bold">
-                            Contatto
+                        <div class="col-4">
+                            <label class="text-dark font-weight-bold">Contatto</label>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-1">
                             <input type="text" id="numMail" name="numMail" hidden="true" value="1" class="form-control form-control-sm mb-2">
                         </div>
                     </div>
                     <div class="row mail" id="mail">
-                        <div class="col-sm-7">
+                        <div class="col-7">
                             <input type="email" name="mail1" class="form-control form-control-sm mb-2">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-4">
                             <input type="text" name="cont1" class="form-control form-control-sm mb-2">
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-1">
                             <button type="button" onclick="aggiungiMail()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
                         </div>
                     </div>
@@ -125,13 +125,13 @@
                     </div>
                 </div><br>
                 <h4 class="text-dark font-weight-bold">CONTABILITA'</h4>
-                <div class="container" style="margin-left:-2%">
+                <div style="margin-left:-2%">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-6">
                             <label class="text-dark font-weight-bold">Da Pagare</label>
                             <input type='currency' name="daPagare" value="0,00€" placeholder='Type a number & click outside' class="form-control form-control-sm mb-2" />
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-6">
                             <label class="text-dark font-weight-bold">Pagato</label>
                             <input type='currency' name="pagato" value="0,00€" placeholder='Type a number & click outside' class="form-control form-control-sm mb-2" />
                         </div>
@@ -144,14 +144,21 @@
 <script>
     function aggiungiTel() {
         var a = $(".telefoni").length;
-        var cell = "<div class='col-sm-7 telefoni'><input type='tel' name='tel" + (a + 1) + "' class='form-control form-control-sm mb-2' minlength='9' maxlength='14'></div><div class='col-sm-4'><input type='text' name='contatto" + (a + 1) + "' class='form-control form-control-sm mb-2'></div>";
+        var cell = "<div class='row telefoni'>"
+        cell = "<div class='col-7 telefoni'>"
+        cell += "<input type='tel' name='tel" + (a + 1) + "' class='form-control form-control-sm mb-2' minlength='9' maxlength='14'>"
+        cell += "</div>"
+        cell += "<div class='col-4'>"
+        cell += "<input type='text' name='contatto" + (a + 1) + "' class='form-control form-control-sm mb-2'>"
+        cell += "</div>"
+        cell += "</div>"
         $("#telefoni").append(cell);
         $("#numTelefoni").attr('value', (a + 1));
     }
 
     function aggiungiMail() {
         var a = $(".mail").length;
-        var ml = '<div class="col-sm-7 mail"><input type="email" name="mail' + (a + 1) + '" class="form-control form-control-sm mb-2"></div><div class="col-sm-4"><input type="text" name="cont' + (a + 1) + '" class="form-control form-control-sm mb-2"></div>';
+        var ml = '<div class="row mail"><div class="col-7 mail"><input type="email" name="mail' + (a + 1) + '" class="form-control form-control-sm mb-2"></div><div class="col-4"><input type="text" name="cont' + (a + 1) + '" class="form-control form-control-sm mb-2"></div></div>';
         $("#mail").append(ml);
         $("#numMail").attr('value', (a + 1));
     }
@@ -206,5 +213,11 @@
         e.target.value = (value || value === 0) ?
             localStringToNumber(value).toLocaleString(undefined, options) :
             ''
+    }
+
+    if ($(window).width() < 501) {
+        $(".destra").removeClass("border-right");
+    } else {
+        $(".destra").addClass("border-right");
     }
 </script>

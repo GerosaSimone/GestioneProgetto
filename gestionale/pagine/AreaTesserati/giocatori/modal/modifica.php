@@ -102,7 +102,7 @@ try {
 ?>
 
 <body>
-    <div class="container">
+    <div>
         <div class="row">
             <div class="col-sm-4 border-right destra">
                 <h4 class="text-dark font-weight-bold">DATI ANAGRAFICI</h4>
@@ -156,7 +156,7 @@ try {
                     }
                     ?>
                 </div>
-                <h4 class="text-dark font-weight-bold">CONTATTI</h4>
+                <h4 style="color:dark; margin-top:4%">CONTATTI</h4>
                 <div style="margin-left:-2%">
                     <div class="row">
                         <div class="col-7">
@@ -181,10 +181,10 @@ try {
                         </div>
                         <?php
                         for ($i = 1; $i < count($telefoniTel); $i++) {
-                            echo "  <div class='col-7 telefoni'>
+                            echo "  <div class='col-sm-7 telefoni'>
                                     <input type='tel' name='tel" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $telefoniTel[$i] . "' minlength='9' maxlength='14'>
                                 </div>
-                                <div class='col-4'>
+                                <div class='col-sm-4'>
                                     <input type='text' name='contatto" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $telefoniCont[$i] . "'>
                                 </div>";
                         } ?>
@@ -212,13 +212,12 @@ try {
                         <div class="col-1">
                             <button type="button" onclick="modificaMail()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
                         </div>
-
                         <?php
                         for ($i = 1; $i < count($mailMail); $i++) {
-                            echo "  <div class='col-7 mail'>
+                            echo "  <div class='col-sm-7 mail'>
                                 <input type='mail' name='mail" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailMail[$i] . "'>
                             </div>
-                            <div class='col-4'>
+                            <div class='col-sm-4'>
                                 <input type='text' name='cont" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailCont[$i] . "'>
                             </div>";
                         } ?>
@@ -407,18 +406,24 @@ try {
 
     function modificaTel() {
         var a = $(".telefoni").length;
-        var cell = "<div class='col-sm-7 telefoni'><input type='tel' name='tel" + (a + 1) + "' class='form-control form-control-sm mb-2' minlength='9' maxlength='14'></div><div class='col-sm-4'><input type='text' name='contatto" + (a + 1) + "' class='form-control form-control-sm mb-2'></div>";
+        var cell = "<div class='row telefoni'>"
+        cell = "<div class='col-7 telefoni'>"
+        cell += "<input type='tel' name='tel" + (a + 1) + "' class='form-control form-control-sm mb-2' minlength='9' maxlength='14'>"
+        cell += "</div>"
+        cell += "<div class='col-4'>"
+        cell += "<input type='text' name='contatto" + (a + 1) + "' class='form-control form-control-sm mb-2'>"
+        cell += "</div>"
+        cell += "</div>"
         $("#telefoni").append(cell);
         $("#numTelefoni").attr('value', (a + 1));
     }
 
     function modificaMail() {
         var a = $(".mail").length;
-        var ml = '<div class="col-sm-7 mail"><input type="email" name="mail' + (a + 1) + '" class="form-control form-control-sm mb-2"></div><div class="col-sm-4"><input type="text" name="cont' + (a + 1) + '" class="form-control form-control-sm mb-2"></div>';
+        var ml = '<div class="row mail"><div class="col-7 mail"><input type="email" name="mail' + (a + 1) + '" class="form-control form-control-sm mb-2"></div><div class="col-4"><input type="text" name="cont' + (a + 1) + '" class="form-control form-control-sm mb-2"></div></div>';
         $("#mail").append(ml);
         $("#numMail").attr('value', (a + 1));
     }
-
     //valuta euro
     var currencyInput = document.querySelectorAll('input[type="currency"]')
     var currency = 'EUR' // https://www.currency-iso.org/dam/downloads/lists/list_one.xml

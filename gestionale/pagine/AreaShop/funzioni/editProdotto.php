@@ -8,14 +8,19 @@ require_once '../../../config.php';
 try {
     $id = $_POST['idModifica'];
     $titolo = null;
+    $foto = "";
+    $titolo = "";
+    $sql = "SELECT foto FROM prodotto WHERE id='" . $id . "';";
+    if ($result = mysqli_query($link, $sql)) {
+        $row = mysqli_fetch_array($result);
+        $titolo = $row['foto'];
+        $foto = strtok($row['foto'], '.');
+    }
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
-        $foto = 0;
-        $sql = "SELECT foto FROM prodotto WHERE id='" . $id . "';";
-        if ($result = mysqli_query($link, $sql)) {
-            $row = mysqli_fetch_array($result);
-            $foto = strtok($row['foto'], '.');
+        if (file_exists('../../../img/uploadsProdotti/' . $titolo)) {
+            unlink('../../../img/uploadsProdotti/' . $titolo);
         }
-        $target_dir = "../../img/uploadsProdotti/";
+        $target_dir = "../../../img/uploadsProdotti/";
         $target_file = $target_dir . $foto;
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_dir . basename($_FILES["fileToUpload"]["name"]), PATHINFO_EXTENSION));
@@ -36,7 +41,7 @@ try {
         ) {
             $uploadOk = 0;
         }
-        if ($uploadOk != 0) {
+        if ($uploadOk != 0) {            
             move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
         }
     }
@@ -45,7 +50,7 @@ try {
     $a = $_POST['nome'];
     $b = str_replace('.', '', strtok($_POST['costo'], ','));
     $c = $titolo;
-    $d = $id;
+    $d = $id;    
     $stmt->execute();
     $stmt->close();
 } catch (Exception $e) {

@@ -1,5 +1,5 @@
 <body>
-    <div class="container">
+    <div>
         <div class="row">
             <div class="col-sm-6 border-right" id="destra">
                 <h4 class="text-dark font-weight-bold">DATI ANAGRAFICI</h4>
@@ -53,8 +53,8 @@
                         </select>
                     </div>
                 </div>
-                <h4 class="text-dark font-weight-bold" style="margin-top:4%">CONTATTI</h4>
-                <div  style="margin-left:-2%">
+                <h4 class="text-dark font-weight-bold" style=" margin-left:-2%">CONTATTI</h4>
+                <div style="margin-left:-4%">
                     <div class="row">
                         <div class="col-7">
                             <label class="text-dark font-weight-bold">Telefono</label>
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="margin-left:-2%; margin-top:2%">
+                <div style="margin-left:-4%; margin-top:2%">
                     <div class="row">
                         <div class="col-7">
                             <label class="text-dark font-weight-bold">Mail</label>
@@ -109,14 +109,21 @@
 <script>
     function aggiungiTel() {
         var a = $(".telefoni").length;
-        var cell = "<div class='col-sm-7 telefoni'><input type='tel' name='tel" + (a + 1) + "' class='form-control form-control-sm mb-2' minlength='9' maxlength='14'></div><div class='col-sm-4'><input type='text' name='contatto" + (a + 1) + "' class='form-control form-control-sm mb-2'></div>";
+        var cell = "<div class='row telefoni'>"
+        cell = "<div class='col-7 telefoni'>"
+        cell += "<input type='tel' name='tel" + (a + 1) + "' class='form-control form-control-sm mb-2' minlength='9' maxlength='14'>"
+        cell += "</div>"
+        cell += "<div class='col-4'>"
+        cell += "<input type='text' name='contatto" + (a + 1) + "' class='form-control form-control-sm mb-2'>"
+        cell += "</div>"
+        cell += "</div>"
         $("#telefoni").append(cell);
         $("#numTelefoni").attr('value', (a + 1));
     }
 
     function aggiungiMail() {
         var a = $(".mail").length;
-        var ml = '<div class="col-sm-7 mail"><input type="email" name="mail' + (a + 1) + '" class="form-control form-control-sm mb-2"></div><div class="col-sm-4"><input type="text" name="cont' + (a + 1) + '" class="form-control form-control-sm mb-2"></div>';
+        var ml = '<div class="row mail"><div class="col-7 mail"><input type="email" name="mail' + (a + 1) + '" class="form-control form-control-sm mb-2"></div><div class="col-4"><input type="text" name="cont' + (a + 1) + '" class="form-control form-control-sm mb-2"></div></div>';
         $("#mail").append(ml);
         $("#numMail").attr('value', (a + 1));
     }

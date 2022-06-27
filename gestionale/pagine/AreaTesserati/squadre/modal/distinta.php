@@ -8,7 +8,7 @@ require_once '../../../../config.php';
 ?>
 
 <body>
-    <div class="container">
+    <div>
         <div class="row">
             <div class="col-5">
                 <div class="text-center">

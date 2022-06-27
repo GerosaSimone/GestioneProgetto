@@ -15,7 +15,7 @@ if ($result = mysqli_query($link, $sql)) {
 ?>
 
 <input type="text" name="idTesserato" id="idTesserato" hidden="true" value="<?php echo $_GET["idTesserato"]; ?>">
-<div class="container">
+<div>
     <div class="row">
         <div style="width: 100%;"><label class="text-dark font-weight-bold">Tesserato selezionato: </label><br> <label><?php echo $tesserato; ?></label></div>
         <div style="width: 100%;" class="mt-2"><label class="text-dark font-weight-bold">Prodotto</label>

@@ -103,9 +103,9 @@ try {
 } catch (Exception $e) {
 }
 ?>
-<div class="container">
+<div>
     <div class="row">
-        <div class="col-sm-4 border-right">
+        <div class="col-sm-4 border-right destra" >
             <h4 class="text-dark font-weight-bold">DATI ANAGRAFICI</h4>
             <div class="form-group mt-2" style="max-height:45%">
                 <label class="text-dark font-weight-bold">Foto</label><br>
@@ -143,7 +143,7 @@ try {
                 </div>
             </div>
         </div>
-        <div class="col-sm-4 border-right">
+        <div class="col-sm-4 border-right destra">
             <h4 class="text-dark font-weight-bold">VISITA</h4>
             <p><?php
                 $visita = true;
@@ -168,56 +168,59 @@ try {
                     }
                 }
                 ?>
-            <h4 class="text-dark font-weight-bold mt-2">CONTATTI</h4>
+            <h4 class="text-dark font-weight-bold">CONTATTI</h4>
             <?php
             if (count($telefoniCont)) {
-                echo '<div class="container" style="margin-left:-2%">
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <label class="text-dark font-weight-bold">Telefono</label>
+                echo '  <div class="row" style="margin-left:-2%">
+                            <div class="col-7">
+                                <label class="text-dark font-weight-bold">Telefono</label>
+                            </div>
+                            <div class="col-4">
+                                <label class="text-dark font-weight-bold">Contatto</label>
+                            </div>
+                            <div class="col-1">
+                                <input type="text" id="numTelefoni" name="numTelefoni" hidden="true" value="1" class="form-control form-control-sm mb-2">
+                            </div>
                         </div>
-                        <div class="col-sm-3">
-                            <label class="text-dark font-weight-bold">Contatto</label>
-                        </div>
-                    </div>
                     ';
                 for ($i = 0; $i < count($telefoniCont); $i++) {
-                    echo "  <div class='row telefoni'>
-                                <div class='col-sm-9'>
+                    echo "  <div class='row telefoni' style='margin-left:-2%'>
+                                <div class='col-7'>
                                     <p>" . $telefoniTel[$i] . "</p>
                                 </div>
-                                <div class='col-sm-3'>
+                                <div class='col-4'>
                                     <p>" . $telefoniCont[$i] . "</p>
                                 </div>
                             </div>";
                 }
-                echo " </div>";
             } else
-                echo '<div class="container" style="margin-left:-4%"><p>Nessun telefono presente</p></div>';
+                echo '<div><p>Nessun telefono presente</p></div>';
 
             if (count($mailCont) > 0) {
-                echo '<div class="container" style="margin-top:2%;margin-left:-2%">
-                        <div class="row">
-                            <div class="col-sm-9">
+                echo '  <div class="row" style="margin-left:-2%; margin-top:2%">
+                            <div class="col-7">
                                 <label class="text-dark font-weight-bold">Mail</label>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-4">
                                 <label class="text-dark font-weight-bold">Contatto</label>
+                            </div>
+                            <div class="col-1">
+                                <input type="text" id="numMail" name="numMail" hidden="true" value="1" class="form-control form-control-sm mb-2">
                             </div>
                         </div>';
                 for ($i = 0; $i < count($mailCont); $i++) {
-                    echo "  <div class='row mail'>
-                                    <div class='col-sm-9'>
+                    echo "  <div class='row mail' style='margin-left:-2%'>
+                                    <div class='col-7'>
                                         <p>" . $mailMail[$i] . " </p>
                                     </div>
-                                    <div class='col-sm-3'>
+                                    <div class='col-4'>
                                         <p>" . $mailCont[$i] . " </p>
                                     </div>
                                 </div>";
                 }
                 echo "</div>";
             } else
-                echo '<div class="container" style="margin-left:-4%"><p>Nessuna mail presente</p></div>';
+                echo '<div><p>Nessuna mail presente</p></div>';
             ?>
         </div>
         <div class="col-sm-4">
@@ -258,3 +261,10 @@ try {
         </div>
     </div>
 </div>
+<script>
+    if ($(window).width() < 501) {
+        $(".destra").removeClass("border-right");
+    } else {
+        $(".destra").addClass("border-right");
+    }
+</script>
