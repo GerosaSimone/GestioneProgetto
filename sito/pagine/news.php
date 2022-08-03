@@ -1,5 +1,7 @@
 <body>
-    <br>
+    <div class="page-header">
+        <h2><strong>NEWS</strong> </h2>
+    </div>
     <div class="container mt-4">
         <!-- Nested row for non-featured blog posts-->
         <div class="row">

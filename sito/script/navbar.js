@@ -25,7 +25,7 @@ function scrollFunction() {
     }
 }
 $(document).ready(function () {
-    $("#pagina").load("pagine/home.php");
+    $("#pagina").load("pagine/shop.php");
     //HOME
     $(document).on('click', ".home", function () {
         $.post("pagine/home.php", true, function (data, status) {

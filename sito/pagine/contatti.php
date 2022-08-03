@@ -1,5 +1,7 @@
 <body>
-    <h1>CONTATTI</h1>
+    <div class="page-header">
+        <h2><strong>CONTATTI</strong> </h2>
+    </div>
     <br>
     <br>
     <br>

@@ -1,5 +1,7 @@
 <body>
-    <h1>SPONSOR</h1>
+    <div class="page-header">
+        <h2><strong>SPONSOR</strong> </h2>
+    </div>
     <br>
     <br>
     <br>

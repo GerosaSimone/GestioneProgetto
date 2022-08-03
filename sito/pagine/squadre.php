@@ -1,5 +1,7 @@
 <body>
-    <h1>SQUADRE</h1>
+    <div class="page-header">
+        <h2><strong>SQUADRE</strong> </h2>
+    </div>
     <br>
     <br>
     <br>
