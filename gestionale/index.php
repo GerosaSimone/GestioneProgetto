@@ -66,7 +66,6 @@ if (!isset($_SESSION['user_id'])) {
         if (a == "giocatori") {
             $("#pagina").load("pagine/AreaTesserati/giocatori/giocatori.php");
             var a = document.getElementsByTagName('a')[1].getAttribute('value');            
-            alert("entro "+a);
         } else if (a == "dirigenza") {
             $("#pagina").load("pagine/AreaTesserati/dirigenza/dirigenza.php");
         } else if (a == "categorie") {
@@ -102,7 +101,6 @@ if (!isset($_SESSION['user_id'])) {
         } else {
             $("#pagina").load("pagine/AreaTesserati/squadre/squadre.php?squadra=" + a);
         }
-
         var stato = false
         $("#sidebarCollapse").click(function() {
             if ($(window).width() < 501)
