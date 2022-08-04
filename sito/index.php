@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         .page-header {
-            background-color: rgb(210, 210, 210);
+            background: linear-gradient(-90deg, #696f71, #d7d9d9);
             padding-top: 1.2em;
             padding-bottom: 1.2em;
             padding-left: 16vw;
@@ -37,7 +37,7 @@
                     <li class="nav-item"><a class="nav-link fs-5" href="#!" id="shop">Shop</a></li>
                     <li class="nav-item"><a class="nav-link fs-5" href="#!" id="galleria">Galleria</a></li>
                     <li class="nav-item"><a class="nav-link fs-5" href="#!" id="squadre">Squadre</a></li>
-                    <li class="nav-item"><a class="nav-link fs-5" href="#!" id="sponsor">Sponsor</a></li>
+                    <li class="nav-item"><a class="nav-link fs-5 sponsor" href="#!">Sponsor</a></li>
                     <li class="nav-item"><a class="nav-link fs-5" href="#!" id="contatti">Contatti</a></li>
                 </ul>
             </div>

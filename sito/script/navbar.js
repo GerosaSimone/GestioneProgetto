@@ -25,7 +25,7 @@ function scrollFunction() {
     }
 }
 $(document).ready(function () {
-    $("#pagina").load("pagine/shop.php");
+    $("#pagina").load("pagine/contatti.php");
     //HOME
     $(document).on('click', ".home", function () {
         $.post("pagine/home.php", true, function (data, status) {
@@ -72,7 +72,7 @@ $(document).ready(function () {
         menuTelefono();
     });
     //SPONSOR
-    $(document).on('click', "#sponsor", function () {
+    $(document).on('click', ".sponsor", function () {
         $.post("pagine/sponsor.php", true, function (data, status) {
             $("#pagina").html(data);
             $(".loader-wrapper").fadeIn(0);

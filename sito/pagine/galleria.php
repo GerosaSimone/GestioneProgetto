@@ -1,12 +1,12 @@
 <style>
     .foto {
-        max-height: 10vw;
-        min-height: 10vw;
+        height: 10vw;
+        width: 16vw;
+        object-fit: cover;
     }
 
     .item {
         padding: 1em;
-        object-fit: cover;
         text-align: center;
     }
 </style>
