@@ -6,7 +6,6 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../config.php';
 $_SESSION['ultimaPage'] = "finanziaria";
 
-
 $entrateEffettive = 0;
 $sql = "SELECT sum(pagato) as somma FROM tesserato WHERE tesserato.tipo='0'";
 if ($result = mysqli_query($link, $sql)) {
@@ -104,74 +103,16 @@ if ($result = mysqli_query($link, $sql)) {
             </div>
         </div>
         <div class="row pt-5" id="grafici">
-            <div class="col-7">
-                <div class="alert alert-light border text-center" role="alert" style="padding-top:56px; padding-bottom:56px">
-                    <canvas class="p-3" id="Uscite"></canvas>
-                </div>
+            <div class="col-2">
             </div>
-            <div class="col-5 text-end" style="padding-left:90px">
+            <div class="col-8">
                 <div class="alert alert-light border text-center" role="alert">
-                    <canvas class="p-3" id="Torta"></canvas>
+                    <canvas class="p-3" id="Uscite"></canvas>
                 </div>
             </div>
         </div>
 
         <?php
-        $sql = "SELECT SUM(tesserato.daPagare) AS totale FROM tesserato WHERE tesserato.tipo=0 AND tesserato.idCategoria=1 GROUP BY tesserato.idCategoria";
-        $result = mysqli_query($link, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result);
-            $prima = $row['totale'];
-        } else
-            $prima = 0;
-
-        $sql = "SELECT SUM(tesserato.daPagare) AS totale FROM tesserato WHERE tesserato.tipo=0 AND tesserato.idCategoria=2 GROUP BY tesserato.idCategoria";
-        $result = mysqli_query($link, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result);
-            $juniores = $row['totale'];
-        } else
-            $juniores = 0;
-
-        $sql = "SELECT SUM(tesserato.daPagare) AS totale FROM tesserato WHERE tesserato.tipo=0 AND tesserato.idCategoria=3 GROUP BY tesserato.idCategoria";
-        $result = mysqli_query($link, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result);
-            $allievi = $row['totale'];
-        } else
-            $allievi = 0;
-
-        $sql = "SELECT SUM(tesserato.daPagare) AS totale FROM tesserato WHERE tesserato.tipo=0 AND tesserato.idCategoria=4 GROUP BY tesserato.idCategoria";
-        $result = mysqli_query($link, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result);
-            $giovanissimi = $row['totale'];
-        } else
-            $giovanissimi = 0;
-
-        $sql = "SELECT SUM(tesserato.daPagare) AS totale FROM tesserato WHERE tesserato.tipo=0 AND tesserato.idCategoria=5 GROUP BY tesserato.idCategoria";
-        $result = mysqli_query($link, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result);
-            $esordienti = $row['totale'];
-        } else
-            $esordienti = 0;
-
-        $sql = "SELECT SUM(tesserato.daPagare) AS totale FROM tesserato WHERE tesserato.tipo=0 AND tesserato.idCategoria=6 GROUP BY tesserato.idCategoria";
-        $result = mysqli_query($link, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result);
-            $pulcini = $row['totale'];
-        } else
-            $pulcini = 0;
-
-        $sql = "SELECT SUM(tesserato.daPagare) AS totale FROM tesserato WHERE tesserato.tipo=0 AND tesserato.idCategoria=7 GROUP BY tesserato.idCategoria";
-        $result = mysqli_query($link, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result);
-            $piccoli = $row['totale'];
-        } else
-            $piccoli = 0;
         //Uscite
         $materiale = [];
         $sql = "SELECT 	sum(acquistimateriale.prezzo) as risultato,		
@@ -227,33 +168,7 @@ if ($result = mysqli_query($link, $sql)) {
         }
         ?>
     </div>
-
     <script>
-        const dataTorta = {
-            labels: [
-                'Prima Squadra',
-                'Juniores',
-                'Allievi',
-                'Giovanissimi',
-                'Esordienti',
-                'Pulcini',
-                'Piccoli Amici'
-            ],
-            datasets: [{
-                label: 'Entrate Squadre',
-                data: [<?php echo $prima ?>, <?php echo $juniores ?>, <?php echo $allievi ?>, <?php echo $giovanissimi ?>, <?php echo $esordienti ?>, <?php echo $pulcini ?>, <?php echo $piccoli ?>],
-                backgroundColor: [
-                    'rgb(255, 51, 0)',
-                    'rgb(255, 153, 0)',
-                    'rgb(255, 255, 0)',
-                    'rgb(0, 255, 0)',
-                    'rgb(0, 255, 255)',
-                    'rgb(124,252,0)',
-                    'rgb(204, 51, 255)'
-                ],
-                hoverOffset: 4
-            }]
-        };
         const dataUscite = {
             labels: [
                 'Gennaio',
@@ -276,11 +191,6 @@ if ($result = mysqli_query($link, $sql)) {
                 data: [<?php echo $risultato[1] ?>, <?php echo $risultato[2] ?>, <?php echo $risultato[3] ?>, <?php echo $risultato[4] ?>, <?php echo $risultato[5] ?>, <?php echo $risultato[6] ?>, <?php echo $risultato[7] ?>, <?php echo $risultato[8] ?>, <?php echo $risultato[9] ?>, <?php echo $risultato[10] ?>, <?php echo $risultato[11] ?>, <?php echo $risultato[12] ?>],
             }]
         };
-        const Torta = new Chart(document.getElementById('Torta'), {
-            type: 'pie',
-            data: dataTorta,
-            options: {}
-        });
         const Uscite = new Chart(document.getElementById('Uscite'), {
             type: 'line',
             data: dataUscite,

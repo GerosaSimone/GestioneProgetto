@@ -33,7 +33,6 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        menuTelefono();
     });
     //NEWS
     $(document).on('click', "#news", function () {
@@ -42,7 +41,6 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        menuTelefono();
     });
     //SHOP
     $(document).on('click', "#shop", function () {
@@ -51,7 +49,6 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        menuTelefono();
     });
     //GALLERIA
     $(document).on('click', "#galleria", function () {
@@ -60,7 +57,6 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        menuTelefono();
     });
     //SQUADRE
     $(document).on('click', "#squadre", function () {
@@ -69,7 +65,6 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        menuTelefono();
     });
     //SPONSOR
     $(document).on('click', ".sponsor", function () {
@@ -78,7 +73,6 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        menuTelefono();
     });
     //CONTATTI
     $(document).on('click', "#contatti", function () {
@@ -87,6 +81,5 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeIn(0);
             $(".loader-wrapper").fadeOut(1000);
         });
-        menuTelefono();
     });
 });

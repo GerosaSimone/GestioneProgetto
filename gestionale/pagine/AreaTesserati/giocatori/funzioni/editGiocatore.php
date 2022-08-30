@@ -116,9 +116,9 @@ try {
             }
         }
     }
-    //controllo se va modificata la fotoProfilo
-    $foto = null;
+    //controllo se va modificata la fotoProfilo    
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
+        $foto = null;
         $target_dir = "../../../../img/uploadsProfilo/";
         $target_file = $target_dir . "fotoProfilo" . $_POST['cf'];
         $uploadOk = 1;
@@ -158,6 +158,12 @@ try {
         } catch (Exception $e) {
         }
         $foto = null;
+    } else {
+        $sql = "SELECT linkFoto FROM tesserato WHERE idTesserato='" . $idTesserato . "'";
+        if ($result = mysqli_query($link, $sql))
+            if (mysqli_num_rows($result) > 0)
+                while ($row = mysqli_fetch_array($result))
+                    $foto = $row['linkFoto'];
     }
     //eseguo query tesserato
     $stmt = $link->prepare("UPDATE tesserato SET cf=?, nome=?, cognome=?, dataNascita=?, luogoNascita=?, tipo=?, via=?, provincia=?, citta=?, idCategoria=?, ruolo=?, linkFoto=?, idVisita=?, daPagare=?, pagato=?,matricola=? WHERE id=?");

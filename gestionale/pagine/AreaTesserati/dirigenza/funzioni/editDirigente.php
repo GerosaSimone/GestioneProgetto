@@ -15,8 +15,8 @@ try {
         $ruolo = $_POST['ruolo'];
     }
     //controllo se va modificata la fotoProfilo
-    $foto = null;
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
+        $foto = null;
         $target_dir = "../../../../img/uploadsProfilo/";
         $target_file = $target_dir . "fotoProfilo" . $_POST['cf'];
         $uploadOk = 1;
@@ -57,6 +57,12 @@ try {
         } catch (Exception $e) {
         }
         $foto = null;
+    } else {
+        $sql = "SELECT linkFoto FROM tesserato WHERE idTesserato='" . $idTesserato . "'";
+        if ($result = mysqli_query($link, $sql))
+            if (mysqli_num_rows($result) > 0)
+                while ($row = mysqli_fetch_array($result))
+                    $foto = $row['linkFoto'];
     }
     $stmt = $link->prepare("UPDATE tesserato SET cf=?, nome=?, cognome=?, dataNascita=?, luogoNascita=?, tipo=?, via=?, provincia=?, citta=?, idCategoria=?, ruolo=?, linkFoto=?,matricola=? WHERE id=?");
     $stmt->bind_param("ssssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $n, $m);

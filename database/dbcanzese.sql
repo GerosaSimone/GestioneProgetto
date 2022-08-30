@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 04, 2022 alle 12:02
--- Versione del server: 10.4.6-MariaDB
--- Versione PHP: 7.3.8
+-- Creato il: Ago 29, 2022 alle 16:27
+-- Versione del server: 10.4.24-MariaDB
+-- Versione PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -96,13 +95,6 @@ CREATE TABLE `categoria` (
   `linkFotoSquadra` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
---
--- Dump dei dati per la tabella `categoria`
---
-
-INSERT INTO `categoria` (`id`, `nome`, `palloni`, `pettorine`, `linkFotoSquadra`) VALUES
-(15, 'prima', 0, 0, '');
-
 -- --------------------------------------------------------
 
 --
@@ -129,22 +121,6 @@ CREATE TABLE `magazzino` (
   `nascosto` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
---
--- Dump dei dati per la tabella `magazzino`
---
-
-INSERT INTO `magazzino` (`id`, `idProdotto`, `quantita`, `taglia`, `nascosto`) VALUES
-(198, 1, 0, 'XXS', 0),
-(199, 1, 0, 'XS', 0),
-(200, 1, 0, 'S', 0),
-(201, 1, 0, 'M', 0),
-(202, 1, 0, 'L', 0),
-(204, 2, 0, 'XXS', 0),
-(205, 2, 0, 'XS', 0),
-(206, 2, 0, 'S', 0),
-(207, 2, 0, 'M', 0),
-(208, 2, 0, 'L', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -157,13 +133,6 @@ CREATE TABLE `maglia` (
   `titolo` varchar(50) NOT NULL,
   `descrizione` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Dump dei dati per la tabella `maglia`
---
-
-INSERT INTO `maglia` (`id`, `foto`, `titolo`, `descrizione`) VALUES
-(42, 'fotoDivisaProvabbbbb.jpg', 'bbbbb', 'bbbbb');
 
 -- --------------------------------------------------------
 
@@ -206,14 +175,6 @@ CREATE TABLE `prodotto` (
   `nascosto` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
---
--- Dump dei dati per la tabella `prodotto`
---
-
-INSERT INTO `prodotto` (`id`, `nome`, `tipoTaglie`, `costoUnitario`, `foto`, `nascosto`) VALUES
-(1, 'aaaaaaaa', 0, 222, 'fotoProdotto1.jpg', 0),
-(2, 'dbndfb', 0, 12, 'fotoProdotto2.jpg', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -226,14 +187,6 @@ CREATE TABLE `sponsor` (
   `entrata` int(10) UNSIGNED NOT NULL,
   `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `sponsor`
---
-
-INSERT INTO `sponsor` (`id`, `nome`, `entrata`, `data`) VALUES
-(8, 'aaaaa', 12, '2022-06-02'),
-(9, 'bbbbb', 12, '2022-06-02');
 
 -- --------------------------------------------------------
 
@@ -305,9 +258,7 @@ CREATE TABLE `utenti` (
 --
 
 INSERT INTO `utenti` (`id`, `user`, `password`, `tipo`, `idCategoria`) VALUES
-(23, ' ', '7215ee9c7d9dc229d2921a40e899ec5f', 0, NULL),
-(24, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 0, NULL),
-(26, 'b', '92eb5ffee6ae2fec3ad71c777531578f', 1, 15);
+(24, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -450,13 +401,13 @@ ALTER TABLE `visita`
 -- AUTO_INCREMENT per la tabella `acquistigiocatori`
 --
 ALTER TABLE `acquistigiocatori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT per la tabella `acquistimagazzino`
 --
 ALTER TABLE `acquistimagazzino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT per la tabella `acquistimateriale`
@@ -474,19 +425,19 @@ ALTER TABLE `allenamento`
 -- AUTO_INCREMENT per la tabella `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT per la tabella `galleria`
 --
 ALTER TABLE `galleria`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT per la tabella `magazzino`
 --
 ALTER TABLE `magazzino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
 
 --
 -- AUTO_INCREMENT per la tabella `maglia`
@@ -498,7 +449,7 @@ ALTER TABLE `maglia`
 -- AUTO_INCREMENT per la tabella `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT per la tabella `news`
@@ -522,25 +473,25 @@ ALTER TABLE `sponsor`
 -- AUTO_INCREMENT per la tabella `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT per la tabella `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- Limiti per le tabelle scaricate
@@ -550,14 +501,14 @@ ALTER TABLE `visita`
 -- Limiti per la tabella `acquistigiocatori`
 --
 ALTER TABLE `acquistigiocatori`
-  ADD CONSTRAINT `acquistaProdotto` FOREIGN KEY (`idProdotto`) REFERENCES `prodotto` (`id`),
-  ADD CONSTRAINT `tesserato` FOREIGN KEY (`idTesserato`) REFERENCES `tesserato` (`id`);
+  ADD CONSTRAINT `acquistaProdotto` FOREIGN KEY (`idProdotto`) REFERENCES `prodotto` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tesserato` FOREIGN KEY (`idTesserato`) REFERENCES `tesserato` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `acquistimagazzino`
 --
 ALTER TABLE `acquistimagazzino`
-  ADD CONSTRAINT `magazzino` FOREIGN KEY (`idMagazzino`) REFERENCES `magazzino` (`id`);
+  ADD CONSTRAINT `magazzino` FOREIGN KEY (`idMagazzino`) REFERENCES `magazzino` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `allenamento`
@@ -587,7 +538,7 @@ ALTER TABLE `telefono`
 -- Limiti per la tabella `tesserato`
 --
 ALTER TABLE `tesserato`
-  ADD CONSTRAINT `relazione3` FOREIGN KEY (`idVisita`) REFERENCES `visita` (`id`),
+  ADD CONSTRAINT `relazione3` FOREIGN KEY (`idVisita`) REFERENCES `visita` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `relazione4` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`) ON DELETE CASCADE;
 
 --
