@@ -20,8 +20,8 @@ $_SESSION['ultimaPage'] = "settings";
                 <div class="card-body">
                     <p class="card-text" style="text-align:start">Accedi al cPanel per controllare i vecchi backup e ripristinarne uno.</p>
                     <p class="card-text text-dark" style="text-align:start">Attenzione: una volta ripristinato un db non si puo' tornare indietro!</p>
-                    <a href="https://www.netsons.com/manage/cart.php?a=add&pid=388&fld=GiovanileCanzese">
-                        <button type="button" class="btn btn-outline-secondary btn-block " style="width:100%">Accedi al servizio</button>
+                    <a href="https://hostingweb38.netsons.net:2083/cpsess4742229815/frontend/paper_lantern/index.html">
+                        <button type="button" class="btn btn-outline-secondary btn-block " style="width:100%">Accedi a CPanel</button>
                     </a>
                 </div>
             </div>

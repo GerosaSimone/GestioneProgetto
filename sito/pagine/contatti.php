@@ -44,7 +44,9 @@
                                                 </div>
                                                 <div class="col-md-12 mt-4">
                                                     <div class="form-group">
-                                                        <input type="submit" value="Invia Messaggio" class="btn btn-primary">
+                                                        <div class="d-grid gap-2">
+                                                            <input type="submit" value="Invia Messaggio" class="btn btn-primary btn-block">
+                                                        </div>
                                                         <div class="submitting"></div>
                                                     </div>
                                                 </div>
@@ -53,24 +55,23 @@
                                     </div>
                                 </div>
                                 <div class="col-md-5 align-items-start mt-auto mb-auto">
-                                    <div class="info-wrap bg-primary w-100 p-lg-5 p-4 border rounded-4">                                       
+                                    <div class="info-wrap bg-primary w-100 p-lg-5 p-4 border rounded-4">
                                         <h3 class="mb-4 mt-md-4 ligth"><b>CONTATTI</b></h3>
-                                        <div class="dbox w-100 d-flex">                                                     
+                                        <div class="dbox w-100 d-flex">
                                             <div class="text pl-3">
-                                            
+
                                                 <p class="ligth"><i class="bi bi-cursor-fill"></i><span>&nbsp&nbsp&nbspIndirizzo:</span> Campo Sportivo S.Miro, Via Antonio Stoppani, Canzo, CO</p>
                                             </div>
                                         </div>
                                         <div class="dbox w-100 d-flex">
-                                           
+
                                             <div class="text pl-3">
-                                            <p class="ligth"><i class="bi bi-telephone-fill"></i><span>&nbsp&nbsp&nbspTelefono:</span> +39 333 145 1234</p>
+                                                <p class="ligth"><i class="bi bi-telephone-fill"></i><span>&nbsp&nbsp&nbspTelefono:</span> +39 333 145 1234</p>
                                             </div>
                                         </div>
                                         <div class="dbox w-100 d-flex">
-                                           
                                             <div class="text pl-3">
-                                            <p class="ligth"><i class="bi bi-envelope-fill"></i><span>&nbsp&nbsp&nbspMail:</span> usgiovanilecanzese@gmail.com</p>
+                                                <p class="ligth"><i class="bi bi-envelope-fill"></i><span>&nbsp&nbsp&nbspMail:</span> usgiovanilecanzese@gmail.com</p>
                                             </div>
                                         </div>
 

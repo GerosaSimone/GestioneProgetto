@@ -62,10 +62,10 @@ if (!isset($_SESSION['user_id'])) {
             $c = $_SESSION['ultimaPage'];
         else
             $c = "eccezione" ?>
-        var a = "<?php echo $c; ?>";
+        var a = "<?php echo $c; ?>";        
         if (a == "giocatori") {
             $("#pagina").load("pagine/AreaTesserati/giocatori/giocatori.php");
-            var a = document.getElementsByTagName('a')[1].getAttribute('value');            
+            var a = document.getElementsByTagName('a')[1].getAttribute('value');
         } else if (a == "dirigenza") {
             $("#pagina").load("pagine/AreaTesserati/dirigenza/dirigenza.php");
         } else if (a == "categorie") {
@@ -98,8 +98,8 @@ if (!isset($_SESSION['user_id'])) {
             $("#pagina").load("pagine/home.php");
         } else if (a == "eccezione") {
             $("#pagina").load("pagine/home.php");
-        } else {
-            $("#pagina").load("pagine/AreaTesserati/squadre/squadre.php?squadra=" + a);
+        } else { 
+            $("#pagina").load("pagine/AreaTesserati/squadre/squadre.php?squadra=" + a.replace(' ', "%20"));
         }
         var stato = false
         $("#sidebarCollapse").click(function() {

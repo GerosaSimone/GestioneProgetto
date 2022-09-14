@@ -104,8 +104,7 @@ if ($result = mysqli_query($link, $sql)) {
                 $(".loader-wrapper").fadeIn(0);
                 $(".loader-wrapper").fadeOut(1000);
             });
-            menuTelefono();
-            location.reload();
+            menuTelefono();            
         });
         //AREA SPONSOR
         $(document).on('click', "#sponsor", function() {

@@ -7,13 +7,10 @@ require_once '../../../config.php';
 
 try {
     $id = $_POST['idModifica'];
-    
-    $stmt = $link->prepare("UPDATE prodotto SET nome = ?, costoUnitario = ?, foto = ? WHERE id = ?");
-    $stmt->bind_param("ssss", $a, $b, $c, $d);
+    $stmt = $link->prepare("UPDATE categoria SET nome=? WHERE id=?");
+    $stmt->bind_param("si", $a, $b);
     $a = $_POST['nome'];
-    $b = str_replace('.', '', strtok($_POST['costo'], ','));
-    $c = $titolo;
-    $d = $id;    
+    $b =  $id;
     $stmt->execute();
     $stmt->close();
 } catch (Exception $e) {

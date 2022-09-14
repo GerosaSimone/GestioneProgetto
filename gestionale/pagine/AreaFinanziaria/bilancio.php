@@ -25,7 +25,6 @@ if ($result = mysqli_query($link, $sql)) {
     }
 }
 $entrateSponsor = 0;
-
 $sql = "SELECT sum(entrata) as somma FROM sponsor ";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
@@ -53,7 +52,6 @@ if ($result = mysqli_query($link, $sql)) {
     }
 }
 ?>
-
 
 <body>
     <header class="text-center mb-2">
@@ -169,7 +167,9 @@ if ($result = mysqli_query($link, $sql)) {
         ?>
     </div>
     <script>
-        const dataUscite = {
+        new Chart(document.getElementById('Uscite').getContext("2d"), {
+            type: 'line',
+            data: {
             labels: [
                 'Gennaio',
                 'Febbraio',
@@ -190,10 +190,7 @@ if ($result = mysqli_query($link, $sql)) {
                 borderColor: 'red',
                 data: [<?php echo $risultato[1] ?>, <?php echo $risultato[2] ?>, <?php echo $risultato[3] ?>, <?php echo $risultato[4] ?>, <?php echo $risultato[5] ?>, <?php echo $risultato[6] ?>, <?php echo $risultato[7] ?>, <?php echo $risultato[8] ?>, <?php echo $risultato[9] ?>, <?php echo $risultato[10] ?>, <?php echo $risultato[11] ?>, <?php echo $risultato[12] ?>],
             }]
-        };
-        const Uscite = new Chart(document.getElementById('Uscite'), {
-            type: 'line',
-            data: dataUscite,
+        },
             options: {
                 scales: {
                     y: {
@@ -202,6 +199,7 @@ if ($result = mysqli_query($link, $sql)) {
                 }
             }
         });
+        console.log("stampato");
         if ($(window).width() < 501) {
             $("#grafici").css("display", "none");
         } else

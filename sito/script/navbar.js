@@ -30,49 +30,38 @@ $(document).ready(function () {
     $(document).on('click', ".home", function () {
         $.post("pagine/home.php", true, function (data, status) {
             $("#pagina").html(data);
-            $(".loader-wrapper").fadeIn(0);
-            $(".loader-wrapper").fadeOut(1000);
         });
+        location.reload();
     });
     //NEWS
     $(document).on('click', "#news", function () {
         $.post("pagine/news.php", true, function (data, status) {
             $("#pagina").html(data);
-            $(".loader-wrapper").fadeIn(0);
-            $(".loader-wrapper").fadeOut(1000);
         });
     });
     //SHOP
     $(document).on('click', "#shop", function () {
         $.post("pagine/shop.php", true, function (data, status) {
             $("#pagina").html(data);
-            $(".loader-wrapper").fadeIn(0);
-            $(".loader-wrapper").fadeOut(1000);
         });
     });
     //GALLERIA
     $(document).on('click', "#galleria", function () {
         $.post("pagine/galleria.php", true, function (data, status) {
             $("#pagina").html(data);
-            $(".loader-wrapper").fadeIn(0);
-            $(".loader-wrapper").fadeOut(1000);
         });
     });
-  
+
     //SPONSOR
     $(document).on('click', ".sponsor", function () {
         $.post("pagine/sponsor.php", true, function (data, status) {
             $("#pagina").html(data);
-            $(".loader-wrapper").fadeIn(0);
-            $(".loader-wrapper").fadeOut(1000);
         });
     });
     //CONTATTI
     $(document).on('click', "#contatti", function () {
         $.post("pagine/contatti.php", true, function (data, status) {
             $("#pagina").html(data);
-            $(".loader-wrapper").fadeIn(0);
-            $(".loader-wrapper").fadeOut(1000);
         });
     });
 });

@@ -53,9 +53,7 @@
     <!--Contenuto pagina-->
     <div class="container mt-4" style="max-width:69vw">
         <div class="row">
-            <!-- Blog entries-->
             <div class="col-lg-8">
-                <!-- Featured blog post-->
                 <div class="card mb-4">
                     <a href="#!"><img class="card-img-top" src="./img/eventi.jpg" alt="..." /></a>
                     <div class="card-body">
@@ -65,10 +63,8 @@
                         <a class="btn btn-primary" href="#!">Leggi di più →</a>
                     </div>
                 </div>
-                <!-- Nested row for non-featured blog posts-->
                 <div class="row">
                     <div class="col-lg-6">
-                        <!-- Blog post-->
                         <div class="card mb-4" style="min-height:22vw" style="transition: width 2s, height 4s;">
                             <a href="#!"><img class="card-img-top" src="./img/campo.jpg" alt="..." style="max-height:12vw" /></a>
                             <div class="card-body">
@@ -78,7 +74,6 @@
                                 <a class="btn btn-primary" href="#!">Leggi di più →</a>
                             </div>
                         </div>
-                        <!-- Blog post-->
                         <div class="card mb-4" style="min-height:22vw" style="transition: width 2s, height 4s;">
                             <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." style="max-height:12vw" /></a>
                             <div class="card-body">
@@ -90,7 +85,6 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <!-- Blog post-->
                         <div class="card mb-4" style="min-height:22vw" style="transition: width 2s, height 4s;">
                             <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." style="max-height:12vw" /></a>
                             <div class="card-body">
@@ -100,7 +94,6 @@
                                 <a class="btn btn-primary" href="#!">Leggi di più →</a>
                             </div>
                         </div>
-                        <!-- Blog post-->
                         <div class="card mb-4" style="min-height:22vw" style="transition: width 2s, height 4s;">
                             <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." style="max-height:12vw" /></a>
                             <div class="card-body">
@@ -112,19 +105,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Pagination-->
-                <nav aria-label="Pagination">
-                    <hr class="my-0" />
-                    <ul class="pagination justify-content-center my-4">
-                        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                        <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                        <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                        <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                        <li class="page-item"><a class="page-link" href="#!">Older</a></li>
-                    </ul>
-                </nav>
             </div>
             <!-- Side widgets-->
             <div class="col-lg-4">
@@ -166,10 +146,10 @@
                     <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active img-sponsor" data-bs-interval="2000">
-                                <a href="#" class="sponsor"><img src="./img/bentley.png" class="rounded text-center sponsor pt-3" alt="..." style="width:21.8vw "></a>
+                                <a href="#" class="sponsor"><img src="./img/bentley.png" class="rounded text-center sponsor pt-3" alt="..." style="width:21.8vw"></a>
                             </div>
                             <div class="carousel-item img-sponsor" data-bs-interval="2000">
-                                <a href="#" class="sponsor"><img src="./img/nike.png" class="rounded text-center sponsor" alt="..." style="width:21.8vw "></a>
+                                <a href="#" class="sponsor"><img src="./img/nike.png" class="rounded text-center sponsor" alt="..." style="width:21.8vw"></a>
                             </div>
                             <div class="carousel-item img-sponsor" data-bs-interval="2000">
                                 <a href="#" class="sponsor"><img src="./img/adidas.png" class="rounded text-center sponsor pt-5 mt-4 pb-5" alt="..." style="width:21.8vw"></a>
