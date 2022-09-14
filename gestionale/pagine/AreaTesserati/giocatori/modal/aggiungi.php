@@ -1,4 +1,4 @@
-<div >
+<div>
     <div class="row">
         <div class="col-sm-4 border-right destra">
             <h4 class="text-dark font-weight-bold">DATI ANAGRAFICI</h4>
@@ -32,7 +32,7 @@
                 <label class="form-check-label" for="inlineRadio2">Visita Agonistica</label>
             </div><br>
             <label class="text-dark font-weight-bold mt-1">Scadenza</label>
-            <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="scadenza">
+            <input type="date" data-date-format="yyyy-mm-dd" style="width:100%" class="form-control form-control-sm mb-2" name="scadenza" default="00-00-0000">
             <div class="form-group mt-2">
                 <label class="text-dark font-weight-bold">Foto</label>
                 <input type="file" class="form-control-file" name="fileToUpload1" id="fileToUpload1" onchange="readFotoVisita(this);" style="margin-left:-2%">
