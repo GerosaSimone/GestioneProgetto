@@ -36,7 +36,6 @@
                     <li class="nav-item"><a class="nav-link fs-5" href="#!" id="news">News</a></li>
                     <li class="nav-item"><a class="nav-link fs-5" href="#!" id="shop">Shop</a></li>
                     <li class="nav-item"><a class="nav-link fs-5" href="#!" id="galleria">Galleria</a></li>
-                    <li class="nav-item"><a class="nav-link fs-5" href="#!" id="squadre">Squadre</a></li>
                     <li class="nav-item"><a class="nav-link fs-5 sponsor" href="#!">Sponsor</a></li>
                     <li class="nav-item"><a class="nav-link fs-5" href="#!" id="contatti">Contatti</a></li>
                 </ul>
@@ -54,7 +53,7 @@
                 <div class="col-3">
                     <p></p>
                     <p class="text-light  pt-3"><strong>Telefono:</strong> +39 454 562 4578</p>
-                    <p class="text-light"><strong> Mail:</strong> giovanilecanzese@gmail.com</p>
+                    <p class="text-light"><strong> Mail:</strong> usgiovanilecanzese@gmail.com</p>
                 </div>
                 <div class="col-4 text-center"> <img src="./img/logo.png" alt="" style="width:6vw"></div>
                 <div class="col-3 text-center hstack gap-4">

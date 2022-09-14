@@ -19,38 +19,27 @@
         </div>
     </div>
 </div>
+
 <!--Modifica-->
-<div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+<div class="modal fade" id="modificaProdotto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modificaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-success">
-                <h3 style="color:white" class="modal-title" id="editLabel"><b>MODIFICA CATEGORIA</b></h3>
-                <button type="button" class="close" aria-label="Close" style="color:white" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h3 style="color:white" class="modal-title" id="modificaLabel"><b>MODIFICA PRODOTTO</b></h3>
+                <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" style="color:white"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="pagine/AreaTesserati/categorie/edit.php" method="post">
-                <div class="modal-body">
-                    <div class="form-group mt-2" style="max-height:45%">
-                        <label class="text-dark font-weight-bold">Nome</label>
-                        <?php
-                        $sql = "SELECT categoria.nome FROM `tesserato` INNER JOIN categoria ON tesserato.idCategoria=categoria.id WHERE tesserato.id='" . $id . "'";
-                        if ($result = mysqli_query($link, $sql)) {
-                            if (mysqli_num_rows($result) > 0) {
-                                $row = mysqli_fetch_array($result);
-                                echo "<input type='text' name='nome' class='form-control form-control-sm mb-2' required value='" . $row['nome'] . "'>";
-                            }
-                        }
-                        ?>
-                    </div>
-                    <input type="text" name="idMoficia" id="idMoficia" hidden="true">
+            <form action="pagine/AreaTesserati/categorie/editCategoria.php" method="post" enctype="multipart/form-data">
+                <div class="modal-body" id="modalModifica">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-success" value="Elimina" data-bs-dismiss="modal">
+                    <input type="submit" name="submit" class="btn btn-success" value="Salva">
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 <!--Aggiungi-->
 <div class="modal fade ml-5" id="add" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addLabel" aria-hidden="true">
     <div class="modal-dialog">

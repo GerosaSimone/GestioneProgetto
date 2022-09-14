@@ -25,7 +25,7 @@ function scrollFunction() {
     }
 }
 $(document).ready(function () {
-    $("#pagina").load("pagine/contatti.php");
+    $("#pagina").load("pagine/home.php");
     //HOME
     $(document).on('click', ".home", function () {
         $.post("pagine/home.php", true, function (data, status) {
@@ -58,14 +58,7 @@ $(document).ready(function () {
             $(".loader-wrapper").fadeOut(1000);
         });
     });
-    //SQUADRE
-    $(document).on('click', "#squadre", function () {
-        $.post("pagine/squadre.php", true, function (data, status) {
-            $("#pagina").html(data);
-            $(".loader-wrapper").fadeIn(0);
-            $(".loader-wrapper").fadeOut(1000);
-        });
-    });
+  
     //SPONSOR
     $(document).on('click', ".sponsor", function () {
         $.post("pagine/sponsor.php", true, function (data, status) {

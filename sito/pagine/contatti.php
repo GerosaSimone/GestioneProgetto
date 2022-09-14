@@ -1,4 +1,9 @@
 <body>
+    <style>
+        .ligth {
+            color: white;
+        }
+    </style>
     <div class="page-header">
         <h2><strong>CONTATTI</strong> </h2>
     </div>
@@ -6,19 +11,79 @@
     <div class="container">
         <div class="row mt-3 mb-4">
 
-            <div class="col-5">
-                form
-            </div>
-            <div class="col-4"></div>
-            <div class="col-3">
-                <h2>Contatti utili</h1>
-                    <h5>Numero di telefono</h5>
-                    <h6>+39 543 674 5745</h6>
-                    <hr>
-                    <h5>Indirizzo Mail</h5>
-                    <h6>giovanilecanzese@gmail.com</h6>
+            <div class="col-12">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-md-12">
+                        <div class="wrapper">
+                            <div class="row no-gutters">
+                                <div class="col-md-7 d-flex align-items-stretch">
+                                    <div class="contact-wrap w-100 p-md-5 p-4">
+                                        <h3 class="mb-4"><b>CONTATTACI</b></h3>
+
+                                        <form method="POST" id="contactForm" name="contactForm" action="php/sendMail.php">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="name" id="name" placeholder="Nome">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mt-3">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Oggetto">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mt-3">
+                                                    <div class="form-group">
+                                                        <textarea name="message" class="form-control" id="message" cols="30" rows="7" placeholder="Messaggio"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mt-4">
+                                                    <div class="form-group">
+                                                        <input type="submit" value="Invia Messaggio" class="btn btn-primary">
+                                                        <div class="submitting"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 align-items-start mt-auto mb-auto">
+                                    <div class="info-wrap bg-primary w-100 p-lg-5 p-4 border rounded-4">                                       
+                                        <h3 class="mb-4 mt-md-4 ligth"><b>CONTATTI</b></h3>
+                                        <div class="dbox w-100 d-flex">                                                     
+                                            <div class="text pl-3">
+                                            
+                                                <p class="ligth"><i class="bi bi-cursor-fill"></i><span>&nbsp&nbsp&nbspIndirizzo:</span> Campo Sportivo S.Miro, Via Antonio Stoppani, Canzo, CO</p>
+                                            </div>
+                                        </div>
+                                        <div class="dbox w-100 d-flex">
+                                           
+                                            <div class="text pl-3">
+                                            <p class="ligth"><i class="bi bi-telephone-fill"></i><span>&nbsp&nbsp&nbspTelefono:</span> +39 333 145 1234</p>
+                                            </div>
+                                        </div>
+                                        <div class="dbox w-100 d-flex">
+                                           
+                                            <div class="text pl-3">
+                                            <p class="ligth"><i class="bi bi-envelope-fill"></i><span>&nbsp&nbsp&nbspMail:</span> usgiovanilecanzese@gmail.com</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
+
 
 </body>

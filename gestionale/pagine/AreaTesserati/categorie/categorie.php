@@ -37,6 +37,14 @@ $_SESSION['ultimaPage'] = "categorie";
                 var recipient = button.getAttribute('data-bs-whatever')
                 document.getElementById("idElimina").value = recipient;
             });
+            var modificaProdotto = document.getElementById('modificaProdotto')
+            modificaProdotto.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget
+                var id = button.getAttribute('data-bs-whatever')
+                $.post("pagine/AreaTesserati/categorie/modifica.php?idProdotto=" + id, true, function(data, status) {
+                    $("#modalModifica").html(data);
+                });
+            });
             var elimina = document.getElementById('edit')
             elimina.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget
