@@ -9,6 +9,7 @@
     <div class="page-header">
         <h2><strong>SPONSOR</strong> </h2>
     </div>
+    <br>
     <div class="container mt-4">
         <div class="row">
             <div class="col-3">
@@ -56,4 +57,7 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
 </body>

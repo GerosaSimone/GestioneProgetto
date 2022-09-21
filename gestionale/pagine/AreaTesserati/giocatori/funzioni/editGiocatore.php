@@ -96,7 +96,7 @@ try {
                 $scadenza = $_POST['scadenza'];
                 $sql = "INSERT INTO visita (tipo, scadenza, foto) VALUES ('" . $_POST['tipoVisita'] . "', '" . $_POST['scadenza'] . "', '$tmp');";
                 mysqli_query($link, $sql);
-                $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "'AND foto='$tmp'";
+                $sql = "SELECT id FROM visita ORDER BY id DESC LIMIT 1";
                 $result = mysqli_query($link, $sql);
                 if ($result = mysqli_query($link, $sql)) {
                     $row = mysqli_fetch_array($result);
@@ -107,7 +107,7 @@ try {
                 $scadenza = $_POST['scadenza'];
                 $sql = "INSERT INTO visita (tipo, scadenza) VALUES ('" . $_POST['tipoVisita'] . "', '" . $_POST['scadenza'] . "');";
                 mysqli_query($link, $sql);
-                $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "';";
+                $sql = "SELECT id FROM visita ORDER BY id DESC LIMIT 1";
                 $result = mysqli_query($link, $sql);
                 if ($result = mysqli_query($link, $sql)) {
                     $row = mysqli_fetch_array($result);
@@ -118,6 +118,7 @@ try {
     }
     //controllo se va modificata la fotoProfilo    
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
+        //prima vuoto ora da aggiungere
         $foto = null;
         $target_dir = "../../../../img/uploadsProfilo/";
         $target_file = $target_dir . "fotoProfilo" . $_POST['cf'];
@@ -143,8 +144,7 @@ try {
             move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
         }
         $foto = "fotoProfilo" . $_POST['cf'] . ".$imageFileType";
-    } else 
-    if ($_POST['presenzaFotoProfilo']) {
+    } else if ($_POST['presenzaFotoProfilo']) {
         //se e' stata cancellata la foto dal modal
         $sql = "SELECT linkFoto FROM tesserato WHERE id='" . $idTesserato . "'";
         if ($result = mysqli_query($link, $sql))
@@ -159,11 +159,13 @@ try {
         }
         $foto = null;
     } else {
-        $sql = "SELECT linkFoto FROM tesserato WHERE idTesserato='" . $idTesserato . "'";
+        //foto profilo non toccata
+        $sql = "SELECT linkFoto FROM tesserato WHERE id='" . $idTesserato . "'";
         if ($result = mysqli_query($link, $sql))
-            if (mysqli_num_rows($result) > 0)
-                while ($row = mysqli_fetch_array($result))
-                    $foto = $row['linkFoto'];
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_array($result);
+                $foto = $row['linkFoto'];
+            }
     }
     //eseguo query tesserato
     $stmt = $link->prepare("UPDATE tesserato SET cf=?, nome=?, cognome=?, dataNascita=?, luogoNascita=?, tipo=?, via=?, provincia=?, citta=?, idCategoria=?, ruolo=?, linkFoto=?, idVisita=?, daPagare=?, pagato=?,matricola=? WHERE id=?");

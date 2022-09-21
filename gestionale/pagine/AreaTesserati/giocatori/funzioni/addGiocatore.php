@@ -4,7 +4,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: pagine/login/login.html");
 }
 require_once '../../../../config.php';
-try {    
+try {
     //ruolo
     $ruolo = null;
     if (!empty($_POST['ruolo'])) {
@@ -47,7 +47,7 @@ try {
                 move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file);
             }
             $stmt = $link->prepare("INSERT INTO visita (tipo, scadenza, foto) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $a, $b, $c);            
+            $stmt->bind_param("sss", $a, $b, $c);
             $a = $_POST['tipoVisita'];
             $b = $_POST['scadenza'];
             $c = "fotoVisita" . $_POST['cf'] . "." . $imageFileType;
@@ -60,25 +60,17 @@ try {
                 $idVisita = $row['id'];
             }
         } else {
-            $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "'";
-            $result = mysqli_query($link, $sql);
+            $stmt = $link->prepare("INSERT INTO visita (tipo, scadenza) VALUES (?, ?)");
+            $stmt->bind_param("ss", $a, $b);
+            $a = $_POST['tipoVisita'];
+            $b = $_POST['scadenza'];
+            $stmt->execute();
+            $stmt->close();
+            $sql = "SELECT id FROM visita ORDER BY id DESC LIMIT 1";
+            echo $sql;
             if ($result = mysqli_query($link, $sql)) {
-                if (mysqli_num_rows($result) > 0) {
-                    $row = mysqli_fetch_array($result);
-                    $idVisita = $row['id'];
-                } else {
-                    $stmt = $link->prepare("INSERT INTO visita (tipo, scadenza) VALUES (?, ?)");
-                    $stmt->bind_param("ss", $a, $b);                    
-                    $a = $_POST['tipoVisita'];
-                    $b = $_POST['scadenza'];
-                    $stmt->execute();
-                    $stmt->close();
-                    $sql = "SELECT id FROM visita WHERE tipo='" . $_POST['tipoVisita'] . "'AND scadenza='" . $_POST['scadenza'] . "'";
-                    if ($result = mysqli_query($link, $sql)) {
-                        $row = mysqli_fetch_array($result);
-                        $idVisita = $row['id'];
-                    }
-                }
+                $row = mysqli_fetch_array($result);
+                $idVisita = $row['id'];
             }
         }
     }
@@ -174,4 +166,4 @@ try {
         }
 } catch (Exception $e) {
 }
-header("Location: ../../../../index.php");
+//header("Location: ../../../../index.php");

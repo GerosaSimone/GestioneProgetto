@@ -8,15 +8,6 @@
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <style>
-        .page-header {
-            background: linear-gradient(-90deg, #696f71, #d7d9d9);
-            padding-top: 1.2em;
-            padding-bottom: 1.2em;
-            padding-left: 16vw;
-            color: dark;
-        }
-    </style>
 </head>
 
 <body>
@@ -32,11 +23,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link fs-5 home" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link fs-5" href="#!" id="news">News</a></li>
-                    <li class="nav-item"><a class="nav-link fs-5" href="#!" id="shop">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link fs-5" href="#!" id="galleria">Galleria</a></li>
+                    <li class="nav-item"><a class="nav-link fs-5" href="#" id="news">News</a></li>
+                    <li class="nav-item"><a class="nav-link fs-5" href="#" id="shop">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link fs-5 galleria" href="#">Galleria</a></li>
                     <li class="nav-item"><a class="nav-link fs-5 sponsor" href="#">Sponsor</a></li>
-                    <li class="nav-item"><a class="nav-link fs-5" href="#!" id="contatti">Contatti</a></li>
+                    <li class="nav-item"><a class="nav-link fs-5" href="#" id="contatti">Contatti</a></li>
+                    <li class="nav-item"><a class="nav-link fs-5">&nbsp&nbsp&nbsp|&nbsp&nbsp</a></li>
+                    <li class="nav-item"><a class="nav-link fs-5" href="gestionale/">Login</a></li>
                 </ul>
             </div>
         </div>

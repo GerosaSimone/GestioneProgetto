@@ -115,16 +115,16 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <ul class="list-unstyled mb-0">
-                                    <li><a href="#!" class="text-decoration-none ">Giovanissimi</a></li>
-                                    <li><a href="#!" class="text-decoration-none ">Pulcini</a></li>
-                                    <li><a href="#!" class="text-decoration-none ">Piccoli Amici</a></li>
+                                    <li> <img src="./img/ball.png" alt="" style="width:20px;height:auto"><a href="#!" class="text-decoration-none ">&nbsp&nbsp&nbsp <b>Giovanissimi</b> </a></li>
+                                    <li class="mt-1"> <img src="./img/ball.png" alt="" style="width:20px;height:auto"><a href="#!" class="text-decoration-none ">&nbsp&nbsp&nbsp <b>Pulcini</b> </a></li>
+                                    <li class="mt-1"><img src="./img/ball.png" alt="" style="width:20px;height:auto"><a href="#!" class="text-decoration-none ">&nbsp&nbsp&nbsp <b> Piccoli Amici</b></a></li>
                                 </ul>
                             </div>
                             <div class="col-sm-6">
                                 <ul class="list-unstyled mb-0">
-                                    <li><a href="#!" class="text-decoration-none ">Juniores</a></li>
-                                    <li><a href="#!" class="text-decoration-none ">Prima Squadra</a></li>
-                                    <li><a href="#!" class="text-decoration-none ">Esordienti</a></li>
+                                    <li><img src="./img/ball.png" alt="" style="width:20px;height:auto"><a href="#!" class="text-decoration-none ">&nbsp&nbsp&nbsp <b>Juniores</b> </a></li>
+                                    <li class="mt-1"><img src="./img/ball.png" alt="" style="width:20px;height:auto"><a href="#!" class="text-decoration-none ">&nbsp&nbsp&nbsp <b>Prima Squadra</b> </a></li>
+                                    <li class="mt-1"><img src="./img/ball.png" alt="" style="width:20px;height:auto"><a href="#!" class="text-decoration-none ">&nbsp&nbsp&nbsp <b>Esordienti</b> </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -134,24 +134,24 @@
                 <div class="card mb-4">
                     <div class="card-header">Le ultime foto... </div>
                     <div class="card-body">
-                        <img src="./img/campo.jpg" class="rounded text-center" alt="..." style="width:32%; ">
-                        <img src="./img/eventi.jpg" class="rounded text-center " alt="..." style="width:32%; ">
-                        <img src="./img/galleria.jpg" class="rounded text-center " alt="..." style="width:32%;">
+                        <a href="#" class="galleria"> <img src="./img/campo.jpg" class="rounded text-center" alt="..." style="width:32%; height:80px; object-fit:cover"></a>
+                        <a href="#" class="galleria"> <img src="./img/eventi.jpg" class="rounded text-center " alt="..." style="width:32%; height:80px; object-fit:cover"></a>
+                        <a href="#" class="galleria"> <img src="./img/galleria.jpg" class="rounded text-center " alt="..." style="width:32%;height:80px; object-fit:cover"></a>
                     </div>
-                    <div class="card-footer text-center"><a href="#" class="btn btn-primary ">Apri la galleria</a></div>
+                    <div class="card-footer text-center"><a href="#" class="btn btn-primary galleria">Apri la galleria</a></div>
                 </div>
                 <!-- Sponsor-->
                 <div class="card mb-4 mt-10 ">
                     <div class="card-header">I nostri sponsor </div>
                     <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active img-sponsor" data-bs-interval="2000">
+                            <div class="carousel-item active img-sponsor" data-bs-interval="4000">
                                 <a href="#" class="sponsor"><img src="./img/bentley.png" class="rounded text-center sponsor pt-3" alt="..." style="width:21.8vw"></a>
                             </div>
-                            <div class="carousel-item img-sponsor" data-bs-interval="2000">
+                            <div class="carousel-item img-sponsor" data-bs-interval="4000">
                                 <a href="#" class="sponsor"><img src="./img/nike.png" class="rounded text-center sponsor" alt="..." style="width:21.8vw"></a>
                             </div>
-                            <div class="carousel-item img-sponsor" data-bs-interval="2000">
+                            <div class="carousel-item img-sponsor" data-bs-interval="4000">
                                 <a href="#" class="sponsor"><img src="./img/adidas.png" class="rounded text-center sponsor pt-5 mt-4 pb-5" alt="..." style="width:21.8vw"></a>
                             </div>
                         </div>
@@ -161,6 +161,4 @@
 
         </div>
     </div>
-
-
 </body>

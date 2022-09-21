@@ -46,7 +46,7 @@ $(document).ready(function () {
         });
     });
     //GALLERIA
-    $(document).on('click', "#galleria", function () {
+    $(document).on('click', ".galleria", function () {
         $.post("pagine/galleria.php", true, function (data, status) {
             $("#pagina").html(data);
         });
