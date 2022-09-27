@@ -67,7 +67,6 @@ try {
             $stmt->execute();
             $stmt->close();
             $sql = "SELECT id FROM visita ORDER BY id DESC LIMIT 1";
-            echo $sql;
             if ($result = mysqli_query($link, $sql)) {
                 $row = mysqli_fetch_array($result);
                 $idVisita = $row['id'];
@@ -166,4 +165,4 @@ try {
         }
 } catch (Exception $e) {
 }
-//header("Location: ../../../../index.php");
+header("Location: ../../../../index.php");

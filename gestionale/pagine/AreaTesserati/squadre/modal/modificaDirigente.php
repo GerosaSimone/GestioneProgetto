@@ -154,7 +154,7 @@ try {
                 </div>
             </div>
             <h4 style="color:dark; margin-top:4%">CONTATTI</h4>
-            <div style="margin-left:-2%">
+            <div style="margin-left:-2%" id="telefoni">
                 <div class="row">
                     <div class="col-7">
                         <label class="text-dark font-weight-bold">Telefono</label>
@@ -166,7 +166,7 @@ try {
                         <input type="text" id="numTelefoni" name="numTelefoni" hidden="true" value="1" class="form-control form-control-sm mb-2">
                     </div>
                 </div>
-                <div class="row telefoni" id="telefoni">
+                <div class="row inputTelefoni">
                     <div class="col-7">
                         <input type="tel" name="tel1" class="form-control form-control-sm mb-2" minlength="9" maxlength="14" value="<?php if (count($telefoniTel) > 0) echo $telefoniTel[0]; ?>">
                     </div>
@@ -176,18 +176,21 @@ try {
                     <div class="col-1">
                         <button type="button" onclick="modificaTel()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
                     </div>
-                    <?php
-                    for ($i = 1; $i < count($telefoniTel); $i++) {
-                        echo "  <div class='col-sm-7 telefoni'>
+                </div>
+                <?php
+                for ($i = 1; $i < count($telefoniTel); $i++) {
+                    echo "  
+                            <div class='row inputTelefoni'>
+                                <div class='col-7 telefoni'>
                                     <input type='tel' name='tel" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $telefoniTel[$i] . "' minlength='9' maxlength='14'>
                                 </div>
-                                <div class='col-sm-4'>
+                                <div class='col-4'>
                                     <input type='text' name='contatto" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $telefoniCont[$i] . "'>
-                                </div>";
-                    } ?>
-                </div>
+                                </div>
+                            </div>";
+                } ?>
             </div>
-            <div style="margin-left:-2%; margin-top:2%">
+            <div style="margin-left:-2%; margin-top:2%" id="rowMail">
                 <div class="row">
                     <div class="col-7">
                         <label class="text-dark font-weight-bold">Mail</label>
@@ -199,7 +202,7 @@ try {
                         <input type="text" id="numMail" name="numMail" hidden="true" value="1" class="form-control form-control-sm mb-2">
                     </div>
                 </div>
-                <div class="row mail" id="mail">
+                <div class="row inputMail">
                     <div class="col-7">
                         <input type="email" name="mail1" class="form-control form-control-sm mb-2" value="<?php if (count($mailMail) > 0) echo $mailMail[0]; ?>">
                     </div>
@@ -209,16 +212,19 @@ try {
                     <div class="col-1">
                         <button type="button" onclick="modificaMail()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
                     </div>
-                    <?php
-                    for ($i = 1; $i < count($mailMail); $i++) {
-                        echo "  <div class='col-sm-7 mail'>
-                                <input type='mail' name='mail" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailMail[$i] . "'>
-                            </div>
-                            <div class='col-sm-4'>
-                                <input type='text' name='cont" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailCont[$i] . "'>
-                            </div>";
-                    } ?>
                 </div>
+                <?php
+                for ($i = 1; $i < count($mailMail); $i++) {
+                    echo "  
+                            <div class='row inputMail'>
+                                <div class='col-7 mail'>
+                                    <input type='mail' name='mail" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailMail[$i] . "'>
+                                </div>
+                                <div class='col-4'>
+                                    <input type='text' name='cont" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailCont[$i] . "'>
+                                </div>
+                            </div>";
+                } ?>
             </div>
         </div>
     </div>
@@ -245,25 +251,19 @@ try {
     }
 
     function modificaTel() {
-        var a = $(".telefoni").length;
-        var cell = "<div class='row telefoni'>"
-        cell = "<div class='col-7 telefoni'>"
-        cell += "<input type='tel' name='tel" + (a + 1) + "' class='form-control form-control-sm mb-2' minlength='9' maxlength='14'>"
-        cell += "</div>"
-        cell += "<div class='col-4'>"
-        cell += "<input type='text' name='contatto" + (a + 1) + "' class='form-control form-control-sm mb-2'>"
-        cell += "</div>"
-        cell += "</div>"
-        $("#telefoni").append(cell);
+        var a = $(".inputTelefoni").length;
+        var ml = '<div class="row inputTelefoni"><div class="col-7"><input type="tel" name="tel' + (a + 1) + '" class="form-control form-control-sm mb-2"></div><div class="col-4"><input type="text" name="contatto' + (a + 1) + '" class="form-control form-control-sm mb-2"></div></div>';
+        $("#telefoni").append(ml);
         $("#numTelefoni").attr('value', (a + 1));
     }
 
     function modificaMail() {
-        var a = $(".mail").length;
-        var ml = '<div class="row mail"><div class="col-7 mail"><input type="email" name="mail' + (a + 1) + '" class="form-control form-control-sm mb-2"></div><div class="col-4"><input type="text" name="cont' + (a + 1) + '" class="form-control form-control-sm mb-2"></div></div>';
-        $("#mail").append(ml);
+        var a = $(".inputMail").length;
+        var ml = '<div class="row inputMail"><div class="col-7 mail"><input type="email" name="mail' + (a + 1) + '" class="form-control form-control-sm mb-2"></div><div class="col-4"><input type="text" name="cont' + (a + 1) + '" class="form-control form-control-sm mb-2"></div></div>';
+        $("#rowMail").append(ml);
         $("#numMail").attr('value', (a + 1));
     }
+
     if ($(window).width() < 501) {
         $(".destra").removeClass("border-right");
     } else {

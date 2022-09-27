@@ -1,3 +1,32 @@
+/*TOOLTIP*/
+.tooltipp {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltipp .tooltiptext {
+    background-color: white;
+    visibility: hidden;
+    position: absolute;
+    width: 300px;
+    color: grey;
+    padding-left:25px;
+    text-align: left;
+    border-radius: 6px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltipp:hover {
+    color: rgb(200, 200, 200);
+}
+
+.tooltipp:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
 /*LOADER*/
 .loader-wrapper {
     z-index: 100000;
@@ -11749,7 +11778,7 @@ a.text-dark:focus {
     }
 
     abbr[title]::after {
-        content: " ("attr(title) ")";
+        content: " (" attr(title) ")";
     }
 
     pre {
@@ -11995,10 +12024,11 @@ h5,
 }
 
 @media (max-width: 500px) {
-    #pagina{
+    #pagina {
         max-width: 100%;
     }
-    .modal-body {        
+
+    .modal-body {
         padding: 0.5rem;
     }
 
@@ -12007,7 +12037,10 @@ h5,
         margin-top: 0px !important;
     }
 
-    .card, .rounded, .shadow-lg, .border-0 {
+    .card,
+    .rounded,
+    .shadow-lg,
+    .border-0 {
         max-width: 100%;
     }
 
@@ -12019,19 +12052,23 @@ h5,
         min-width: 100%;
     }
 
-    h1, .h1 {
+    h1,
+    .h1 {
         font-size: 1.75rem;
     }
 
-    h4, .h4 {
+    h4,
+    .h4 {
         font-size: 1.25rem;
     }
 
-    .mt-2, .my-2 {
+    .mt-2,
+    .my-2 {
         margin-top: 0.75rem !important;
     }
 
-    h3, .h3 {
+    h3,
+    .h3 {
         font-size: 1.25rem;
     }
 
@@ -12043,7 +12080,8 @@ h5,
         padding: 0.5rem !important;
     }
 
-    .pl-4, .px-4 {
+    .pl-4,
+    .px-4 {
         padding-left: 0p !important;
     }
 

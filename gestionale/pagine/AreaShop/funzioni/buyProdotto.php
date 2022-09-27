@@ -17,7 +17,7 @@ try {
         $row = mysqli_fetch_array($result);
         $daPagare = $row['daPagare'] + $row['costoUnitario'];
     }
-    $sql = "SELECT quantita FROM magazzino WHERE idProdotto='$idProdotto'";
+    $sql = "SELECT quantita FROM magazzino WHERE idProdotto='$idProdotto' and taglia='$taglia'";
     if ($result = mysqli_query($link, $sql)) {
         $row = mysqli_fetch_array($result);
         $quantita = $row['quantita'] - 1;

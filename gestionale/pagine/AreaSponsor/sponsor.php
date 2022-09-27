@@ -18,7 +18,6 @@ $_SESSION['ultimaPage'] = "sponsor";
     </header>
     <div><?php include "tabellaSponsor.php" ?></div>
     <div><?php include "modal.php" ?></div>
-
     <script>
         jQuery(document).ready(function($) {
             $(document).ready(function() {
@@ -37,8 +36,6 @@ $_SESSION['ultimaPage'] = "sponsor";
                 var recipient = button.getAttribute('data-bs-whatever')
                 document.getElementById("idElimina").value = recipient;
             });
-            //$('#DataTables_Table_0_paginate').addClass('pt-5');​
-
         });
     </script>
 </body>

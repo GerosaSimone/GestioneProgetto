@@ -166,7 +166,7 @@ try {
                 $row = mysqli_fetch_array($result);
                 $foto = $row['linkFoto'];
             }
-    }
+    }    
     //eseguo query tesserato
     $stmt = $link->prepare("UPDATE tesserato SET cf=?, nome=?, cognome=?, dataNascita=?, luogoNascita=?, tipo=?, via=?, provincia=?, citta=?, idCategoria=?, ruolo=?, linkFoto=?, idVisita=?, daPagare=?, pagato=?,matricola=? WHERE id=?");
     $stmt->bind_param("sssssssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $n, $o, $p, $q, $m);

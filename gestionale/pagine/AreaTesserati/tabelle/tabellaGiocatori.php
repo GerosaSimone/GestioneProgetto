@@ -36,11 +36,11 @@
                                 $date = str_replace('-', '/', $row['scadenza']);
                                 $newDate = date("d/m/Y", strtotime($date));
                                 if ($differenza > 30) {
-                                    echo "<td><span class='dot-green mr-3 '></span>"  . $newDate . "</td>";
+                                    echo "<td><span class='coloreScadenza dot-green mr-3 '></span>"  . $newDate . "</td>";
                                 } else if ($differenza > 0) {
-                                    echo "<td><span class='dot-orange mr-3 '></span>" . $newDate . "</td>";
+                                    echo "<td><span class='coloreScadenza dot-orange mr-3 '></span>" . $newDate . "</td>";
                                 } else {
-                                    echo "<td><span class='dot-red mr-3 '></span>" . $newDate . "</td>";
+                                    echo "<td><span class='coloreScadenza dot-red mr-3 '></span>" . $newDate . "</td>";
                                 }
                             } else
                                 echo "<td> Nessuna visita!</td>";
@@ -75,9 +75,17 @@
                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
                 }
                 echo "</tbody></table>";
-
                 ?>
             </div>
         </div>
     </div>
 </div>
+<script>
+    if ($(window).width() < 501) {
+        $(".coloreScadenza").css("width", "3vw");
+        $(".coloreScadenza").css("height", "3vw");
+    } else {
+        $(".coloreScadenza").css("width", "0.7vw");
+        $(".coloreScadenza").css("height", "0.7vw");
+    }
+</script>

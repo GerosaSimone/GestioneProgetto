@@ -53,8 +53,8 @@
                         </select>
                     </div>
                 </div>
-                <h4 class="text-dark font-weight-bold" style=" margin-left:-2%">CONTATTI</h4>
-                <div style="margin-left:-4%">
+                <h4 class="text-dark font-weight-bold" style=" margin-top:2%">CONTATTI</h4>
+                <div style="margin-left:-2%">
                     <div class="row">
                         <div class="col-7">
                             <label class="text-dark font-weight-bold">Telefono</label>
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="margin-left:-4%; margin-top:2%">
+                <div style="margin-left:-2%; margin-top:2%">
                     <div class="row">
                         <div class="col-7">
                             <label class="text-dark font-weight-bold">Mail</label>

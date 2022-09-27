@@ -14,8 +14,9 @@ try {
     if (!empty($_POST['ruolo'])) {
         $ruolo = $_POST['ruolo'];
     }
-    //controllo se va modificata la fotoProfilo
+    //controllo se va modificata la fotoProfilo    
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
+        //prima vuoto ora da aggiungere
         $foto = null;
         $target_dir = "../../../../img/uploadsProfilo/";
         $target_file = $target_dir . "fotoProfilo" . $_POST['cf'];
@@ -44,25 +45,25 @@ try {
     } else if ($_POST['presenzaFotoProfilo']) {
         //se e' stata cancellata la foto dal modal
         $sql = "SELECT linkFoto FROM tesserato WHERE id='" . $idTesserato . "'";
-        if ($result = mysqli_query($link, $sql)) {
+        if ($result = mysqli_query($link, $sql))
             if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_array($result);
                 $foto = $row['linkFoto'];
             }
-        }
         try {
-            if (file_exists('../../../../img/uploadsProfilo/' . $foto)) {
+            if (file_exists('../../../../img/uploadsProfilo/' . $foto))
                 unlink('../../../../img/uploadsProfilo/' . $foto);
-            }
         } catch (Exception $e) {
         }
         $foto = null;
     } else {
-        $sql = "SELECT linkFoto FROM tesserato WHERE idTesserato='" . $idTesserato . "'";
+        //foto profilo non toccata
+        $sql = "SELECT linkFoto FROM tesserato WHERE id='" . $idTesserato . "'";
         if ($result = mysqli_query($link, $sql))
-            if (mysqli_num_rows($result) > 0)
-                while ($row = mysqli_fetch_array($result))
-                    $foto = $row['linkFoto'];
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_array($result);
+                $foto = $row['linkFoto'];
+            }
     }
     $stmt = $link->prepare("UPDATE tesserato SET cf=?, nome=?, cognome=?, dataNascita=?, luogoNascita=?, tipo=?, via=?, provincia=?, citta=?, idCategoria=?, ruolo=?, linkFoto=?,matricola=? WHERE id=?");
     $stmt->bind_param("ssssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $n, $m);

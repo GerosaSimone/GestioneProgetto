@@ -1,3 +1,8 @@
+<script>
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 <?php
 require_once "./config.php";
 $nomiSquadre = [];
@@ -104,7 +109,7 @@ if ($result = mysqli_query($link, $sql)) {
                 $(".loader-wrapper").fadeIn(0);
                 $(".loader-wrapper").fadeOut(1000);
             });
-            menuTelefono();            
+            menuTelefono();
         });
         //AREA SPONSOR
         $(document).on('click', "#sponsor", function() {

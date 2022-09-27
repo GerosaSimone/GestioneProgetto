@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>U.S. Giovanile Canzese</title>
+    <link rel="icon" href="img/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
@@ -17,7 +18,7 @@
             <a class="navbar-brand home" href="#!" id="brand" style="font-size:1.95rem">U.S. Giovanile Canzese
             </a>
             <div style="max-width:7em; margin-left:20vw; ">
-                <img src="./img/logo.png" class="img-fluid home" alt="..." id="logo">
+                <img src="./img/logo.png" class="img-fluid home" alt="..." id="logo" href="#!">
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">

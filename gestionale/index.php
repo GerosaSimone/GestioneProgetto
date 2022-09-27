@@ -9,6 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 
 <head>
     <title>U.S. Giovanile Canzese</title>
+    <link rel="icon" href="img/logo.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">

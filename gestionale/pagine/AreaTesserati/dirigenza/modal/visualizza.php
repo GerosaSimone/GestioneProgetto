@@ -155,11 +155,11 @@ try {
             <?php
             if (count($telefoniCont)) {
                 echo '  <div class="row" style="margin-left:-2%">
+                            <div class="col-3">
+                                <label class="text-dark font-weight-bold">Contatto</label>
+                            </div>
                             <div class="col-7">
                                 <label class="text-dark font-weight-bold">Telefono</label>
-                            </div>
-                            <div class="col-4">
-                                <label class="text-dark font-weight-bold">Contatto</label>
                             </div>
                             <div class="col-1">
                                 <input type="text" id="numTelefoni" name="numTelefoni" hidden="true" value="1" class="form-control form-control-sm mb-2">
@@ -167,39 +167,33 @@ try {
                         </div>
                     ';
                 for ($i = 0; $i < count($telefoniCont); $i++) {
-                    echo "  <div class='row telefoni' style='margin-left:-2%'>
-                                <div class='col-7'>
-                                    <p>" . $telefoniTel[$i] . "</p>
-                                </div>
-                                <div class='col-4'>
-                                    <p>" . $telefoniCont[$i] . "</p>
+                    echo "  <div class='row telefoni mb-1' >
+                                <div class='tooltipp'>" . $telefoniCont[$i] . "
+                                    <span class='tooltiptext'>" . $telefoniTel[$i] . "</span>
                                 </div>
                             </div>";
-                }                
+                }
             } else
                 echo '<div><p>Nessun telefono presente</p></div>';
 
             if (count($mailCont) > 0) {
                 echo '  <div class="row" style="margin-left:-2%; margin-top:2%">
-                            <div class="col-7">
-                                <label class="text-dark font-weight-bold">Mail</label>
-                            </div>
-                            <div class="col-4">
+                            <div class="col-3">
                                 <label class="text-dark font-weight-bold">Contatto</label>
+                            </div>
+                            <div class="col-7">
+                                <label class="text-dark font-weight-bold"> Mail</label>
                             </div>
                             <div class="col-1">
                                 <input type="text" id="numMail" name="numMail" hidden="true" value="1" class="form-control form-control-sm mb-2">
                             </div>
                         </div>';
                 for ($i = 0; $i < count($mailCont); $i++) {
-                    echo "  <div class='row mail' style='margin-left:-2%'>
-                                    <div class='col-7'>
-                                        <p>" . $mailMail[$i] . " </p>
-                                    </div>
-                                    <div class='col-4'>
-                                        <p>" . $mailCont[$i] . " </p>
-                                    </div>
-                                </div>";
+                    echo "  <div class='row mail mb-1' >
+                                <div class='tooltipp'>" . $mailCont[$i] . "
+                                    <span class='tooltiptext'>" . $mailMail[$i] . "</span>
+                                </div>              
+                            </div>";
                 }
                 echo "</div>";
             } else
