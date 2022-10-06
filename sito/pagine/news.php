@@ -1,14 +1,14 @@
 <body>
     <div class="page-header">
-        <h2><strong>NEWS</strong> </h2>
+        <strong class="testoHeader">NEWS</strong>
     </div>
-    <div class="container mt-4">
+    <div id="contenuto" class="mt-4 container">
         <!-- Nested row for non-featured blog posts-->
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-sm-12">
                 <!-- Blog post-->
-                <div class="card mb-4" style="min-height:22vw">
-                    <a href="#!"><img class="card-img-top" src="./img/campo.jpg" alt="..." style="max-height:12vw" /></a>
+                <div class="card mb-4">
+                    <a href="#!"><img class="card-img-top" src="./img/campo.jpg" alt="..." /></a>
                     <div class="card-body">
                         <div class="small text-muted">January 1, 2022</div>
                         <h2 class="card-title h4">Post Title</h2>
@@ -17,8 +17,8 @@
                     </div>
                 </div>
                 <!-- Blog post-->
-                <div class="card mb-4" style="min-height:22vw">
-                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." style="max-height:12vw" /></a>
+                <div class="card mb-4">
+                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                     <div class="card-body">
                         <div class="small text-muted">January 1, 2022</div>
                         <h2 class="card-title h4">Post Title</h2>
@@ -27,10 +27,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-sm-12">
                 <!-- Blog post-->
-                <div class="card mb-4" style="min-height:22vw">
-                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." style="max-height:12vw" /></a>
+                <div class="card mb-4">
+                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                     <div class="card-body">
                         <div class="small text-muted">January 1, 2022</div>
                         <h2 class="card-title h4">Post Title</h2>
@@ -39,20 +39,20 @@
                     </div>
                 </div>
                 <!-- Blog post-->
-                <div class="card mb-4" style="min-height:22vw">
-                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." style="max-height:12vw" /></a>
+                <div class="card mb-4">
+                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                     <div class="card-body">
                         <div class="small text-muted">January 1, 2022</div>
                         <h2 class="card-title h4">Post Title</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla  </p>
                         <a class="btn btn-primary" href="#!">Leggi di più →</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-sm-12">
                 <!-- Blog post-->
-                <div class="card mb-4" style="min-height:22vw">
-                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." style="max-height:12vw" /></a>
+                <div class="card mb-4">
+                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                     <div class="card-body">
                         <div class="small text-muted">January 1, 2022</div>
                         <h2 class="card-title h4">Post Title</h2>
@@ -61,12 +61,12 @@
                     </div>
                 </div>
                 <!-- Blog post-->
-                <div class="card mb-4" style="min-height:22vw">
-                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." style="max-height:12vw" /></a>
+                <div class="card mb-4">
+                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                     <div class="card-body">
                         <div class="small text-muted">January 1, 2022</div>
                         <h2 class="card-title h4">Post Title</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla  </p>
                         <a class="btn btn-primary" href="#!">Leggi di più →</a>
                     </div>
                 </div>
@@ -86,5 +86,19 @@
             </ul>
         </nav>
     </div>
-
+    <script>
+        $(document).ready(function() {
+            if ($(window).width() < 1000) {
+                $(".card").css("min-height", "60vw")
+                $(".card-img-top ").css("height", "32vw")
+                $(".card-img-top ").css("object-fit", "cover")
+                $("#contenuto").css("max-width", "90vw");
+            } else {
+                $(".card").css("min-height", "22vw")
+                $(".card-img-top ").css("height", "12vw")
+                $(".card-img-top ").css("object-fit", "cover")
+                $("#contenuto").css("max-width", "70vw");
+            }
+        });
+    </script>
 </body>

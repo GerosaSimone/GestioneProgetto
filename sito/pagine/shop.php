@@ -1,222 +1,180 @@
 <style>
     .card {
-        background-color: #fff;
-        border: none;
-        border-radius: 10px;
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        margin: auto;
-    }
-
-    .image-container {
-
-        position: relative;
-    }
-
-    .thumbnail-image {
-        border-radius: 10px !important;
-    }
-
-    .wishlist {
-        border: 2px solid #0063cd;
-        height: 25px;
-        width: 25px;
-        background-color: #eee;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-
-    .first {
-
-        position: absolute;
-        width: 100%;
-        padding: 9px;
-    }
-
-
-    .dress-name {
-        font-size: 13px;
-        font-weight: bold;
-        width: 75%;
-    }
-
-
-    .new-price {
-        font-size: 13px;
-        font-weight: bold;
-        color: #0063cd;
-
-    }
-
-    .btn {
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        padding: 3px;
-        margin: 1px;
-    }
-
-
-    .item-size {
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background: #fff;
-        border: 1px solid grey;
-        color: grey;
-        font-size: 10px;
-        text-align: center;
-        align-items: center;
-        display: flex;
-        justify-content: center;
+        border-radius: 25px;
     }
 </style>
 
 <body>
     <div class="page-header">
-        <h2><strong>SHOP</strong> </h2>
+        <strong class="testoHeader">SHOP</strong>
     </div>
-
-    <div class="row mt-5 mb-5">
-        <div class="col-2">
-        </div>
-        <div class="col-2">
-            <div class="card">
-                <div class="image-container">
-                    <div class="first">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="wishlist"><i class="fa fa-heart-o"><img src="./img/logo.png" class="img-fluid rounded thumbnail-image"></i></span>
+    <div id="contenuto" class="container mb-5">
+        <div class="row">
+            <div class=" col-sm-6 col-lg-3 mt-5">
+                <div class="card shadow p-1 mb-1 bg-body" style="width: 18rem;">
+                    <img src="./img/fotoProdotto1.jpg" class="card-img-top mt-3" alt="...">
+                    <div class="card-body">
+                        <p class="card-text fs-5 fw-bold text-center">Maglietta Macron </p>
+                        <div class="row">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <button type="button" class="btn btn-outline-secondary" disabled>S</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>M</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>L</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>XL</button>
+                            </div>
                         </div>
-                    </div>
-                    <img src="https://i.imgur.com/8JIWpnw.jpg" class="img-fluid rounded thumbnail-image">
-                </div>
-
-                <div class="product-detail-container p-2">
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="dress-name">White traditional long dress</h5>
-                        <div class="d-flex flex-column mb-2">
-
-                            <span class="new-price">$3.99</span>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-between align-items-center pt-1">
-                        <div class="d-flex">
-                            <span class="item-size mr-2 btn" type="button">S</span>
-                            <span class="item-size mr-2 btn" type="button">M</span>
-                            <span class="item-size btn" type="button">L</span>
+                        <div class="mt-2 text-center">
+                            <button type="button" class="btn btn-primary px-3" disabled>25,00 €</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-2">
-            <div class="card">
-                <div class="image-container">
-                    <div class="first">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="wishlist"><i class="fa fa-heart-o"><img src="./img/logo.png" class="img-fluid rounded thumbnail-image"></i></span>
+            <div class=" col-sm-6 col-lg-3 mt-5">
+                <div class="card shadow p-1 mb-1 bg-body  " style="width: 18rem;">
+                    <img src="./img/fotoProdotto2.jpg" class="card-img-top mt-3" alt="...">
+                    <div class="card-body">
+                        <p class="card-text fs-5 fw-bold text-center">Tuta Macron </p>
+                        <div class="row">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <button type="button" class="btn btn-outline-secondary" disabled>XS</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>S</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>M</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>L</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>XL</button>
+                            </div>
                         </div>
-                    </div>
-                    <img src="https://i.imgur.com/8JIWpnw.jpg" class="img-fluid rounded thumbnail-image">
-                </div>
-
-                <div class="product-detail-container p-2">
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="dress-name">White traditional long dress</h5>
-                        <div class="d-flex flex-column mb-2">
-
-                            <span class="new-price">$3.99</span>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-between align-items-center pt-1">
-                        <div class="d-flex">
-                            <span class="item-size mr-2 btn" type="button">S</span>
-                            <span class="item-size mr-2 btn" type="button">M</span>
-                            <span class="item-size btn" type="button">L</span>
+                        <div class="mt-2 text-center">
+                            <button type="button" class="btn btn-primary px-3" disabled>20,00 €</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-2">
-            <div class="card">
-                <div class="image-container">
-                    <div class="first">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="wishlist"><i class="fa fa-heart-o"><img src="./img/logo.png" class="img-fluid rounded thumbnail-image"></i></span>
+            <div class=" col-sm-6 col-lg-3 mt-5">
+                <div class="card shadow p-1 mb-1 bg-body  " style="width: 18rem;">
+                    <img src="./img/fotoProdotto3.jpg" class="card-img-top mt-3" alt="...">
+                    <div class="card-body">
+                        <p class="card-text fs-5 fw-bold text-center">Maglietta Macron </p>
+                        <div class="row">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <button type="button" class="btn btn-outline-secondary" disabled>S</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>M</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>L</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>XL</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>XXL</button>
+                            </div>
                         </div>
-                    </div>
-                    <img src="https://i.imgur.com/8JIWpnw.jpg" class="img-fluid rounded thumbnail-image">
-                </div>
-
-                <div class="product-detail-container p-2">
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="dress-name">White traditional long dress</h5>
-                        <div class="d-flex flex-column mb-2">
-
-                            <span class="new-price">$3.99</span>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-between align-items-center pt-1">
-                        <div class="d-flex">
-                            <span class="item-size mr-2 btn" type="button">S</span>
-                            <span class="item-size mr-2 btn" type="button">M</span>
-                            <span class="item-size btn" type="button">L</span>
+                        <div class="mt-2 text-center">
+                            <button type="button" class="btn btn-primary px-3" disabled>30,00 €</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-2">
-            <div class="card">
-                <div class="image-container">
-                    <div class="first">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="wishlist"><i class="fa fa-heart-o"><img src="./img/logo.png" class="img-fluid rounded thumbnail-image"></i></span>
+            <div class=" col-sm-6 col-lg-3 mt-5">
+                <div class="card shadow p-1 mb-1 bg-body  " style="width: 18rem;">
+                    <img src="./img/fotoProdotto4.jpg" class="card-img-top mt-3" alt="...">
+                    <div class="card-body">
+                        <p class="card-text fs-5 fw-bold text-center">Tuta Macron </p>
+                        <div class="row">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <button type="button" class="btn btn-outline-secondary" disabled>XS</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>S</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>M</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>L</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>XL</button>
+                            </div>
                         </div>
-                    </div>
-                    <img src="https://i.imgur.com/8JIWpnw.jpg" class="img-fluid rounded thumbnail-image">
-                </div>
-
-                <div class="product-detail-container p-2">
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="dress-name">White traditional long dress</h5>
-                        <div class="d-flex flex-column mb-2">
-
-                            <span class="new-price">$3.99</span>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-between align-items-center pt-1">
-                        <div class="d-flex">
-                            <span class="item-size mr-2 btn" type="button">S</span>
-                            <span class="item-size mr-2 btn" type="button">M</span>
-                            <span class="item-size btn" type="button">L</span>
+                        <div class="mt-2 text-center">
+                            <button type="button" class="btn btn-primary px-3" disabled>35,00 €</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-2">
+            <div class=" col-sm-6 col-lg-3 mt-5">
+                <div class="card shadow p-1 mb-1 bg-body" style="width: 18rem;">
+                    <img src="./img/fotoProdotto1.jpg" class="card-img-top mt-3" alt="...">
+                    <div class="card-body">
+                        <p class="card-text fs-5 fw-bold text-center">Maglietta Macron </p>
+                        <div class="row">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <button type="button" class="btn btn-outline-secondary" disabled>S</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>M</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>L</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>XL</button>
+                            </div>
+                        </div>
+                        <div class="mt-2 text-center">
+                            <button type="button" class="btn btn-primary px-3" disabled>25,00 €</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-sm-6 col-lg-3 mt-5">
+                <div class="card shadow p-1 mb-1 bg-body  " style="width: 18rem;">
+                    <img src="./img/fotoProdotto2.jpg" class="card-img-top mt-3" alt="...">
+                    <div class="card-body">
+                        <p class="card-text fs-5 fw-bold text-center">Tuta Macron </p>
+                        <div class="row">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <button type="button" class="btn btn-outline-secondary" disabled>XS</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>S</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>M</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>L</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>XL</button>
+                            </div>
+                        </div>
+                        <div class="mt-2 text-center">
+                            <button type="button" class="btn btn-primary px-3" disabled>20,00 €</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-sm-6 col-lg-3 mt-5">
+                <div class="card shadow p-1 mb-1 bg-body  " style="width: 18rem;">
+                    <img src="./img/fotoProdotto3.jpg" class="card-img-top mt-3" alt="...">
+                    <div class="card-body">
+                        <p class="card-text fs-5 fw-bold text-center">Maglietta Macron </p>
+                        <div class="row">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <button type="button" class="btn btn-outline-secondary" disabled>S</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>M</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>L</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>XL</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>XXL</button>
+                            </div>
+                        </div>
+                        <div class="mt-2 text-center">
+                            <button type="button" class="btn btn-primary px-3" disabled>30,00 €</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-sm-6 col-lg-3 mt-5">
+                <div class="card shadow p-1 mb-1 bg-body  " style="width: 18rem;">
+                    <img src="./img/fotoProdotto4.jpg" class="card-img-top mt-3" alt="...">
+                    <div class="card-body">
+                        <p class="card-text fs-5 fw-bold text-center">Tuta Macron </p>
+                        <div class="row">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <button type="button" class="btn btn-outline-secondary" disabled>XS</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>S</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>M</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>L</button>
+                                <button type="button" class="btn btn-outline-secondary" disabled>XL</button>
+                            </div>
+                        </div>
+                        <div class="mt-2 text-center">
+                            <button type="button" class="btn btn-primary px-3" disabled>35,00 €</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-
-    
+    <script>
+        if ($(window).width() < 1000) {           
+            $("#contenuto").css("max-width", "100vw");
+        } else {            
+            $("#contenuto").css("max-width", "70vw");
+        }
+    </script>
 </body>
-
-<script>
-
-</script>
