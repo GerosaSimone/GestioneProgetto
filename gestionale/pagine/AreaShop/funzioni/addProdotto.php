@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../../config.php';
 try {
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
-        $bambino = ['XXS', 'XS', 'S', 'M', 'L'];
+        $bambino = ['XXXS','XXS', 'XS', 'S', 'M', 'L'];
         $adulto = ['S', 'M', 'L', 'XL', 'XXL'];
         $number = 0;
         $sql = "SELECT MAX(prodotto.id) AS numRighe FROM prodotto";
