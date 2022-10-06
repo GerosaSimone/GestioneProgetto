@@ -162,31 +162,31 @@ try {
             </div>
             <h4 style="color:dark; margin-top:4%">CONTATTI</h4>
             <div style="margin-left:-2%" id="telefoni">
-                    <div class="row">
-                        <div class="col-7">
-                            <label class="text-dark font-weight-bold">Telefono</label>
-                        </div>
-                        <div class="col-4">
-                            <label class="text-dark font-weight-bold">Contatto</label>
-                        </div>
-                        <div class="col-1">
-                            <input type="text" id="numTelefoni" name="numTelefoni" hidden="true" value="1" class="form-control form-control-sm mb-2">
-                        </div>
+                <div class="row">
+                    <div class="col-7">
+                        <label class="text-dark font-weight-bold">Telefono</label>
                     </div>
-                    <div class="row inputTelefoni">
-                        <div class="col-7">
-                            <input type="tel" name="tel1" class="form-control form-control-sm mb-2" minlength="9" maxlength="14" value="<?php if (count($telefoniTel) > 0) echo $telefoniTel[0]; ?>">
-                        </div>
-                        <div class="col-4">
-                            <input type="text" name="contatto1" class="form-control form-control-sm mb-2" value="<?php if (count($telefoniCont) > 0) echo $telefoniCont[0]; ?>">
-                        </div>
-                        <div class="col-1">
-                            <button type="button" onclick="modificaTel()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
-                        </div>
+                    <div class="col-4">
+                        <label class="text-dark font-weight-bold">Contatto</label>
                     </div>
-                    <?php
-                    for ($i = 1; $i < count($telefoniTel); $i++) {
-                        echo "  
+                    <div class="col-1">
+                        <input type="text" id="numTelefoni" name="numTelefoni" hidden="true" value="1" class="form-control form-control-sm mb-2">
+                    </div>
+                </div>
+                <div class="row inputTelefoni">
+                    <div class="col-7">
+                        <input type="tel" name="tel1" class="form-control form-control-sm mb-2" minlength="9" maxlength="14" value="<?php if (count($telefoniTel) > 0) echo $telefoniTel[0]; ?>">
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="contatto1" class="form-control form-control-sm mb-2" value="<?php if (count($telefoniCont) > 0) echo $telefoniCont[0]; ?>">
+                    </div>
+                    <div class="col-1">
+                        <button type="button" onclick="modificaTel()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
+                    </div>
+                </div>
+                <?php
+                for ($i = 1; $i < count($telefoniTel); $i++) {
+                    echo "  
                             <div class='row inputTelefoni'>
                                 <div class='col-7 telefoni'>
                                     <input type='tel' name='tel" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $telefoniTel[$i] . "' minlength='9' maxlength='14'>
@@ -195,34 +195,34 @@ try {
                                     <input type='text' name='contatto" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $telefoniCont[$i] . "'>
                                 </div>
                             </div>";
-                    } ?>
+                } ?>
+            </div>
+            <div style="margin-left:-2%; margin-top:2%" id="rowMail">
+                <div class="row">
+                    <div class="col-7">
+                        <label class="text-dark font-weight-bold">Mail</label>
+                    </div>
+                    <div class="col-4">
+                        <label class="text-dark font-weight-bold">Contatto</label>
+                    </div>
+                    <div class="col-1">
+                        <input type="text" id="numMail" name="numMail" hidden="true" value="1" class="form-control form-control-sm mb-2">
+                    </div>
                 </div>
-                <div style="margin-left:-2%; margin-top:2%" id="rowMail">
-                    <div class="row">
-                        <div class="col-7">
-                            <label class="text-dark font-weight-bold">Mail</label>
-                        </div>
-                        <div class="col-4">
-                            <label class="text-dark font-weight-bold">Contatto</label>
-                        </div>
-                        <div class="col-1">
-                            <input type="text" id="numMail" name="numMail" hidden="true" value="1" class="form-control form-control-sm mb-2">
-                        </div>
+                <div class="row inputMail">
+                    <div class="col-7">
+                        <input type="email" name="mail1" class="form-control form-control-sm mb-2" value="<?php if (count($mailMail) > 0) echo $mailMail[0]; ?>">
                     </div>
-                    <div class="row inputMail">
-                        <div class="col-7">
-                            <input type="email" name="mail1" class="form-control form-control-sm mb-2" value="<?php if (count($mailMail) > 0) echo $mailMail[0]; ?>">
-                        </div>
-                        <div class="col-4">
-                            <input type="text" name="cont1" class="form-control form-control-sm mb-2" value="<?php if (count($mailCont) > 0) echo $mailCont[0]; ?>">
-                        </div>
-                        <div class="col-1">
-                            <button type="button" onclick="modificaMail()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
-                        </div>
+                    <div class="col-4">
+                        <input type="text" name="cont1" class="form-control form-control-sm mb-2" value="<?php if (count($mailCont) > 0) echo $mailCont[0]; ?>">
                     </div>
-                    <?php
-                    for ($i = 1; $i < count($mailMail); $i++) {
-                        echo "  
+                    <div class="col-1">
+                        <button type="button" onclick="modificaMail()" class="btn btn-secondary btn-sm" style="margin-left:5%">+</button>
+                    </div>
+                </div>
+                <?php
+                for ($i = 1; $i < count($mailMail); $i++) {
+                    echo "  
                             <div class='row inputMail'>
                                 <div class='col-7 mail'>
                                     <input type='mail' name='mail" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailMail[$i] . "'>
@@ -231,8 +231,8 @@ try {
                                     <input type='text' name='cont" . ($i + 1) . "' class='form-control form-control-sm mb-2' value='" . $mailCont[$i] . "'>
                                 </div>
                             </div>";
-                    } ?>
-                </div>
+                } ?>
+            </div>
         </div>
         <div class="col-sm-4">
             <h4 class="text-dark font-weight-bold">RESIDENZA</h4>
@@ -275,17 +275,17 @@ try {
                 <div class="row">
                     <div class="col-sm-6">
                         <label class="text-dark font-weight-bold">Da Pagare</label>
-                        <input type='text' id="daPagare" name="daPagare" placeholder='Type a number & click outside' value="<?php echo $daPagare ?>,00 €" class="form-control form-control-sm mb-2" readonly />
+                        <input type='text' id="daPagare" name="daPagare" value="<?php echo $daPagare ?>" class="form-control form-control-sm mb-2" readonly />
                         <button type="button" onclick="aggiungiPagare()" class="btn btn-secondary btn-sm d-inline mb-2"> +</button>
                         <button type="button" onclick="sottraiPagare()" class="btn btn-secondary btn-sm d-inline mb-2"> -</button>
-                        <input type='currency' id="AggdaPagare" name="AggdaPagare" value="00,00 €" style class="form-control form-control-sm mb-2 d-inline" />
+                        <input type='currency' id="AggdaPagare" name="AggdaPagare" value="0.00" style class="form-control form-control-sm mb-2 d-inline" />
                     </div>
                     <div class="col-sm-6">
                         <label class="text-dark font-weight-bold">Pagato</label>
-                        <input type='text' name="pagato" id="pagato" placeholder='Type a number & click outside' value="<?php echo $pagato ?>,00 €" class="form-control form-control-sm mb-2" readonly />
+                        <input type='text' name="pagato" id="pagato" value="<?php echo $pagato ?>" class="form-control form-control-sm mb-2" readonly />
                         <button type="button" onclick="aggiungiPagato()" class="btn btn-secondary btn-sm d-inline mb-2"> +</button>
                         <button type="button" onclick="sottraiPagato()" class="btn btn-secondary btn-sm d-inline mb-2"> -</button>
-                        <input type='currency' id="AggPagato" name="AggPagato" value="00,00 €" style class="form-control form-control-sm mb-2 d-inline" />
+                        <input type='currency' id="AggPagato" name="AggPagato" value="0.00" style class="form-control form-control-sm mb-2 d-inline" />
                     </div>
                 </div>
             </div>
@@ -346,126 +346,70 @@ try {
         $("#numMail").attr('value', (a + 1));
     }
 
-    //valuta euro
-    var currencyInput = document.querySelectorAll('input[type="currency"]')
-    var currency = 'EUR' // https://www.currency-iso.org/dam/downloads/lists/list_one.xml
-
-    currencyInput.forEach(function(userItem) {
-        userItem.addEventListener('focus', onFocus)
-        userItem.addEventListener('blur', onBlur)
-    });
-
-
-    function localStringToNumber(s) {
-        return Number(String(s).replace(/[^0-9.-]+/g, ""))
-    }
-
-    function onFocus(e) {
-        var value = e.target.value;
-        e.target.value = value ? localStringToNumber(value) : ''
-    }
-
-    function onBlur(e) {
-        var value = e.target.value
-
-        var options = {
-            maximumFractionDigits: 2,
-            currency: currency,
-            style: "currency",
-            currencyDisplay: "symbol"
-        }
-
-        e.target.value = (value || value === 0) ?
-            localStringToNumber(value).toLocaleString(undefined, options) :
-            ''
-    }
-    //aggiungi sottrai pagato dapagare
     function aggiungiPagare() {
         var num = $('#AggdaPagare').val();
-        num = num.replace(".", "");
-        var num = num.split(',', 1)[0]
-        num = parseInt(num)
-
+        num = parseFloat(num.replace(",", ".").replace(" ", ""));
         var daPagare = $('#daPagare').val();
-        daPagare = daPagare.replace(".", "");
-        var daPagare = daPagare.split(',', 1)[0]
-        daPagare = parseInt(daPagare)
-
+        daPagare = parseFloat(daPagare)
         ris = num + daPagare;
-        $('#daPagare').val(ris + ",00 €");
-        $('#AggdaPagare').val("00,00 €");
+
+        $('#daPagare').val(ris);
+        $('#AggdaPagare').val("0.00");
     }
 
     function aggiungiPagato() {
-
         var num = $('#AggPagato').val();
-        num = num.replace(".", "");
-        var num = num.split(',', 1)[0]
-        num = parseInt(num)
-
+        num = parseFloat(num.replace(",", ".").replace(" ", ""))
         var pagato = $('#pagato').val();
-        pagato = pagato.replace(".", "");
-        var pagato = pagato.split(',', 1)[0]
-        pagato = parseInt(pagato)
-
+        pagato = parseFloat(pagato)
         ris = num + pagato;
-        $('#pagato').val(ris + ",00 €");
-        $('#AggPagato').val("00,00 €");
+
+        $('#pagato').val(ris);
+        $('#AggPagato').val("0.00");
         var pagare = $('#daPagare').val();
-        pagare = pagare.replace(".", "");
-        var pagare = pagare.split(',', 1)[0]
-        pagare = parseInt(pagare);
-
+        pagare = parseFloat(pagare);
         ris = pagare - num;
-        $('#daPagare').val(ris + ",00 €");
-
+        $('#daPagare').val(ris);
     }
 
     function sottraiPagato() {
-
         var num = $('#AggPagato').val();
-        num = num.replace(".", "");
-        var num = num.split(',', 1)[0]
-        num = parseInt(num)
+        num = parseFloat(num.replace(",", ".").replace(" ", ""))
 
         var pagato = $('#pagato').val();
-        pagato = pagato.replace(".", "");
-        var pagato = pagato.split(',', 1)[0]
-        pagato = parseInt(pagato)
+        pagato = parseFloat(pagato)
 
         ris = pagato - num;
-        $('#pagato').val(ris + ",00 €");
-        $('#AggPagato').val("00,00 €");
+        $('#pagato').val(ris);
+        $('#AggPagato').val("0.00");
 
         var pagare = $('#daPagare').val();
-        pagare = pagare.replace(".", "");
-        var pagare = pagare.split(',', 1)[0]
-        pagare = parseInt(pagare);
+        pagare = parseFloat(pagare);
 
         ris = pagare + num;
-        $('#daPagare').val(ris + ",00 €");
-
+        $('#daPagare').val(ris);
     }
-
 
     function sottraiPagare() {
         var num = $('#AggdaPagare').val();
-        num = num.replace(".", "");
-        var num = num.split(',', 1)[0]
-        num = parseInt(num)
+        num = parseFloat(num.replace(",", ".").replace(" ", ""))
 
         var daPagare = $('#daPagare').val();
-        daPagare = daPagare.replace(".", "");
-        var daPagare = daPagare.split(',', 1)[0]
-        daPagare = parseInt(daPagare)
+        daPagare = parseFloat(daPagare)
 
         ris = daPagare - num;
-        $('#daPagare').val(ris + ",00 €");
-        $('#AggdaPagare').val("00,00 €");
+        $('#daPagare').val(ris);
+        $('#AggdaPagare').val("0.00");
     }
-    if ($(window).width() < 501) {
-        $(".destra").removeClass("border-right");
-    } else {
-        $(".destra").addClass("border-right");
+
+    function modificaFotoProfilo(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#fotoProfilo')
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
     }
 </script>

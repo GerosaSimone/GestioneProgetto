@@ -16,7 +16,7 @@
                 LEFT JOIN visita ON visita.id=tesserato.idVisita
                 WHERE tesserato.tipo='0' and categoria.nome='" . $_GET['squadra'] . "' and tesserato.nascosto='0'
                 ORDER BY tesserato.cognome, tesserato.nome DESC";
-                echo "<table class='display shadow-lg tabella' style='width:100%'><thead><tr>";
+                echo "<table class='display shadow-lg tabellaGiocatoriSquadre' style='width:100%'><thead><tr>";
                 echo "      <th class='pl-4'> Nome</th>";
                 echo "      <th> Cognome</th>";
                 echo "      <th> Data Nascita</th>";
@@ -34,21 +34,25 @@
                             $newDate = date("d/m/Y", strtotime($date));
                             echo "<td>" . $newDate . "</td>";
                             if (!empty($row['scadenza'])) {
-                                $date1 = $row['scadenza'];
-                                $dataOggi = date("Y/m/d");
-                                $differenza = floor((strtotime($date1) - strtotime($dataOggi)) / 86400);
-                                $date = str_replace('-', '/', $row['scadenza']);
-                                $newDate = date("d/m/Y", strtotime($date));
-                                if ($differenza > 30) {
-                                    echo "<td><span class='coloreScadenza dot-green mr-3 '></span>"  . $newDate . "</td>";
-                                } else if ($differenza > 0) {
-                                    echo "<td><span class='coloreScadenza dot-orange mr-3 '></span>" . $newDate . "</td>";
+                                if ($row['scadenza'] == "0000-00-00") {
+                                    echo "<td><span class='coloreScadenza dot-green mr-3 '></span></td>";
                                 } else {
-                                    echo "<td><span class='coloreScadenza dot-red mr-3 '></span>" . $newDate . "</td>";
+                                    $date1 = $row['scadenza'];
+                                    $dataOggi = date("Y/m/d");
+                                    $differenza = floor((strtotime($date1) - strtotime($dataOggi)) / 86400);
+                                    $date = str_replace('-', '/', $row['scadenza']);
+                                    $newDate = date("d/m/Y", strtotime($date));
+                                    if ($differenza > 30) {
+                                        echo "<td><span class='coloreScadenza dot-green mr-3 '></span>"  . $newDate . "</td>";
+                                    } else if ($differenza > 0) {
+                                        echo "<td><span class='coloreScadenza dot-orange mr-3 '></span>" . $newDate . "</td>";
+                                    } else {
+                                        echo "<td><span class='coloreScadenza dot-red mr-3 '></span>" . $newDate . "</td>";
+                                    }
                                 }
                             } else
                                 echo "<td> Nessuna visita!</td>";
-                            echo "<td>" . $row['daPagare'] . "€</td>";
+                            echo "<td>" . $row['daPagare'] . " €</td>";
                             echo "<td>                                            
                                             <button type='button' class='btn btn-outline-primary' data-bs-toggle='modal' data-bs-target='#acquistaProdotto' data-bs-whatever='" . $row['id'] . "'>
                                                 <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bag' viewBox='0 0 16 16'>

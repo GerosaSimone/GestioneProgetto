@@ -46,7 +46,16 @@ mysqli_query($link, $query);
     <script>
         jQuery(document).ready(function($) {
             $(document).ready(function() {
-                $('.tabella').DataTable({
+                $('.tabellaGiocatoriSquadre').DataTable({
+                    paging: false,
+                    searching: false,
+                    ordering: true,
+                    info: true,
+                    language: {
+                        "info": "Totale giocatori -> _MAX_"
+                    }
+                });
+                $('.tabellaDirigenzaSquadre').DataTable({
                     paging: false,
                     searching: false,
                     ordering: true,
@@ -122,12 +131,12 @@ mysqli_query($link, $query);
                     $("#modalAcquista").html(data);
                 });
             });
-            if ($(window).width() < 501) {                
+            if ($(window).width() < 501) {
                 $("h1").css("margin-left", "6%");
                 $("#divExtra").css("margin-top", "40px");
                 $(".alert").removeClass("ml-3");
                 $("#titolo").removeClass("mt-5");
-            } else {                
+            } else {
                 $("h1").css("margin-left", "5%");
                 $("#divExtra").css("margin-top", "0");
                 $(".alert").addClass("ml-3");

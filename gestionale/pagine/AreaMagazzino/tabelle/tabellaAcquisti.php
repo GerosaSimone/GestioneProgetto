@@ -23,7 +23,7 @@
                             echo "<td class='pl-4'>" . $row['nome'] . "</td>";
                             echo "<td>" . $row['taglia'] . "</td>";
                             echo "<td>" . $row['quantita'] . "</td>";
-                            echo "<td>" . $row['prezzototale'] . "€</td>";
+                            echo "<td>" . $row['prezzototale'] . " €</td>";
                             $date = str_replace('-', '/', $row['data']);
                             $newDate = date("d/m/Y", strtotime($date));
                             echo "<td>" . $newDate . "</td>";

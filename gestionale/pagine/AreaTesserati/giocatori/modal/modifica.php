@@ -273,17 +273,17 @@ try {
                     <div class="row">
                         <div class="col-sm-6">
                             <label class="text-dark font-weight-bold">Da Pagare</label>
-                            <input type='text' id="daPagare" name="daPagare" placeholder='Type a number & click outside' value="<?php echo $daPagare ?>,00 €" class="form-control form-control-sm mb-2" readonly />
+                            <input type='text' id="daPagare" name="daPagare" value="<?php echo $daPagare ?>" class="form-control form-control-sm mb-2" readonly />
                             <button type="button" onclick="aggiungiPagare()" class="btn btn-secondary btn-sm d-inline mb-2"> +</button>
                             <button type="button" onclick="sottraiPagare()" class="btn btn-secondary btn-sm d-inline mb-2"> -</button>
-                            <input type='currency' id="AggdaPagare" name="AggdaPagare" value="00,00 €" style class="form-control form-control-sm mb-2 d-inline" />
+                            <input type='currency' id="AggdaPagare" name="AggdaPagare" value="0.00" style class="form-control form-control-sm mb-2 d-inline" />
                         </div>
                         <div class="col-sm-6">
                             <label class="text-dark font-weight-bold">Pagato</label>
-                            <input type='text' name="pagato" id="pagato" placeholder='Type a number & click outside' value="<?php echo $pagato ?>,00 €" class="form-control form-control-sm mb-2" readonly />
+                            <input type='text' name="pagato" id="pagato" value="<?php echo $pagato ?>" class="form-control form-control-sm mb-2" readonly />
                             <button type="button" onclick="aggiungiPagato()" class="btn btn-secondary btn-sm d-inline mb-2"> +</button>
                             <button type="button" onclick="sottraiPagato()" class="btn btn-secondary btn-sm d-inline mb-2"> -</button>
-                            <input type='currency' id="AggPagato" name="AggPagato" value="00,00 €" style class="form-control form-control-sm mb-2 d-inline" />
+                            <input type='currency' id="AggPagato" name="AggPagato" value="0.00" style class="form-control form-control-sm mb-2 d-inline" />
                         </div>
                     </div>
                 </div>
@@ -310,83 +310,58 @@ try {
 
     function aggiungiPagare() {
         var num = $('#AggdaPagare').val();
-        num = num.replace(".", "");
-        var num = num.split(',', 1)[0]
-        num = parseInt(num)
-
+        num = parseFloat(num.replace(",", ".").replace(" ", ""));
         var daPagare = $('#daPagare').val();
-        daPagare = daPagare.replace(".", "");
-        var daPagare = daPagare.split(',', 1)[0]
-        daPagare = parseInt(daPagare)
-
+        daPagare = parseFloat(daPagare)
         ris = num + daPagare;
-        $('#daPagare').val(ris + ",00 €");
-        $('#AggdaPagare').val("00,00 €");
+
+        $('#daPagare').val(ris);
+        $('#AggdaPagare').val("0.00");
     }
 
     function aggiungiPagato() {
         var num = $('#AggPagato').val();
-        num = num.replace(".", "");
-        var num = num.split(',', 1)[0]
-        num = parseInt(num)
-
+        num = parseFloat(num.replace(",", ".").replace(" ", ""))
         var pagato = $('#pagato').val();
-        pagato = pagato.replace(".", "");
-        var pagato = pagato.split(',', 1)[0]
-        pagato = parseInt(pagato)
-
+        pagato = parseFloat(pagato)
         ris = num + pagato;
-        $('#pagato').val(ris + ",00 €");
-        $('#AggPagato').val("00,00 €");
+
+        $('#pagato').val(ris);
+        $('#AggPagato').val("0.00");
         var pagare = $('#daPagare').val();
-        pagare = pagare.replace(".", "");
-        var pagare = pagare.split(',', 1)[0]
-        pagare = parseInt(pagare);
-
+        pagare = parseFloat(pagare);
         ris = pagare - num;
-        $('#daPagare').val(ris + ",00 €");
-
+        $('#daPagare').val(ris);
     }
 
     function sottraiPagato() {
         var num = $('#AggPagato').val();
-        num = num.replace(".", "");
-        var num = num.split(',', 1)[0]
-        num = parseInt(num)
+        num = parseFloat(num.replace(",", ".").replace(" ", ""))
 
         var pagato = $('#pagato').val();
-        pagato = pagato.replace(".", "");
-        var pagato = pagato.split(',', 1)[0]
-        pagato = parseInt(pagato)
+        pagato = parseFloat(pagato)
 
         ris = pagato - num;
-        $('#pagato').val(ris + ",00 €");
-        $('#AggPagato').val("00,00 €");
+        $('#pagato').val(ris);
+        $('#AggPagato').val("0.00");
 
         var pagare = $('#daPagare').val();
-        pagare = pagare.replace(".", "");
-        var pagare = pagare.split(',', 1)[0]
-        pagare = parseInt(pagare);
+        pagare = parseFloat(pagare);
 
         ris = pagare + num;
-        $('#daPagare').val(ris + ",00 €");
-
+        $('#daPagare').val(ris);
     }
 
     function sottraiPagare() {
         var num = $('#AggdaPagare').val();
-        num = num.replace(".", "");
-        var num = num.split(',', 1)[0]
-        num = parseInt(num)
+        num = parseFloat(num.replace(",", ".").replace(" ", ""))
 
         var daPagare = $('#daPagare').val();
-        daPagare = daPagare.replace(".", "");
-        var daPagare = daPagare.split(',', 1)[0]
-        daPagare = parseInt(daPagare)
+        daPagare = parseFloat(daPagare)
 
         ris = daPagare - num;
-        $('#daPagare').val(ris + ",00 €");
-        $('#AggdaPagare').val("00,00 €");
+        $('#daPagare').val(ris);
+        $('#AggdaPagare').val("0.00");
     }
 
     function modificaFotoProfilo(input) {
@@ -423,39 +398,6 @@ try {
         var ml = '<div class="row inputMail"><div class="col-7 mail"><input type="email" name="mail' + (a + 1) + '" class="form-control form-control-sm mb-2"></div><div class="col-4"><input type="text" name="cont' + (a + 1) + '" class="form-control form-control-sm mb-2"></div></div>';
         $("#rowMail").append(ml);
         $("#numMail").attr('value', (a + 1));
-    }
-    //valuta euro
-    var currencyInput = document.querySelectorAll('input[type="currency"]')
-    var currency = 'EUR' // https://www.currency-iso.org/dam/downloads/lists/list_one.xml
-
-    currencyInput.forEach(function(userItem) {
-        userItem.addEventListener('focus', onFocus)
-        userItem.addEventListener('blur', onBlur)
-    });
-
-
-    function localStringToNumber(s) {
-        return Number(String(s).replace(/[^0-9.-]+/g, ""))
-    }
-
-    function onFocus(e) {
-        var value = e.target.value;
-        e.target.value = value ? localStringToNumber(value) : ''
-    }
-
-    function onBlur(e) {
-        var value = e.target.value
-
-        var options = {
-            maximumFractionDigits: 2,
-            currency: currency,
-            style: "currency",
-            currencyDisplay: "symbol"
-        }
-
-        e.target.value = (value || value === 0) ?
-            localStringToNumber(value).toLocaleString(undefined, options) :
-            ''
     }
     if ($(window).width() < 501) {
         $(".destra").removeClass("border-right");

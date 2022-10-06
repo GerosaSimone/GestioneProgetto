@@ -48,9 +48,9 @@ try {
     $stmt = $link->prepare("UPDATE prodotto SET nome = ?, costoUnitario = ?, foto = ? WHERE id = ?");
     $stmt->bind_param("ssss", $a, $b, $c, $d);
     $a = $_POST['nome'];
-    $b = str_replace('.', '', strtok($_POST['costo'], ','));
+    $b = $daPagare = str_replace("€", "", str_replace(",", ".", str_replace(" ", "", $_POST['costo'])));
     $c = $titolo;
-    $d = $id;    
+    $d = $id;
     $stmt->execute();
     $stmt->close();
 } catch (Exception $e) {

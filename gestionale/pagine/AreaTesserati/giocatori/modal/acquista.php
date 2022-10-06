@@ -26,6 +26,9 @@ if ($result = mysqli_query($link, $sql)) {
             <div class='mt-3' style='width: 100%;'><label>Taglie Bambini</label></div>
             <div class='btn-group btn-group-toggle mb-3' data-toggle='buttons'>
                 <label class='btn btn-secondary'>
+                    <input type='radio' name='taglia' id='XXXS' value='XXXS'> XXXS
+                </label>
+                <label class='btn btn-secondary'>
                     <input type='radio' name='taglia' id='XXS' value='XXS'> XXS
                 </label>
                 <label class='btn btn-secondary'>

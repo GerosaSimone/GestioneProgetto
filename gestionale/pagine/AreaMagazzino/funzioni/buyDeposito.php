@@ -15,7 +15,7 @@ if ($result = mysqli_query($link, $sql)) {
 }
 $quantita = [];
 if (!$tipoTaglie) {
-    $vett = ['XXS', 'XS', 'S', 'M', 'L'];
+    $vett = ['XXXS','XXS', 'XS', 'S', 'M', 'L'];
 } else {
     $vett = ['S', 'M', 'L', 'XL', 'XXL'];
 }
@@ -41,6 +41,4 @@ for ($i = 0; $i < count($quantita); $i++) {
 }
 if ($sql != "")
     mysqli_multi_query($link, $sql);
-
-//totale aggiungi transazione
 header("Location: ../../../index.php");

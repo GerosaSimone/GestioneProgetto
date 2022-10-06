@@ -43,11 +43,11 @@ try {
     //aggiungo daPagare e pagato
     $daPagare = 0;
     if (!empty($_POST['daPagare'])) {
-        $daPagare = str_replace('.', '', strtok($_POST['daPagare'], ','));
+        $daPagare = str_replace("€", "", str_replace(",", ".", str_replace(" ", "", $_POST['daPagare'])));
     }
     $pagato = 0;
     if (!empty($_POST['pagato'])) {
-        $pagato = str_replace('.', '', strtok($_POST['pagato'], ','));
+        $pagato = str_replace("€", "", str_replace(",", ".", str_replace(" ", "", $_POST['pagato'])));
     }
     //cerca visita
     $idVisita = null;
@@ -166,7 +166,7 @@ try {
                 $row = mysqli_fetch_array($result);
                 $foto = $row['linkFoto'];
             }
-    }    
+    }
     //eseguo query tesserato
     $stmt = $link->prepare("UPDATE tesserato SET cf=?, nome=?, cognome=?, dataNascita=?, luogoNascita=?, tipo=?, via=?, provincia=?, citta=?, idCategoria=?, ruolo=?, linkFoto=?, idVisita=?, daPagare=?, pagato=?,matricola=? WHERE id=?");
     $stmt->bind_param("sssssssssssssssss", $a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $n, $o, $p, $q, $m);

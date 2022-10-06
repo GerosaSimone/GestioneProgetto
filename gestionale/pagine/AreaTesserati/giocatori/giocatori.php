@@ -39,7 +39,10 @@ mysqli_query($link, $query);
                     paging: false,
                     searching: true,
                     ordering: true,
-                    info: false
+                    info: true,
+                    language: {
+                        "info": "Totale giocatori -> _MAX_"
+                    }
                 });
             });
             var visualizza = document.getElementById('visualizzaGiocatore')

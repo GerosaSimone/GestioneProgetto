@@ -12,7 +12,7 @@ try {
     $descrizione = $_POST['descrizione'];
     $quantita = $_POST['quantita'];
     $nascosto = $_POST['nascosto'];
-    $costo = str_replace('.', '', strtok($_POST['costo'], ','));
+    $costo = str_replace("€", "", str_replace(",", ".", str_replace(" ", "", $_POST['costo'])));
     $titolo = null;
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
         $sql = "SELECT MAX(id) AS numRighe FROM acquistiMateriale";

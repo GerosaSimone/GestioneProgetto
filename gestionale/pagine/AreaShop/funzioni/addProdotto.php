@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../../config.php';
 try {
     if (!empty($_FILES['fileToUpload']['tmp_name'])) {
-        $bambino = ['XXXS','XXS', 'XS', 'S', 'M', 'L'];
+        $bambino = ['XXXS', 'XXS', 'XS', 'S', 'M', 'L'];
         $adulto = ['S', 'M', 'L', 'XL', 'XXL'];
         $number = 0;
         $sql = "SELECT MAX(prodotto.id) AS numRighe FROM prodotto";
@@ -38,7 +38,7 @@ try {
         if ($uploadOk != 0) {
             $nome = $_POST['nome'];
             $tipoTaglie = $_POST['tipoTaglie'];
-            $costo = str_replace('.', '', strtok($_POST['costo'], ','));
+            $costo = str_replace("€", "", str_replace(",", ".", str_replace(" ", "", $_POST['costo'])));
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 $stmt = $link->prepare("INSERT INTO prodotto (id,`nome`, `tipoTaglie`, `costoUnitario`, `foto`) VALUES (?,?, ?, ?, ?)");
                 $stmt->bind_param("sssss", $a, $b, $c, $d, $e);

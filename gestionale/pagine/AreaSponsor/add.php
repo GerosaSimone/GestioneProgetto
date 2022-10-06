@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../config.php';
 $data = date("Y-m-d");
 $nome = $_POST["nome"];
-$entrata = str_replace('.', '', strtok($_POST['entrata'], ','));
+$entrata = str_replace("€", "", str_replace(",", ".", str_replace(" ", "", $_POST['entrata'])));
 try {
     $stmt = $link->prepare("INSERT INTO sponsor (`nome`, `entrata`, `data`) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $a, $b, $c);

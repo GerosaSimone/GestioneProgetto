@@ -13,11 +13,11 @@ try {
     //daPagare e pagato
     $daPagare = 0;
     if (!empty($_POST['daPagare'])) {
-        $daPagare .= str_replace('.', '', strtok($_POST['daPagare'], ','));
+        $daPagare = str_replace("€", "", str_replace(",", ".", str_replace(" ", "", $_POST['daPagare'])));
     }
     $pagato = 0;
     if (!empty($_POST['pagato'])) {
-        $pagato .= str_replace('.', '', strtok($_POST['pagato'], ','));
+        $pagato = str_replace("€", "", str_replace(",", ".", str_replace(" ", "", $_POST['pagato'])));
     }
     //crea visita
     $idVisita = null;
@@ -165,4 +165,4 @@ try {
         }
 } catch (Exception $e) {
 }
-header("Location: ../../../../index.php");
+//header("Location: ../../../../index.php");

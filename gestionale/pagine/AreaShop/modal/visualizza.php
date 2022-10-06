@@ -25,16 +25,16 @@ if ($result = mysqli_query($link, $sql)) {
     <label class='text-dark font-weight-bold mt-2'>Nome</label><br>
     <label value=""><?php echo $nome; ?></label> <br>
     <label class='text-dark font-weight-bold'>Costo Unitario</label><br>
-    <label> <?php echo $costo; ?>,00€</label> <br>
+    <label> <?php echo $costo; ?> €</label> <br>
 </div>
 <hr>
 <?php
 if (!$tipoTaglie) {
     echo "<div class='mt-3' style='width: 100%'><label class='text-dark font-weight-bold'>Taglie Bambino</label></div>";
-    $vett = ['XXS', 'XS', 'S', 'M', 'L'];
+    $vett = ['XXXS','XXS', 'XS', 'S', 'M', 'L'];
 } else {
     echo "<div class='mt-3' style='width: 100%'><label class='text-dark font-weight-bold'>Taglie Adulto</label></div>";
-    $vett = ['S', 'M', 'L', 'XL', 'XXL'];
+    $vett = ['S', 'M', 'L', 'XL', 'XXL',''];
 }
 ?>
 
@@ -54,6 +54,9 @@ if (!$tipoTaglie) {
         </div>
         <div class="col-2 text-center">
             <label><?php echo $vett[4]; ?></label>
+        </div>
+        <div class="col-2 text-center">
+            <label><?php echo $vett[5]; ?></label>
         </div>
     </div>
 </div>

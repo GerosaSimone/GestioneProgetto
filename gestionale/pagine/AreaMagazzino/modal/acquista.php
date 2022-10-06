@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../../config.php';
 $nome;
 $tipoTaglie;
-$bambino = ['XXS', 'XS', 'S', 'M', 'L'];
+$bambino = ['XXXS', 'XXS', 'XS', 'S', 'M', 'L'];
 $adulto = ['S', 'M', 'L', 'XL', 'XXL'];
 $id = $_GET["idProdotto"];
 $sql = "SELECT * FROM prodotto WHERE id='" . $id . "'";
@@ -76,7 +76,7 @@ else
 </div>
 
 <script>
-    //valuta 
+    //valuta
     var currencyInput = document.querySelectorAll('input[type="currency"]')
     var currency = 'EUR' // https://www.currency-iso.org/dam/downloads/lists/list_one.xml
     currencyInput.forEach(function(userItem) {

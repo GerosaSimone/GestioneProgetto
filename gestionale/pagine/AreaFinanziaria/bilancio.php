@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../../config.php';
 $_SESSION['ultimaPage'] = "finanziaria";
 
-$entrateEffettive = 0;
+$entrateEffettive = 0.0;
 $sql = "SELECT sum(pagato) as somma FROM tesserato WHERE tesserato.tipo='0'";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
@@ -15,7 +15,7 @@ if ($result = mysqli_query($link, $sql)) {
             $entrateEffettive = $row['somma'];
     }
 }
-$entrateIpotetiche = 0;
+$entrateIpotetiche = 0.0;
 $sql = "SELECT sum(daPagare) as somma FROM tesserato WHERE tesserato.tipo='0'";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
@@ -24,7 +24,7 @@ if ($result = mysqli_query($link, $sql)) {
             $entrateIpotetiche = $row['somma'];
     }
 }
-$entrateSponsor = 0;
+$entrateSponsor = 0.0;
 $sql = "SELECT sum(entrata) as somma FROM sponsor ";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
@@ -63,7 +63,7 @@ if ($result = mysqli_query($link, $sql)) {
                 <div class="alert alert-light border text-center" role="alert">
                     <h3 class="alert-heading text-dark font-weight-bold">Entrate Effettive</h3>
                     <hr>
-                    <h5 class="text-muted">+ <?php echo $entrateEffettive ?>,00 €</h5>
+                    <h5 class="text-muted">+ <?php echo $entrateEffettive ?> €</h5>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped bg-success" style="width: 100%"></div>
                     </div>
@@ -73,7 +73,7 @@ if ($result = mysqli_query($link, $sql)) {
                 <div class="alert alert-light border text-center" role="alert">
                     <h3 class="alert-heading text-dark font-weight-bold">Entrate Potenziali</h3>
                     <hr>
-                    <h5 class="text-muted">+ <?php echo $entrateIpotetiche ?>,00 €</h5>
+                    <h5 class="text-muted">+ <?php echo $entrateIpotetiche ?> €</h5>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped bg-info" style="width: 100%"></div>
                     </div>
@@ -83,7 +83,7 @@ if ($result = mysqli_query($link, $sql)) {
                 <div class="alert alert-light border text-center" role="alert">
                     <h3 class="alert-heading text-dark font-weight-bold">Entrate Sponsor</h3>
                     <hr>
-                    <h5 class="text-muted">+ <?php echo $entrateSponsor ?>,00 €</h5>
+                    <h5 class="text-muted">+ <?php echo $entrateSponsor ?> €</h5>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped bg-warning" style="width: 100%"></div>
                     </div>
@@ -93,7 +93,7 @@ if ($result = mysqli_query($link, $sql)) {
                 <div class="alert alert-light border text-center" role="alert">
                     <h3 class="alert-heading text-dark font-weight-bold">Uscite Società</h3>
                     <hr>
-                    <h5 class="text-muted">+ <?php echo $uscita1 + $uscita2 ?>,00 €</h5>
+                    <h5 class="text-muted">+ <?php echo $uscita1 + $uscita2 ?> €</h5>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped bg-danger" style="width: 100%"></div>
                     </div>
