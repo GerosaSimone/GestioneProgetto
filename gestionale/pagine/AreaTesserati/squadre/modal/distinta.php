@@ -68,7 +68,7 @@ require_once '../../../../config.php';
             </div>
         </div>
         <hr>
-        <div class="row">
+        <div class="row" id="testoSopra1">
             <div class="col-6">
                 <label class="text-dark font-weight-bold">Giocatore</label>
             </div>
@@ -79,6 +79,11 @@ require_once '../../../../config.php';
                 <div class="text-center">
                     <label class="text-dark font-weight-bold">Convocato</label>
                 </div>
+            </div>
+        </div>
+        <div class="row" id="testoSopra2">
+            <div class="col-12">
+                <label class="text-dark font-weight-bold">Giocatore | DataNascita | Convocato</label>
             </div>
         </div>
         <?php
@@ -105,8 +110,10 @@ require_once '../../../../config.php';
                         <label>' . $newDate . '</label>
                     </div>
                     <div class="col-3">
-                        <div class="text-center">
-                            <input type="checkbox" class="form-check-input " name="idTesserato[]" value="' . $row['id'] . '" style="margin-left:-2.5%" checked>
+                        <div class="rimovibile text-center">
+                            <input type="checkbox" class="form-check-input " name="idTesserato[]" value="' . $row['id'] . '" style="margin-left:-2.5%; position:relative" checked>
+                        </div>
+                        <div class="vuoto">                            
                         </div>
                     </div>
                 </div>';
@@ -114,10 +121,20 @@ require_once '../../../../config.php';
             }
         }
         ?>
-
-
     </div>
+
 </body>
 <script>
-
+    if ($(window).width() < 501) {
+        $("#testoSopra1").css("display", "none");
+        $("#testoSopra2").css("display", "block");
+        $(".rimovibile").removeClass("text-center");
+        $(".vuoto").css("border-bottom", "1px dashed grey");
+        $(".vuoto").css("width", "150px");
+        $(".vuoto").css("margin-bottom", "10px");
+        $(".rimovibile").css("margin-left", "10px");
+    } else {
+        $("#testoSopra1").css("display", "flex");
+        $("#testoSopra2").css("display", "none");
+    }
 </script>
