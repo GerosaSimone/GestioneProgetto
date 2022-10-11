@@ -1,4 +1,41 @@
 <?php
+$totGiocatori = "";
+$totDirigenti = "";
+$totVisite = "";
+$totBilancio = "";
+$sql = "SELECT COUNT(tesserato.nome) AS somma FROM `tesserato` INNER JOIN categoria on categoria.id=tesserato.idCategoria WHERE tesserato.tipo=0 and categoria.nome='" . $_GET['squadra'] . "'";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $totGiocatori = $row['somma'];
+    }
+}
+$sql = "SELECT COUNT(tesserato.nome) AS somma FROM `tesserato` INNER JOIN categoria on categoria.id=tesserato.idCategoria WHERE tesserato.tipo=1 and categoria.nome='" . $_GET['squadra'] . "'";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $totDirigenti = $row['somma'];
+    }
+}
+$sql = "SELECT COUNT(visita.id) AS somma FROM visita 
+        INNER JOIN tesserato on tesserato.idVisita=visita.id
+        INNER JOIN categoria on tesserato.idCategoria=categoria.id
+        WHERE (DATE(visita.scadenza)<DATE(NOW()) and DATE(visita.scadenza)>DATE(01-01-1900)) and categoria.nome='" . $_GET['squadra'] . "'";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $totVisite = $row['somma'];
+    }
+}
+$sql = "SELECT sum(tesserato.daPagare) as num1, sum(tesserato.pagato) as num2 FROM `tesserato` 
+        INNER JOIN categoria on tesserato.idCategoria=categoria.id 
+        WHERE categoria.nome='" . $_GET['squadra'] . "'";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $totBilancio = $row['num2'] - $row['num1'];
+    }
+}
 $numPettorine = "";
 $numPalloni = "";
 $sql = "SELECT * FROM categoria WHERE categoria.nome='" . $_GET['squadra'] . "'";
@@ -41,7 +78,15 @@ if ($result = mysqli_query($link, $sql)) {
 
 ?>
 <div class="alert alert-secondary ml-3" role="alert" style="min-width:300px">
-    <h4 class="alert-heading">Info materiale:
+    <h4 class="alert-heading">Info:</h4>
+    <hr>
+    <p class="mb-1">Totale Giocatori: <?php echo $totGiocatori ?></p>
+    <p class="mb-1">Totale Dirigenti: <?php echo $totDirigenti ?></p>
+    <p class="mb-1">Visite Scadute: <?php echo $totVisite ?></p>
+    <p class=" mb-0">Bilancio: <?php echo $totBilancio ?> €</p>
+</div>
+<div class="alert alert-secondary ml-3" role="alert" style="min-width:300px">
+    <h4 class="alert-heading">Materiale:
         <button type='button' class='btn btn-outline-secondary pull-right' data-bs-toggle='modal' data-bs-target='#oggetti'>
             <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>
                 <path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z' />
@@ -49,7 +94,7 @@ if ($result = mysqli_query($link, $sql)) {
         </button>
     </h4>
     <hr>
-    <p>Num Pettorine: <?php echo $numPettorine ?></p>
+    <p class="mb-1">Num Pettorine: <?php echo $numPettorine ?></p>
     <p class=" mb-0">Num Palloni: <?php echo $numPalloni ?></p>
 </div>
 <div class="alert alert-secondary ml-3" role="alert" style="min-width:300px">

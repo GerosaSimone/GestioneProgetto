@@ -11,6 +11,14 @@ $query = "DELETE FROM `telefono` WHERE telefono='';";
 mysqli_query($link, $query);
 $query = "DELETE FROM `mail` WHERE mail='';";
 mysqli_query($link, $query);
+$totGiocatori = "";
+$sql = "SELECT COUNT(tesserato.nome) AS somma FROM `tesserato` WHERE tesserato.tipo=0";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $totGiocatori = $row['somma'];
+    }
+}
 ?>
 
 <body>
@@ -21,17 +29,24 @@ mysqli_query($link, $query);
     </script>
     <div class="page-header clearfix text-center">
         <strong>
-            <h1 class="display-5 font-weight-bold ">Giocatori
+            <h1 class="display-5 font-weight-bold ">
+                Giocatori
                 <button type='button' class='btn btn-outline-secondary pull-right mt-3' data-bs-toggle='modal' data-bs-target='#addGiocatore' style="margin-right:4%">
                     Add Giocatore
                 </button>
             </h1>
         </strong>
+        <button class='btn pull-right  mt-3' style="margin-right:4%; background:white" disabled>
+            Totale giocatori: <?php echo $totGiocatori; ?>
+        </button>
+    </div>
+    <div class="mb-5">
+        <?php include '../tabelle/tabellaGiocatori.php'; ?>
     </div>
     <div>
         <?php include 'modal/modal.php'; ?>
     </div>
-    <?php include '../tabelle/tabellaGiocatori.php'; ?>
+
     <script>
         jQuery(document).ready(function($) {
             $(document).ready(function() {
@@ -39,10 +54,7 @@ mysqli_query($link, $query);
                     paging: false,
                     searching: true,
                     ordering: true,
-                    info: true,
-                    language: {
-                        "info": "Totale giocatori -> _MAX_"
-                    }
+                    info: false
                 });
             });
             var visualizza = document.getElementById('visualizzaGiocatore')

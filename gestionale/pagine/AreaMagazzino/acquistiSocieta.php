@@ -12,7 +12,7 @@ require_once '../../config.php';
         <h1 class="display-5 font-weight-bold">Acquisti Societa</h1>
 
     </header>
-    <div class="container">
+    <div class="container mb-5">
         <div class="row">
             <div class="col-6" style="padding-left:0.5% !important; padding-right:0.5% !important;" id="primaColonna">
                 <?php include 'tabelle/tabellaAcquisti.php'; ?>

@@ -16,7 +16,7 @@ $_SESSION['ultimaPage'] = "categorie";
             </button>
         </p>
     </header>
-    <div><?php include "tabellaCategorie.php" ?></div>
+    <div class="mb-5"><?php include "tabellaCategorie.php" ?></div>
     <div><?php include "modal.php" ?></div>
 
     <script>

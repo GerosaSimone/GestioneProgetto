@@ -10,8 +10,14 @@ $query = "DELETE FROM `telefono` WHERE telefono='';";
 mysqli_query($link, $query);
 $query = "DELETE FROM `mail` WHERE mail='';";
 mysqli_query($link, $query);
-
-
+$totDirigenti = "";
+$sql = "SELECT COUNT(tesserato.nome) AS somma FROM `tesserato` WHERE tesserato.tipo=1";
+if ($result = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $totDirigenti = $row['somma'];
+    }
+}
 ?>
 
 <body>
@@ -23,11 +29,17 @@ mysqli_query($link, $query);
                 </button>
             </h1>
         </strong>
+        <button class='btn pull-right  mt-3' style="margin-right:4%; background:white" disabled>
+            Totale dirigenti: <?php echo $totDirigenti; ?>
+        </button>
+    </div>
+    <div class="mb-5">
+        <?php include '../tabelle/tabellaDirigenza.php'; ?>
     </div>
     <div>
         <?php include 'modal/modal.php'; ?>
     </div>
-    <?php include '../tabelle/tabellaDirigenza.php'; ?>
+
 </body>
 <script>
     jQuery(document).ready(function($) {
@@ -54,7 +66,7 @@ mysqli_query($link, $query);
             $.post("pagine/AreaTesserati/dirigenza/modal/modifica.php?idTesserato=" + id, true, function(data, status) {
                 $("#modalModifica").html(data);
             });
-        });       
+        });
         var addDirigente = document.getElementById('addDirigente')
         addDirigente.addEventListener('show.bs.modal', function(event) {
             $.post("pagine/AreaTesserati/dirigenza/modal/aggiungi.php", true, function(data, status) {

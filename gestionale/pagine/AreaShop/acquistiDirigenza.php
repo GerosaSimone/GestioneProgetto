@@ -11,7 +11,7 @@ require_once '../../config.php';
     <div class="page-header clearfix text-center">
         <h1 class="display-5 font-weight-bold">Acquisti dei Dirigenza</h1>
     </div>
-    <div>
+    <div class="mb-5">
         <?php include 'tabelle/tabellaAcquistiDirigenza.php'; ?>
     </div>
     <div>

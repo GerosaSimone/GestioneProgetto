@@ -16,7 +16,7 @@ $_SESSION['ultimaPage'] = "sponsor";
             </button>
         </p>
     </header>
-    <div><?php include "tabellaSponsor.php" ?></div>
+    <div class="mb-5"><?php include "tabellaSponsor.php" ?></div>
     <div><?php include "modal.php" ?></div>
     <script>
         jQuery(document).ready(function($) {

@@ -16,7 +16,7 @@ $_SESSION['ultimaPage'] = "registrazioni";
             </button>
         </p>
     </header>
-    <div><?php include "modal/tabellaRegistrazioni.php" ?></div>
+    <div class="mb-5"><?php include "modal/tabellaRegistrazioni.php" ?></div>
     <div><?php include "modal/modal.php" ?></div>
 
     <script>

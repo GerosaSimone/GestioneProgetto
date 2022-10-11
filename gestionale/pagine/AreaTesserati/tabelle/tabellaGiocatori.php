@@ -1,4 +1,4 @@
-<div class="limiter pt-3" style="margin-left:-1%">
+<div class="limiter" style="margin-left:-1%">
     <div class="container-table100">
         <div class="wrap-table100">
             <div class="table100">

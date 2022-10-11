@@ -26,7 +26,7 @@ if ($result = mysqli_query($link, $sql)) {
                         <div class='card rounded shadow-lg border-0 '>
                                 <div class='card-body p-4'>
                                     <div onclick='apriModal(this)' data-bs-whatever='" . $row['id'] . "'>
-                                        <img src='img/uploadsProdotti/" . $row['foto'] . "' alt='' class='img-fluid d-block mx-auto mb-3 rounded' >
+                                        <img src='img/uploadsProdotti/" . $row['foto'] . "' alt='' class='img-fluid d-block mx-auto mb-3 rounded prova' >
                                         <h4> <b>" . $row['nome'] . "</b>
                                         </h4>
                                         <p class=' text-muted '>" . $tipoTaglie . "</p>
@@ -61,3 +61,14 @@ if ($result = mysqli_query($link, $sql)) {
         echo '<div class="text-center" style="width:100%"> <h5>Nessun prodotto presente</h5></div>';
     }
 }
+?>
+<script>
+    $(".prova").css("object-fit", "cover");
+    if ($(window).width() < 501) {
+        $(".prova").css("height", "40vw");
+        $(".prova").css("width", "90vw");
+    } else {
+        $(".prova").css("height", "12vw");
+        $(".prova").css("width", "14vw");
+    }
+</script>

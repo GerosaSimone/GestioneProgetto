@@ -30,11 +30,11 @@ mysqli_query($link, $query);
 <body>
     <div class="contenitore">
         <div class="row">
-            <div class="col-sm-9 border-right" style="min-width:60%">
+            <div class="col-9 border-right mb-5" style="min-width:60%">
                 <?php include '../tabelle/tabellaDirigenzaSquadre.php'; ?>
                 <?php include '../tabelle/tabellaGiocatoriSquadre.php'; ?>
             </div>
-            <div class="col-sm-3" id="divExtra">
+            <div class="col-3" id="divExtra">
                 <?php include 'extra.php' ?>
             </div>
         </div>
@@ -50,10 +50,7 @@ mysqli_query($link, $query);
                     paging: false,
                     searching: false,
                     ordering: true,
-                    info: true,
-                    language: {
-                        "info": "Totale giocatori -> _MAX_"
-                    }
+                    info: false
                 });
                 $('.tabellaDirigenzaSquadre').DataTable({
                     paging: false,
