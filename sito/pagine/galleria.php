@@ -16,6 +16,9 @@
         text-align: center;
     }
 </style>
+<?php
+require_once "../config.php";
+?>
 
 <body>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" integrity="sha512-Woz+DqWYJ51bpVk5Fv0yES/edIMXjj3Ynda+KWTIkGoynAMHrqTcDUQltbipuiaD5ymEo9520lyoVOo9jCQOCA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -24,23 +27,20 @@
     </div>
     <div id="contenuto" class="container py-4">
         <div class="row">
-
             <?php
             $sql = "    SELECT *
                             FROM galleria
                             ORDER BY id DESC";
-
             if ($result = mysqli_query($link, $sql)) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
-                        echo '<div class="col-lg-3 col-sm-6 item"><a href="../../gestionale/img/uploadsGalleria/'.$row['foto'].'" data-lightbox="photos"><img class="img-fluid temp foto" src="../../gestionale/img/uploadsGalleria/'.$row['foto'].'"></a></div>';
+                        echo '<div class="col-lg-3 col-sm-6 item"><a href="../gestionale/img/uploadsGalleria/' . $row['foto'] . '" data-lightbox="photos"><img class="img-fluid temp foto" src="../gestionale/img/uploadsGalleria/' . $row['foto'] . '"></a></div>';
                     }
                     mysqli_free_result($result);
                 }
             } else {
                 echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
             }
-
             ?>
 
         </div>

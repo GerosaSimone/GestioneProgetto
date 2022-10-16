@@ -30,11 +30,11 @@ mysqli_query($link, $query);
 <body>
     <div class="contenitore">
         <div class="row">
-            <div class="col-9 border-right mb-5" style="min-width:60%">
+            <div class="col-lg-9 col-sm-12 border-right mb-5" style="min-width:60%">
                 <?php include '../tabelle/tabellaDirigenzaSquadre.php'; ?>
                 <?php include '../tabelle/tabellaGiocatoriSquadre.php'; ?>
             </div>
-            <div class="col-3" id="divExtra">
+            <div class="col-lg-3 col-sm-12" id="divExtra">
                 <?php include 'extra.php' ?>
             </div>
         </div>
