@@ -2,7 +2,6 @@
 $totGiocatori = "";
 $totDirigenti = "";
 $totVisite = "";
-$totBilancio = "";
 $sql = "SELECT COUNT(tesserato.nome) AS somma FROM `tesserato` INNER JOIN categoria on categoria.id=tesserato.idCategoria WHERE tesserato.tipo=0 and categoria.nome='" . $_GET['squadra'] . "'";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
@@ -25,15 +24,6 @@ if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
         $totVisite = $row['somma'];
-    }
-}
-$sql = "SELECT sum(tesserato.daPagare) as num1, sum(tesserato.pagato) as num2 FROM `tesserato` 
-        INNER JOIN categoria on tesserato.idCategoria=categoria.id 
-        WHERE categoria.nome='" . $_GET['squadra'] . "'";
-if ($result = mysqli_query($link, $sql)) {
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_array($result);
-        $totBilancio = $row['num2'] - $row['num1'];
     }
 }
 $numPettorine = "";
@@ -82,8 +72,7 @@ if ($result = mysqli_query($link, $sql)) {
     <hr>
     <p class="mb-1">Totale Giocatori: <?php echo $totGiocatori ?></p>
     <p class="mb-1">Totale Dirigenti: <?php echo $totDirigenti ?></p>
-    <p class="mb-1">Visite Scadute: <?php echo $totVisite ?></p>
-    <p class=" mb-0">Bilancio: <?php echo $totBilancio ?> €</p>
+    <p class="mb-1">Visite Scadute: <?php echo $totVisite ?></p>    
 </div>
 <div class="alert alert-secondary ml-3" role="alert" style="min-width:300px">
     <h4 class="alert-heading">Materiale:
