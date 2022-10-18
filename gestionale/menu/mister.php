@@ -9,19 +9,7 @@
         }
     }
     ?>
-</li>
-<li>
-    <a href="#ShopSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Area
-        Shop</a>
-    <ul class="collapse list-unstyled" id="ShopSubmenu">
-        <li>
-            <a href="#" id="articoli">Articoli</a>
-        </li>
-        <li>
-            <a href="#" id="acquistiGiocatori">Acquisti Giocatori</a>
-        </li>
-        <li>
-            <a href="#" id="acquistiDirigenza">Acquisti Dirigenza</a>
-        </li>
-    </ul>
+    <a href="#" id="articoli">Articoli</a>
+    <a href="#" id="acquistiGiocatori">Acquisti Giocatori</a>
+    <a href="#" id="acquistiDirigenza">Acquisti Dirigenza</a>
 </li>

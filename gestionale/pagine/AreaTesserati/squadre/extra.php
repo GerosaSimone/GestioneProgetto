@@ -72,7 +72,7 @@ if ($result = mysqli_query($link, $sql)) {
     <hr>
     <p class="mb-1">Totale Giocatori: <?php echo $totGiocatori ?></p>
     <p class="mb-1">Totale Dirigenti: <?php echo $totDirigenti ?></p>
-    <p class="mb-1">Visite Scadute: <?php echo $totVisite ?></p>    
+    <p class="mb-1">Visite Scadute: <?php echo $totVisite ?></p>
 </div>
 <div class="alert alert-secondary ml-3" role="alert" style="min-width:300px">
     <h4 class="alert-heading">Materiale:
@@ -143,13 +143,23 @@ if ($result = mysqli_query($link, $sql)) {
     </div>
 </div>
 <div class="alert alert-secondary ml-3" role="alert" style="min-width:300px; min-height:40px">
-    <h4 class="alert-heading pt-1">Scarica distinta:
+    <h4 class="alert-heading pt-1">Distinta pdf:
         <button type='button' class='btn btn-outline-secondary pull-right' data-bs-toggle='modal' data-bs-target='#distinta'>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
                 <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
             </svg>
         </button>
+    </h4>
+</div>
+<div class="alert alert-secondary ml-3" role="alert" style="min-width:300px; min-height:40px">
+    <h4 class="alert-heading pt-1">Distinta word:
+        <a href="pagine/AreaTesserati/squadre/funzioni/downloadDistinta2.php?squadra=<?php echo $_GET["squadra"]; ?>" class='btn btn-outline-secondary pull-right'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+            </svg>
+        </a>
     </h4>
 </div>
 <script>
