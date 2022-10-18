@@ -12,15 +12,53 @@
     <br>
     <div id="contenuto" class="container mt-4">
         <div class="row">
+            <div class="col-lg-3 col-sm-5 text-center">
+                <img src="./img/sponsor/Caffe la corte.jpeg" class="img-fluid " alt="..." style="width:20vw; height:auto">
+            </div>
+            <div class="col-lg-2 col-sm-1"></div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="card-body" style="padding-top:90px">
+                    <h2 class="card-title">Caffe la Corte</h2>
+                    <h6 class="card-text pt-1">
+                        Indirizzo: Corso XXV Aprile 149, Erba, Italy, 22036 <br> Mail: cafelacorteerba@gmail.com
+                </div>
+            </div>
+        </div>
+        <br> <br>
+        <div class="row">
             <div class="col-lg-3 col-sm-5">
-                <img src="./img/nike.png" class="img-fluid " alt="...">
+                <img src="./img/sponsor/meroni edilizia.jpg" class="img-fluid" alt="..." style="width:20vw; height:auto">
             </div>
             <div class="col-lg-2 col-sm-1"></div>
             <div class="col-lg-7 col-sm-6">
                 <div class="card-body">
-                    <h3 class="card-title">Nike</h3>
-                    <h6 class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little . <br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, a quasi? Fugit architecto aliquid reiciendis necessitatibus nemo odit itaque placeat, quia vel nesciunt magni, eos reprehenderit odio similique ipsum quasi?</h6>
+                    <h2 class="card-title pt-2"> Meroni Edilizia</h2>
+                    <h6 class="card-text pt-1">Indirizzo: 3, Via Caravaggio, 22035 - Canzo CO <br>
+                        Telefono: 031682393
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-5 text-center">
+                <img src="./img/sponsor/CRA.jpeg" class="img-fluid" alt="..." style="width:20vw; height:auto">
+            </div>
+            <div class="col-lg-2 col-sm-1"></div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="card-body" style="padding-top:80px">
+                    <h2 class="card-title pt-5">Centro Ricambi Abbigliamento</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-sm-5">
+                <img src="./img/sponsor/ETA.jpg" class="img-fluid" alt="..." style="width:20vw; height:auto">
+            </div>
+            <div class="col-lg-2 col-sm-1"></div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="card-body">
+                    <h2 class="card-title" style="padding-top:60px">Energia Tecnica Applicata</h2>
+                    <h6 class="card-text pt-1">Indirizzo: Via Trieste, 32/A 22036 Erba (CO) <br> Telefono: 031 3334034
                 </div>
             </div>
         </div>
@@ -29,30 +67,32 @@
         <br>
         <div class="row">
             <div class="col-lg-3 col-sm-5">
-                <img src="./img/bentley.png" class="img-fluid" alt="...">
+                <img src="./img/sponsor/Evoluzione Ceramica.jpeg" class="img-fluid" alt="..." style="width:20vw; height:auto">
             </div>
             <div class="col-lg-2 col-sm-1"></div>
             <div class="col-lg-7 col-sm-6">
                 <div class="card-body">
-                    <h3 class="card-title">Bentley</h3>
-                    <h6 class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little . <br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, a quasi? Fugit architecto aliquid reiciendis necessitatibus nemo odit itaque placeat, quia vel nesciunt magni, eos reprehenderit odio similique ipsum quasi?</h6>
+                    <h2 class="card-title pt-2">Evoluzione Ceramica</h2>
+                    <h6 class="card-text pt-1">Indirizzo: Via Trieste, 32/A 22036 Erba (CO) <br> Telefono: 031 651811
                 </div>
             </div>
         </div>
         <br>
         <br>
+
+        <br>
         <br>
         <div class="row">
             <div class="col-lg-3 col-sm-5">
-                <img src="./img/adidas.png" class="img-fluid" alt="..." style="margin-top:3vw; margin-bottom:3vw">
+                <img src="./img/sponsor/Previus Burger.jpeg" class="img-fluid" alt="..." style="width:20vw; height:auto">
             </div>
             <div class="col-lg-2 col-sm-1"></div>
             <div class="col-lg-7 col-sm-6">
                 <div class="card-body">
-                    <h3 class="card-title">Adidas</h3>
-                    <h6 class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little . <br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, a quasi? Fugit architecto aliquid reiciendis necessitatibus nemo odit itaque placeat, quia vel nesciunt magni, eos reprehenderit odio similique ipsum quasi?</h6>
+                    <h2 class="card-title pt-4">Privius Auger</h2>
+                    <h6 class="card-text pt-1">Indirizzo: 19, Via dell'Ecologia, 22033 - Asso CO <br>
+                        Telefono: 031681751
+
                 </div>
             </div>
         </div>
