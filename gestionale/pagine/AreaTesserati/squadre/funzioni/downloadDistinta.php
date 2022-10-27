@@ -37,7 +37,7 @@ $font = '../../../../img/distinta/bold.ttf';
 $color = imagecolorallocate($img, 0, 33, 87);
 //squadre
 $size = 28;
-$x = trovaX($casa, $font, 28);
+$x = 100;
 $y = 175;
 imagettftext($img, $size, $angle, $x, $y, $color, $font, $casa);
 $x = trovaX($ospite, $font, 28);
@@ -89,6 +89,6 @@ for ($i = 0; $i < count($idTesserato); $i++) {
     }
 }
 
-header("Content-type: image/jpeg");
+header("Content-type: image/jpg");
 header("Content-Disposition:attachment;filename=distinta1.jpg");
 imagejpeg($img, NULL, 100);
