@@ -2,14 +2,14 @@
 $totGiocatori = "";
 $totDirigenti = "";
 $totVisite = "";
-$sql = "SELECT COUNT(tesserato.nome) AS somma FROM `tesserato` INNER JOIN categoria on categoria.id=tesserato.idCategoria WHERE tesserato.tipo=0 and categoria.nome='" . $_GET['squadra'] . "'";
+$sql = "SELECT COUNT(tesserato.nome) AS somma FROM `tesserato` INNER JOIN categoria on categoria.id=tesserato.idCategoria WHERE tesserato.nascosto=0 and tesserato.tipo=0 and categoria.nome='" . $_GET['squadra'] . "'";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
         $totGiocatori = $row['somma'];
     }
 }
-$sql = "SELECT COUNT(tesserato.nome) AS somma FROM `tesserato` INNER JOIN categoria on categoria.id=tesserato.idCategoria WHERE tesserato.tipo=1 and categoria.nome='" . $_GET['squadra'] . "'";
+$sql = "SELECT COUNT(tesserato.nome) AS somma FROM `tesserato` INNER JOIN categoria on categoria.id=tesserato.idCategoria WHERE tesserato.nascosto=0 and tesserato.tipo=1 and categoria.nome='" . $_GET['squadra'] . "'";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
@@ -19,7 +19,7 @@ if ($result = mysqli_query($link, $sql)) {
 $sql = "SELECT COUNT(visita.id) AS somma FROM visita 
         INNER JOIN tesserato on tesserato.idVisita=visita.id
         INNER JOIN categoria on tesserato.idCategoria=categoria.id
-        WHERE (DATE(visita.scadenza)<DATE(NOW()) and DATE(visita.scadenza)>DATE(01-01-1900)) and categoria.nome='" . $_GET['squadra'] . "'";
+        WHERE tesserato.nascosto=0 and (DATE(visita.scadenza)<DATE(NOW()) and DATE(visita.scadenza)>DATE(01-01-1900)) and categoria.nome='" . $_GET['squadra'] . "'";
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
