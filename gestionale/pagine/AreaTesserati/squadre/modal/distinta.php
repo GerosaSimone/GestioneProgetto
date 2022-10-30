@@ -111,6 +111,7 @@ require_once '../../../../config.php';
                     </div>
                     <div class="col-3">
                         <div class="rimovibile text-center">
+                            <input type="text" hidden="true" name="idTesserato[]" value="' . $row['id'] . '">
                             <input type="checkbox" class="form-check-input " name="idTesserato[]" value="' . $row['id'] . '" style="margin-left:-2.5%; position:relative" checked>
                         </div>
                         <div class="vuoto">                            

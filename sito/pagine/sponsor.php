@@ -13,7 +13,21 @@
     <div id="contenuto" class="container mt-4">
         <div class="row">
             <div class="col-lg-3 col-sm-5 text-center">
-                <img src="./img/sponsor/Caffe la corte.jpeg" class="img-fluid " alt="..." style="width:20vw; height:auto">
+                <img src="./img/sponsor/Rigoni.jpeg" class="img-fluid " alt="..." style="width:90%; height:auto">
+            </div>
+            <div class="col-lg-2 col-sm-1"></div>
+            <div class="col-lg-7 col-sm-6">
+                <div class="card-body" style="padding-top:90px">
+                    <h2 class="card-title">Rigoni</h2>
+                    <h6 class="card-text pt-1">
+                        Indirizzo: Via Privata Enrico Toti, 7 – Lecco 23900 <br> Telefono: 0341 1890063
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-3 col-sm-5 text-center">
+                <img src="./img/sponsor/Caffe la corte.jpeg" class="img-fluid " alt="..." style="width:90%; height:auto">
             </div>
             <div class="col-lg-2 col-sm-1"></div>
             <div class="col-lg-7 col-sm-6">
@@ -27,7 +41,7 @@
         <br> <br>
         <div class="row">
             <div class="col-lg-3 col-sm-5">
-                <img src="./img/sponsor/meroni edilizia.jpg" class="img-fluid" alt="..." style="width:20vw; height:auto">
+                <img src="./img/sponsor/meroni edilizia.jpg" class="img-fluid" alt="..." style="width:90%; height:auto">
             </div>
             <div class="col-lg-2 col-sm-1"></div>
             <div class="col-lg-7 col-sm-6">
@@ -40,7 +54,7 @@
         </div>
         <div class="row">
             <div class="col-lg-3 col-sm-5 text-center">
-                <img src="./img/sponsor/CRA.jpeg" class="img-fluid" alt="..." style="width:20vw; height:auto">
+                <img src="./img/sponsor/CRA.jpeg" class="img-fluid" alt="..." style="width:90%; height:auto">
             </div>
             <div class="col-lg-2 col-sm-1"></div>
             <div class="col-lg-7 col-sm-6">
@@ -49,10 +63,9 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col-lg-3 col-sm-5">
-                <img src="./img/sponsor/ETA.jpg" class="img-fluid" alt="..." style="width:20vw; height:auto">
+                <img src="./img/sponsor/ETA.jpg" class="img-fluid" alt="..." style="width:90%; height:auto">
             </div>
             <div class="col-lg-2 col-sm-1"></div>
             <div class="col-lg-7 col-sm-6">
@@ -67,7 +80,7 @@
         <br>
         <div class="row">
             <div class="col-lg-3 col-sm-5">
-                <img src="./img/sponsor/Evoluzione Ceramica.jpeg" class="img-fluid" alt="..." style="width:20vw; height:auto">
+                <img src="./img/sponsor/Evoluzione Ceramica.jpeg" class="img-fluid" alt="..." style="width:90%; height:auto">
             </div>
             <div class="col-lg-2 col-sm-1"></div>
             <div class="col-lg-7 col-sm-6">
@@ -79,12 +92,11 @@
         </div>
         <br>
         <br>
-
         <br>
         <br>
         <div class="row">
             <div class="col-lg-3 col-sm-5">
-                <img src="./img/sponsor/Previus Burger.jpeg" class="img-fluid" alt="..." style="width:20vw; height:auto">
+                <img src="./img/sponsor/Previus Burger.jpeg" class="img-fluid" alt="..." style="width:90%; height:auto">
             </div>
             <div class="col-lg-2 col-sm-1"></div>
             <div class="col-lg-7 col-sm-6">
@@ -92,7 +104,6 @@
                     <h2 class="card-title pt-4">Privius Auger</h2>
                     <h6 class="card-text pt-1">Indirizzo: 19, Via dell'Ecologia, 22033 - Asso CO <br>
                         Telefono: 031681751
-
                 </div>
             </div>
         </div>

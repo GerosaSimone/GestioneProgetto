@@ -29,7 +29,7 @@ function scrollFunction() {
     }
 }
 $(document).ready(function () {    
-    $("#pagina").load("pagine/sponsor.php");
+    $("#pagina").load("pagine/home.php");
     //HOME
     $(document).on('click', ".home", function () {
         $.post("pagine/home.php", true, function (data, status) {

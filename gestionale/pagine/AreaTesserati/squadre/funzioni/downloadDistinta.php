@@ -1,12 +1,12 @@
 <?php
-function trovaX($text, $temp1, $grandezza)
+function trovaX($text, $temp1, $grandezza, $spazio)
 {
     // Impostazione carattere
     $bbox = imagettfbbox($grandezza, 0, $temp1, $text);
     // trovo la dimensione finale del testo
     $dim = $bbox[2] - $bbox[0];
     // trovo quanto spazio avanza
-    $dim = 567 - $dim;
+    $dim = $spazio - $dim;
     // spazio che avanza diviso 2 : trovo la X dell'inizio del testo
     return  $dim / 2;
 }
@@ -35,46 +35,51 @@ $img = imagecreatefromjpeg("../../../../img/distinta/distinta.jpg");
 $angle = 0;
 $font = '../../../../img/distinta/bold.ttf';
 $color = imagecolorallocate($img, 0, 33, 87);
+//categoria
+$size = 20;
+$x = 570;
+$y = 157;
+imagettftext($img, $size, $angle, $x, $y, $color, $font, $_SESSION['ultimaPage']);
 //squadre
-$size = 28;
-$x = 100;
-$y = 175;
+$size = 22;
+$x = trovaX($casa, $font, 22, 370) + 235;
+$y = 190;
 imagettftext($img, $size, $angle, $x, $y, $color, $font, $casa);
-$x = trovaX($ospite, $font, 28);
-$y = 225;
+$x = trovaX($ospite, $font, 22, 370) + 235;
+$y = 230;
 imagettftext($img, $size, $angle, $x, $y, $color, $font, $ospite);
-$x = trovaX("-", $font, 30) - 2;
-$y = 200;
-imagettftext($img, 30, $angle, $x, $y, $color, $font, "-");
+//in casa o no
+if (strtolower($casa) == "canzese")
+    $y = 190;
+else
+    $y = 240;
+$x = 575;
+imagettftext($img, $size, $angle, $x, $y, $color, $font, "X");
 
 //RitrovoPartita
 $font = '../../../../img/distinta/regular.ttf';
-$size = 18;
-$x = 30;
-$y = 260;
-imagettftext($img, $size, $angle, $x, $y, $color, $font, "Ritrovo: " . $oraRitrovo . " -> " . $luogoRitrovo);
-$y = 290;
-imagettftext($img, $size, $angle, $x, $y, $color, $font, "Partita: " . $oraPartita . " -> " . $luogoPartita);
+$size = 20;
+$x = 380;
+$y = 380;
+imagettftext($img, $size, $angle, $x, $y, $color, $font, $oraRitrovo);
+$x = 980;
+imagettftext($img, $size, $angle, $x, $y, $color, $font, $oraPartita);
+$x = 900;
+$y = 330;
+imagettftext($img, $size, $angle, $x, $y, $color, $font, $luogoPartita);
 
 //Data
 $font = '../../../../img/distinta/bold.ttf';
-$size = 32;
-$x = 280;
-$y = 700;
+$size = 22;
+$x = 340;
+$y = 330;
 $nuovo = str_replace("-", "/", $data);
 $newDate = date('d/m/Y', strtotime($nuovo));
 imagettftext($img, $size, $angle, $x, $y, $color, $font, $newDate);
 
-//convocati Titolo
-$size = 22;
-$x = 30;
-$y = 325;
-imagettftext($img, $size, $angle, $x, $y, $color, $font, "Convocati");
-
 //convocati 
 $font = '../../../../img/distinta/regular.ttf';
-$x = 30;
-$y = 325;
+$y = 435;
 $size = 18;
 for ($i = 0; $i < count($idTesserato); $i++) {
     $sql = "    SELECT tesserato.nome,tesserato.cognome
@@ -83,8 +88,27 @@ for ($i = 0; $i < count($idTesserato); $i++) {
     if ($result = mysqli_query($link, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_array($result);
-            $y = $y + 22;
-            imagettftext($img, $size, $angle, $x, $y, $color, $font, $row['nome'] . " " . $row['cognome']);
+            if ($idTesserato[$i] == $idTesserato[$i + 1]) {
+                //convocato
+                $x = 38;
+                $y = $y + 36.5;
+                imagettftext($img, $size, $angle, $x, $y, $color, $font, $row['nome']);
+                $x = 310;
+                imagettftext($img, $size, $angle, $x, $y, $color, $font, $row['cognome']);
+                $x = 575;
+                imagettftext($img, $size, $angle, $x, $y, $color, $font, "X");
+                $i++;
+            } else {
+                //non convocato
+                $x = 38;
+                $y = $y + 36.5;
+                imagettftext($img, $size, $angle, $x, $y, $color, $font, $row['nome']);
+                $x = 310;
+                imagettftext($img, $size, $angle, $x, $y, $color, $font, $row['cognome']);
+                $x = 660;
+                imagettftext($img, $size, $angle, $x, $y, $color, $font, "X");
+                $i + 1;
+            }
         }
     }
 }

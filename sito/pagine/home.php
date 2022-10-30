@@ -23,9 +23,25 @@
         height: 140px;
         object-fit: cover
     }
+
+    .img-news {
+        height: 17vw !important;
+        object-fit: cover;
+    }
+
+    .img-news-short {
+        height: 13vw !important;
+        object-fit: cover;
+    }
 </style>
+<?php
+require_once "../config.php";
+?>
 
 <body>
+    <div>
+        <?php include 'modal/modal.php'; ?>
+    </div>
     <!--Immagini che scorrono-->
     <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -66,56 +82,61 @@
     <div id="contenuto" class="container mt-4">
         <div class="row">
             <div class="col-lg-8">
-                <div class="card mb-4">
-                    <a href="#!"><img class="card-img-top" src="./img/eventi.jpg" alt="..." /></a>
-                    <div class="card-body">
-                        <div class="small text-muted">January 1, 2022</div>
-                        <h2 class="card-title">Titolo della news</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        <a class="btn btn-primary" href="#!">Leggi di più →</a>
-                    </div>
-                </div>
+                <?php
+                $sql = "    SELECT *
+                            FROM news
+                            ORDER BY id DESC LIMIT 1";
+                if ($result = mysqli_query($link, $sql)) {
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_array($result)) {
+                            if (strlen($row['descrizione']) > 143)
+                                $descrizione = substr($row['descrizione'], 0, 140) . '...';
+                            else
+                                $descrizione = $row['descrizione'];
+                            echo '  <div class="card mb-4">
+                                        <a href="#!"><img class="card-img-top img-news" src=".././gestionale/img/uploadsNews/' . $row['foto'] . '" alt="..."/></a>
+                                        <div class="card-body">                                            
+                                            <h2 class="card-title">' . $row['titolo'] . '</h2>                                            
+                                            <p class="card-text">' . $descrizione . '</p>
+                                            <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#visualizza" data-bs-whatever="' . $row["id"] . '">Leggi di più →</button>
+                                        </div>
+                                    </div>';
+                        }
+                        mysqli_free_result($result);
+                    }
+                } else {
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                }
+                ?>
                 <div class="row">
-                    <div class="col-6">
-                        <div class="card mb-4" style="min-height:22vw" style="transition: width 2s, height 4s;">
-                            <a href="#!"><img class="card-img-top" src="./img/campo.jpg" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">January 1, 2022</div>
-                                <h2 class="card-title h4">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                <a class="btn btn-primary" href="#!">Leggi di più →</a>
-                            </div>
-                        </div>
-                        <div class="card mb-4" style="min-height:22vw" style="transition: width 2s, height 4s;">
-                            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">January 1, 2022</div>
-                                <h2 class="card-title h4">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                <a class="btn btn-primary" href="#!">Leggi di più →</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="card mb-4" style="min-height:22vw" style="transition: width 2s, height 4s;">
-                            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">January 1, 2022</div>
-                                <h2 class="card-title h4">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                <a class="btn btn-primary" href="#!">Leggi di più →</a>
-                            </div>
-                        </div>
-                        <div class="card mb-4" style="min-height:22vw" style="transition: width 2s, height 4s;">
-                            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">January 1, 2022</div>
-                                <h2 class="card-title h4">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla</p>
-                                <a class="btn btn-primary" href="#!">Leggi di più →</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    $sql = "    SELECT *
+                                FROM news
+                                ORDER BY id DESC LIMIT 4";
+                    if ($result = mysqli_query($link, $sql)) {
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_array($result)) {
+                                if (strlen($row['descrizione']) > 143)
+                                    $descrizione = substr($row['descrizione'], 0, 140) . '...';
+                                else
+                                    $descrizione = $row['descrizione'];
+                                echo '  <div class="col-6">
+                                            <div class="card mb-4" style="min-height:22vw" style="transition: width 2s, height 4s;">
+                                                <a href="#!"><img class="card-img-top img-news-short" src=".././gestionale/img/uploadsNews/' . $row['foto'] . '" alt="..." /></a>
+                                                <div class="card-body">                                                    
+                                                    <h2 class="card-title h4">' . $row['titolo'] . '</h2>
+                                                    <p class="card-text">' . $descrizione . '</p>
+                                                    <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#visualizza" data-bs-whatever="' . $row["id"] . '">Leggi di più →</button>
+                                                </div>
+                                            </div>                        
+                                        </div>';
+                            }
+                            mysqli_free_result($result);
+                        }
+                    } else {
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                    }
+                    ?>
                 </div>
             </div>
             <!-- Side widgets-->
@@ -125,20 +146,23 @@
                     <div class="card-header">Squadre</div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li> <img src="./img/ball.png" alt="" style="width:20px;height:auto">&nbsp&nbsp&nbsp <b class="text-primary">Giovanissimi</b> </li>
-                                    <li class="mt-1"> <img src="./img/ball.png" alt="" style="width:20px;height:auto">&nbsp&nbsp&nbsp <b class="text-primary">Pulcini</b></li>
-                                    <li class="mt-1"><img src="./img/ball.png" alt="" style="width:20px;height:auto">&nbsp&nbsp&nbsp <b class="text-primary">  Piccoli Amici</b></li>
-                                </ul>
-                            </div>
-                            <div class="col-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li><img src="./img/ball.png" alt="" style="width:20px;height:auto">&nbsp&nbsp&nbsp <b class="text-primary">Juniores</b> </li>
-                                    <li class="mt-1"><img src="./img/ball.png" alt="" style="width:20px;height:auto">&nbsp&nbsp&nbsp <b class="text-primary">Prima Squadra</b> </li>
-                                    <li class="mt-1"><img src="./img/ball.png" alt="" style="width:20px;height:auto">&nbsp&nbsp&nbsp <b class="text-primary">Esordienti</b> </li>
-                                </ul>
-                            </div>
+                            <?php
+                            $sql = "    SELECT *
+                                        FROM categoria
+                                        ORDER BY id DESC";
+                            if ($result = mysqli_query($link, $sql)) {
+                                if (mysqli_num_rows($result) > 0) {
+                                    while ($row = mysqli_fetch_array($result)) {
+                                        echo '  <div class="col-6 mb-1">
+                                                    <img src="./img/ball.png" alt="" style="width:20px;height:auto">&nbsp&nbsp&nbsp <b class="text-primary">' . $row['nome'] . '</b>
+                                                </div>';
+                                    }
+                                    mysqli_free_result($result);
+                                }
+                            } else {
+                                echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -158,13 +182,22 @@
                     <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active img-sponsor text-center" data-bs-interval="4000">
-                                <a href="#" class="sponsor"><img src="./img/bentley.png" class="rounded text-center sponsor" alt="..." style="width:21.8vw"></a>
+                                <a href="#" class="sponsor"><img src="./img/sponsor/Caffe la corte.jpeg" class="rounded text-center sponsor" alt="..." style="width:100%"></a>
                             </div>
                             <div class="carousel-item img-sponsor text-center" data-bs-interval="4000">
-                                <a href="#" class="sponsor"><img src="./img/nike.png" class="rounded text-center sponsor" alt="..." style="width:21.8vw"></a>
+                                <a href="#" class="sponsor"><img src="./img/sponsor/CRA.jpeg" class="rounded text-center sponsor" alt="..." style="width:100%"></a>
                             </div>
                             <div class="carousel-item img-sponsor text-center" data-bs-interval="4000">
-                                <a href="#" class="sponsor"><img src="./img/adidas.png" class="rounded text-center sponsor" alt="..." style="width:21.8vw"></a>
+                                <a href="#" class="sponsor"><img src="./img/sponsor/ETA.jpg" class="rounded text-center sponsor" alt="..." style="width:100%"></a>
+                            </div>
+                            <div class="carousel-item active img-sponsor text-center" data-bs-interval="4000">
+                                <a href="#" class="sponsor"><img src="./img/sponsor/Evoluzione Ceramica.jpeg" class="rounded text-center sponsor" alt="..." style="width:100%"></a>
+                            </div>
+                            <div class="carousel-item active img-sponsor text-center" data-bs-interval="4000">
+                                <a href="#" class="sponsor"><img src="./img/sponsor/meroni edilizia.jpg" class="rounded text-center sponsor" alt="..." style="width:100%"></a>
+                            </div>
+                            <div class="carousel-item active img-sponsor text-center" data-bs-interval="4000">
+                                <a href="#" class="sponsor"><img src="./img/sponsor/Previus Burger.jpeg" class="rounded text-center sponsor" alt="..." style="width:100%"></a>
                             </div>
                         </div>
                     </div>
@@ -175,6 +208,14 @@
 </body>
 
 <script>
+    var visualizza = document.getElementById('visualizza')
+    visualizza.addEventListener('show.bs.modal', function(event) {
+        var button = event.relatedTarget
+        var id = button.getAttribute('data-bs-whatever')
+        $.post("pagine/modal/visualizzaNews.php?idNews=" + id, true, function(data, status) {
+            $("#modalVisualizza").html(data);
+        });
+    });
     $(document).ready(function() {
         if ($(window).width() < 1000) {
             $(".fotoCarousel").css("height", "60vw");
