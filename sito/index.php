@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
     <meta charset="utf-8" />
     <title>U.S. Giovanile Canzese</title>
@@ -32,7 +30,7 @@
                     <li class="nav-item"><a class="nav-link fs-5 sponsor" href="#">Sponsor</a></li>
                     <li class="nav-item"><a class="nav-link fs-5" href="#" id="contatti">Contatti</a></li>
                     <li class="nav-item" id="trattino"><a class="nav-link fs-5">&nbsp&nbsp&nbsp|&nbsp&nbsp</a></li>
-                    <li class="nav-item"><a class="nav-link fs-5" href="gestionale/">Login</a></li>
+                    <li class="nav-item"><a class="nav-link fs-5" href="../gestionale/">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -46,7 +44,7 @@
             <div class="row" style="margin-right:0px !important">
                 <div class="col-4" id="testoFooter">
                     <p></p>
-                    <p class="text-light  pt-3"><strong>Telefono:</strong> <br id="capo">+39 454 562 4578</p>
+                    <p class="text-light  pt-3"><strong>Telefono:</strong> <br id="capo">+39 000 000 0000</p>
                     <p class="text-light"><strong> Mail:</strong> usgiovanilecanzese@gmail.com</p>
                 </div>
                 <div class="col-4 text-center"> <img id="logoFooter" src="./img/logo.png" alt="" style="width:26%"></div>

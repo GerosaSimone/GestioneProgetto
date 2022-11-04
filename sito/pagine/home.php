@@ -1,6 +1,9 @@
 <style>
     .sponsor {
         opacity: 0.9;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
     }
 
     .sponsor:hover {
@@ -46,26 +49,19 @@ require_once "../config.php";
     <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>            
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="5000" style="transition: transform 2s ease, opacity .5s ease-out">
-                <img src="./img/campo.jpg" alt="" style="width:100vw; height:25vw; object-fit:cover; filter: brightness(50%);" class="fotoCarousel">
+                <img src="./img/campo.jpeg" alt="" style="width:100vw; height:25vw; object-fit:cover; filter: brightness(50%);" class="fotoCarousel">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Campo della Giovanile Canzese</h5>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000" style="transition: transform 2s ease, opacity .5s ease-out">
-                <img src="./img/eventi.jpg" alt="" style="width:100vw; height:25vw; object-fit:cover;filter: brightness(50%);" class="fotoCarousel">
+                <img src="./img/foto1.jpeg" alt="" style="width:100vw; height:25vw; object-fit:cover;filter: brightness(50%);" class="fotoCarousel">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Ultimi eventi</h5>
-                </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="5000" style="transition: transform 2s ease, opacity .5s ease-out">
-                <img src="./img/galleria.jpg" alt="" style="width:100vw; height:25vw; object-fit:cover;filter: brightness(50%);" class="fotoCarousel">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Foto della galleria</h5>
                 </div>
             </div>
         </div>
@@ -110,17 +106,19 @@ require_once "../config.php";
                 ?>
                 <div class="row">
                     <?php
+                    $temp = false;
                     $sql = "    SELECT *
                                 FROM news
-                                ORDER BY id DESC LIMIT 4";
+                                ORDER BY id DESC LIMIT 5";
                     if ($result = mysqli_query($link, $sql)) {
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_array($result)) {
-                                if (strlen($row['descrizione']) > 143)
-                                    $descrizione = substr($row['descrizione'], 0, 140) . '...';
-                                else
-                                    $descrizione = $row['descrizione'];
-                                echo '  <div class="col-6">
+                                if ($temp) {
+                                    if (strlen($row['descrizione']) > 143)
+                                        $descrizione = substr($row['descrizione'], 0, 140) . '...';
+                                    else
+                                        $descrizione = $row['descrizione'];
+                                    echo '  <div class="col-6">
                                             <div class="card mb-4" style="min-height:22vw" style="transition: width 2s, height 4s;">
                                                 <a href="#!"><img class="card-img-top img-news-short" src=".././gestionale/img/uploadsNews/' . $row['foto'] . '" alt="..." /></a>
                                                 <div class="card-body">                                                    
@@ -130,6 +128,8 @@ require_once "../config.php";
                                                 </div>
                                             </div>                        
                                         </div>';
+                                }
+                                $temp = true;
                             }
                             mysqli_free_result($result);
                         }
@@ -170,9 +170,21 @@ require_once "../config.php";
                 <div class="card mb-4">
                     <div class="card-header">Le ultime foto... </div>
                     <div class="card-body">
-                        <a href="#" class="galleria"> <img src="./img/campo.jpg" class="rounded text-center ultFoto" alt="..."></a>
-                        <a href="#" class="galleria"> <img src="./img/eventi.jpg" class="rounded text-center ultFoto" alt="..."></a>
-                        <a href="#" class="galleria"> <img src="./img/galleria.jpg" class="rounded text-center ultFoto" alt="..."></a>
+                        <?php
+                        $sql = "    SELECT *
+                                        FROM galleria
+                                        ORDER BY id DESC LIMIT 3";
+                        if ($result = mysqli_query($link, $sql)) {
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_array($result)) {
+                                    echo '  <a href="#" class="galleria"> <img src="../gestionale/img/uploadsGalleria/' . $row['foto'] . '" class="rounded text-center ultFoto" alt="..."></a>';
+                                }
+                                mysqli_free_result($result);
+                            }
+                        } else {
+                            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                        }
+                        ?>
                     </div>
                     <div class="card-footer text-center"><a href="#" class="btn btn-primary galleria">Apri la galleria</a></div>
                 </div>
@@ -182,22 +194,22 @@ require_once "../config.php";
                     <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active img-sponsor text-center" data-bs-interval="4000">
-                                <a href="#" class="sponsor"><img src="./img/sponsor/Caffe la corte.jpeg" class="rounded text-center sponsor" alt="..." style="width:100%"></a>
+                                <a href="#"><img src="./img/sponsor/Caffe la corte.jpeg" class="rounded text-center sponsor" alt="..."></a>
                             </div>
                             <div class="carousel-item img-sponsor text-center" data-bs-interval="4000">
-                                <a href="#" class="sponsor"><img src="./img/sponsor/CRA.jpeg" class="rounded text-center sponsor" alt="..." style="width:100%"></a>
+                                <a href="#"><img src="./img/sponsor/CRA.jpeg" class="rounded text-center sponsor" alt="..." style="padding-top:6%"></a>
                             </div>
                             <div class="carousel-item img-sponsor text-center" data-bs-interval="4000">
-                                <a href="#" class="sponsor"><img src="./img/sponsor/ETA.jpg" class="rounded text-center sponsor" alt="..." style="width:100%"></a>
+                                <a href="#"><img src="./img/sponsor/ETA.jpg" class="rounded text-center sponsor" alt="..."></a>
                             </div>
-                            <div class="carousel-item active img-sponsor text-center" data-bs-interval="4000">
-                                <a href="#" class="sponsor"><img src="./img/sponsor/Evoluzione Ceramica.jpeg" class="rounded text-center sponsor" alt="..." style="width:100%"></a>
+                            <div class="carousel-item img-sponsor text-center" data-bs-interval="4000">
+                                <a href="#"><img src="./img/sponsor/Evoluzione Ceramica.jpeg" class="rounded text-center sponsor" alt="..." style="padding-top:16%"></a>
                             </div>
-                            <div class="carousel-item active img-sponsor text-center" data-bs-interval="4000">
-                                <a href="#" class="sponsor"><img src="./img/sponsor/meroni edilizia.jpg" class="rounded text-center sponsor" alt="..." style="width:100%"></a>
+                            <div class="carousel-item img-sponsor text-center" data-bs-interval="4000">
+                                <a href="#"><img src="./img/sponsor/meroni edilizia.jpg" class="rounded text-center sponsor" alt="..." style="padding-top:16%"></a>
                             </div>
-                            <div class="carousel-item active img-sponsor text-center" data-bs-interval="4000">
-                                <a href="#" class="sponsor"><img src="./img/sponsor/Previus Burger.jpeg" class="rounded text-center sponsor" alt="..." style="width:100%"></a>
+                            <div class="carousel-item img-sponsor text-center" data-bs-interval="4000">
+                                <a href="#"><img src="./img/sponsor/Previus Burger.jpeg" class="rounded text-center sponsor" alt="..." style="padding-top:6%"></a>
                             </div>
                         </div>
                     </div>

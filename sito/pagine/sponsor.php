@@ -10,14 +10,14 @@
         <strong class="testoHeader">SPONSOR</strong>
     </div>
     <br>
-    <div id="contenuto" class="container mt-4">
+    <div id="contenuto" class="container">
         <div class="row">
             <div class="col-lg-3 col-sm-5 text-center">
                 <img src="./img/sponsor/Rigoni.jpeg" class="img-fluid " alt="..." style="width:90%; height:auto">
             </div>
             <div class="col-lg-2 col-sm-1"></div>
             <div class="col-lg-7 col-sm-6">
-                <div class="card-body" style="padding-top:90px">
+                <div class="card-body" style="padding-top:10px">
                     <h2 class="card-title">Rigoni</h2>
                     <h6 class="card-text pt-1">
                         Indirizzo: Via Privata Enrico Toti, 7 – Lecco 23900 <br> Telefono: 0341 1890063
@@ -58,8 +58,9 @@
             </div>
             <div class="col-lg-2 col-sm-1"></div>
             <div class="col-lg-7 col-sm-6">
-                <div class="card-body" style="padding-top:80px">
-                    <h2 class="card-title pt-5">Centro Ricambi Abbigliamento</h2>
+                <div class="card-body" style="padding-top:70px">
+                    <h2 class="card-title pt-5">Centro Ricami Abbigliamento</h2>                    
+                    <h6 class="card-text pt-1">Indirizzo: Via Carso 15, Canzo (CO) <br> Telefono: 031 670068
                 </div>
             </div>
         </div>

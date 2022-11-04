@@ -98,7 +98,7 @@
                                         </div>
                                         <div class="dbox w-100 d-flex">
                                             <div class="text pl-3">
-                                                <p class="ligth"><i class="bi bi-telephone-fill"></i><span>&nbsp&nbsp&nbspTelefono:</span> +39 333 145 1234</p>
+                                                <p class="ligth"><i class="bi bi-telephone-fill"></i><span>&nbsp&nbsp&nbspTelefono:</span> +39 000 000 0000</p>
                                             </div>
                                         </div>
                                         <div class="dbox w-100 d-flex">
