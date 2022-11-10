@@ -192,7 +192,7 @@ require_once "../config.php";
                 <div class="card mb-4 mt-10 ">
                     <div class="card-header">I nostri sponsor </div>
                     <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                        <div class="carousel-inner">
+                        <div class="carousel-inner"> 
                             <div class="carousel-item active img-sponsor text-center" data-bs-interval="4000">
                                 <a href="#"><img src="./img/sponsor/Caffe la corte.jpeg" class="rounded text-center sponsor" alt="..."></a>
                             </div>
